@@ -1,0 +1,8 @@
+/Users/haileyliu/Downloads/Projects/CookingGame/.mono/temp/bin/Debug/Cooking game.dll
+/Users/haileyliu/Downloads/Projects/CookingGame/.mono/temp/bin/Debug/Cooking game.pdb
+/Users/haileyliu/Downloads/Projects/CookingGame/.mono/temp/obj/Debug/Cooking game.csproj.AssemblyReference.cache
+/Users/haileyliu/Downloads/Projects/CookingGame/.mono/temp/obj/Debug/Cooking game.AssemblyInfoInputs.cache
+/Users/haileyliu/Downloads/Projects/CookingGame/.mono/temp/obj/Debug/Cooking game.AssemblyInfo.cs
+/Users/haileyliu/Downloads/Projects/CookingGame/.mono/temp/obj/Debug/Cooking game.csproj.CoreCompileInputs.cache
+/Users/haileyliu/Downloads/Projects/CookingGame/.mono/temp/obj/Debug/Cooking game.dll
+/Users/haileyliu/Downloads/Projects/CookingGame/.mono/temp/obj/Debug/Cooking game.pdb
