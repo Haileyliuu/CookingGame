@@ -10,19 +10,18 @@ func _ready() -> void:
 	pass
 	
 
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("interaction") and can_interact:
-		#if curr_interactions:
-			#can_interact = false
-			#interact_label.hide()
-			#
-			##can_interact = true
-			#
-			#await curr_interactions[0].interact.call()
-			#
-			#can_interact = true
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interaction") and can_interact:
+		if curr_interactions:
+			can_interact = false
+			interact_label.hide()
+			
+			
+			await curr_interactions[0].interact.call()
+			
+			can_interact = true
 
-func _process(delta: float) -> void:		
+func _process(_delta: float) -> void:		
 	if curr_interactions and can_interact:
 		curr_interactions.sort_custom(_sort_by_nearest)
 		if curr_interactions[0].is_interactable:

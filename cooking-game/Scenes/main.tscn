@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c54xkls8oltq0"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_otim2"]
+[ext_resource type="Script" uid="uid://xm08d6sq63ny" path="res://Scripts/main.gd" id="1_otim2"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
 [ext_resource type="PackedScene" uid="uid://hexxhvwjcl1s" path="res://Scenes/Minigames/minigame1.tscn" id="3_ebpo8"]
