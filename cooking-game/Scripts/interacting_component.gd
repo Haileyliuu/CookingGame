@@ -11,11 +11,10 @@ func _ready() -> void:
 	
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interaction") and can_interact:
+	if (event.is_action_pressed("cat_select") or event.is_action_pressed("dog_select")) and can_interact:
 		if curr_interactions:
 			can_interact = false
 			interact_label.hide()
-			
 			
 			await curr_interactions[0].interact.call()
 			

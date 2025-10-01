@@ -1,13 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5sp16xaq6t63"]
 
 [ext_resource type="Texture2D" uid="uid://dkgjoyrfp8ant" path="res://Art/SushiCat.png" id="1_a4ba0"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_orsn3"]
+[ext_resource type="Script" uid="uid://cqn5gtk7puod7" path="res://Scripts/player.gd" id="1_orsn3"]
 [ext_resource type="PackedScene" uid="uid://b87rcl12j1grt" path="res://Scenes/Interaction/interacting_component.tscn" id="3_jbn3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxq2t"]
 size = Vector2(38, 39.5)
 
 [node name="SushiCat" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_orsn3")
 player_id = "cat"
 
