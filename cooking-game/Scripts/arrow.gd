@@ -1,4 +1,3 @@
-class_name Arrow
 extends Node2D  # or RigidBody2D if you want physics
 
 @onready var tween = get_tree().create_tween()
@@ -14,8 +13,8 @@ func _ready():
 	swing()
 
 func swing():
-	tween.tween_property(self, "rotation_degrees", 120, 1)
-	tween.tween_property(self, "rotation_degrees", 240, 1)
+	tween.tween_property(self, "rotation_degrees", 120, 1.0)
+	tween.tween_property(self, "rotation_degrees", 240, 1.0)
 	tween.set_loops()
 
 func _process(delta):
@@ -23,6 +22,7 @@ func _process(delta):
 		position += velocity * delta
 		
 		
+#
 func launch():
 	if launched:
 		return
@@ -31,20 +31,3 @@ func launch():
 	var dir = Vector2.UP.rotated(rotation)  # change to RIGHT if arrow points right
 	velocity = dir.normalized() * speed
 	
-#hurtbox = the thing that does the damage
-
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.owner == null:
-		print("owner is null")
-		return
-	if area.get_parent().has_method("_animal"):
-		print("animal collision")
-		queue_free()
-		
-func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
-	queue_free()  # cleanup if it flies off screen
-
-
-	
-func _arrow():
-	pass
