@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://doggtr4s0wvge"]
+
+[ext_resource type="Script" uid="uid://dlaxnejxtap1y" path="res://Scripts/minigame_hunting.gd" id="1_tjbxu"]
+[ext_resource type="Texture2D" uid="uid://wb0i27qtaqo4" path="res://Art/icon.svg" id="2_tbys1"]
+[ext_resource type="Texture2D" uid="uid://dcecjbuhbsus2" path="res://Art/arrow.webp" id="2_tjbxu"]
+[ext_resource type="Script" uid="uid://bhi2sej6c3co8" path="res://Scripts/arrow.gd" id="3_l1xdu"]
+[ext_resource type="Script" uid="uid://bqhvc31mli5i0" path="res://Scripts/icon.gd" id="5_yktds"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yktds"]
+size = Vector2(276.3155, 88.463104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oemdg"]
+size = Vector2(136, 136)
+
+[node name="MinigameHunting" type="Node2D"]
+script = ExtResource("1_tjbxu")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(400, -11)
+rotation = 2.0943952
+texture = ExtResource("2_tjbxu")
+offset = Vector2(0, -200)
+script = ExtResource("3_l1xdu")
+
+[node name="Hurtbox" type="Area2D" parent="Arrow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow/Hurtbox"]
+position = Vector2(22.44934, -223.11664)
+rotation = -1.519511
+shape = SubResource("RectangleShape2D_yktds")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(390, 443)
+texture = ExtResource("2_tbys1")
+script = ExtResource("5_yktds")
+
+[node name="Hitbox" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Hitbox"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_oemdg")
+
+[connection signal="area_entered" from="Arrow/Hurtbox" to="Arrow" method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="Icon/Hitbox" to="Icon" method="_on_hitbox_area_entered"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0uecmb3xjcqr"]
+
+[ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_ha3hu"]
+
+[node name="Minigame1" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+offset_left = 62.0
+offset_top = 48.0
+offset_right = 515.0
+offset_bottom = 578.0
+
+[node name="SushiCat" parent="Panel" instance=ExtResource("2_ha3hu")]
+position = Vector2(120, 126)
