@@ -1,3 +1,12 @@
+## Minigame to chop ingredients.
+##
+## Keep track of the player ID (dog/cat). Press the 
+## assigned key until a set number of chops is achieved.
+## Then the food is chopped and the minigame finishes.
+##
+## Cat = 'F' key
+## Dog = 'J' key
+
 extends Node2D
 
 signal chop_done(player)
@@ -10,6 +19,7 @@ var chopping_active : bool = false
 
 @onready var chop_label = $ChopLabel
 @onready var prompt_label = $PromptLabel
+
 
 func start_chopping(player: String):
 	active_player = player
@@ -42,7 +52,8 @@ func handle_chop():
 
 func update_label():
 	chop_label.text = "Chops left: %d" % chops_left
-	
-# Hardcoded dog to start
+
+
+## Dog is hardcoded to begin when the tscn plays.
 func _ready():
 	start_chopping("dog")
