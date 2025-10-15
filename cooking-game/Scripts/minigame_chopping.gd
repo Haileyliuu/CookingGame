@@ -11,10 +11,6 @@ var chopping_active : bool = false
 @onready var chop_label = $ChopLabel
 @onready var prompt_label = $PromptLabel
 
-# TODO: Change locations of label nodes to be visible on the screen
-# i think that's the issue here
-
-
 func start_chopping(player: String):
 	active_player = player
 	chops_left = CHOPS_REQUIRED
@@ -46,3 +42,7 @@ func handle_chop():
 
 func update_label():
 	chop_label.text = "Chops left: %d" % chops_left
+	
+# Hardcoded dog to start
+func _ready():
+	start_chopping("dog")
