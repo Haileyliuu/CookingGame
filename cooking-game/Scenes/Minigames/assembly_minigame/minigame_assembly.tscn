@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://rlbvus4vqqeg"]
+[gd_scene load_steps=3 format=3 uid="uid://rlbvus4vqqeg"]
+
+[ext_resource type="Script" uid="uid://ccbtk4b5h5281" path="res://Scripts/minigame_assembly.gd" id="1_01oyl"]
+[ext_resource type="PackedScene" uid="uid://cfksp4rdu3k3d" path="res://Scenes/Minigames/assembly_minigame/assembly_buttons.tscn" id="1_tx6sn"]
 
 [node name="MinigameAssembly" type="Node2D"]
+script = ExtResource("1_01oyl")
+
+[node name="AssemblyButtons" parent="." instance=ExtResource("1_tx6sn")]
+offset_left = 570.00006
+offset_top = 553.0
+offset_right = 570.00006
+offset_bottom = 553.0
+scale = Vector2(0.43999988, 0.43999988)
+
+[node name="DishesCreated" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Recipe" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 49.0
+offset_right = 41.0
+offset_bottom = 72.0
+
+[connection signal="player" from="." to="AssemblyButtons" method="_on_minigame_assembly_player"]
