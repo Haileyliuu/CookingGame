@@ -5,8 +5,8 @@ signal player(p)
 
 var sprites_added = []
 
-@onready var recipe_label : Label = $Recipe
 var recipe = [0, 0, 0, 0, 0, 0]
+signal recipe_signal(r)
 var current_recipe = []
 
 
@@ -22,7 +22,6 @@ var offset = 0
 
 func _ready() -> void:
 	dishes_label.text = "Dishes created: " + str(dishes_created)
-	recipe_label.text = "Recipe: " + str(recipe)
 	player.emit(player_id)
 	randomize_recipe()
 
@@ -104,8 +103,10 @@ func randomize_recipe():
 	
 	# Assign to the actual recipe
 	recipe = new_recipe
-	recipe_label.text = "Recipe: " + str(recipe)
 	
+	emit_signal("recipe_signal", recipe)
+
+
 func create_warning():
 	var warning_label = Label.new()
 	warning_label.text = "Reached max ingredients! Clear your station!"

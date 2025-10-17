@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://rlbvus4vqqeg"]
+[gd_scene load_steps=4 format=3 uid="uid://rlbvus4vqqeg"]
 
 [ext_resource type="Script" uid="uid://ccbtk4b5h5281" path="res://Scripts/minigame_assembly.gd" id="1_01oyl"]
 [ext_resource type="PackedScene" uid="uid://cfksp4rdu3k3d" path="res://Scenes/Minigames/assembly_minigame/assembly_buttons.tscn" id="1_tx6sn"]
+[ext_resource type="PackedScene" uid="uid://brlcje3brvxu4" path="res://Scenes/Minigames/assembly_minigame/recipe.tscn" id="3_2ja8v"]
 
 [node name="MinigameAssembly" type="Node2D"]
 script = ExtResource("1_01oyl")
@@ -17,10 +18,12 @@ scale = Vector2(0.43999988, 0.43999988)
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Recipe" type="Label" parent="."]
-offset_left = 1.0
-offset_top = 49.0
-offset_right = 41.0
-offset_bottom = 72.0
+[node name="Recipe" parent="." instance=ExtResource("3_2ja8v")]
+offset_left = 18.0
+offset_top = 80.0
+offset_right = 18.0
+offset_bottom = 80.0
 
 [connection signal="player" from="." to="AssemblyButtons" method="_on_minigame_assembly_player"]
+[connection signal="player" from="." to="Recipe" method="_on_minigame_assembly_player"]
+[connection signal="recipe_signal" from="." to="Recipe" method="_on_minigame_assembly_recipe_signal"]
