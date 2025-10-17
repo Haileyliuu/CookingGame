@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_id = "cat"
+var player_id = "dog"
 signal player(p)
 
 var sprites_added = []
@@ -30,25 +30,26 @@ func _process(_delta: float) -> void:
 	pass
 	
 func _input(event):
-	if event.is_action_pressed(player_id + "_up"):
-		spawn_sprite(up_texture)
-		current_recipe.push_back(1)
-	elif event.is_action_pressed(player_id + "_down"):
-		if Inventory.get(player_id + "_meat") > 0:
-			spawn_sprite(down_texture)
-			current_recipe.push_back(2)
-			Inventory.set(str(player_id) + "_meat",  Inventory.get(str(player_id) + "_meat") - 1)
-	elif event.is_action_pressed(player_id + "_left"):
-		spawn_sprite(left_texture)
-		current_recipe.push_back(3)
-	elif event.is_action_pressed(player_id + "_right"):
-		spawn_sprite(right_texture)
-		current_recipe.push_back(4)
-	elif  event.is_action_pressed(player_id + "_select"):
-		if check_recipe():
-			randomize_recipe()
-		delete_sprites()
-		
+	if event.is_action_pressed(player_id + "_select"):
+			if check_recipe():
+				randomize_recipe()
+			delete_sprites()
+	if current_recipe.size() < 6:
+		if event.is_action_pressed(player_id + "_up"):
+			spawn_sprite(up_texture)
+			current_recipe.push_back(1)
+		elif event.is_action_pressed(player_id + "_down"):
+			if Inventory.get(player_id + "_meat") > 0:
+				spawn_sprite(down_texture)
+				current_recipe.push_back(2)
+				Inventory.set(str(player_id) + "_meat",  Inventory.get(str(player_id) + "_meat") - 1)
+		elif event.is_action_pressed(player_id + "_left"):
+			spawn_sprite(left_texture)
+			current_recipe.push_back(3)
+		elif event.is_action_pressed(player_id + "_right"):
+			spawn_sprite(right_texture)
+			current_recipe.push_back(4)
+			
 func spawn_sprite(texture: Texture2D):
 	# Create a new sprite node
 	var sprite = Sprite2D.new()
