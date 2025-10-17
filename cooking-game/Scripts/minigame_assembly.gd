@@ -50,8 +50,9 @@ func _input(event):
 			spawn_sprite(right_texture)
 			current_recipe.push_back(4)
 	else:
-		if event.is_action_pressed(player_id + "_up"):
-			create_warning()
+		for dir in ["up", "down", "left", "right"]:
+			if event.is_action_pressed(player_id + "_" + dir):
+				create_warning()
 			
 func spawn_sprite(texture: Texture2D):
 	# Create a new sprite node
