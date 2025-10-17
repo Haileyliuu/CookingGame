@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://rlbvus4vqqeg"]
 
 [ext_resource type="Script" uid="uid://ccbtk4b5h5281" path="res://Scripts/minigame_assembly.gd" id="1_01oyl"]
-[ext_resource type="PackedScene" path="res://Scenes/Minigames/assembly_minigame/assembly_buttons.tscn" id="1_tx6sn"]
+[ext_resource type="PackedScene" uid="uid://cfksp4rdu3k3d" path="res://Scenes/Minigames/assembly_minigame/assembly_buttons.tscn" id="1_tx6sn"]
 
 [node name="MinigameAssembly" type="Node2D"]
 script = ExtResource("1_01oyl")

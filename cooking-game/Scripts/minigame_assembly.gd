@@ -33,8 +33,10 @@ func _input(event):
 		spawn_sprite(up_texture)
 		current_recipe.push_back(1)
 	elif event.is_action_pressed(player_id + "_down"):
-		spawn_sprite(down_texture)
-		current_recipe.push_back(2)
+		if Inventory.get(player_id + "_meat") > 0:
+			spawn_sprite(down_texture)
+			current_recipe.push_back(2)
+			Inventory.set(str(player_id) + "_meat",  Inventory.get(str(player_id) + "_meat") - 1)
 	elif event.is_action_pressed(player_id + "_left"):
 		spawn_sprite(left_texture)
 		current_recipe.push_back(3)
@@ -72,11 +74,8 @@ func check_recipe():
 		dishes_label.text = "Dishes created: " + str(dishes_created)
 		return true
 	return false
-		
-#func randomize_recipe():
-	#for i in recipe.size():
-		#recipe[i] = randi_range(1, 4)
-	#recipe_label.text = "Recipe: " + str(recipe)
+
+
 func randomize_recipe():
 	var new_recipe = []
 	
