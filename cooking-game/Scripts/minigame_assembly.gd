@@ -73,7 +73,30 @@ func check_recipe():
 		return true
 	return false
 		
+#func randomize_recipe():
+	#for i in recipe.size():
+		#recipe[i] = randi_range(1, 4)
+	#recipe_label.text = "Recipe: " + str(recipe)
 func randomize_recipe():
-	for i in recipe.size():
-		recipe[i] = randi_range(1, 4)
+	var new_recipe = []
+	
+	# Decide how many 2's to insert: either 1 or 2
+	var num_twos = randi_range(1, 2)
+	
+	# Insert the required number of 2's
+	for i in num_twos:
+		new_recipe.append(2)
+
+	# Fill the rest of the recipe with random values (excluding 2)
+	while new_recipe.size() < recipe.size():
+		var rand_val = randi_range(1, 4)
+		if rand_val == 2:
+			continue # Skip 2 to prevent exceeding the allowed number
+		new_recipe.append(rand_val)
+
+	# Shuffle the recipe so 2's are not always in front
+	new_recipe.shuffle()
+	
+	# Assign to the actual recipe
+	recipe = new_recipe
 	recipe_label.text = "Recipe: " + str(recipe)
