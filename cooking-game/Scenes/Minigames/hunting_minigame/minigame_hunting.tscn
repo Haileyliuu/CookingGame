@@ -1,13 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvssv3egc08qg"]
+[gd_scene load_steps=6 format=3 uid="uid://cep6yw4yogs7"]
 
 [ext_resource type="Script" uid="uid://dlaxnejxtap1y" path="res://Scripts/minigame_hunting.gd" id="1_tjbxu"]
-[ext_resource type="Texture2D" uid="uid://wb0i27qtaqo4" path="res://Art/icon.svg" id="2_tbys1"]
+[ext_resource type="PackedScene" uid="uid://k1clb4al8nsq" path="res://Scenes/Minigames/hunting_minigame/enemy.tscn" id="2_pn1o0"]
 [ext_resource type="Texture2D" uid="uid://dcecjbuhbsus2" path="res://Art/arrow.webp" id="2_tjbxu"]
-[ext_resource type="Script" uid="uid://djajcxwa5kem1" path="res://Scripts/icon.gd" id="3_jps1p"]
 [ext_resource type="Script" uid="uid://bhi2sej6c3co8" path="res://Scripts/arrow.gd" id="3_l1xdu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oemdg"]
-size = Vector2(136, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yktds"]
 size = Vector2(276.3155, 88.463104)
@@ -15,19 +11,10 @@ size = Vector2(276.3155, 88.463104)
 [node name="MinigameHunting" type="Node2D"]
 script = ExtResource("1_tjbxu")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(390, 443)
-texture = ExtResource("2_tbys1")
-script = ExtResource("3_jps1p")
-
-[node name="Hitbox" type="Area2D" parent="Icon"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Hitbox"]
-position = Vector2(1, -2)
-shape = SubResource("RectangleShape2D_oemdg")
+[node name="enemy" parent="." instance=ExtResource("2_pn1o0")]
 
 [node name="arrow" type="Sprite2D" parent="."]
-position = Vector2(400, -11)
+position = Vector2(497, -11)
 rotation = 2.0943952
 texture = ExtResource("2_tjbxu")
 offset = Vector2(0, -200)
@@ -36,12 +23,11 @@ script = ExtResource("3_l1xdu")
 [node name="Hurtbox" type="Area2D" parent="arrow"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arrow/Hurtbox"]
-position = Vector2(22.44934, -223.11664)
+position = Vector2(20.94934, -225.71466)
 rotation = -1.519511
 shape = SubResource("RectangleShape2D_yktds")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(464, 39)
+position = Vector2(1150, 647)
 
-[connection signal="area_entered" from="Icon/Hitbox" to="Icon" method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="arrow/Hurtbox" to="arrow" method="_on_hurtbox_area_entered"]
