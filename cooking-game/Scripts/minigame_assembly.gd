@@ -18,6 +18,22 @@ var down_texture = preload("res://Art/SushiCat.png")
 var left_texture = preload("res://Art/icon.svg")
 var right_texture = preload("res://Art/arrow.webp")
 
+var cat_food_art = {
+	1 : preload("res://Art/BurgerDog.png"),
+	2 : preload("res://Art/SushiCat.png"),
+	3 : preload("res://Art/icon.svg"),
+	4 : preload("res://Art/arrow.webp")
+}
+
+var dog_food_art = {
+	1 : preload("res://Art/BurgerDog.png"),
+	2 : preload("res://Art/SushiCat.png"),
+	3 : preload("res://Art/icon.svg"),
+	4 : preload("res://Art/arrow.webp")
+}
+
+var player_food_art = get(player_id + "_food_art")
+
 var offset = 0
 
 func _ready() -> void:
@@ -35,18 +51,18 @@ func _input(event):
 			delete_sprites()
 	if current_recipe.size() < 10:
 		if event.is_action_pressed(player_id + "_up"):
-			spawn_sprite(up_texture)
+			spawn_sprite(player_food_art[1])
 			current_recipe.push_back(1)
 		elif event.is_action_pressed(player_id + "_down"):
 			if Inventory.get(player_id + "_meat") > 0:
-				spawn_sprite(down_texture)
+				spawn_sprite(player_food_art[2])
 				current_recipe.push_back(2)
 				Inventory.set(str(player_id) + "_meat",  Inventory.get(str(player_id) + "_meat") - 1)
 		elif event.is_action_pressed(player_id + "_left"):
-			spawn_sprite(left_texture)
+			spawn_sprite(player_food_art[3])
 			current_recipe.push_back(3)
 		elif event.is_action_pressed(player_id + "_right"):
-			spawn_sprite(right_texture)
+			spawn_sprite(player_food_art[4])
 			current_recipe.push_back(4)
 	else:
 		for dir in ["up", "down", "left", "right"]:
@@ -106,6 +122,8 @@ func randomize_recipe():
 	
 	emit_signal("recipe_signal", recipe)
 
+func display_finished():
+	pass
 
 func create_warning():
 	var warning_label = Label.new()

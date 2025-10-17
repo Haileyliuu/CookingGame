@@ -13,18 +13,6 @@ var recipe = []
 @onready var slot6 = $Slot6
 
 
-# load all food art 
-var fish_art = preload("res://Art/SushiCat.png")
-var avocado_art = preload("res://Art/BurgerDog.png")
-var crab_art = preload("res://Art/arrow.webp")
-var cucumber_art = preload("res://Art/icon.svg")
-
-var patty_art = preload("res://Art/SushiCat.png")
-var cheese_art = preload("res://Art/BurgerDog.png")
-var tomato_art = preload("res://Art/icon.svg")
-var lettuce_art = preload("res://Art/arrow.webp")
-
-
 var cat_food_art = {
 	1 : preload("res://Art/BurgerDog.png"),
 	2 : preload("res://Art/SushiCat.png"),
@@ -33,10 +21,10 @@ var cat_food_art = {
 }
 
 var dog_food_art = {
-	1 : cheese_art,
-	2 : patty_art,
-	3 : tomato_art,
-	4 : lettuce_art
+	1 : preload("res://Art/BurgerDog.png"),
+	2 : preload("res://Art/SushiCat.png"),
+	3 : preload("res://Art/icon.svg"),
+	4 : preload("res://Art/arrow.webp")
 }
 
 
@@ -54,8 +42,6 @@ func show_recipe():
 		
 		slot.texture = player_food_art[recipe[i]]
 		slot.scale = Vector2(0.2, 0.2)
-	
-	
 	
 
 func _on_minigame_assembly_recipe_signal(r: Variant) -> void:
