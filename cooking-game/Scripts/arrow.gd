@@ -42,12 +42,12 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		return
 	if area.get_parent().has_method("_animal"):
 		print("animal collision")
-		reset()
+		reset() #resets arrow
 		#queue_free()
 		
 # flew off-screen
-func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
-	reset()
+#func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+	#reset()
 
 # reset back to spawn point and swing again
 func reset():

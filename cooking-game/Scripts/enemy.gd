@@ -1,34 +1,85 @@
-extends Node2D
-class_name icon
+extends CharacterBody2D
+class_name Enemy
 
-@export var speed: float = 700
-var direction := Vector2.ZERO
+# Reference to the separate WanderBehavior script
+@export var wander_behavior: WanderBehavior
 
-func _ready():
-	pass
-	#set_random_motion()
+func _physics_process(_delta: float) -> void:
+	if wander_behavior == null:
+		push_error("wander_behavior is not assigned on Enemy!")
+		return
 
-func set_random_motion():
-	direction = Vector2(randf_range(-5, 5), randf_range(-5, 5)).normalized()
+	# Ask the wander behavior for this frame’s movement direction
+	var dir = wander_behavior.update(global_position)
 
-func _process(delta: float):
-	position += direction * speed * delta
+	# Move in that direction
+	velocity = dir * wander_behavior.move_speed
+	move_and_slide()
 
-	# bounce on screen edges
-	var screen = get_viewport_rect().size
-	if position.x < 0 or position.x > screen.x:
-		direction.x *= -.5
-	if position.y < 0 or position.y > screen.y:
-		direction.y *= -0.5
-
+	# Clamp the enemy’s position so it can’t go outside the marker bounds
+	if wander_behavior.markers.size() > 0:
+		global_position.x = clamp(global_position.x, wander_behavior.min_bounds.x, wander_behavior.max_bounds.x)
+		global_position.y = clamp(global_position.y, wander_behavior.min_bounds.y, wander_behavior.max_bounds.y)
+		
+		
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.name == "arrow":  # when arrow hits
-		queue_free()
+	if area.get_parent().has_method("_arrow"):
 		print("delete animal")
+		queue_free()
+	else:
+		print("entered but not doing anything")
+		
 
 func _animal():
 	pass
+#extends CharacterBody2D
+#class_name enemy
+#
+##@export var speed: float = 700
+##var direction := Vector2.ZERO
+##
+##const screen = Vector2(800,500)
+##var location = Vector2()
+#@export var wander_direction : Node2D
+#
+#func _physics_process(delta: float) -> void:
+	#velocity = wander_direction.direction * 200
+	#move_and_slide()
+#
 
-
-#func _on_hitbox_area_entered(area: Area2D) -> void:
-	#pass # Replace with function body.
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+##func set_random_motion():
+	##direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+##
+##func _process(delta: float):
+	##position += direction * speed * delta
+	##_offscreen()
+##
+	### bounce on screen edges
+	##
+##
+##func _offscreen():
+	###var screen = get_viewport_rect().size
+	###print(screen)
+	##if position.x > screen.x - 50 or position.x < 0:
+		##print(position.x)
+		##position = position.clamp(Vector2.ZERO, screen)
+	##if position.y > screen.y -50 or position.y < 0:
+		##print(position.x)
+		##position = position.clamp(Vector2.ZERO, screen)
+##
