@@ -33,15 +33,17 @@ func launch():
 	var dir = Vector2.UP.rotated(rotation)  # change to RIGHT if arrow points right
 	velocity = dir.normalized() * speed
 	
-#hurtbox = the thing that does the damage
 
+
+# hurtbox = the thing that does the damage
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.owner == null:
 		print("owner is null")
 		return
 	if area.get_parent().has_method("_animal"):
 		print("animal collision")
-		queue_free()
+		reset()
+		#queue_free()
 		
 # flew off-screen
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:

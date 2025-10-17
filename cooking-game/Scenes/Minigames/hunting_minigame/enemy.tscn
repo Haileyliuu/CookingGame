@@ -13,10 +13,12 @@ script = ExtResource("1_j2itk")
 position = Vector2(390, 443)
 texture = ExtResource("1_hfgcq")
 
-[node name="Hitbox" type="Area2D" parent="Icon"]
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(390, 443)
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_l66kt")
 
-[connection signal="area_entered" from="Icon/Hitbox" to="Icon" method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

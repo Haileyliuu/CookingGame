@@ -21,6 +21,7 @@ offset = Vector2(0, -200)
 script = ExtResource("3_l1xdu")
 
 [node name="Hurtbox" type="Area2D" parent="arrow"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arrow/Hurtbox"]
 position = Vector2(20.94934, -225.71466)
@@ -28,6 +29,6 @@ rotation = -1.519511
 shape = SubResource("RectangleShape2D_yktds")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1150, 647)
+position = Vector2(496, -10)
 
 [connection signal="area_entered" from="arrow/Hurtbox" to="arrow" method="_on_hurtbox_area_entered"]

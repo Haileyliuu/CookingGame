@@ -2,9 +2,10 @@ extends Node2D
 class_name MinigameHunting
 
 @onready var arrow: Node2D = $arrow
-@onready var icon_scene: PackedScene = preload("res://Scenes/Minigames/hunting_minigame/enemy.tscn")  # your fish/cow icon scene
+@onready var animal_scene: PackedScene = preload("res://Scenes/Minigames/hunting_minigame/enemy.tscn")  # your fish/cow icon scene
 @onready var marker: Marker2D = $Marker2D
 
+# where the sprite spawns
 @export var point1: Vector2 = Vector2(10, 250)
 @export var point2: Vector2 = Vector2(1000, 600)
 @export var spawn_interval: float = 3.0
@@ -46,8 +47,9 @@ func spawn_enemy():
 	if active_enemies.size() >= max_enemies:
 		return
 
-	var enemy = icon_scene.instantiate()
+	var enemy = animal_scene.instantiate()
 	add_child(enemy)
+	
 
 	# place randomly within defined region
 	enemy.position = _get_random_point_inside(point1, point2)
