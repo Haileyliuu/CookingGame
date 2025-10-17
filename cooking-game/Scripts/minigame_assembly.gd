@@ -1,12 +1,12 @@
 extends Node2D
 
-var player_id = "dog"
+var player_id = "cat"
 signal player(p)
 
 var sprites_added = []
 
 @onready var recipe_label : Label = $Recipe
-var recipe = [1, 2, 3, 4, 2, 1]
+var recipe = [0, 0, 0, 0, 0, 0]
 var current_recipe = []
 
 
@@ -24,6 +24,7 @@ func _ready() -> void:
 	dishes_label.text = "Dishes created: " + str(dishes_created)
 	recipe_label.text = "Recipe: " + str(recipe)
 	player.emit(player_id)
+	randomize_recipe()
 
 func _process(_delta: float) -> void:
 	pass
