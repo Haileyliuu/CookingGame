@@ -34,7 +34,7 @@ func _input(event):
 			if check_recipe():
 				randomize_recipe()
 			delete_sprites()
-	if current_recipe.size() < 6:
+	if current_recipe.size() < 10:
 		if event.is_action_pressed(player_id + "_up"):
 			spawn_sprite(up_texture)
 			current_recipe.push_back(1)
@@ -49,6 +49,9 @@ func _input(event):
 		elif event.is_action_pressed(player_id + "_right"):
 			spawn_sprite(right_texture)
 			current_recipe.push_back(4)
+	else:
+		if event.is_action_pressed(player_id + "_up"):
+			create_warning()
 			
 func spawn_sprite(texture: Texture2D):
 	# Create a new sprite node
@@ -101,3 +104,17 @@ func randomize_recipe():
 	# Assign to the actual recipe
 	recipe = new_recipe
 	recipe_label.text = "Recipe: " + str(recipe)
+	
+func create_warning():
+	var warning_label = Label.new()
+	warning_label.text = "Reached max ingredients! Clear your station!"
+	warning_label.position = Vector2(100, 200)
+	add_child(warning_label)
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(warning_label, "modulate:a", 0, 1)
+	
+	await get_tree().create_timer(1).timeout
+	warning_label.queue_free()
+	
+	
