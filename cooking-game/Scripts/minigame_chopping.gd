@@ -4,8 +4,14 @@
 ## assigned key until a set number of chops is achieved.
 ## Then the food is chopped and the minigame finishes.
 ##
+<<<<<<< Updated upstream
 ## Cat = 'F' key
 ## Dog = 'J' key
+=======
+## Cat = 'S' key
+## Dog = down arrow key
+## Number of chops = 5
+>>>>>>> Stashed changes
 
 extends Node2D
 
@@ -60,4 +66,8 @@ func update_label():
 
 ## Dog is hardcoded to begin when the tscn plays.
 func _ready():
+<<<<<<< Updated upstream
 	start_chopping("dog")
+=======
+	start_chopping("cat")
+>>>>>>> Stashed changes
