@@ -24,12 +24,17 @@ func _physics_process(_delta: float) -> void:
 		
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent().has_method("_arrow"):
-		print("delete animal")
+		on_enemy_killed(area)
+		print("dog meat updated: ", Inventory.dog_meat)
+
 		queue_free()
 	else:
-		print("entered but not doing anything")
+		print("not an arrow")
 		
-
+func on_enemy_killed(enemy: Node2D):
+	Inventory.dog_meat += 1
+	
+		
 func _animal():
 	pass
 #extends CharacterBody2D

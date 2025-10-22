@@ -1,12 +1,14 @@
 extends Node2D
 class_name WanderBehavior
 
+
+
 # === CONFIGURATION ===
-@export var group_name: String = "cow"               # Group containing your Marker2Ds
-@export var move_speed: float = 100.0                # Movement speed for the enemy
+@export var group_name: String = "cow"         # Group containing your Marker2Ds
+@export var move_speed: float = 500         # Movement speed for the enemy
 @export var arrive_distance: float = 10.0            # Distance threshold to "arrive" at a marker
-@export var wait_min: float = 0.05       # Minimum wait time after reaching a marker
-@export var wait_max: float = 0.12                 # Maximum wait time after reaching a marker
+@export var wait_min: float = 0.5       # Minimum wait time after reaching a marker
+@export var wait_max: float = 1    
 
 # === INTERNAL STATE ===
 var markers: Array = []              # List of all Marker2Ds in the scene
@@ -14,6 +16,14 @@ var current_target: Marker2D = null  # Current destination marker
 var previous_target: Marker2D = null # Previous marker (used to avoid repeats)
 var waiting: bool = false            # Whether we are currently waiting before moving again
 var rng := RandomNumberGenerator.new()
+
+# === VARIABLES FOR SEPERATION ===
+var seperation_distance = 20
+var local_flockmates = []
+var speed = 2
+var max_speed = 3
+var direction = Vector2(0, 1)
+var seperation_weight = 5
 
 # Bounding box for keeping the enemy inside the area
 var min_bounds: Vector2
@@ -29,7 +39,7 @@ func _ready():
 			markers.append(n)
 
 	if markers.is_empty():
-		push_warning("No Marker2Ds found in group '%s'!" % group_name)
+		print("no markers in array")
 		return
 
 	# Compute min/max bounds based on all marker positions
@@ -42,10 +52,54 @@ func _ready():
 		max_bounds.x = max(max_bounds.x, m.global_position.x)
 		max_bounds.y = max(max_bounds.y, m.global_position.y)
 
-	print_debug("[Wander] Bounds:", min_bounds, "to", max_bounds)
-
 	# Pick the initial target
 	_pick_new_target(Vector2.ZERO)
+
+func _physics_process(delta: float) -> void:
+	if markers.is_empty():
+		return
+	# Get base wandering direction
+	var wander_dir = update(global_position)
+	# Apply flock separation (adjusts to avoid nearby animals)
+	var flock_dir = _flock_direction()
+	# Combine both directions
+	direction = (wander_dir + flock_dir).normalized()
+	# Move the enemy using the combined direction
+	global_position += direction * move_speed * delta
+
+	
+# ===SEPERATION LOGIC ===
+func _flock_direction():
+	var seperation = Vector2()
+	
+	for flockmate in local_flockmates:
+		#uses euclidian distance formula?
+		var distance = self.position.distance_to(flockmate.position)
+		if distance < seperation_distance:
+			#subtract to point away from other enemy                            stronger push if they overlap
+			
+			seperation -= (flockmate.position - self.position).normalized() * (seperation_distance / distance * speed)
+			
+	return (direction + seperation * seperation_weight).limit_length(max_speed) 
+			
+#populate flockmates array if another animal enters the collision
+func _on_detection_radius_body_entered(body: Node2D) -> void:
+	if body == self:
+		return
+	if body.has_method("_animal"):
+		print("adding to flockmate array")
+		local_flockmates.push_back(body)
+		
+		#idk if this works
+		#_pick_new_target(Vector2.ZERO)
+		#var wait_time = rng.randf_range(wait_min, wait_max)
+		#await get_tree().create_timer(wait_time).timeout
+
+
+func _on_detection_radius_body_exited(body: Node2D) -> void:
+	if body.has_method("_animal"):
+		local_flockmates.erase(body)
+
 
 # === MAIN LOGIC ===
 # Called every frame by the enemy. Returns the direction the enemy should move this frame.
@@ -74,16 +128,13 @@ func _start_wait(from_position: Vector2) -> void:
 	waiting = true
 	previous_target = current_target
 	var wait_time = rng.randf_range(wait_min, wait_max)
-	
-
-	print_debug("[Wander] Reached ", previous_target.name if previous_target else "None",
-				" → waiting for ", wait_time, "s")
+	print("wait: ",wait_time)
 	
 
 	#can remove this if you don't want it to stop at marker2d's
 	#moves faster = harder
 	#wait_time is useless wo this line (idk to keep or remove)
-	#await get_tree().create_timer(wait_time).timeout
+	await get_tree().create_timer(wait_time).timeout
 
 	_pick_new_target(from_position)
 	waiting = false
@@ -108,7 +159,6 @@ func _pick_new_target(from_position: Vector2) -> void:
 		attempts += 1
 
 	current_target = choice
-	print_debug("[Wander] New target → ", current_target.name)
 
 # === OPTIONAL DEBUG DRAW ===
 # Draws a red line from the wander controller to the current target (for visualization)

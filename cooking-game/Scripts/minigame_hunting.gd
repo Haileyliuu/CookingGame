@@ -2,77 +2,51 @@ extends Node2D
 class_name minigame_hunting
 
 @onready var arrow: Node2D = $arrow
-#@onready var animal_scene: PackedScene = preload("res://Scenes/Minigames/hunting_minigame/enemy.tscn")  # your fish/cow icon scene
-#@onready var marker: Marker2D = $Marker2D
 
-# where the sprite spawns
-#@export var point1: Vector2 = Vector2(10, 50)
-#@export var point2: Vector2 = Vector2(50, 70)
-#@export var spawn_interval: float = 1
-#
-#@export var max_enemies: int = 3
-#
-#var rng := RandomNumberGenerator.new()
-#var spawn_timer := 0.0
-#var active_enemies: Array = []
+# Preload your Enemy scene (the one with the wander_behavior inside)
+@onready var EnemyScene = preload("res://Scenes/Minigames/hunting_minigame/enemy.tscn")
+
+# Number of enemies to spawn
+@export var min_enemies: int = 1
+@export var max_enemies: int = 3
+#if < 3 enemies spawned and enemie(s) are killed on screen,
+#create cooldown timer (10 seconds) change scenes(put somewhere else)
+#keep spawning enemies until add up to 3
+
+# Random spawn area (adjust these values to fit your map)
+@export var spawn_min: Vector2 = Vector2(200, 200)
+@export var spawn_max: Vector2 = Vector2(800, 600)
+
+# Store references to spawned enemies
+var enemies: Array = []
+
+func _ready():
+	spawn_enemies()
 
 
-func _ready() -> void:
-	pass
-	#spawn_enemy()
-	#randomize()
+func spawn_enemies():
+	var num_to_spawn = randi_range(min_enemies, max_enemies)
+	print("Spawning", num_to_spawn, "enemies")
+
+	for i in range(num_to_spawn):
+		_add_enemy()
+
+
+func _add_enemy():
+	var enemy_instance = EnemyScene.instantiate()
+# Random spawn position inside your playable area
+	var x = randf_range(spawn_min.x, spawn_max.x)
+	var y = randf_range(spawn_min.y, spawn_max.y)
+	enemy_instance.global_position = Vector2(x, y)
+# Add the enemy to the minigame scene
+	add_child(enemy_instance)
+# Store it in the list for tracking
+	enemies.append(enemy_instance)
+
+	print("Spawned", enemies.size(), "enemies in minigame_hunting")
+	
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot"):
 		arrow.launch()
-
-#func _process(delta: float) -> void:
-	## handle spawning cooldown
-	#spawn_timer -= delta #subtracts 
-	#if spawn_timer <= 0.0:
-		#spawn_timer = spawn_interval
-		#spawn_enemy()
-
-	# clean up dead enemies
-	#active_enemies = active_enemies.filter(func(e): return is_instance_valid(e))
-
-
-
-
-
-#func _get_random_point_inside(p1: Vector2, p2: Vector2) -> Vector2:
-	#var x_value: float = randf_range(p1.x, p2.x)
-	#print(x_value)
-	#var y_value: float = randf_range(p1.y, p2.y)
-	#return Vector2(x_value, y_value)
-#
-#
-#func spawn_enemy():
-	## maintain enemy cap
-	#if active_enemies.size() >= max_enemies:
-		#return
-#
-	#var enemy = animal_scene.instantiate()
-	#add_child(enemy)
-	#enemy.position = _get_random_point_inside(point1, point2)
-	#var screen = get_viewport_rect().size
-	#if enemy.position.x > screen.x - 50 or enemy.position.x < 0:
-		##print(position.x)
-		#enemy.position = position.clamp(Vector2.ZERO, screen)
-	#if enemy.position.y > screen.y -50 or enemy.position.y < 0:
-		##print(position.x)
-		#enemy.position = position.clamp(Vector2.ZERO, screen)
-	##if enemy.has_method("_offscreen"):
-		##var screen = get_viewport_rect().size
-		##if position.x > screen.x - 50 or position.x < 0:
-			##print(position.x)
-			##position = position.clamp(Vector2.ZERO, screen)
-		##if position.y > screen.y -50 or position.y < 0:
-			##print(position.x)
-			##position = position.clamp(Vector2.ZERO, screen)
-		#
-#
-	## place randomly within defined region
-	#enemy.position = _get_random_point_inside(point1, point2)
-	#enemy.set_random_motion()
-	#active_enemies.append(enemy)

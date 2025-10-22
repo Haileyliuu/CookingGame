@@ -1,10 +1,8 @@
 class_name Arrow
-extends Node2D  # or RigidBody2D if you want physics
+extends Node2D 
 
 @onready var tween = get_tree().create_tween()
 @export var speed: float = 1000  # launch speed
-#@export var target: Node2D  # assign your target object in the Inspector
-@onready var icon: Sprite2D = $Icon
 @onready var marker_2d: Marker2D = $"../Marker2D"
 
 
@@ -44,10 +42,13 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		print("animal collision")
 		reset() #resets arrow
 		#queue_free()
-		
+
+	
+	
 # flew off-screen
-#func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
-	#reset()
+func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+	print("arrow not visible")
+	reset()
 
 # reset back to spawn point and swing again
 func reset():

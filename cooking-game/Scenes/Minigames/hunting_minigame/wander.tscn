@@ -4,4 +4,4 @@
 
 [node name="wander" type="Node2D"]
 script = ExtResource("1_47w5l")
-move_speed = 600.0
+move_speed = 250.0
