@@ -2,11 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-<<<<<<< Updated upstream
-uid="uid://dc25igfv11u0j"
-=======
-uid="uid://ccweqtjmtj0ne"
->>>>>>> Stashed changes
+uid="uid://m5605md3wl0r"
 path="res://.godot/imported/chop_sound.mp3-cbb9ece5b3efdea10bd16ff1cd05d9df.mp3str"
 
 [deps]
