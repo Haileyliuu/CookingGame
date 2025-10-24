@@ -8,7 +8,8 @@
 script = ExtResource("1_tjbxu")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(596, 10)
+position = Vector2(575, 0)
+rotation = 2.0943952
 
 [node name="arrow" type="Sprite2D" parent="."]
 position = Vector2(576, 0)
@@ -21,7 +22,11 @@ script = ExtResource("3_l1xdu")
 [node name="Hurtbox" type="Area2D" parent="arrow"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="arrow/Hurtbox"]
+position = Vector2(-1.4088211, 0.7571087)
 polygon = PackedVector2Array(46.179047, -301.07434, 49.09784, -323.6245, 37.391388, -324.32727, 38.088013, -347.43164, 24.159393, -348.68872, 24.914337, -359.5852, 12.394562, -361.59924, 12.452942, -349.39136, 0.15112305, -348.02563, -0.5454712, -324.9214, -10.843018, -326.3811, -12.135101, -301.20825, 44.770203, -300.31726)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="arrow"]
+position = Vector2(0.2294035, -120.76733)
 
 [node name="Marker2D8" type="Marker2D" parent="." groups=["cow"]]
 position = Vector2(592, 430)
@@ -39,3 +44,4 @@ position = Vector2(1030, 403)
 position = Vector2(183, 397)
 
 [connection signal="area_entered" from="arrow/Hurtbox" to="arrow" method="_on_hurtbox_area_entered"]
+[connection signal="screen_exited" from="arrow/VisibleOnScreenNotifier2D" to="arrow" method="_on_visible_on_screen_notifier_2d_screen_exited"]

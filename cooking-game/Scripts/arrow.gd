@@ -32,36 +32,34 @@ func launch():
 	velocity = dir.normalized() * speed
 	
 
-
 # hurtbox = the thing that does the damage
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.owner == null:
 		print("owner is null")
 		return
 	if area.get_parent().has_method("_animal"):
-		print("animal collision")
+		#print("animal collision")
 		reset() #resets arrow
 		#queue_free()
 
-	
-	
-# flew off-screen
-func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
-	print("arrow not visible")
-	reset()
 
 # reset back to spawn point and swing again
 func reset():
 	launched = false
 	velocity = Vector2.ZERO
 	global_position = marker_2d.global_position
+	print("marker 2d: ", global_position)
 	rotation = marker_2d.global_rotation
 
 	# Restart swing
 	tween = create_tween()
 	swing()
 
-
-	
 func _arrow():
 	pass
+
+
+#use notifier instead of enabler bc enabler pauses the parent node
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	print("screen exited")
+	reset()

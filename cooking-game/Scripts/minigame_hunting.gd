@@ -46,7 +46,6 @@ func _add_enemy():
 	print("Spawned", enemies.size(), "enemies in minigame_hunting")
 	
 
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot"):
 		arrow.launch()
