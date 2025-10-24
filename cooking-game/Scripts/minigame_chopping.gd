@@ -22,6 +22,7 @@ var chopping_active : bool = false
 @onready var chop_label = $ChopLabel
 @onready var prompt_label = $PromptLabel
 @onready var chop_sound = $ChopSound
+@onready var knife = $Knife
 
 func start_chopping(player: String):
 	active_player = player
@@ -43,6 +44,8 @@ func _input(event: InputEvent) -> void:
 
 
 func handle_chop():
+	knife.chop()
+	
 	chop_sound.stop()
 	chop_sound.pitch_scale = randf_range(0.9, 1.1)
 	chop_sound.play()
