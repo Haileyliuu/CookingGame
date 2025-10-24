@@ -1,6 +1,8 @@
 extends Node2D
 class_name minigame_hunting
 
+var player_id := "cat"
+
 @onready var arrow: Node2D = $arrow
 
 # Preload your Enemy scene (the one with the wander_behavior inside)
@@ -20,7 +22,10 @@ class_name minigame_hunting
 # Store references to spawned enemies
 var enemies: Array = []
 
+signal player(p)
+
 func _ready():
+	player.emit(player_id)
 	spawn_enemies()
 
 
@@ -47,5 +52,5 @@ func _add_enemy():
 	
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("shoot"):
+	if event.is_action_pressed(player_id+"_shoot"):		
 		arrow.launch()

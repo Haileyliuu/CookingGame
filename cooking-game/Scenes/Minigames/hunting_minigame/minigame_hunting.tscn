@@ -43,5 +43,6 @@ position = Vector2(1030, 403)
 [node name="Marker2D12" type="Marker2D" parent="." groups=["cow"]]
 position = Vector2(183, 397)
 
+[connection signal="player" from="." to="arrow" method="_on_minigame_hunting_player"]
 [connection signal="area_entered" from="arrow/Hurtbox" to="arrow" method="_on_hurtbox_area_entered"]
 [connection signal="screen_exited" from="arrow/VisibleOnScreenNotifier2D" to="arrow" method="_on_visible_on_screen_notifier_2d_screen_exited"]

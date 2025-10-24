@@ -10,6 +10,9 @@ extends Node2D
 var launched := false
 var velocity := Vector2.ZERO
 
+var player_id := ""
+
+
 func _ready():
 	swing()
 
@@ -65,3 +68,7 @@ func _arrow():
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	print("screen exited")
 	reset()
+
+
+func _on_minigame_hunting_player(p: Variant) -> void:
+	player_id = p
