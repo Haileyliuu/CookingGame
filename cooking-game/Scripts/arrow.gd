@@ -14,8 +14,10 @@ func _ready():
 	swing()
 
 func swing():
-	tween.tween_property(self, "rotation_degrees", 120, 1)
+	# change rotation_degrees property from its current value to 240 over 1 second
 	tween.tween_property(self, "rotation_degrees", 240, 1)
+	# change rotation_degrees property from its current value to 120 over 1 second
+	tween.tween_property(self, "rotation_degrees", 120, 1)
 	tween.set_loops()
 
 func _process(delta):
