@@ -14,17 +14,17 @@ var recipe = []
 
 
 var cat_food_art = {
-	1 : preload("res://Art/BurgerDog.png"),
+	1 : [preload("res://Art/BurgerDog.png")],
 	2 : preload("res://Art/SushiCat.png"),
 	3 : preload("res://Art/icon.svg"),
 	4 : preload("res://Art/arrow.webp")
 }
 
 var dog_food_art = {
-	1 : preload("res://Art/BurgerDog.png"),
-	2 : preload("res://Art/SushiCat.png"),
-	3 : preload("res://Art/icon.svg"),
-	4 : preload("res://Art/arrow.webp")
+	1 : preload("res://Art/BurgerArt/Cheese.PNG"),
+	2 : preload("res://Art/BurgerArt/Patty.PNG"),
+	3 : preload("res://Art/BurgerArt/Lettuce.PNG"),
+	4 : preload("res://Art/BurgerArt/Tomato.PNG")
 }
 
 
@@ -41,7 +41,7 @@ func show_recipe():
 		var player_food_art = get(player_id + "_food_art")
 		
 		slot.texture = player_food_art[recipe[i]]
-		slot.scale = Vector2(0.2, 0.2)
+		slot.scale = Vector2(0.1, 0.1)
 	
 
 func _on_minigame_assembly_recipe_signal(r: Variant) -> void:

@@ -13,23 +13,21 @@ var current_recipe = []
 @onready var dishes_label : Label = $DishesCreated
 var dishes_created = 0
 
-var up_texture = preload("res://Art/BurgerDog.png")
-var down_texture = preload("res://Art/SushiCat.png")
-var left_texture = preload("res://Art/icon.svg")
-var right_texture = preload("res://Art/arrow.webp")
-
 var cat_food_art = {
 	1 : preload("res://Art/BurgerDog.png"),
 	2 : preload("res://Art/SushiCat.png"),
 	3 : preload("res://Art/icon.svg"),
-	4 : preload("res://Art/arrow.webp")
+	4 : preload("res://Art/arrow.webp"),
+	5 : preload("res://Art/SushiCat.png")
 }
 
 var dog_food_art = {
-	1 : preload("res://Art/BurgerDog.png"),
-	2 : preload("res://Art/SushiCat.png"),
-	3 : preload("res://Art/icon.svg"),
-	4 : preload("res://Art/arrow.webp")
+	1 : [preload("res://Art/BurgerArt/Cheese.PNG"), 15],
+	2 : [preload("res://Art/BurgerArt/Patty.PNG"), 28],
+	3 : [preload("res://Art/BurgerArt/Lettuce.PNG"), 20],
+	4 : [preload("res://Art/BurgerArt/Tomato.PNG"), 20],
+	5 : preload("res://Art/BurgerArt/BottomBun.PNG"),
+	6 : preload("res://Art/BurgerArt/TopBun.PNG")
 }
 
 var player_food_art = get(player_id + "_food_art")
@@ -51,25 +49,27 @@ func _input(event):
 			delete_sprites()
 	if current_recipe.size() < 10:
 		if event.is_action_pressed(player_id + "_up"):
-			spawn_sprite(player_food_art[1])
+			spawn_sprite(1)
 			current_recipe.push_back(1)
 		elif event.is_action_pressed(player_id + "_down"):
 			if Inventory.get(player_id + "_meat") > 0:
-				spawn_sprite(player_food_art[2])
+				spawn_sprite(2)
 				current_recipe.push_back(2)
 				Inventory.set(str(player_id) + "_meat",  Inventory.get(str(player_id) + "_meat") - 1)
 		elif event.is_action_pressed(player_id + "_left"):
-			spawn_sprite(player_food_art[3])
+			spawn_sprite(3)
 			current_recipe.push_back(3)
 		elif event.is_action_pressed(player_id + "_right"):
-			spawn_sprite(player_food_art[4])
+			spawn_sprite(4)
 			current_recipe.push_back(4)
 	else:
 		for dir in ["up", "down", "left", "right"]:
 			if event.is_action_pressed(player_id + "_" + dir):
 				create_warning()
 			
-func spawn_sprite(texture: Texture2D):
+func spawn_sprite(texture_num):
+	var texture = player_food_art[texture_num][0]
+	
 	# Create a new sprite node
 	var sprite = Sprite2D.new()
 	sprite.texture = texture
@@ -77,7 +77,7 @@ func spawn_sprite(texture: Texture2D):
 
 	# set position of sprite (offset increase each sprite added to stack them)
 	sprite.position = Vector2(600, 400 - offset)
-	offset += 20
+	offset += player_food_art[texture_num][1]
 	sprites_added.push_back(sprite)
 
 	# Add it to the scene so it appears
@@ -96,7 +96,7 @@ func check_recipe():
 		return true
 	return false
 
-
+# Recipe has 1 or 2 meat (random location) and the rest is random ingredients
 func randomize_recipe():
 	var new_recipe = []
 	
@@ -121,8 +121,11 @@ func randomize_recipe():
 	recipe = new_recipe
 	
 	emit_signal("recipe_signal", recipe)
-
+	
 func display_finished():
+	#var sprite = Sprite2D.new()
+	#sprite.texture = player_food_art[5]
+	#add_child(sprite)
 	pass
 
 func create_warning():
