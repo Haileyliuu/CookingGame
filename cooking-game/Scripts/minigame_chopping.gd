@@ -23,11 +23,16 @@ var chopping_active : bool = false
 @onready var prompt_label = $PromptLabel
 @onready var chop_sound = $ChopSound
 @onready var knife = $Knife
+@onready var chop_progress = $ProgressBarUI/ProgressBar
 
 func start_chopping(player: String):
 	active_player = player
 	chops_left = CHOPS_REQUIRED
 	chopping_active = true
+
+	chop_progress.value = 0
+	chop_progress.max_value = CHOPS_REQUIRED
+
 	prompt_label.text = "%s: Chop the food!" % player.capitalize()
 	update_label()
 
@@ -62,9 +67,11 @@ func handle_chop():
 func update_label():
 	chop_label.text = "Chops left: %d" % chops_left
 
+	var target_value = CHOPS_REQUIRED - chops_left
+	var tween = get_tree().create_tween()
+	tween.tween_property(chop_progress, "value", target_value, 0.1)
+
 
 ## Dog is hardcoded to begin when the tscn plays.
 func _ready():
-
-	start_chopping("cat")
 	start_chopping("dog")
