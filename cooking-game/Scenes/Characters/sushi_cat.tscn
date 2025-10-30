@@ -16,10 +16,11 @@ player_id = "cat"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_a4ba0")
+offset = Vector2(0, -150)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 43.75)
 shape = SubResource("RectangleShape2D_yxq2t")
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_jbn3y")]
-position = Vector2(1, 12)
+visible = false
+position = Vector2(0, -35)
