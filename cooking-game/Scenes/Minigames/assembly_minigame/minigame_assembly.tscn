@@ -1,18 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://rlbvus4vqqeg"]
+[gd_scene load_steps=7 format=3 uid="uid://rlbvus4vqqeg"]
 
 [ext_resource type="Script" uid="uid://ccbtk4b5h5281" path="res://Scripts/minigame_assembly.gd" id="1_01oyl"]
-[ext_resource type="PackedScene" path="res://Scenes/Minigames/assembly_minigame/assembly_buttons.tscn" id="1_tx6sn"]
-[ext_resource type="PackedScene" path="res://Scenes/Minigames/assembly_minigame/recipe.tscn" id="3_2ja8v"]
+[ext_resource type="PackedScene" uid="uid://cfksp4rdu3k3d" path="res://Scenes/Minigames/assembly_minigame/assembly_buttons.tscn" id="1_tx6sn"]
+[ext_resource type="PackedScene" uid="uid://brlcje3brvxu4" path="res://Scenes/Minigames/assembly_minigame/recipe.tscn" id="3_2ja8v"]
+[ext_resource type="Texture2D" uid="uid://ckm8ue0fcpnup" path="res://Art/Objects/CatBoard.png" id="4_s6lmo"]
+[ext_resource type="Texture2D" uid="uid://brcqoccjl8g66" path="res://Art/Objects/DogBoard.png" id="5_vdtne"]
+[ext_resource type="Texture2D" uid="uid://cca1s2upu84uw" path="res://Art/SushiArt/SeaweedRice.png" id="6_vdtne"]
 
 [node name="MinigameAssembly" type="Node2D"]
 script = ExtResource("1_01oyl")
 
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CatBack" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0.78039217, 0.627451, 0.44705883, 1)
+
+[node name="DogBack" type="ColorRect" parent="Background"]
+visible = false
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0.78039217, 0.7607843, 0.7607843, 1)
+
 [node name="AssemblyButtons" parent="." instance=ExtResource("1_tx6sn")]
-offset_left = 570.00006
-offset_top = 553.0
-offset_right = 570.00006
-offset_bottom = 553.0
-scale = Vector2(0.43999988, 0.43999988)
+offset_left = 471.0
+offset_top = 960.00006
+offset_right = 471.0
+offset_bottom = 960.00006
+scale = Vector2(0.7, 0.7)
 
 [node name="DishesCreated" type="Label" parent="."]
 offset_right = 40.0
@@ -23,6 +43,21 @@ offset_left = 18.0
 offset_top = 80.0
 offset_right = 18.0
 offset_bottom = 80.0
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(473.0001, 559.00006)
+scale = Vector2(0.7, 0.7)
+
+[node name="CatBoard" type="Sprite2D" parent="Board"]
+texture = ExtResource("4_s6lmo")
+
+[node name="DogBoard" type="Sprite2D" parent="Board"]
+visible = false
+texture = ExtResource("5_vdtne")
+
+[node name="SeaweedRice" type="Sprite2D" parent="."]
+position = Vector2(481, 540)
+texture = ExtResource("6_vdtne")
 
 [connection signal="player" from="." to="AssemblyButtons" method="_on_minigame_assembly_player"]
 [connection signal="player" from="." to="Recipe" method="_on_minigame_assembly_player"]

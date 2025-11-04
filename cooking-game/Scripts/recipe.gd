@@ -14,10 +14,10 @@ var recipe = []
 
 
 var cat_food_art = {
-	1 : [preload("res://Art/BurgerDog.png")],
+	1 : preload("res://Art/SushiArt/ImitationCrab.png"),
 	2 : preload("res://Art/SushiCat.png"),
-	3 : preload("res://Art/icon.svg"),
-	4 : preload("res://Art/arrow.webp")
+	3 : preload("res://Art/SushiArt/Cucumber.png"),
+	4 : preload("res://Art/SushiArt/Avocado.png")
 }
 
 var dog_food_art = {
@@ -50,3 +50,11 @@ func _on_minigame_assembly_recipe_signal(r: Variant) -> void:
 
 func _on_minigame_assembly_player(p: Variant) -> void:
 	player_id = p
+
+
+#func _on_minigame_assembly_cat_food_art_signal(c: Variant) -> void:
+	#cat_food_art = c
+#
+#
+#func _on_minigame_assembly_dog_food_art_signal(d: Variant) -> void:
+	#dog_food_art = d

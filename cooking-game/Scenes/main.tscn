@@ -129,3 +129,14 @@ position = Vector2(848, 345)
 
 [node name="InteractionArea" parent="." instance=ExtResource("5_mcep0")]
 position = Vector2(1529, 235)
+
+[node name="CatBack" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.78039217, 0.627451, 0.44705883, 1)
+
+[node name="DogBack" type="ColorRect" parent="CatBack"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.78039217, 0.7607843, 0.7607843, 1)
