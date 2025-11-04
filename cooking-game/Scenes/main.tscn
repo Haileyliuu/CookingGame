@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c54xkls8oltq0"]
+[gd_scene load_steps=18 format=3 uid="uid://c54xkls8oltq0"]
 
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="Texture2D" uid="uid://c41ju7gsf78oi" path="res://Art/Game Backgroud Layers/Game_Background_0004_Floor.png" id="2_344ge"]
@@ -13,8 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://dobd08st41dwk" path="res://Art/Game Backgroud Layers/Game_Background_0002s_0008_Dog_Counter.png" id="8_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://bve0dunix0gmc" path="res://Art/Game Backgroud Layers/Game_Background_0003s_0009_Cat_Sink.png" id="8_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://jeegbaqq8mm7" path="res://Art/Game Backgroud Layers/Game_Background_0003s_0010_Cat_Table.png" id="11_jkdf5"]
+[ext_resource type="Shader" uid="uid://b7p6ejcpwqko6" path="res://Shaders/select.gdshader" id="11_k12tt"]
 [ext_resource type="Texture2D" uid="uid://de1r1ed5gub0b" path="res://Art/Game Backgroud Layers/Game_Background_0002s_0011_Dog_Table.png" id="12_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h1bgf"]
+shader = ExtResource("11_k12tt")
+shader_parameter/highlight_strength = 0.5
 
 [node name="Main" type="Node2D"]
 
@@ -100,6 +105,7 @@ polygon = PackedVector2Array(-1562.5005, -777.5001, -1562.5005, -1032.5001, 1157
 polygon = PackedVector2Array(-1552.5005, 110, -1560.0005, 1215.0002, -1285.0005, 1215.0002, -1287.5005, 112.5)
 
 [node name="Tables" type="StaticBody2D" parent="Y-sort"]
+material = SubResource("ShaderMaterial_h1bgf")
 position = Vector2(956.00006, 537)
 scale = Vector2(0.39999995, 0.39999995)
 
@@ -108,14 +114,14 @@ position = Vector2(-843.50085, 223.00012)
 polygon = PackedVector2Array(-278.9994, -328.00012, -274.99963, 517.50024, 275.0005, 512.50024, 278.50073, -323.00012, 216.00073, -323.00012, 216.00073, -423.00012, -218.99939, -428.00012, -216.49939, -325.50012)
 
 [node name="CatTable" type="Sprite2D" parent="Y-sort/Tables"]
-position = Vector2(-843.50037, 223.00009)
+position = Vector2(-843.50024, 270.50006)
 texture = ExtResource("11_jkdf5")
 
 [node name="DogTableCollision" type="CollisionPolygon2D" parent="Y-sort/Tables"]
 polygon = PackedVector2Array(662.49976, -97.5, 714.99976, -100, 714.99976, -195, 1142.5, -197.5, 1140, -100, 1210, -102.5, 1210, 742.50024, 657.49976, 745.00024)
 
 [node name="DogTable" type="Sprite2D" parent="Y-sort/Tables"]
-position = Vector2(932.50024, 225)
+position = Vector2(932.50024, 277.50012)
 texture = ExtResource("12_wsu2k")
 
 [node name="BurgerDog" parent="Y-sort" instance=ExtResource("1_rivda")]
