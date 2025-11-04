@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_id = "cat"
+var player_id = "dog"
 signal player(p)
 
 var sprites_added = []
@@ -13,21 +13,21 @@ var current_recipe = []
 @onready var dishes_label : Label = $DishesCreated
 var dishes_created = 0
 
-var cat_background_art = {
-	1 : $Background/CatBack,
-	2 : $Board/CatBoard
-}
+@onready var cat_background_art = [
+	$Background/CatBack,
+	$Board/CatBoard
+]
 
-var dog_background_art = {
-	1: $Background/DogBack,
-	2: $Board/DogBoard
-}
+@onready var dog_background_art = [
+	$Background/DogBack,
+	$Board/DogBoard
+]
 
 var cat_food_art = {
-	1 : [preload("res://Art/SushiArt/ImitationCrab.png"), 25],
+	1 : [preload("res://Art/SushiArt/ImitationCrab.png"), 50],
 	2 : [preload("res://Art/SushiCat.png"), 25],
 	3 : [preload("res://Art/SushiArt/Cucumber.png"), 50],
-	4 : [preload("res://Art/SushiArt/Avocado.png"), 30],
+	4 : [preload("res://Art/SushiArt/Avocado.png"), 50],
 	5 : preload("res://Art/SushiCat.png")
 }
 
@@ -48,6 +48,8 @@ func _ready() -> void:
 	dishes_label.text = "Dishes created: " + str(dishes_created)
 	player.emit(player_id)
 	randomize_recipe()
+	for art in get(player_id + "_background_art"):
+		art.visible = true
 
 func _process(_delta: float) -> void:
 	pass
@@ -57,7 +59,7 @@ func _input(event):
 			if check_recipe():
 				randomize_recipe()
 			delete_sprites()
-	if current_recipe.size() < 10:
+	if current_recipe.size() < 8:
 		if event.is_action_pressed(player_id + "_up"):
 			spawn_sprite(1)
 			current_recipe.push_back(1)
@@ -90,7 +92,7 @@ func spawn_sprite(texture_num):
 	sprite.scale = Vector2.ONE * scale_factor
 
 	# set position of sprite (offset increase each sprite added to stack them)
-	var start_y = screen_size.y * (0.65 if player_id == "cat" else 0.53)   # % down the screen
+	var start_y = screen_size.y * (0.65 if player_id == "cat" else 0.5)   # % down the screen
 	var start_x = screen_size.x * 0.25   # % x across
 	sprite.position = Vector2(start_x, start_y - offset)
 	offset += (player_food_art[texture_num][1] * scale_factor)
