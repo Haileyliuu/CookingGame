@@ -13,13 +13,13 @@ collision_mask = 7
 script = ExtResource("1_yjktf")
 player_id = "dog"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_ruucx")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 52)
 shape = SubResource("RectangleShape2D_xnnca")
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_5el3f")]
 position = Vector2(0, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_ruucx")

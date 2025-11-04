@@ -1,4 +1,4 @@
-extends Node2D
+extends MiniGame
 
 # Check if chop input is from cat side (left) or dog side (right)
 func _input(event: InputEvent) -> void:

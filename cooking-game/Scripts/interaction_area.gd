@@ -6,6 +6,7 @@ class_name InteractionArea extends Area2D
 #@export var interact_type = "none"
 #@export var interact_value = "interact"
 
+@onready var main: Main = get_parent()
 
 var interact: Callable = func():
-	pass
+	main.start_minigame()
