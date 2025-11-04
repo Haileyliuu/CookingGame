@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c54xkls8oltq0"]
+[gd_scene load_steps=7 format=3 uid="uid://c54xkls8oltq0"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
 [ext_resource type="PackedScene" uid="uid://hexxhvwjcl1s" path="res://Scenes/Minigames/minigame_manager/minigame1.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="5_mcep0"]
+[ext_resource type="PackedScene" uid="uid://b35jwavnwhwx1" path="res://Scenes/Minigames/minigame_manager/minigame_2.tscn" id="6_21xkr"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kry3j")
@@ -13,13 +14,22 @@ script = ExtResource("1_kry3j")
 y_sort_enabled = true
 
 [node name="BurgerDog" parent="Y-sort" instance=ExtResource("1_rivda")]
+unique_name_in_owner = true
 position = Vector2(775, 315)
 
 [node name="SushiCat" parent="Y-sort" instance=ExtResource("2_h7nwh")]
 unique_name_in_owner = true
 position = Vector2(345, 309)
 
-[node name="InteractionArea" parent="." instance=ExtResource("5_mcep0")]
-position = Vector2(1093, 61)
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
+position = Vector2(1082, 68)
+minigame = NodePath("../Minigame1")
 
 [node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
+
+[node name="InteractionArea2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
+position = Vector2(1086, 578)
+minigame = NodePath("../Minigame2")
+
+[node name="Minigame2" parent="." instance=ExtResource("6_21xkr")]
+player_type = 1

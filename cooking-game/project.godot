@@ -26,6 +26,7 @@ project/assembly_name="Cooking game"
 [global_group]
 
 Player=""
+Minigame=""
 
 [input]
 
