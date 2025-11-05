@@ -3,6 +3,7 @@ extends Node2D
 var player_id = "dog"
 signal player(p)
 
+@onready var screen_size = get_viewport_rect().size
 var sprites_added = []
 
 var recipe = [0, 0, 0, 0, 0, 0]
@@ -13,15 +14,13 @@ var current_recipe = []
 @onready var dishes_label : Label = $DishesCreated
 var dishes_created = 0
 
-@onready var cat_background_art = [
-	$Background/CatBack,
-	$Board/CatBoard
+@onready var background_art = [
+	$Background,
+	$Board,
+	$Recipe,
+	$AssemblyButtons
 ]
 
-@onready var dog_background_art = [
-	$Background/DogBack,
-	$Board/DogBoard
-]
 
 var cat_food_art = {
 	1 : [preload("res://Art/SushiArt/ImitationCrab.png"), 50],
@@ -48,8 +47,7 @@ func _ready() -> void:
 	dishes_label.text = "Dishes created: " + str(dishes_created)
 	player.emit(player_id)
 	randomize_recipe()
-	for art in get(player_id + "_background_art"):
-		art.visible = true
+	display_background()
 
 func _process(_delta: float) -> void:
 	pass
@@ -87,13 +85,12 @@ func spawn_sprite(texture_num):
 	sprite.texture = texture
 	
 	# Dynamic scaling based on viewport height (relative to 1080p baseline)
-	var screen_size = get_viewport_rect().size
-	var scale_factor = screen_size.y / 1080.0 * (1.0 if player_id == "cat" else 0.55)
+	var scale_factor = screen_size.y / 1080.0 * (0.8 if player_id == "cat" else 0.55)
 	sprite.scale = Vector2.ONE * scale_factor
 
 	# set position of sprite (offset increase each sprite added to stack them)
-	var start_y = screen_size.y * (0.65 if player_id == "cat" else 0.5)   # % down the screen
-	var start_x = screen_size.x * 0.25   # % x across
+	var start_y = screen_size.y * (0.6 if player_id == "cat" else 0.5)   # % down the screen
+	var start_x = screen_size.x * 0.5   # % x across
 	sprite.position = Vector2(start_x, start_y - offset)
 	offset += (player_food_art[texture_num][1] * scale_factor)
 	
@@ -148,10 +145,33 @@ func display_finished():
 	#add_child(sprite)
 	pass
 
+func display_background():
+	for art in background_art:
+		art.visible = true
+	
+	# position board
+	var scale_factor = screen_size.y / 1080.0 * 0.6
+	var start_x = screen_size.x * 0.5   # % x across
+	var start_y = screen_size.y * 0.5   # % y down
+	background_art[1].position = Vector2(start_x, start_y)
+	background_art[1].scale = Vector2.ONE * scale_factor
+	
+	# position recipe
+	scale_factor = screen_size.y / 1080.0
+	start_y = screen_size.y * 0.15
+	background_art[2].position = Vector2(start_x, start_y)
+	background_art[2].scale = Vector2.ONE * scale_factor
+	
+	# position buttons
+	scale_factor = screen_size.y / 1080.0 * 0.75
+	start_y = screen_size.y * 0.85
+	background_art[3].position = Vector2(start_x, start_y)
+	background_art[3].scale = Vector2.ONE * scale_factor
+
 func create_warning():
 	var warning_label = Label.new()
 	warning_label.text = "Reached max ingredients! Clear your station!"
-	warning_label.position = Vector2(100, 200)
+	warning_label.add_theme_font_size_override("font_size", 32)
 	add_child(warning_label)
 	
 	var tween = get_tree().create_tween()

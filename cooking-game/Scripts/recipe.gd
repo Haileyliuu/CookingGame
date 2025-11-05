@@ -41,7 +41,7 @@ func show_recipe():
 		var player_food_art = get(player_id + "_food_art")
 		
 		slot.texture = player_food_art[recipe[i]]
-		slot.scale = Vector2(0.1, 0.1)
+		slot.scale = Vector2(0.5, 0.5)
 	
 
 func _on_minigame_assembly_recipe_signal(r: Variant) -> void:

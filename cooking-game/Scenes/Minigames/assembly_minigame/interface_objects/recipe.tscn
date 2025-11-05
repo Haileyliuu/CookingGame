@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://brlcje3brvxu4"]
 
-[ext_resource type="Script" uid="uid://ddd0cs83pj1ae" path="res://Scripts/recipe.gd" id="1_7ps08"]
+[ext_resource type="Script" path="res://Scripts/recipe.gd" id="1_7ps08"]
 
 [node name="Recipe" type="Control"]
 layout_mode = 3
@@ -18,18 +18,19 @@ offset_right = 40.0
 offset_bottom = 84.0
 
 [node name="Slot1" type="Sprite2D" parent="."]
+position = Vector2(-250, 0)
 
 [node name="Slot2" type="Sprite2D" parent="."]
-position = Vector2(32, 0)
+position = Vector2(-150, 0)
 
 [node name="Slot3" type="Sprite2D" parent="."]
-position = Vector2(62, 0)
+position = Vector2(-50, 0)
 
 [node name="Slot4" type="Sprite2D" parent="."]
-position = Vector2(90, 0)
+position = Vector2(50, 0)
 
 [node name="Slot5" type="Sprite2D" parent="."]
-position = Vector2(117, -1)
+position = Vector2(150, 0)
 
 [node name="Slot6" type="Sprite2D" parent="."]
-position = Vector2(144, 0)
+position = Vector2(251, 0)
