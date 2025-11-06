@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfksp4rdu3k3d"]
+[gd_scene load_steps=6 format=3 uid="uid://cfksp4rdu3k3d"]
 
 [ext_resource type="Script" uid="uid://dciyx8gdnfkoo" path="res://Scripts/assembly_buttons.gd" id="1_palyj"]
-[ext_resource type="Texture2D" uid="uid://wb0i27qtaqo4" path="res://Art/icon.svg" id="2_h6bls"]
+[ext_resource type="Texture2D" uid="uid://cvoby6r5cheai" path="res://Art/UI/CheesButton.png" id="2_tpqr5"]
+[ext_resource type="Texture2D" uid="uid://1ggef18tljxe" path="res://Art/UI/PattyButton.png" id="3_ywrih"]
+[ext_resource type="Texture2D" uid="uid://cbornn8ecgal7" path="res://Art/UI/LettuceButton.png" id="4_tecul"]
+[ext_resource type="Texture2D" uid="uid://cjtaicisgeo68" path="res://Art/UI/TomatoButton.png" id="5_tpqr5"]
 
 [node name="AssemblyButtons" type="Control"]
 layout_mode = 3
@@ -16,16 +19,20 @@ script = ExtResource("1_palyj")
 
 [node name="UpButton" type="Sprite2D" parent="."]
 position = Vector2(0, -80)
-texture = ExtResource("2_h6bls")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_tpqr5")
 
 [node name="DownButton" type="Sprite2D" parent="."]
 position = Vector2(0, 80)
-texture = ExtResource("2_h6bls")
-
-[node name="RightButton" type="Sprite2D" parent="."]
-position = Vector2(160, 80)
-texture = ExtResource("2_h6bls")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ywrih")
 
 [node name="LeftButton" type="Sprite2D" parent="."]
 position = Vector2(-160, 80)
-texture = ExtResource("2_h6bls")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_tecul")
+
+[node name="RightButton" type="Sprite2D" parent="."]
+position = Vector2(160, 80)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_tpqr5")

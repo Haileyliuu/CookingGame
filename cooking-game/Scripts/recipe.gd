@@ -2,7 +2,6 @@ extends Control
 
 var player_id := ""
 var recipe = []
-@onready var label = $Label
 
 # load all the slot sprites
 @onready var slot1 = $Slot1
@@ -15,21 +14,20 @@ var recipe = []
 
 var cat_food_art = {
 	1 : preload("res://Art/SushiArt/ImitationCrab.png"),
-	2 : preload("res://Art/SushiCat.png"),
+	2 : preload("res://Art/SushiArt/Fish.png"),
 	3 : preload("res://Art/SushiArt/Cucumber.png"),
 	4 : preload("res://Art/SushiArt/Avocado.png")
 }
 
 var dog_food_art = {
-	1 : preload("res://Art/BurgerArt/Cheese.PNG"),
-	2 : preload("res://Art/BurgerArt/Patty.PNG"),
-	3 : preload("res://Art/BurgerArt/Lettuce.PNG"),
-	4 : preload("res://Art/BurgerArt/Tomato.PNG")
+	1 : preload("res://Art/UI/CheesButton.png"),
+	2 : preload("res://Art/UI/PattyButton.png"),
+	3 : preload("res://Art/UI/LettuceButton.png"),
+	4 : preload("res://Art/UI/TomatoButton.png")
 }
 
 
 func _process(_delta: float) -> void:
-	label.text = str(recipe)
 	show_recipe()
 	
 	
@@ -41,7 +39,7 @@ func show_recipe():
 		var player_food_art = get(player_id + "_food_art")
 		
 		slot.texture = player_food_art[recipe[i]]
-		slot.scale = Vector2(0.5, 0.5)
+		slot.scale = Vector2(0.12, 0.12)
 	
 
 func _on_minigame_assembly_recipe_signal(r: Variant) -> void:

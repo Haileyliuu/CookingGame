@@ -24,7 +24,7 @@ var dishes_created = 0
 
 var cat_food_art = {
 	1 : [preload("res://Art/SushiArt/ImitationCrab.png"), 50],
-	2 : [preload("res://Art/SushiCat.png"), 25],
+	2 : [preload("res://Art/SushiArt/Fish.png"), 40],
 	3 : [preload("res://Art/SushiArt/Cucumber.png"), 50],
 	4 : [preload("res://Art/SushiArt/Avocado.png"), 50],
 	5 : preload("res://Art/SushiCat.png")
@@ -157,7 +157,7 @@ func display_background():
 	background_art[1].scale = Vector2.ONE * scale_factor
 	
 	# position recipe
-	scale_factor = screen_size.y / 1080.0
+	scale_factor = screen_size.y / 1080.0 * 1.3
 	start_y = screen_size.y * 0.15
 	background_art[2].position = Vector2(start_x, start_y)
 	background_art[2].scale = Vector2.ONE * scale_factor
@@ -167,6 +167,10 @@ func display_background():
 	start_y = screen_size.y * 0.85
 	background_art[3].position = Vector2(start_x, start_y)
 	background_art[3].scale = Vector2.ONE * scale_factor
+	
+	# scale background
+	scale_factor = screen_size.y / 1080.0
+	background_art[0].scale = Vector2.ONE * scale_factor
 
 func create_warning():
 	var warning_label = Label.new()

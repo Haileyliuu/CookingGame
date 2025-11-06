@@ -5,8 +5,16 @@ var buttons := {}
 var default_positions := {}
 
 const NORMAL_COLOR := Color(1, 1, 1)
-const PRESSED_COLOR := Color(0.7, 0.7, 0.7)
+const PRESSED_COLOR := Color(0.94, 0.83, 0.808, 1.0)
 const PRESS_OFFSET := Vector2(0, 5)
+
+var dog_buttons = [
+	preload("res://Art/UI/CheesButton.png"),
+	preload("res://Art/UI/PattyButton.png"),
+	preload("res://Art/UI/LettuceButton.png"),
+	preload("res://Art/UI/TomatoButton.png")
+]
+
 
 func _ready() -> void:
 	# do nothing until player_id is set
@@ -22,8 +30,11 @@ func setup_buttons():
 	}
 
 	default_positions.clear()
+	var i = 0
 	for action in buttons.keys():
 		default_positions[action] = buttons[action].position
+		buttons.get(action).texture = dog_buttons.get(i)
+		i += 1 
 
 
 func _process(_delta: float) -> void:

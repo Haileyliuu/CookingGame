@@ -1,18 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bor8t8qhb3lmv"]
+[gd_scene load_steps=3 format=3 uid="uid://bor8t8qhb3lmv"]
 
-[ext_resource type="Script" uid="uid://b7ockp7da3kk" path="res://Scripts/background.gd" id="1_ordqw"]
+[ext_resource type="Script" path="res://Scripts/background.gd" id="1_ordqw"]
+[ext_resource type="Texture2D" uid="uid://bkaeitcwt7oxh" path="res://Art/UI/DogBackground.png" id="2_k6cvv"]
 
 [node name="Background" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 0
 offset_right = 960.0
 offset_bottom = 1080.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_ordqw")
 
 [node name="CatBack" type="ColorRect" parent="."]
@@ -31,9 +26,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.7607843, 0.7607843, 0.7607843, 1)
 
-[node name="DogBack" type="ColorRect" parent="."]
+[node name="DogBack" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.99607843, 0.3764706, 0.19607843, 1)
+texture = ExtResource("2_k6cvv")

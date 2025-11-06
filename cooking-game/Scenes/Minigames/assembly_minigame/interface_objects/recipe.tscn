@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://brlcje3brvxu4"]
 
-[ext_resource type="Script" path="res://Scripts/recipe.gd" id="1_7ps08"]
+[ext_resource type="Script" uid="uid://ddd0cs83pj1ae" path="res://Scripts/recipe.gd" id="1_7ps08"]
 
 [node name="Recipe" type="Control"]
 layout_mode = 3
@@ -10,12 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ps08")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_top = 61.0
-offset_right = 40.0
-offset_bottom = 84.0
 
 [node name="Slot1" type="Sprite2D" parent="."]
 position = Vector2(-250, 0)
