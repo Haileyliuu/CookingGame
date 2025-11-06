@@ -11,5 +11,6 @@ func _ready() -> void:
 	cat_state = PlayerStates.KITCHEN
 
 func _process(delta: float) -> void:
-	print("D: " + str(dog_state))
-	print("C: " + str(cat_state))
+	#print("D: " + str(dog_state))
+	#print("C: " + str(cat_state))
+	pass

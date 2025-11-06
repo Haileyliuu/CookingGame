@@ -10,8 +10,10 @@ class_name InteractionArea extends Area2D
 
 @export var minigame: MiniGame
 
-var interact: Callable = func():
-	interact_with_button()
+
+var interact: Callable = func(player_id: String):
+	if player_id == minigame.player_id:
+		interact_with_button()
 
 func interact_with_button():
 	if parent.is_in_group("Minigame"):

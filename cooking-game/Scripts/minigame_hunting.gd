@@ -1,4 +1,5 @@
 extends MiniGame
+
 @onready var arrow: Sprite2D = $Arrow
 
 func _input(event: InputEvent) -> void:
