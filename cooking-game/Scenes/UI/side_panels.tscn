@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b52sedgbgv0jx"]
 
-[ext_resource type="Texture2D" uid="uid://m8xitodthj6n" path="res://Art/Game Backgroud Layers/Game_Background_0006_Backgrounds.png" id="1_pbgs2"]
-[ext_resource type="Texture2D" uid="uid://xq7rt0fbl6qm" path="res://Art/Game Backgroud Layers/Game_Background_0000s_0000_Cat_Margins_Register.png" id="1_qiffm"]
-[ext_resource type="Texture2D" uid="uid://dq5lt1mwutrfu" path="res://Art/Game Backgroud Layers/Game_Background_0001s_0000_Dog_Margins_Register.png" id="2_pbgs2"]
+[ext_resource type="Texture2D" uid="uid://m8xitodthj6n" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0006_Backgrounds.png" id="1_pbgs2"]
+[ext_resource type="Texture2D" uid="uid://xq7rt0fbl6qm" path="res://Art/Game Backgroud Layers/Sides/Game_Background_0000s_0000_Cat_Margins_Register.png" id="1_qiffm"]
+[ext_resource type="Texture2D" uid="uid://dq5lt1mwutrfu" path="res://Art/Game Backgroud Layers/Sides/Game_Background_0001s_0000_Dog_Margins_Register.png" id="2_pbgs2"]
 
 [node name="SidePanels" type="Control"]
 layout_mode = 3
@@ -23,7 +23,7 @@ texture = ExtResource("1_qiffm")
 centered = false
 
 [node name="DogRegister" type="Sprite2D" parent="."]
-position = Vector2(1646.5, 0)
+position = Vector2(1648.5, 0)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_pbgs2")
 centered = false

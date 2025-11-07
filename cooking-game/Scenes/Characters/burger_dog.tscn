@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b87rcl12j1grt" path="res://Scenes/Interaction/interacting_component.tscn" id="3_5el3f"]
 
 [node name="BurgerDog" type="CharacterBody2D" groups=["Player"]]
+light_mask = 2
+visibility_layer = 2
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_yjktf")
