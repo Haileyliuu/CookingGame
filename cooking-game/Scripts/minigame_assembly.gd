@@ -175,8 +175,26 @@ func display_background():
 func create_warning():
 	var warning_label = Label.new()
 	warning_label.text = "Reached max ingredients! Clear your station!"
-	warning_label.add_theme_font_size_override("font_size", 32)
+	
+	var my_font = load("res://Art/Fonts/MADE Tommy Soft Bold PERSONAL USE.otf")
+	warning_label.add_theme_font_override("font", my_font)
+	warning_label.add_theme_font_size_override("font_size", 45)
+	warning_label.add_theme_color_override("font_color", Color(0.954, 0.954, 0.954, 1.0))
+	
+	#warning_label.add_theme_constant_override("shadow_offset_x", 3)
+	#warning_label.add_theme_constant_override("shadow_offset_y", 3)
+	#warning_label.add_theme_color_override("font_shadow_color", Color(0.278, 0.137, 0.0, 0.502))
+	warning_label.add_theme_constant_override("outline_size", 20)
+	warning_label.add_theme_color_override("font_outline_color", Color(0.545, 0.166, 0.088, 1.0))
 	add_child(warning_label)
+	
+	await get_tree().process_frame
+	var label_size = warning_label.size
+	var pos = Vector2(
+		screen_size.x / 2 - label_size.x / 2,
+		1.9 * screen_size.y / 3 - label_size.y / 2
+	)
+	warning_label.position = pos
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(warning_label, "modulate:a", 0, 1)
