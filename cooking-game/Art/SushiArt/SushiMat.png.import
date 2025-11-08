@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvoby6r5cheai"
-path="res://.godot/imported/CheesButton.png-7b6e46d50b72e71ce6cad1d2a02f78c4.ctex"
+uid="uid://cmg5l4vq5bbns"
+path="res://.godot/imported/SushiMat.png-d7f4a138e4635edd48eef86f28badb01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/CheesButton.png"
-dest_files=["res://.godot/imported/CheesButton.png-7b6e46d50b72e71ce6cad1d2a02f78c4.ctex"]
+source_file="res://Art/SushiArt/SushiMat.png"
+dest_files=["res://.godot/imported/SushiMat.png-d7f4a138e4635edd48eef86f28badb01.ctex"]
 
 [params]
 

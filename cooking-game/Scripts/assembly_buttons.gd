@@ -5,14 +5,14 @@ var buttons := {}
 var default_positions := {}
 
 const NORMAL_COLOR := Color(1, 1, 1)
-const PRESSED_COLOR := Color(0.94, 0.83, 0.808, 1.0)
+var pressed_shader = preload("res://Shaders/buttonPressed.gdshader")
 const PRESS_OFFSET := Vector2(0, 5)
 
 var dog_buttons = [
-	preload("res://Art/UI/CheesButton.png"),
-	preload("res://Art/UI/PattyButton.png"),
-	preload("res://Art/UI/LettuceButton.png"),
-	preload("res://Art/UI/TomatoButton.png")
+	preload("res://Art/AssemblyUI/CheeseButton.png"),
+	preload("res://Art/AssemblyUI/PattyButton.png"),
+	preload("res://Art/AssemblyUI/LettuceButton.png"),
+	preload("res://Art/AssemblyUI/TomatoButton.png")
 ]
 
 
@@ -46,10 +46,11 @@ func _process(_delta: float) -> void:
 		var base_pos = default_positions[action]
 
 		if Input.is_action_pressed(action):
-			sprite.modulate = PRESSED_COLOR
+			sprite.material = ShaderMaterial.new()
+			sprite.material.shader = pressed_shader
 			sprite.position = base_pos + PRESS_OFFSET
 		else:
-			sprite.modulate = NORMAL_COLOR
+			sprite.material = null
 			sprite.position = base_pos
 
 

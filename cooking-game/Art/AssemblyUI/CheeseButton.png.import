@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1ggef18tljxe"
-path="res://.godot/imported/PattyButton.png-af79875a8ff346433bacf3f2d495bf22.ctex"
+uid="uid://cvoby6r5cheai"
+path="res://.godot/imported/CheeseButton.png-d2d3427fd97da80039f0ecf4ffd0f009.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/PattyButton.png"
-dest_files=["res://.godot/imported/PattyButton.png-af79875a8ff346433bacf3f2d495bf22.ctex"]
+source_file="res://Art/AssemblyUI/CheeseButton.png"
+dest_files=["res://.godot/imported/CheeseButton.png-d2d3427fd97da80039f0ecf4ffd0f009.ctex"]
 
 [params]
 

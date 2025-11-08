@@ -20,10 +20,10 @@ var cat_food_art = {
 }
 
 var dog_food_art = {
-	1 : preload("res://Art/UI/CheesButton.png"),
-	2 : preload("res://Art/UI/PattyButton.png"),
-	3 : preload("res://Art/UI/LettuceButton.png"),
-	4 : preload("res://Art/UI/TomatoButton.png")
+	1: preload("res://Art/AssemblyUI/CheeseButton.png"),
+	2: preload("res://Art/AssemblyUI/PattyButton.png"),
+	3: preload("res://Art/AssemblyUI/LettuceButton.png"),
+	4: preload("res://Art/AssemblyUI/TomatoButton.png")
 }
 
 

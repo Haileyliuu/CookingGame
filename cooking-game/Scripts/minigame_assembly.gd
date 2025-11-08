@@ -13,6 +13,7 @@ var current_recipe = []
 
 @onready var dishes_label : Label = $DishesCreated
 var dishes_created = 0
+var displayed_finish = false
 
 @onready var background_art = [
 	$Background,
@@ -27,16 +28,19 @@ var cat_food_art = {
 	2 : [preload("res://Art/SushiArt/Fish.png"), 40],
 	3 : [preload("res://Art/SushiArt/Cucumber.png"), 50],
 	4 : [preload("res://Art/SushiArt/Avocado.png"), 50],
-	5 : preload("res://Art/SushiCat.png")
+	5 : [preload("res://Art/SushiArt/SeaweedRice.png"), 40, -180], # texture, height, sprite offset
+	6 : [preload("res://Art/SushiArt/SushiMat.png"), 50],
+	7 : [preload("res://Art/SushiArt/SushiMat.png"), 0, -180],
 }
 
 var dog_food_art = {
-	1 : [preload("res://Art/BurgerArt/Cheese.PNG"), 40],
+	1 : [preload("res://Art/BurgerArt/Cheese.PNG"), 50],
 	2 : [preload("res://Art/BurgerArt/Patty.PNG"), 82],
 	3 : [preload("res://Art/BurgerArt/Lettuce.PNG"), 60],
 	4 : [preload("res://Art/BurgerArt/Tomato.PNG"), 60],
-	5 : preload("res://Art/BurgerArt/BottomBun.PNG"),
-	6 : preload("res://Art/BurgerArt/TopBun.PNG")
+	5 : [preload("res://Art/BurgerArt/BottomBun.PNG"), 70],
+	6 : [preload("res://Art/BurgerArt/TopBun.PNG"), 40],
+	7: [preload("res://Art/BurgerArt/Plate.png"), 20]
 }
 
 var player_food_art = get(player_id + "_food_art")
@@ -54,10 +58,17 @@ func _process(_delta: float) -> void:
 	
 func _input(event):
 	if event.is_action_pressed(player_id + "_select"):
-			if check_recipe():
-				randomize_recipe()
+		if sprites_added.is_empty():
+			new_plate()
+		elif check_recipe() && !displayed_finish:
+			spawn_sprite(6)
+			displayed_finish = true
+		else:
 			delete_sprites()
-	if current_recipe.size() < 8:
+			if displayed_finish:
+				randomize_recipe()
+				displayed_finish = false
+	if current_recipe.size() < 8 && !displayed_finish:
 		if event.is_action_pressed(player_id + "_up"):
 			spawn_sprite(1)
 			current_recipe.push_back(1)
@@ -85,14 +96,17 @@ func spawn_sprite(texture_num):
 	sprite.texture = texture
 	
 	# Dynamic scaling based on viewport height (relative to 1080p baseline)
-	var scale_factor = screen_size.y / 1080.0 * (0.8 if player_id == "cat" else 0.55)
+	var scale_factor = screen_size.y / 1080.0 * (0.7 if player_id == "cat" else 0.55)
 	sprite.scale = Vector2.ONE * scale_factor
 
 	# set position of sprite (offset increase each sprite added to stack them)
-	var start_y = screen_size.y * (0.6 if player_id == "cat" else 0.5)   # % down the screen
+	var start_y = screen_size.y * (0.6 if player_id == "cat" else 0.48)   # % down the screen
 	var start_x = screen_size.x * 0.5   # % x across
 	sprite.position = Vector2(start_x, start_y - offset)
 	offset += (player_food_art[texture_num][1] * scale_factor)
+	
+	if player_food_art[texture_num].size() > 2:
+		sprite.offset.y = player_food_art[texture_num][2]
 	
 
 	# Add it to the scene so it appears
@@ -107,8 +121,10 @@ func delete_sprites():
 	current_recipe = []
 	
 func check_recipe():
+	if current_recipe[0] != 7:
+		return false
+	current_recipe.pop_front()
 	if current_recipe == recipe:
-		dishes_created+=1
 		dishes_label.text = "Dishes created: " + str(dishes_created)
 		return true
 	return false
@@ -137,13 +153,9 @@ func randomize_recipe():
 	# Assign to the actual recipe
 	recipe = new_recipe
 	
+	dishes_created+=1
 	emit_signal("recipe_signal", recipe)
 	
-func display_finished():
-	#var sprite = Sprite2D.new()
-	#sprite.texture = player_food_art[5]
-	#add_child(sprite)
-	pass
 
 func display_background():
 	for art in background_art:
@@ -163,8 +175,8 @@ func display_background():
 	background_art[2].scale = Vector2.ONE * scale_factor
 	
 	# position buttons
-	scale_factor = screen_size.y / 1080.0 * 0.75
-	start_y = screen_size.y * 0.85
+	scale_factor = screen_size.y / 1080.0 
+	start_y = screen_size.y * 0.82
 	background_art[3].position = Vector2(start_x, start_y)
 	background_art[3].scale = Vector2.ONE * scale_factor
 	
@@ -202,4 +214,8 @@ func create_warning():
 	await get_tree().create_timer(1).timeout
 	warning_label.queue_free()
 	
+func new_plate():
+	spawn_sprite(7)
+	spawn_sprite(5)
+	current_recipe.push_back(7)
 	
