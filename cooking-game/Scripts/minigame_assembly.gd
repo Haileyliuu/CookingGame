@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_id = "dog"
+var player_id = "cat"
 signal player(p)
 
 @onready var screen_size = get_viewport_rect().size
@@ -14,6 +14,8 @@ var current_recipe = []
 @onready var dishes_label : Label = $DishesCreated
 var dishes_created = 0
 var displayed_finish = false
+
+@onready var instructions_label : Label = $Instructions
 
 @onready var background_art = [
 	$Background,
@@ -52,6 +54,7 @@ func _ready() -> void:
 	player.emit(player_id)
 	randomize_recipe()
 	display_background()
+	update_instructions()
 
 func _process(_delta: float) -> void:
 	pass
@@ -219,3 +222,14 @@ func new_plate():
 	spawn_sprite(5)
 	current_recipe.push_back(7)
 	
+func update_instructions():
+	if player_id == "dog":
+		instructions_label.text = """Instructions:
+			1. [Shift] - Place plate
+			2. [Arrow Keys] - Add ingredients
+			3. [Shift] - Send out dish / Clear station"""
+	elif player_id == "cat":
+		instructions_label.text = """Instructions:
+			1. [E] - Place mat
+			2. [WASD] - Add ingredients
+			3. [E] - Send out dish / Clear station"""
