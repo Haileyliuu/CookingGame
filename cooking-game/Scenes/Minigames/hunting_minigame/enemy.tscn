@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://k1clb4al8nsq"]
+[gd_scene load_steps=7 format=3 uid="uid://cp7cywp63p2u6"]
 
 [ext_resource type="Texture2D" uid="uid://wb0i27qtaqo4" path="res://Art/icon.svg" id="1_hfgcq"]
-[ext_resource type="Script" uid="uid://dpouf3on0rcpv" path="res://Scripts/enemy.gd" id="1_j2itk"]
-[ext_resource type="PackedScene" uid="uid://b7c0vfl1we1al" path="res://Scenes/Minigames/hunting_minigame/wander.tscn" id="3_j2itk"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_j2itk"]
+[ext_resource type="PackedScene" path="res://Scenes/Minigames/hunting_minigame/wander.tscn" id="3_j2itk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l66kt"]
 size = Vector2(101, 93)
@@ -22,6 +22,8 @@ texture = ExtResource("1_hfgcq")
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(390, 443)
+collision_layer = 16
+collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-391.5, -442.5)
@@ -36,6 +38,7 @@ debug_color = Color(0.5480865, 0.5632365, 0.11740684, 0.41960785)
 
 [node name="DetectionRadius" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
 position = Vector2(-1, 2)

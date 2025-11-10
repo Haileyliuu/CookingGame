@@ -20,6 +20,8 @@ offset = Vector2(0, -200)
 script = ExtResource("3_l1xdu")
 
 [node name="Hurtbox" type="Area2D" parent="arrow"]
+collision_layer = 8
+collision_mask = 24
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="arrow/Hurtbox"]
 position = Vector2(-1.4088211, 0.7571087)
@@ -29,7 +31,7 @@ polygon = PackedVector2Array(46.179047, -301.07434, 49.09784, -323.6245, 37.3913
 position = Vector2(0.2294035, -120.76733)
 
 [node name="Marker2D8" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(592, 430)
+position = Vector2(626, 84)
 
 [node name="Marker2D10" type="Marker2D" parent="." groups=["cow"]]
 position = Vector2(1124, 621)
