@@ -1,3 +1,55 @@
-[gd_scene format=3 uid="uid://rlbvus4vqqeg"]
+[gd_scene load_steps=7 format=3 uid="uid://rlbvus4vqqeg"]
+
+[ext_resource type="Script" uid="uid://ccbtk4b5h5281" path="res://Scripts/minigame_assembly.gd" id="1_01oyl"]
+[ext_resource type="PackedScene" uid="uid://cfksp4rdu3k3d" path="res://Scenes/Minigames/assembly_minigame/interface_objects/assembly_buttons.tscn" id="1_tx6sn"]
+[ext_resource type="PackedScene" uid="uid://bor8t8qhb3lmv" path="res://Scenes/Minigames/assembly_minigame/interface_objects/background.tscn" id="2_vdtne"]
+[ext_resource type="PackedScene" uid="uid://brlcje3brvxu4" path="res://Scenes/Minigames/assembly_minigame/interface_objects/recipe.tscn" id="3_2ja8v"]
+[ext_resource type="PackedScene" uid="uid://bo1g4xkja8u03" path="res://Scenes/Minigames/assembly_minigame/interface_objects/board.tscn" id="3_li31s"]
+[ext_resource type="FontFile" uid="uid://bx55n57nxedpg" path="res://Art/Fonts/MADE Tommy Soft Bold PERSONAL USE.otf" id="6_vdtne"]
 
 [node name="MinigameAssembly" type="Node2D"]
+script = ExtResource("1_01oyl")
+
+[node name="Background" parent="." instance=ExtResource("2_vdtne")]
+
+[node name="Recipe" parent="." instance=ExtResource("3_2ja8v")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Board" parent="." instance=ExtResource("3_li31s")]
+
+[node name="AssemblyButtons" parent="." instance=ExtResource("1_tx6sn")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 478.0
+offset_top = 910.0
+offset_right = 478.0
+offset_bottom = 910.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.8, 0.8)
+
+[node name="DishesCreated" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("6_vdtne")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 300.0
+offset_right = 761.0
+offset_bottom = 461.0
+theme_override_fonts/font = ExtResource("6_vdtne")
+theme_override_font_sizes/font_size = 30
+
+[connection signal="player" from="." to="Background" method="_on_minigame_assembly_player"]
+[connection signal="player" from="." to="Recipe" method="_on_minigame_assembly_player"]
+[connection signal="player" from="." to="Board" method="_on_minigame_assembly_player"]
+[connection signal="player" from="." to="AssemblyButtons" method="_on_minigame_assembly_player"]
+[connection signal="recipe_signal" from="." to="Recipe" method="_on_minigame_assembly_recipe_signal"]
