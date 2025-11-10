@@ -9,7 +9,6 @@ var can_interact := true
 func _ready() -> void:
 	pass
 	
-
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("cat_select") or event.is_action_pressed("dog_select")) and can_interact:
 		if curr_interactions:

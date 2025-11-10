@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4x8oeu8en8s2"]
+
+[ext_resource type="Texture2D" uid="uid://wb0i27qtaqo4" path="res://Art/icon.svg" id="1_6lw7f"]
+
+[sub_resource type="GDScript" id="GDScript_olpk2"]
+script/source = "extends Node2D
+
+var speed = 2  # rotation speed (in radians)
+var radius = 100  # desired orbit radius
+func _ready():
+	$\".\".position = Vector2(radius, 180) # desired orbit radius
+
+func _process(delta):
+	rotation += speed * delta
+"
+
+[node name="arrow_movement" type="Node2D"]
+script = SubResource("GDScript_olpk2")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(581, 304)
+texture = ExtResource("1_6lw7f")
