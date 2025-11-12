@@ -1,4 +1,4 @@
-extends MiniGame
+extends Node2D
 class_name minigame_hunting
 
 var player_id := "dog"

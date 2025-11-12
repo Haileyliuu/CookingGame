@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody2D
+extends CharacterBody2D
 
 @export var player_id : String # either "cat" or "dog"
 
