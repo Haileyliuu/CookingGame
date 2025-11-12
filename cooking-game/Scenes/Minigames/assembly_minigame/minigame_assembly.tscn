@@ -53,3 +53,4 @@ theme_override_font_sizes/font_size = 30
 [connection signal="player" from="." to="Board" method="_on_minigame_assembly_player"]
 [connection signal="player" from="." to="AssemblyButtons" method="_on_minigame_assembly_player"]
 [connection signal="recipe_signal" from="." to="Recipe" method="_on_minigame_assembly_recipe_signal"]
+[connection signal="select_button_state" from="." to="AssemblyButtons" method="_on_minigame_assembly_select_button_state"]

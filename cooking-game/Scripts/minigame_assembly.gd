@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_id = "cat"
+var player_id = "dog"
 signal player(p)
 
 @onready var screen_size = get_viewport_rect().size
@@ -10,10 +10,11 @@ var recipe = [0, 0, 0, 0, 0, 0]
 signal recipe_signal(r)
 var current_recipe = []
 
-
 @onready var dishes_label : Label = $DishesCreated
 var dishes_created = 0
 var displayed_finish = false
+
+signal select_button_state(s) # can send signal: "plate" "check" or "send"
 
 @onready var instructions_label : Label = $Instructions
 
@@ -63,15 +64,21 @@ func _input(event):
 	if event.is_action_pressed(player_id + "_select"):
 		if sprites_added.is_empty():
 			new_plate()
+			select_button_state.emit("check")
 		elif check_recipe() && !displayed_finish:
 			spawn_sprite(6)
 			displayed_finish = true
+			select_button_state.emit("send")
 		else:
 			delete_sprites()
+			select_button_state.emit("plate")
 			if displayed_finish:
 				randomize_recipe()
 				displayed_finish = false
 	if current_recipe.size() < 8 && !displayed_finish:
+		for dir in ["up", "down", "left", "right"]:
+			if event.is_action_pressed(player_id + "_" + dir):
+				select_button_state.emit("check")
 		if event.is_action_pressed(player_id + "_up"):
 			spawn_sprite(1)
 			current_recipe.push_back(1)
