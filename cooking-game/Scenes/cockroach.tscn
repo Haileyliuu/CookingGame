@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6yktk"]
 radius = 50.0
 
-[node name="Cockroach" type="CharacterBody2D"]
+[node name="Cockroach" type="Area2D"]
 script = ExtResource("1_tj5fg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

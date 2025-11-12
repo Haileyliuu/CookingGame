@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 
@@ -8,8 +8,8 @@ func _ready() -> void:
 
 func _move_npc():
 	var random_pos: Vector2
-	random_pos.x = randf_range(300, 1600)
-	random_pos.y = randf_range(0, 1000)
+	random_pos.x = randi_range(300, 1600)
+	random_pos.y = randi_range(200, 1000)
 	nav_agent.set_target_position(random_pos)
 
 func _physics_process(delta: float) -> void:
@@ -18,10 +18,9 @@ func _physics_process(delta: float) -> void:
 	var direction = local_destination.normalized()
 	#var player_global_position = player.global_transform.origin
 	#var look_at_dir = Vector3(global_position.x + player_global_position.z, 0, global_position.z + player_global_position.x)
-	if velocity.x < .5 && velocity.y < .5:
+	if nav_agent.is_navigation_finished() || !nav_agent.is_target_reachable():
 		_move_npc()
 	
-	velocity = direction * 5.0 * delta
-	move_and_slide()
+	position += direction * 200.0 * delta
 	
 	
