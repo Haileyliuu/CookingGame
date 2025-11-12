@@ -6,6 +6,17 @@ class_name InteractionArea extends Area2D
 #@export var interact_type = "none"
 #@export var interact_value = "interact"
 
+@onready var parent: Node = owner
 
-var interact: Callable = func():
-	pass
+@export var minigame: MiniGame
+
+
+var interact: Callable = func(player_id: String):
+	if player_id == minigame.player_id:
+		interact_with_button()
+
+func interact_with_button():
+	if parent.is_in_group("Minigame"):
+		minigame.end_minigame()
+	else:
+		minigame.start_minigame()

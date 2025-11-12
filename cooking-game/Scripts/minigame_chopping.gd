@@ -9,7 +9,7 @@
 ## Dog = down arrow key
 ## Number of chops = 5
 
-extends Node2D
+extends Minigame
 
 signal chop_done(player)
 

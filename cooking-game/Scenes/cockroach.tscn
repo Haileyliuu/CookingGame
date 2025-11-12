@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://5vcp8rmx38c6"]
+
+[ext_resource type="Texture2D" uid="uid://b1ec60k7ubtv2" path="res://Art/american-cockroach.webp" id="1_6yktk"]
+[ext_resource type="Script" uid="uid://4tutehj7ppdd" path="res://Scripts/cockroach.gd" id="1_tj5fg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6yktk"]
+radius = 50.0
+
+[node name="Cockroach" type="CharacterBody2D"]
+script = ExtResource("1_tj5fg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -3.8146973e-06)
+scale = Vector2(0.33221024, 0.3075)
+texture = ExtResource("1_6yktk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6yktk")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

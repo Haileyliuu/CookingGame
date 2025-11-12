@@ -1,4 +1,4 @@
-extends Node2D
+extends Minigame
 
 var player_id = "cat"
 signal player(p)
