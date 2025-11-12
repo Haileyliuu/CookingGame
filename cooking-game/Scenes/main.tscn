@@ -23,14 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="22_ee4r6"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pdsj5"]
-blend_mode = 3
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fevyy"]
-blend_mode = 3
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b3802"]
-blend_mode = 3
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hibaj"]
+vertices = PackedVector2Array(-190.88281, -188, -192.88281, 215, -240.74219, 15.2421875, -244.25781, -320, 584.03125, -474.9375, 584.96094, 132.85938, 460.10156, -6.0078125, 458.89844, -304.35156, -119, 129.13281, 263.6875, 2.0625, 161.78906, -474.04688, 267.28906, -301.64844, 158.82031, -105.640625, 38, -92.02344, -119, -100.671875, -38.1875, -99.640625, -496.89063, 215, -455.27344, 21.78125, -494.89844, -258.0703, -451.7422, -320, 38, -176.3125, -47.492188, -188, 73.27344, -482.89063, 76.703125, -174.32031, -601.53125, -262.09375, -606.4297, -480.10156)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(6, 5, 8, 9), PackedInt32Array(10, 4, 7, 11), PackedInt32Array(12, 10, 11, 9), PackedInt32Array(12, 9, 8, 13), PackedInt32Array(13, 8, 14, 15), PackedInt32Array(2, 1, 16, 17), PackedInt32Array(17, 16, 18, 19), PackedInt32Array(20, 13, 15, 21), PackedInt32Array(22, 23, 20, 21, 3), PackedInt32Array(18, 24, 25, 19), PackedInt32Array(19, 25, 22, 3), PackedInt32Array(3, 21, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-632.00006, -505, 97.99994, -508, 101.99994, -148, 62.99994, -150, 62.99994, -120, 133.99994, -128, 136.99994, -499, 608.99994, -500, 609.99994, 158, -144.00006, 154, -144.00006, -126, -66.00006, -125, -70.00006, -163, -166.00006, -163, -168.00006, 240, -522.00006, 240, -520.00006, -234, -626.00006, -238), PackedVector2Array(-427.00006, -295, -430.00006, -4, -266.00006, -9, -269.00006, -295), PackedVector2Array(291.99994, -277, 288.99994, -24, 434.99994, -30, 433.99994, -279)])
+agent_radius = 25.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h1bgf"]
 shader = ExtResource("11_k12tt")
