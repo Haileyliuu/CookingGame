@@ -19,17 +19,17 @@ config/icon="res://Art/icon.svg"
 
 GameStats="*res://game_stats.gd"
 
-[dotnet]
-
-project/assembly_name="Cooking game"
-Inventory="*res://Scripts/inventory.gd"
-
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="Cooking game"
+Inventory="*res://Scripts/inventory.gd"
 
 [global_group]
 

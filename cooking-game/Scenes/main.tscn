@@ -1,16 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://c54xkls8oltq0"]
+[gd_scene load_steps=23 format=3 uid="uid://c54xkls8oltq0"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="Texture2D" uid="uid://c41ju7gsf78oi" path="res://Art/Game Backgroud Layers/Game_Background_0004_Floor.png" id="2_344ge"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
-[ext_resource type="PackedScene" uid="uid://hexxhvwjcl1s" path="res://Scenes/Minigames/minigame_manager/minigame1.tscn" id="4_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="5_mcep0"]
-[ext_resource type="PackedScene" uid="uid://b35jwavnwhwx1" path="res://Scenes/Minigames/minigame_manager/minigame_2.tscn" id="6_21xkr"]
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
 [ext_resource type="Texture2D" uid="uid://kfjd20db6mqi" path="res://Art/Game Backgroud Layers/Game_Background_0002s_0003_Dog_SinkCounter.png" id="3_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://hexxhvwjcl1s" path="res://Scenes/Minigames/minigame_manager/minigame1.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://bcngnb4s64518" path="res://Art/Game Backgroud Layers/Game_Background_0003_InnerWall_Colors_Middle.png" id="5_hptm8"]
 [ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="5_mcep0"]
+[ext_resource type="PackedScene" uid="uid://b35jwavnwhwx1" path="res://Scenes/Minigames/minigame_manager/minigame_2.tscn" id="6_21xkr"]
 [ext_resource type="Texture2D" uid="uid://baga78c6mhv8a" path="res://Art/Game Backgroud Layers/Game_Background_0003_InnerWall_Colors_Top.png" id="6_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://c26v18605lmau" path="res://Art/Game Backgroud Layers/Game_Background_0003_InnerWall_Colors_Bottom.png" id="7_6iyac"]
 [ext_resource type="Texture2D" uid="uid://3ua7chx1ctxv" path="res://Art/Game Backgroud Layers/Game_Background_0003s_0012_Cat_Counter.png" id="7_fdnlq"]
@@ -20,6 +19,12 @@
 [ext_resource type="Shader" uid="uid://b7p6ejcpwqko6" path="res://Shaders/select.gdshader" id="11_k12tt"]
 [ext_resource type="Texture2D" uid="uid://de1r1ed5gub0b" path="res://Art/Game Backgroud Layers/Game_Background_0002s_0011_Dog_Table.png" id="12_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
+[ext_resource type="PackedScene" uid="uid://5vcp8rmx38c6" path="res://Scenes/cockroach.tscn" id="20_hibaj"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hibaj"]
+vertices = PackedVector2Array(88.109375, -497.95313, 91.88281, -158.53125, 53, -160.53125, -621.90625, -495.03906, 599.97656, 147.9375, -134, 144.04688, -134, -115.86719, -54.882813, -114.859375, 53, -108.8125, 146.90625, -489.02344, 599.0078, -489.96875, 143.92969, -119.0625, -175.95313, -173, -177.95313, 229.96875, -616.0703, 229.02344, -61, -173)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 4, 11), PackedInt32Array(12, 13, 14, 3), PackedInt32Array(3, 2, 8, 15), PackedInt32Array(8, 11, 4), PackedInt32Array(8, 7, 15), PackedInt32Array(3, 15, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-632.00006, -505, 97.99994, -508, 101.99994, -148, 62.99994, -150, 62.99994, -120, 133.99994, -128, 136.99994, -499, 608.99994, -500, 609.99994, 158, -144.00006, 154, -144.00006, -126, -66.00006, -125, -70.00006, -163, -166.00006, -163, -168.00006, 240, -626.00006, 239)])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h1bgf"]
 shader = ExtResource("11_k12tt")
@@ -34,14 +39,22 @@ script = ExtResource("1_kry3j")
 position = Vector2(956.99994, 542)
 scale = Vector2(0.401, 0.401)
 
-[node name="Floor" type="Sprite2D" parent="Background"]
-position = Vector2(0, -5)
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Background"]
+position = Vector2(14.962891, 588.5287)
+scale = Vector2(2.4937656, 2.4937656)
+navigation_polygon = SubResource("NavigationPolygon_hibaj")
+
+[node name="Floor" type="Sprite2D" parent="Background/NavigationRegion2D"]
+position = Vector2(-6.000122, -238.005)
+scale = Vector2(0.401, 0.401)
 texture = ExtResource("2_344ge")
 
-[node name="OuterWall" type="Sprite2D" parent="Background"]
-position = Vector2(2.5, -2.5)
-scale = Vector2(1.001, 1.001)
+[node name="OuterWall" type="Sprite2D" parent="Background/NavigationRegion2D"]
+position = Vector2(-4.9976196, -237.0025)
+scale = Vector2(0.401401, 0.401401)
 texture = ExtResource("3_wsu2k")
+
+[node name="Cockroach" parent="Background/NavigationRegion2D" instance=ExtResource("20_hibaj")]
 
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -131,31 +144,24 @@ texture = ExtResource("12_wsu2k")
 
 [node name="BurgerDog" parent="Y-sort" instance=ExtResource("1_rivda")]
 unique_name_in_owner = true
-position = Vector2(775, 315)
+position = Vector2(1307, 365)
 
 [node name="SushiCat" parent="Y-sort" instance=ExtResource("2_h7nwh")]
 unique_name_in_owner = true
-position = Vector2(345, 309)
+position = Vector2(461, 369)
 
 [node name="InteractionArea" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
-position = Vector2(1082, 68)
+position = Vector2(1005, 350)
 minigame = NodePath("../Minigame1")
 
 [node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(275, 432)
 player_id = "cat"
 
 [node name="InteractionArea2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
-position = Vector2(1086, 578)
+position = Vector2(1515, 350)
 minigame = NodePath("../Minigame2")
 
 [node name="Minigame2" parent="." instance=ExtResource("6_21xkr")]
+position = Vector2(471, 436)
 player_id = "dog"
-
-[editable path="Y-sort/SushiCat"]
-position = Vector2(1469, 335)
-
-[node name="SushiCat" parent="Y-sort" instance=ExtResource("2_h7nwh")]
-position = Vector2(848, 345)
-
-[node name="InteractionArea" parent="." instance=ExtResource("5_mcep0")]
-position = Vector2(1529, 235)
