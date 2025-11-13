@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drsgi1lajm3rq"
-path="res://.godot/imported/Progress.png-9541cf6726329ecfee4d7da5ccbbfc4f.ctex"
+uid="uid://dcecjbuhbsus2"
+path="res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Progress.png"
-dest_files=["res://.godot/imported/Progress.png-9541cf6726329ecfee4d7da5ccbbfc4f.ctex"]
+source_file="res://Art/PlaceholderArt/arrow.webp"
+dest_files=["res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"]
 
 [params]
 

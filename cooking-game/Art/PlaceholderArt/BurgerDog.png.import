@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcecjbuhbsus2"
-path="res://.godot/imported/arrow.webp-be3596b692b06afd2be7fb102edefea3.ctex"
+uid="uid://wbbkfbp6kuxe"
+path="res://.godot/imported/BurgerDog.png-629327bdd8c365024d476d873970dd5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/arrow.webp"
-dest_files=["res://.godot/imported/arrow.webp-be3596b692b06afd2be7fb102edefea3.ctex"]
+source_file="res://Art/PlaceholderArt/BurgerDog.png"
+dest_files=["res://.godot/imported/BurgerDog.png-629327bdd8c365024d476d873970dd5f.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwkoaby5gyfpt"]
 
-[ext_resource type="Texture2D" uid="uid://wbbkfbp6kuxe" path="res://Art/BurgerDog.png" id="1_ruucx"]
+[ext_resource type="Texture2D" uid="uid://wbbkfbp6kuxe" path="res://Art/PlaceholderArt/BurgerDog.png" id="1_ruucx"]
 [ext_resource type="Script" uid="uid://cqn5gtk7puod7" path="res://Scripts/player.gd" id="1_yjktf"]
 [ext_resource type="PackedScene" uid="uid://b87rcl12j1grt" path="res://Scenes/Interaction/interacting_component.tscn" id="3_5el3f"]
 
