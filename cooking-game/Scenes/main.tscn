@@ -1,12 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsctfwx8va1hu"]
+[gd_scene load_steps=22 format=3 uid="uid://dt55rp8j10n8u"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="Texture2D" uid="uid://c41ju7gsf78oi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0004_Floor.png" id="2_344ge"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
 [ext_resource type="Texture2D" uid="uid://kfjd20db6mqi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0002s_0003_Dog_SinkCounter.png" id="3_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://hexxhvwjcl1s" path="res://Scenes/Minigames/minigame_manager/minigame1.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://bcngnb4s64518" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Middle.png" id="5_hptm8"]
 [ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="5_mcep0"]
 [ext_resource type="Texture2D" uid="uid://baga78c6mhv8a" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Top.png" id="6_d1ilt"]
@@ -17,21 +15,19 @@
 [ext_resource type="Texture2D" uid="uid://jeegbaqq8mm7" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003s_0010_Cat_Table.png" id="11_jkdf5"]
 [ext_resource type="Shader" uid="uid://b7p6ejcpwqko6" path="res://Shaders/select.gdshader" id="11_k12tt"]
 [ext_resource type="Texture2D" uid="uid://de1r1ed5gub0b" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0002s_0011_Dog_Table.png" id="12_wsu2k"]
+[ext_resource type="Texture2D" uid="uid://ig81pq42p8cw" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsMiddle.png" id="16_fevyy"]
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
-[ext_resource type="PackedScene" path="res://Scenes/cockroach.tscn" id="20_hibaj"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_hibaj"]
-vertices = PackedVector2Array(-190.88281, -188, -192.88281, 215, -240.74219, 15.2421875, -244.25781, -320, 584.03125, -474.9375, 584.96094, 132.85938, 460.10156, -6.0078125, 458.89844, -304.35156, -119, 129.13281, 263.6875, 2.0625, 161.78906, -474.04688, 267.28906, -301.64844, 158.82031, -105.640625, 38, -92.02344, -119, -100.671875, -38.1875, -99.640625, -496.89063, 215, -455.27344, 21.78125, -494.89844, -258.0703, -451.7422, -320, 38, -176.3125, -47.492188, -188, 73.27344, -482.89063, 76.703125, -174.32031, -601.53125, -262.09375, -606.4297, -480.10156)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(6, 5, 8, 9), PackedInt32Array(10, 4, 7, 11), PackedInt32Array(12, 10, 11, 9), PackedInt32Array(12, 9, 8, 13), PackedInt32Array(13, 8, 14, 15), PackedInt32Array(2, 1, 16, 17), PackedInt32Array(17, 16, 18, 19), PackedInt32Array(20, 13, 15, 21), PackedInt32Array(22, 23, 20, 21, 3), PackedInt32Array(18, 24, 25, 19), PackedInt32Array(19, 25, 22, 3), PackedInt32Array(3, 21, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-632.00006, -505, 97.99994, -508, 101.99994, -148, 62.99994, -150, 62.99994, -120, 133.99994, -128, 136.99994, -499, 608.99994, -500, 609.99994, 158, -144.00006, 154, -144.00006, -126, -66.00006, -125, -70.00006, -163, -166.00006, -163, -168.00006, 240, -522.00006, 240, -520.00006, -234, -626.00006, -238), PackedVector2Array(-427.00006, -295, -430.00006, -4, -266.00006, -9, -269.00006, -295), PackedVector2Array(291.99994, -277, 288.99994, -24, 434.99994, -30, 433.99994, -279)])
-agent_radius = 25.0
+[ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
+[ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="22_ee4r6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h1bgf"]
 shader = ExtResource("11_k12tt")
 shader_parameter/highlight_strength = 0.5
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h1bgf"]
+blend_mode = 3
+
 [node name="Main" type="Node2D"]
-script = ExtResource("1_kry3j")
 
 [node name="SidePanels" parent="." instance=ExtResource("16_k12tt")]
 
@@ -39,22 +35,14 @@ script = ExtResource("1_kry3j")
 position = Vector2(956.99994, 542)
 scale = Vector2(0.401, 0.401)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Background"]
-position = Vector2(14.962891, 588.5287)
-scale = Vector2(2.4937656, 2.4937656)
-navigation_polygon = SubResource("NavigationPolygon_hibaj")
-
-[node name="Floor" type="Sprite2D" parent="Background/NavigationRegion2D"]
-position = Vector2(-6.000122, -238.005)
-scale = Vector2(0.401, 0.401)
+[node name="Floor" type="Sprite2D" parent="Background"]
+position = Vector2(0, -5)
 texture = ExtResource("2_344ge")
 
-[node name="OuterWall" type="Sprite2D" parent="Background/NavigationRegion2D"]
-position = Vector2(-4.9976196, -237.0025)
-scale = Vector2(0.401401, 0.401401)
+[node name="OuterWall" type="Sprite2D" parent="Background"]
+position = Vector2(2.5, -2.5)
+scale = Vector2(1.001, 1.001)
 texture = ExtResource("3_wsu2k")
-
-[node name="Cockroach" parent="Background/NavigationRegion2D" instance=ExtResource("20_hibaj")]
 
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -66,7 +54,7 @@ scale = Vector2(0.401, 0.401)
 
 [node name="MiddleWallSprite" type="Sprite2D" parent="Y-sort/Wall"]
 y_sort_enabled = true
-position = Vector2(0, 263.48755)
+position = Vector2(0, 265.98132)
 texture = ExtResource("5_hptm8")
 offset = Vector2(0, -115)
 
@@ -92,23 +80,28 @@ position = Vector2(957.00006, 537)
 scale = Vector2(0.39999995, 0.39999995)
 
 [node name="CatTopCounter" type="Sprite2D" parent="Y-sort/Counters"]
-position = Vector2(-637.5005, -787.5001)
+position = Vector2(-649.9999, -782.5)
 scale = Vector2(1.0000005, 1.0000005)
 texture = ExtResource("7_fdnlq")
 
+[node name="CatRiceCooker" type="Sprite2D" parent="Y-sort/Counters/CatTopCounter"]
+position = Vector2(547.4995, -132.50005)
+scale = Vector2(0.9999996, 0.9999996)
+texture = ExtResource("17_ee4r6")
+
 [node name="CatBottomCounter" type="Sprite2D" parent="Y-sort/Counters"]
-position = Vector2(-1435, 115)
+position = Vector2(-1447.5002, 115)
 scale = Vector2(1.0000005, 1.0000005)
 texture = ExtResource("8_fdnlq")
 offset = Vector2(0, 500)
 
 [node name="DogTopCounter" type="Sprite2D" parent="Y-sort/Counters"]
-position = Vector2(754.99976, -787.4999)
+position = Vector2(752.50006, -785.0001)
 scale = Vector2(1.0000002, 1.0000002)
 texture = ExtResource("8_d1ilt")
 
 [node name="DogBottomCounter" type="Sprite2D" parent="Y-sort/Counters"]
-position = Vector2(610, 1087.0002)
+position = Vector2(600.0001, 1102.0002)
 scale = Vector2(1.0000002, 1.0000002)
 texture = ExtResource("3_ynf5e")
 
@@ -116,11 +109,12 @@ texture = ExtResource("3_ynf5e")
 polygon = PackedVector2Array(-347.5, 1077.5002, -327.5, 1202.5002, 1550.0002, 1202.5002, 1555.0002, 1100.0002)
 
 [node name="TopCollision" type="CollisionPolygon2D" parent="Y-sort/Counters"]
+visible = false
 position = Vector2(0, 120)
 polygon = PackedVector2Array(-1562.5005, -777.5001, -1562.5005, -1032.5001, 1157.5, -1035.0002, 1160, -780.0001)
 
 [node name="BottomCatCollision2" type="CollisionPolygon2D" parent="Y-sort/Counters"]
-polygon = PackedVector2Array(-1552.5005, 110, -1560.0005, 1215.0002, -1285.0005, 1215.0002, -1287.5005, 112.5)
+polygon = PackedVector2Array(-1552.5005, 110, -1560.0005, 1215.0002, -1307.5002, 1217.5002, -1307.5002, 112.5)
 
 [node name="Tables" type="StaticBody2D" parent="Y-sort"]
 material = SubResource("ShaderMaterial_h1bgf")
@@ -128,47 +122,45 @@ position = Vector2(956.00006, 537)
 scale = Vector2(0.39999995, 0.39999995)
 
 [node name="CatTableCollision" type="CollisionPolygon2D" parent="Y-sort/Tables"]
-position = Vector2(-843.50085, 223.00012)
-polygon = PackedVector2Array(-278.9994, -328.00012, -274.99963, 517.50024, 275.0005, 512.50024, 278.50073, -323.00012, 216.00073, -323.00012, 216.00073, -423.00012, -218.99939, -428.00012, -216.49939, -325.50012)
+position = Vector2(-847.5003, 222.50009)
+polygon = PackedVector2Array(-278.9994, -328.00012, -274.99963, 517.50024, 275.0005, 512.50024, 278.50073, -323.00012, 216.00073, -323.00012, -216.49939, -325.50012)
 
 [node name="CatTable" type="Sprite2D" parent="Y-sort/Tables"]
-position = Vector2(-843.50024, 270.50006)
+position = Vector2(-850.00024, 285.00006)
 texture = ExtResource("11_jkdf5")
 
 [node name="DogTableCollision" type="CollisionPolygon2D" parent="Y-sort/Tables"]
-polygon = PackedVector2Array(662.49976, -97.5, 714.99976, -100, 714.99976, -195, 1142.5, -197.5, 1140, -100, 1210, -102.5, 1210, 742.50024, 657.49976, 745.00024)
+position = Vector2(7.4998474, 0)
+polygon = PackedVector2Array(662.49976, -97.5, 714.99976, -100, 1140, -100, 1210, -102.5, 1210, 742.50024, 657.49976, 745.00024)
 
 [node name="DogTable" type="Sprite2D" parent="Y-sort/Tables"]
-position = Vector2(932.50024, 277.50012)
+position = Vector2(942.50024, 270.00012)
 texture = ExtResource("12_wsu2k")
 
+[node name="MiddleShadows" type="Sprite2D" parent="Y-sort/Tables/DogTable"]
+material = SubResource("CanvasItemMaterial_h1bgf")
+position = Vector2(-942.5005, -262.50024)
+scale = Vector2(1.0025003, 1.0025003)
+texture = ExtResource("16_fevyy")
+
 [node name="BurgerDog" parent="Y-sort" instance=ExtResource("1_rivda")]
-unique_name_in_owner = true
-position = Vector2(1307, 365)
+position = Vector2(1469, 335)
 
 [node name="SushiCat" parent="Y-sort" instance=ExtResource("2_h7nwh")]
-unique_name_in_owner = true
-position = Vector2(461, 369)
+position = Vector2(848, 345)
 
 [node name="InteractionArea" parent="." instance=ExtResource("5_mcep0")]
-position = Vector2(1005, 350)
+position = Vector2(1529, 235)
 
-[node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(275, 432)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 833.0
+offset_top = 550.0
+offset_right = 1233.0
+offset_bottom = 1000.0
 
-[node name="InteractionArea2" parent="." instance=ExtResource("5_mcep0")]
-position = Vector2(1515, 350)
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(300, 380)
+render_target_update_mode = 4
 
-[node name="Minigame2" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(471, 436)
-player_id = "dog"
-script = null
+[node name="MinigameAssembly" parent="SubViewportContainer/SubViewport" instance=ExtResource("22_ee4r6")]
