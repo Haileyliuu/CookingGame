@@ -5,18 +5,18 @@ extends Node2D
 var curr_interactions := []
 var can_interact := true
 
+@onready var player_id = owner.player_id
 
 func _ready() -> void:
 	pass
 	
-
 func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("cat_select") or event.is_action_pressed("dog_select")) and can_interact:
+	if ((event.is_action_pressed("cat_select") and player_id == "cat") or (event.is_action_pressed("dog_select") and player_id == "dog")) and can_interact:
 		if curr_interactions:
 			can_interact = false
 			interact_label.hide()
 			
-			await curr_interactions[0].interact.call()
+			await curr_interactions[0].interact.call(player_id)
 			
 			can_interact = true
 

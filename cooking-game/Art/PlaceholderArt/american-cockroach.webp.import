@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wbbkfbp6kuxe"
-path="res://.godot/imported/BurgerDog.png-6efb93bea39e0a1d114678db85b08229.ctex"
+uid="uid://b1ec60k7ubtv2"
+path="res://.godot/imported/american-cockroach.webp-8438f9b08d6dd83a45a1fe100cf3924c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BurgerDog.png"
-dest_files=["res://.godot/imported/BurgerDog.png-6efb93bea39e0a1d114678db85b08229.ctex"]
+source_file="res://Art/PlaceholderArt/american-cockroach.webp"
+dest_files=["res://.godot/imported/american-cockroach.webp-8438f9b08d6dd83a45a1fe100cf3924c.ctex"]
 
 [params]
 

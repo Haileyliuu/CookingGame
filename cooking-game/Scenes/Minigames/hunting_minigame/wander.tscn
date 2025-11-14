@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7c0vfl1we1al"]
+
+[ext_resource type="Script" uid="uid://c6ylhxtqh8cjj" path="res://Scripts/wander.gd" id="1_47w5l"]
+
+[node name="wander" type="Node2D"]
+script = ExtResource("1_47w5l")
+move_speed = 250.0

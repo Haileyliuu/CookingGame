@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkgjoyrfp8ant"
-path="res://.godot/imported/SushiCat.png-ce5176ca3d9e6d8de6d06b672e9b308f.ctex"
+path="res://.godot/imported/SushiCat.png-d7725707d6658d86204522ac0c984278.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/SushiCat.png"
-dest_files=["res://.godot/imported/SushiCat.png-ce5176ca3d9e6d8de6d06b672e9b308f.ctex"]
+source_file="res://Art/PlaceholderArt/SushiCat.png"
+dest_files=["res://.godot/imported/SushiCat.png-d7725707d6658d86204522ac0c984278.ctex"]
 
 [params]
 
