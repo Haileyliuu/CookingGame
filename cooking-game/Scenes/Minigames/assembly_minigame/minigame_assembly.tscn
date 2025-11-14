@@ -50,9 +50,9 @@ offset_bottom = 461.0
 theme_override_fonts/font = ExtResource("6_vdtne")
 theme_override_font_sizes/font_size = 30
 
-[connection signal="player" from="." to="Background" method="_on_minigame_assembly_player"]
-[connection signal="player" from="." to="Recipe" method="_on_minigame_assembly_player"]
-[connection signal="player" from="." to="Board" method="_on_minigame_assembly_player"]
-[connection signal="player" from="." to="AssemblyButtons" method="_on_minigame_assembly_player"]
+[connection signal="player_signal" from="." to="Background" method="_on_minigame_assembly_player_signal"]
+[connection signal="player_signal" from="." to="Recipe" method="_on_minigame_assembly_player_signal"]
+[connection signal="player_signal" from="." to="Board" method="_on_minigame_assembly_player_signal"]
+[connection signal="player_signal" from="." to="AssemblyButtons" method="_on_minigame_assembly_player_signal"]
 [connection signal="recipe_signal" from="." to="Recipe" method="_on_minigame_assembly_recipe_signal"]
 [connection signal="select_button_state" from="." to="AssemblyButtons" method="_on_minigame_assembly_select_button_state"]

@@ -70,7 +70,7 @@ func _process(_delta: float) -> void:
 			sprite.position = base_pos
 
 
-func _on_minigame_assembly_player(p: Variant) -> void:
+func _on_minigame_assembly_player_signal(p: Variant) -> void:
 	player_id = p
 	setup_buttons()
 
@@ -83,4 +83,3 @@ func _on_minigame_assembly_select_button_state(s: Variant) -> void:
 	elif s == "send":
 		select_button.texture = get(player_id + "_button_art")[6]
 		
-	

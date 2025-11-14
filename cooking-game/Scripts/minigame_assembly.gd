@@ -1,7 +1,7 @@
-extends Node2D
+extends MiniGame
 
-var player_id = "cat"
-signal player(p)
+#var player_id = "cat"
+signal player_signal(p)
 
 @onready var screen_size = get_viewport_rect().size
 var sprites_added = []
@@ -46,13 +46,14 @@ var dog_food_art = {
 	7: [preload("res://Art/BurgerArt/Plate.png"), 20]
 }
 
-var player_food_art = get(player_id + "_food_art")
+var player_food_art #= get(player_id + "_food_art")
 
 var offset = 0
 
 func _ready() -> void:
 	dishes_label.text = "Dishes created: " + str(dishes_created)
-	player.emit(player_id)
+	player_signal.emit(player_id)
+	set_up_player_food_art()
 	randomize_recipe()
 	display_background()
 	update_instructions()
@@ -241,3 +242,9 @@ func update_instructions():
 			1. [E] - Place mat
 			2. [WASD] - Add ingredients
 			3. [E] - Send out dish / Clear station"""
+
+func set_up_player_food_art():
+	if player_id == "cat":
+		player_food_art = cat_food_art
+	else:
+		player_food_art = dog_food_art
