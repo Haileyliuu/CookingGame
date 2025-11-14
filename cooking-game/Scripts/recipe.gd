@@ -13,17 +13,17 @@ var recipe = []
 
 
 var cat_food_art = {
-	1 : preload("res://Art/SushiArt/ImitationCrab.png"),
+	1 : preload("res://Art/AssemblyUI/CatButtons/CrabButton.png"),
 	2 : preload("res://Art/SushiArt/Fish.png"),
-	3 : preload("res://Art/SushiArt/Cucumber.png"),
-	4 : preload("res://Art/SushiArt/Avocado.png")
+	3 : preload("res://Art/AssemblyUI/CatButtons/CucumberButton.png"),
+	4 : preload("res://Art/AssemblyUI/CatButtons/AvocadoButton.png")
 }
 
 var dog_food_art = {
-	1: preload("res://Art/AssemblyUI/CheeseButton.png"),
-	2: preload("res://Art/AssemblyUI/PattyButton.png"),
-	3: preload("res://Art/AssemblyUI/LettuceButton.png"),
-	4: preload("res://Art/AssemblyUI/TomatoButton.png")
+	1: preload("res://Art/AssemblyUI/DogButtons/CheeseButton.png"),
+	2: preload("res://Art/AssemblyUI/DogButtons/PattyButton.png"),
+	3: preload("res://Art/AssemblyUI/DogButtons/LettuceButton.png"),
+	4: preload("res://Art/AssemblyUI/DogButtons/TomatoButton.png")
 }
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=32 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
+[ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
 blend_mode = 3
@@ -200,3 +201,15 @@ minigame = NodePath("../Minigame1")
 
 [node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(275, 432)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 1478.0
+offset_top = 169.0
+offset_right = 2178.0
+offset_bottom = 969.0
+scale = Vector2(0.5, 0.5)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+size = Vector2i(700, 800)
+
+[node name="MinigameAssembly" parent="SubViewportContainer/SubViewport" instance=ExtResource("25_u50mg")]

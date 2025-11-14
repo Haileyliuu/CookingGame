@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgr1les8t1gxn"
-path="res://.godot/imported/ShiftPlateButton.png-7d30184c3c8c2210211131b7a07adbda.ctex"
+path="res://.godot/imported/ShiftPlateButton.png-cb808c21fd733cc2338bc3c394850252.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/AssemblyUI/ShiftPlateButton.png"
-dest_files=["res://.godot/imported/ShiftPlateButton.png-7d30184c3c8c2210211131b7a07adbda.ctex"]
+source_file="res://Art/AssemblyUI/DogButtons/ShiftPlateButton.png"
+dest_files=["res://.godot/imported/ShiftPlateButton.png-cb808c21fd733cc2338bc3c394850252.ctex"]
 
 [params]
 

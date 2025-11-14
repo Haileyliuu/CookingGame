@@ -11,23 +11,23 @@ const PRESS_OFFSET := Vector2(0, 5)
 var select_button_state = "plate"  # can be plate, check, or send
 
 var dog_button_art = [
-	preload("res://Art/AssemblyUI/CheeseButton.png"),
-	preload("res://Art/AssemblyUI/PattyButton.png"),
-	preload("res://Art/AssemblyUI/LettuceButton.png"),
-	preload("res://Art/AssemblyUI/TomatoButton.png"),
-	preload("res://Art/AssemblyUI/ShiftPlateButton.png"),
-	preload("res://Art/AssemblyUI/ShiftCheckButton.png"),
-	preload("res://Art/AssemblyUI/ShiftSendButton.png")
+	preload("res://Art/AssemblyUI/DogButtons/CheeseButton.png"),
+	preload("res://Art/AssemblyUI/DogButtons/PattyButton.png"),
+	preload("res://Art/AssemblyUI/DogButtons/LettuceButton.png"),
+	preload("res://Art/AssemblyUI/DogButtons/TomatoButton.png"),
+	preload("res://Art/AssemblyUI/DogButtons/ShiftPlateButton.png"),
+	preload("res://Art/AssemblyUI/DogButtons/ShiftCheckButton.png"),
+	preload("res://Art/AssemblyUI/DogButtons/ShiftSendButton.png")
 ]
 
 var cat_button_art = [
-	preload("res://Art/AssemblyUI/CheeseButton.png"),
-	preload("res://Art/AssemblyUI/PattyButton.png"),
-	preload("res://Art/AssemblyUI/LettuceButton.png"),
-	preload("res://Art/AssemblyUI/TomatoButton.png"),
-	preload("res://Art/AssemblyUI/ShiftPlateButton.png"),
-	preload("res://Art/AssemblyUI/ShiftCheckButton.png"),
-	preload("res://Art/AssemblyUI/ShiftSendButton.png")
+	preload("res://Art/AssemblyUI/CatButtons/CrabButton.png"),
+	preload("res://Art/AssemblyUI/DogButtons/PattyButton.png"),
+	preload("res://Art/AssemblyUI/CatButtons/CucumberButton.png"),
+	preload("res://Art/AssemblyUI/CatButtons/AvocadoButton.png"),
+	preload("res://Art/AssemblyUI/CatButtons/EMatButton.png"),
+	preload("res://Art/AssemblyUI/CatButtons/ECheckButton.png"),
+	preload("res://Art/AssemblyUI/CatButtons/ESendButton.png")
 ]
 
 @onready var select_button = $SelectButton
@@ -49,7 +49,7 @@ func setup_buttons():
 	var i = 0
 	for action in buttons.keys():
 		default_positions[action] = buttons[action].position
-		buttons.get(action).texture = dog_button_art.get(i)
+		buttons.get(action).texture = get(player_id + "_button_art").get(i)
 		i += 1 
 
 

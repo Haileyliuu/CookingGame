@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cablhpy61igj"
-path="res://.godot/imported/ShiftSendButton.png-32655cf1aa2ec9b72aa4626624040a66.ctex"
+uid="uid://1ggef18tljxe"
+path="res://.godot/imported/PattyButton.png-54213f651a2258aecdff7cc6de81a508.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/AssemblyUI/ShiftSendButton.png"
-dest_files=["res://.godot/imported/ShiftSendButton.png-32655cf1aa2ec9b72aa4626624040a66.ctex"]
+source_file="res://Art/AssemblyUI/DogButtons/PattyButton.png"
+dest_files=["res://.godot/imported/PattyButton.png-54213f651a2258aecdff7cc6de81a508.ctex"]
 
 [params]
 

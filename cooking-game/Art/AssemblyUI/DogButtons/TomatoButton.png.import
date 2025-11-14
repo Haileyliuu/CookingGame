@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1ggef18tljxe"
-path="res://.godot/imported/PattyButton.png-56d00de9bd284f0055a2d7529f00578b.ctex"
+uid="uid://cjtaicisgeo68"
+path="res://.godot/imported/TomatoButton.png-48e2811c2de0e59393cca3e2ff42918a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/AssemblyUI/PattyButton.png"
-dest_files=["res://.godot/imported/PattyButton.png-56d00de9bd284f0055a2d7529f00578b.ctex"]
+source_file="res://Art/AssemblyUI/DogButtons/TomatoButton.png"
+dest_files=["res://.godot/imported/TomatoButton.png-48e2811c2de0e59393cca3e2ff42918a.ctex"]
 
 [params]
 

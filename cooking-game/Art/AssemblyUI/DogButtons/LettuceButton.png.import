@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkxpyj0fahrlq"
-path="res://.godot/imported/ShiftCheckButton.png-f492503d362d1a4a99dca088419a46d5.ctex"
+uid="uid://cbornn8ecgal7"
+path="res://.godot/imported/LettuceButton.png-bc84b079a9a728e4b6b55263b76865da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/AssemblyUI/ShiftCheckButton.png"
-dest_files=["res://.godot/imported/ShiftCheckButton.png-f492503d362d1a4a99dca088419a46d5.ctex"]
+source_file="res://Art/AssemblyUI/DogButtons/LettuceButton.png"
+dest_files=["res://.godot/imported/LettuceButton.png-bc84b079a9a728e4b6b55263b76865da.ctex"]
 
 [params]
 

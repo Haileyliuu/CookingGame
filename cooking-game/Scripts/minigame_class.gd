@@ -1,4 +1,4 @@
-class_name MiniGame extends Node
+class_name MiniGame extends Node2D
 
 #this means that you have to drag the player into the inspector
 @export var player: Player

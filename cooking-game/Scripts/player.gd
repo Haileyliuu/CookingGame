@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@export var player_id : String # either "cat" or "dog"
+@export var player_id : String = "" # either "cat" or "dog"
 
 const PUSHABILITY = 1.8 # bigger = more pushable
 

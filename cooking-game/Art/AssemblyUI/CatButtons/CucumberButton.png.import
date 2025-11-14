@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbornn8ecgal7"
-path="res://.godot/imported/LettuceButton.png-d51dc6c0e1fd7eec57692994f35c9abf.ctex"
+uid="uid://cg07o7wmej8hv"
+path="res://.godot/imported/CucumberButton.png-0139b0938666ffe02710afcf7868fc1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/AssemblyUI/LettuceButton.png"
-dest_files=["res://.godot/imported/LettuceButton.png-d51dc6c0e1fd7eec57692994f35c9abf.ctex"]
+source_file="res://Art/AssemblyUI/CatButtons/CucumberButton.png"
+dest_files=["res://.godot/imported/CucumberButton.png-0139b0938666ffe02710afcf7868fc1f.ctex"]
 
 [params]
 
