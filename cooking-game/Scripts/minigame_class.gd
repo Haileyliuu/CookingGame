@@ -15,13 +15,6 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	player_id = player.player_id
 
-func _process(_delta: float) -> void:
-	if active:
-		match player_id:
-			"cat":
-				player_mode = GameStats.cat_state
-			"dog":
-				player_mode = GameStats.dog_state
 		
 
 func end_minigame() -> void:

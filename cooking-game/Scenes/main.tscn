@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=32 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
+[ext_resource type="PackedScene" uid="uid://b35jwavnwhwx1" path="res://Scenes/Minigames/minigame_manager/minigame_2.tscn" id="25_u50mg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
 blend_mode = 3
@@ -200,3 +201,10 @@ minigame = NodePath("../Minigame1")
 
 [node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(275, 432)
+
+[node name="InteractionArea2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
+position = Vector2(1503, 318)
+minigame = NodePath("../Minigame2")
+
+[node name="Minigame2" parent="." instance=ExtResource("25_u50mg")]
+position = Vector2(466, 376)
