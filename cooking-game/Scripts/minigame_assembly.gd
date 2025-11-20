@@ -88,6 +88,8 @@ func _input(event):
 				spawn_sprite(2)
 				current_recipe.push_back(2)
 				Inventory.set(str(player_id) + "_meat",  Inventory.get(str(player_id) + "_meat") - 1)
+			else:
+				create_inventory_warning()
 		elif event.is_action_pressed(player_id + "_left"):
 			spawn_sprite(3)
 			current_recipe.push_back(3)
@@ -97,7 +99,7 @@ func _input(event):
 	else:
 		for dir in ["up", "down", "left", "right"]:
 			if event.is_action_pressed(player_id + "_" + dir):
-				create_warning()
+				create_max_warning()
 			
 func spawn_sprite(texture_num):
 	var texture = player_food_art[texture_num][0]
@@ -195,7 +197,7 @@ func display_background():
 	scale_factor = screen_size.y / 1080.0
 	background_art[0].scale = Vector2.ONE * scale_factor
 
-func create_warning():
+func create_max_warning():
 	var warning_label = Label.new()
 	warning_label.text = "Reached max ingredients! \nClear your station!"
 	warning_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -222,6 +224,40 @@ func create_warning():
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(warning_label, "modulate:a", 0, 1)
+	
+	await get_tree().create_timer(1).timeout
+	warning_label.queue_free()
+	
+func create_inventory_warning():
+	var warning_label = Label.new()
+	if player_id == "dog":
+		warning_label.text = "Ran out of meat! \nGo hunt!"
+	else:
+		warning_label.text = "Ran out of fish! \nGo fish!"
+		
+	warning_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var my_font = load("res://Art/Fonts/MADE Tommy Soft Bold PERSONAL USE.otf")
+	warning_label.add_theme_font_override("font", my_font)
+	warning_label.add_theme_font_size_override("font_size", 50*screen_size.y/1080)
+	warning_label.add_theme_color_override("font_color", Color(0.954, 0.954, 0.954, 1.0))
+	
+	#warning_label.add_theme_constant_override("shadow_offset_x", 3)
+	#warning_label.add_theme_constant_override("shadow_offset_y", 3)
+	#warning_label.add_theme_color_override("font_shadow_color", Color(0.278, 0.137, 0.0, 0.502))
+	warning_label.add_theme_constant_override("outline_size", 20)
+	warning_label.add_theme_color_override("font_outline_color", Color(0.202, 0.283, 0.599, 1.0))
+	add_child(warning_label)
+	
+	await get_tree().process_frame
+	var label_size = warning_label.size
+	var pos = Vector2(
+		screen_size.x / 2 - label_size.x / 2,
+		1.75 * screen_size.y / 3 - label_size.y / 2
+	)
+	warning_label.position = pos
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(warning_label, "modulate:a", 0, 2)
 	
 	await get_tree().create_timer(1).timeout
 	warning_label.queue_free()
