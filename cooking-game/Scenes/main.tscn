@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://c54xkls8oltq0"]
+[gd_scene load_steps=32 format=3 uid="uid://b0p7mr3lj0xwh"]
 
+[ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="Texture2D" uid="uid://c41ju7gsf78oi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0004_Floor.png" id="2_344ge"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
@@ -7,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dm06o6ottn4ig" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsFloor.png" id="3_hibaj"]
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
 [ext_resource type="Texture2D" uid="uid://kfjd20db6mqi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0002s_0003_Dog_SinkCounter.png" id="3_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://hexxhvwjcl1s" path="res://Scenes/Minigames/minigame_manager/minigame1.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://bcngnb4s64518" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Middle.png" id="5_hptm8"]
 [ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="5_mcep0"]
 [ext_resource type="Texture2D" uid="uid://baga78c6mhv8a" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Top.png" id="6_d1ilt"]
@@ -21,7 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://ig81pq42p8cw" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsMiddle.png" id="16_fevyy"]
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
-[ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="22_ee4r6"]
+[ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
+[ext_resource type="PackedScene" uid="uid://b35jwavnwhwx1" path="res://Scenes/Minigames/minigame_manager/minigame_2.tscn" id="25_u50mg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
+blend_mode = 3
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hibaj"]
 vertices = PackedVector2Array(-190.88281, -188, -192.88281, 215, -240.74219, 15.2421875, -244.25781, -320, 584.03125, -474.9375, 584.96094, 132.85938, 460.10156, -6.0078125, 458.89844, -304.35156, -119, 129.13281, 263.6875, 2.0625, 161.78906, -474.04688, 267.28906, -301.64844, 158.82031, -105.640625, 38, -92.02344, -119, -100.671875, -38.1875, -99.640625, -496.89063, 215, -455.27344, 21.78125, -494.89844, -258.0703, -451.7422, -320, 38, -176.3125, -47.492188, -188, 73.27344, -482.89063, 76.703125, -174.32031, -601.53125, -262.09375, -606.4297, -480.10156)
@@ -29,14 +35,21 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-632.00006, -505, 97.99994, -508, 101.99994, -148, 62.99994, -150, 62.99994, -120, 133.99994, -128, 136.99994, -499, 608.99994, -500, 609.99994, 158, -144.00006, 154, -144.00006, -126, -66.00006, -125, -70.00006, -163, -166.00006, -163, -168.00006, 240, -522.00006, 240, -520.00006, -234, -626.00006, -238), PackedVector2Array(-427.00006, -295, -430.00006, -4, -266.00006, -9, -269.00006, -295), PackedVector2Array(291.99994, -277, 288.99994, -24, 434.99994, -30, 433.99994, -279)])
 agent_radius = 25.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h1bgf"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3pmx8"]
+blend_mode = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u50mg"]
+blend_mode = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_riite"]
 shader = ExtResource("11_k12tt")
 shader_parameter/highlight_strength = 0.5
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h1bgf"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_svpuh"]
 blend_mode = 3
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_kry3j")
 
 [node name="SidePanels" parent="." instance=ExtResource("16_k12tt")]
 
@@ -49,13 +62,21 @@ position = Vector2(0, -5)
 texture = ExtResource("2_344ge")
 
 [node name="FloorShadow" type="Sprite2D" parent="Background/Floor"]
-material = SubResource("CanvasItemMaterial_pdsj5")
+material = SubResource("CanvasItemMaterial_ee4r6")
+position = Vector2(-2.493164, 0)
 texture = ExtResource("3_hibaj")
 
 [node name="OuterWall" type="Sprite2D" parent="Background"]
 position = Vector2(2.5, -2.5)
 scale = Vector2(1.001, 1.001)
 texture = ExtResource("3_wsu2k")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Background"]
+position = Vector2(14.962891, 588.5287)
+scale = Vector2(2.4937656, 2.4937656)
+navigation_polygon = SubResource("NavigationPolygon_hibaj")
+
+[node name="Cockroach" parent="Background/NavigationRegion2D" instance=ExtResource("20_hibaj")]
 
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -98,9 +119,8 @@ scale = Vector2(1.0000005, 1.0000005)
 texture = ExtResource("7_fdnlq")
 
 [node name="TopShadow" type="Sprite2D" parent="Y-sort/Counters/CatTopCounter"]
-material = SubResource("CanvasItemMaterial_fevyy")
-position = Vector2(642.5001, 787.49915)
-scale = Vector2(0.9999996, 0.9999996)
+material = SubResource("CanvasItemMaterial_3pmx8")
+position = Vector2(647.4995, 787.4994)
 texture = ExtResource("8_b3802")
 
 [node name="CatRiceCooker" type="Sprite2D" parent="Y-sort/Counters/CatTopCounter"]
@@ -125,8 +145,8 @@ scale = Vector2(1.0000002, 1.0000002)
 texture = ExtResource("3_ynf5e")
 
 [node name="BottomShadow" type="Sprite2D" parent="Y-sort/Counters/DogBottomCounter"]
-material = SubResource("CanvasItemMaterial_b3802")
-position = Vector2(-602.5, -1092)
+material = SubResource("CanvasItemMaterial_u50mg")
+position = Vector2(-602.5, -1087)
 texture = ExtResource("3_b3802")
 
 [node name="BottomDogCollision" type="CollisionPolygon2D" parent="Y-sort/Counters"]
@@ -141,7 +161,7 @@ polygon = PackedVector2Array(-1562.5005, -777.5001, -1562.5005, -1032.5001, 1157
 polygon = PackedVector2Array(-1552.5005, 110, -1560.0005, 1215.0002, -1307.5002, 1217.5002, -1307.5002, 112.5)
 
 [node name="Tables" type="StaticBody2D" parent="Y-sort"]
-material = SubResource("ShaderMaterial_h1bgf")
+material = SubResource("ShaderMaterial_riite")
 position = Vector2(956.00006, 537)
 scale = Vector2(0.39999995, 0.39999995)
 
@@ -161,30 +181,30 @@ polygon = PackedVector2Array(662.49976, -97.5, 714.99976, -100, 1140, -100, 1210
 position = Vector2(942.50024, 270.00012)
 texture = ExtResource("12_wsu2k")
 
-[node name="MiddleShadows" type="Sprite2D" parent="Y-sort/Tables/DogTable"]
-material = SubResource("CanvasItemMaterial_h1bgf")
+[node name="MiddleShadow" type="Sprite2D" parent="Y-sort/Tables/DogTable"]
+material = SubResource("CanvasItemMaterial_svpuh")
 position = Vector2(-942.5005, -262.50024)
 scale = Vector2(1.0025003, 1.0025003)
 texture = ExtResource("16_fevyy")
 
 [node name="BurgerDog" parent="Y-sort" instance=ExtResource("1_rivda")]
-position = Vector2(1469, 335)
+unique_name_in_owner = true
+position = Vector2(1307, 365)
 
 [node name="SushiCat" parent="Y-sort" instance=ExtResource("2_h7nwh")]
-position = Vector2(848, 345)
+unique_name_in_owner = true
+position = Vector2(461, 369)
 
-[node name="InteractionArea" parent="." instance=ExtResource("5_mcep0")]
-position = Vector2(1529, 235)
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
+position = Vector2(1005, 350)
+minigame = NodePath("../Minigame1")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_left = 833.0
-offset_top = 550.0
-offset_right = 1233.0
-offset_bottom = 1000.0
+[node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(275, 432)
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(300, 380)
-render_target_update_mode = 4
+[node name="InteractionArea2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
+position = Vector2(1503, 318)
+minigame = NodePath("../Minigame2")
 
-[node name="MinigameAssembly" parent="SubViewportContainer/SubViewport" instance=ExtResource("22_ee4r6")]
+[node name="Minigame2" parent="." instance=ExtResource("25_u50mg")]
+position = Vector2(466, 376)

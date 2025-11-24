@@ -6,6 +6,4 @@ class_name InteractionArea extends Area2D
 #@export var interact_type = "none"
 #@export var interact_value = "interact"
 
-
-var interact: Callable = func():
-	pass
+@onready var parent: Node = owner

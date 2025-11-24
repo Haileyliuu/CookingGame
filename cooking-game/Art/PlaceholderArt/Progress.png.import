@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wbbkfbp6kuxe"
-path="res://.godot/imported/BurgerDog.png-6efb93bea39e0a1d114678db85b08229.ctex"
+uid="uid://drsgi1lajm3rq"
+path="res://.godot/imported/Progress.png-9b378169b5c38715452ea10d174b4b79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BurgerDog.png"
-dest_files=["res://.godot/imported/BurgerDog.png-6efb93bea39e0a1d114678db85b08229.ctex"]
+source_file="res://Art/PlaceholderArt/Progress.png"
+dest_files=["res://.godot/imported/Progress.png-9b378169b5c38715452ea10d174b4b79.ctex"]
 
 [params]
 

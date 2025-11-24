@@ -1,7 +1,6 @@
-extends Node2D
+extends MiniGame
 class_name minigame_hunting
 
-var player_id := "dog"
 
 @onready var arrow: Node2D = $arrow
 @onready var EnemyScene = preload("res://Scenes/Minigames/hunting_minigame/enemy.tscn")
@@ -18,7 +17,6 @@ var enemies: Array = []
 var total_spawned: int = 0
 var target_total: int = 3
 
-signal player(p)
 
 func _ready():
 	player.emit(player_id)

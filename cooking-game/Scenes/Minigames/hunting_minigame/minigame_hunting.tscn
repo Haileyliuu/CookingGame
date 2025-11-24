@@ -1,11 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://cep6yw4yogs7"]
 
 [ext_resource type="Script" uid="uid://dlaxnejxtap1y" path="res://Scripts/minigame_hunting.gd" id="1_tjbxu"]
-[ext_resource type="Texture2D" uid="uid://dcecjbuhbsus2" path="res://Art/arrow.webp" id="2_tjbxu"]
+[ext_resource type="Texture2D" uid="uid://dcecjbuhbsus2" path="res://Art/PlaceholderArt/arrow.webp" id="2_tjbxu"]
 [ext_resource type="Script" uid="uid://bhi2sej6c3co8" path="res://Scripts/arrow.gd" id="3_l1xdu"]
 
 [node name="MinigameHunting" type="Node2D"]
 script = ExtResource("1_tjbxu")
+min_enemies = null
+max_enemies = null
+spawn_min = null
+spawn_max = null
+respawn_cooldown = null
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(575, 0)
