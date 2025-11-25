@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brcqoccjl8g66"
-path="res://.godot/imported/DogBoard.png-a8f64a08bb3a0348568098ab95924b27.ctex"
+uid="uid://b1ouhkn42hy0i"
+path="res://.godot/imported/CatTable.png-72afc6a2c7b374d5e0e8222e0385b62c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Objects/DogBoard.png"
-dest_files=["res://.godot/imported/DogBoard.png-a8f64a08bb3a0348568098ab95924b27.ctex"]
+source_file="res://Art/MinigameArt/CatTable.png"
+dest_files=["res://.godot/imported/CatTable.png-72afc6a2c7b374d5e0e8222e0385b62c.ctex"]
 
 [params]
 

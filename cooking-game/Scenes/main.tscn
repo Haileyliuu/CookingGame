@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=35 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
 [ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
+[ext_resource type="Theme" uid="uid://doas8v4v842gq" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
+[ext_resource type="Theme" uid="uid://bgtfhfueyd8yw" path="res://Shaders/border.theme" id="28_ueoa1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
 blend_mode = 3
@@ -210,25 +212,38 @@ position = Vector2(461, 369)
 
 [node name="InteractionArea" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
 position = Vector2(1005, 350)
-minigame = NodePath("../SubViewportContainer/SubViewport/MinigameAssembly")
+minigame = NodePath("../Panel/SubViewportContainer/SubViewport/MinigameAssembly")
 
 [node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
 visible = false
 position = Vector2(275, 432)
 minigame_type = 3
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_left = 1523.0
-offset_top = 198.0
-offset_right = 2223.0
-offset_bottom = 998.0
+[node name="Panel" type="Panel" parent="."]
+clip_children = 2
+offset_left = 1530.0
+offset_top = 236.0
+offset_right = 2230.0
+offset_bottom = 1086.0
 scale = Vector2(0.5, 0.5)
+theme = ExtResource("26_1w6v2")
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 800.0
+
+[node name="SubViewport" type="SubViewport" parent="Panel/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(700, 800)
+size = Vector2i(700, 850)
 render_target_update_mode = 4
 
-[node name="MinigameAssembly" parent="SubViewportContainer/SubViewport" instance=ExtResource("25_u50mg")]
-player_id = "cat"
+[node name="MinigameAssembly" parent="Panel/SubViewportContainer/SubViewport" instance=ExtResource("25_u50mg")]
+player_id = "dog"
 minigame_type = 3
+
+[node name="Border" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 850.0
+theme = ExtResource("28_ueoa1")
