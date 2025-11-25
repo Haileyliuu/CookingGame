@@ -230,6 +230,7 @@ func create_max_warning():
 	
 func create_inventory_warning():
 	var warning_label = Label.new()
+	warning_label.z_index = 1
 	if player_id == "dog":
 		warning_label.text = "Ran out of meat! \nGo hunt!"
 	else:
