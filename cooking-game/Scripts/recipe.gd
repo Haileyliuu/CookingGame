@@ -5,7 +5,7 @@ var recipe = []
 
 var cat_food_art = {
 	1 : preload("res://Art/AssemblyUI/CatButtons/CrabButton.png"),
-	2 : preload("res://Art/SushiArt/Fish.png"),
+	2 : preload("res://Art/AssemblyUI/CatButtons/FishButton.png"),
 	3 : preload("res://Art/AssemblyUI/CatButtons/CucumberButton.png"),
 	4 : preload("res://Art/AssemblyUI/CatButtons/AvocadoButton.png")
 }

@@ -22,7 +22,7 @@ var dog_button_art = [
 
 var cat_button_art = [
 	preload("res://Art/AssemblyUI/CatButtons/CrabButton.png"),
-	preload("res://Art/AssemblyUI/DogButtons/PattyButton.png"),
+	preload("res://Art/AssemblyUI/CatButtons/FishButton.png"),
 	preload("res://Art/AssemblyUI/CatButtons/CucumberButton.png"),
 	preload("res://Art/AssemblyUI/CatButtons/AvocadoButton.png"),
 	preload("res://Art/AssemblyUI/CatButtons/EMatButton.png"),

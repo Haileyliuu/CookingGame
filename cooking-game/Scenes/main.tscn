@@ -239,7 +239,7 @@ size = Vector2i(700, 850)
 render_target_update_mode = 4
 
 [node name="MinigameAssembly" parent="Panel/SubViewportContainer/SubViewport" instance=ExtResource("25_u50mg")]
-player_id = "dog"
+player_id = "cat"
 minigame_type = 3
 
 [node name="Border" type="Panel" parent="Panel"]
