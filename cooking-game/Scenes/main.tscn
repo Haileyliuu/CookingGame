@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=33 format=3 uid="uid://dm2en0bxnn214"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
+[ext_resource type="Script" uid="uid://d0s8nl7tajq1s" path="res://Scripts/interact_sabotage.gd" id="24_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://b35jwavnwhwx1" path="res://Scenes/Minigames/minigame_manager/minigame_2.tscn" id="25_u50mg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
@@ -195,16 +196,20 @@ position = Vector2(1307, 365)
 unique_name_in_owner = true
 position = Vector2(461, 369)
 
-[node name="InteractionArea" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
+[node name="Sabotage Button" parent="." instance=ExtResource("5_mcep0")]
+position = Vector2(627, 369)
+script = ExtResource("24_cbgmd")
+
+[node name="InteractionArea" parent="." instance=ExtResource("5_mcep0")]
 position = Vector2(1005, 350)
-minigame = NodePath("../Minigame1")
 
 [node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
+visible = false
 position = Vector2(275, 432)
 
-[node name="InteractionArea2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
+[node name="InteractionArea2" parent="." instance=ExtResource("5_mcep0")]
 position = Vector2(1503, 318)
-minigame = NodePath("../Minigame2")
 
 [node name="Minigame2" parent="." instance=ExtResource("25_u50mg")]
+visible = false
 position = Vector2(466, 376)

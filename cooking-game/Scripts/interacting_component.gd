@@ -5,6 +5,8 @@ extends Node2D
 var curr_interactions := []
 var can_interact := true
 
+@onready var bug_net = preload("res://Scenes/Minigames/sabotoge/bug_catcher.tscn")
+
 @onready var player_id = owner.player_id
 
 func _ready() -> void:
@@ -15,7 +17,8 @@ func _input(event: InputEvent) -> void:
 		if curr_interactions:
 			can_interact = false
 			interact_label.hide()
-			
+			if (curr_interactions[0] is IntSabo):
+				owner.add_child(bug_net)
 			await curr_interactions[0].interact.call(player_id)
 			
 			can_interact = true

@@ -1,7 +1,5 @@
 extends MiniGame
 
-var player_id = "cat"
-signal player(p)
 
 @onready var screen_size = get_viewport_rect().size
 var sprites_added = []

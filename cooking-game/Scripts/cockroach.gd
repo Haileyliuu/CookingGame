@@ -1,10 +1,12 @@
 extends Area2D
 
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
+@onready var anim : AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	_move_npc()
 	nav_agent.target_reached.connect(_move_npc)
+	anim.play("Walk");
 
 func _move_npc():
 	var random_pos: Vector2
@@ -22,5 +24,6 @@ func _physics_process(delta: float) -> void:
 		_move_npc()
 	
 	position += direction * 200.0 * delta
+	rotation = lerpf(rotation, atan2(local_destination.y, local_destination.x) + PI/2, delta * 10)
 	
 	
