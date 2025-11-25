@@ -9,6 +9,9 @@ class_name InteractionArea extends Area2D
 @onready var parent: Node = owner
 
 @export var minigame: MiniGame
+@export var object: Sprite2D
+
+var select_shader = preload("res://Shaders/select.gdshader")
 
 var interact: Callable = func(player_id: String):
 	if player_id == minigame.player_id:
@@ -19,3 +22,15 @@ func interact_with_button():
 		minigame.end_minigame()
 	else:
 		minigame.start_minigame()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if object != null && minigame != null && minigame.player != null:
+		if minigame.player == area.get_parent().get_parent():
+			object.material = ShaderMaterial.new()
+			object.material.shader = select_shader
+
+
+func _on_area_exited(_area: Area2D) -> void:
+	if object != null:
+		object.material = null

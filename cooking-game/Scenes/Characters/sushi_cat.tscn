@@ -171,7 +171,7 @@ player_id = "cat"
 position = Vector2(2, -49)
 scale = Vector2(0.20000002, 0.20000002)
 sprite_frames = SubResource("SpriteFrames_jbcpn")
-animation = &"walk_right"
+animation = &"walk_up"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 5)
@@ -180,4 +180,5 @@ polygon = PackedVector2Array(18, 12.999999, 18, -13.000001, 10.999999, -24, -8.0
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_jbn3y")]
 visible = false
-position = Vector2(0, -35)
+position = Vector2(2, -4.7683716e-07)
+scale = Vector2(0.68000245, 0.5199988)
