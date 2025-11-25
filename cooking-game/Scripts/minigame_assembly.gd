@@ -12,6 +12,7 @@ var current_recipe = []
 
 @onready var dishes_label : Label = $DishesCreated
 var dishes_created = 0
+signal dish_created
 var displayed_finish = false
 
 signal select_button_state(s) # can send signal: "plate" "check" or "send"
@@ -51,7 +52,8 @@ var player_food_art #= get(player_id + "_food_art")
 var offset = 0
 
 func _ready() -> void:
-	dishes_label.text = "Dishes created: " + str(dishes_created)
+	process_mode = Node.PROCESS_MODE_DISABLED
+	#dishes_label.text = "Dishes created: " + str(dishes_created)
 	player_signal.emit(player_id)
 	set_up_player_food_art()
 	randomize_recipe()
@@ -138,7 +140,7 @@ func check_recipe():
 		return false
 	current_recipe.pop_front()
 	if current_recipe == recipe:
-		dishes_label.text = "Dishes created: " + str(dishes_created)
+		#dishes_label.text = "Dishes created: " + str(dishes_created)
 		return true
 	return false
 
@@ -168,6 +170,7 @@ func randomize_recipe():
 	
 	dishes_created+=1
 	emit_signal("recipe_signal", recipe)
+	emit_signal("dish_created")
 	
 
 func display_background():
