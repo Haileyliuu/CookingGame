@@ -1,8 +1,147 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwkoaby5gyfpt"]
+[gd_scene load_steps=17 format=3 uid="uid://dwkoaby5gyfpt"]
 
-[ext_resource type="Texture2D" uid="uid://wbbkfbp6kuxe" path="res://Art/PlaceholderArt/BurgerDog.png" id="1_ruucx"]
 [ext_resource type="Script" uid="uid://cqn5gtk7puod7" path="res://Scripts/player.gd" id="1_yjktf"]
+[ext_resource type="Texture2D" uid="uid://yvnbqvt5p8i1" path="res://Art/Characters/DOG_Walk_Sprite_Sheet.png" id="2_yovnw"]
 [ext_resource type="PackedScene" uid="uid://b87rcl12j1grt" path="res://Scenes/Interaction/interacting_component.tscn" id="3_5el3f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e66p"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(795, 2385, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kcug"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(795, 795, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg0a6"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(795, 0, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45lgc"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(795, 1590, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eonqi"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(0, 2385, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f2tv"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(1590, 2385, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovisf"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(0, 795, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2dds"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(1590, 795, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn2ho"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(0, 0, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo6t2"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(1590, 0, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4attj"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(0, 1590, 795, 795)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp3r5"]
+atlas = ExtResource("2_yovnw")
+region = Rect2(1590, 1590, 795, 795)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbakh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e66p")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kcug")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vg0a6")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45lgc")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eonqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e66p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f2tv")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovisf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kcug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2dds")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn2ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vg0a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo6t2")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4attj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45lgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp3r5")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 6.0
+}]
 
 [node name="BurgerDog" type="CharacterBody2D" groups=["Player"]]
 light_mask = 2
@@ -12,10 +151,11 @@ collision_mask = 7
 script = ExtResource("1_yjktf")
 player_id = "dog"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_ruucx")
-offset = Vector2(0, -150)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.3841858e-07, -50)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_jbakh")
+animation = &"idle_up"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 8)
