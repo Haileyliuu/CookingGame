@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://mr37hgxs68up"]
+
+[ext_resource type="Texture2D" uid="uid://cxpakjyxw8nru" path="res://Art/Game Backgroud Layers/Objects/CatBoard.png" id="1_gkq8e"]
+
+[node name="CounterSpots" type="Node2D"]
+
+[node name="Spot1" type="Sprite2D" parent="."]
+position = Vector2(41, 45)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_gkq8e")
+
+[node name="Spot2" type="Sprite2D" parent="."]
+position = Vector2(145, 45)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_gkq8e")
+
+[node name="Spot3" type="Sprite2D" parent="."]
+position = Vector2(41, 139)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_gkq8e")
+
+[node name="Spot4" type="Sprite2D" parent="."]
+position = Vector2(145, 139)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_gkq8e")
+
+[node name="Spot5" type="Sprite2D" parent="."]
+position = Vector2(41, 233)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_gkq8e")
+
+[node name="Spot6" type="Sprite2D" parent="."]
+position = Vector2(145, 233)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_gkq8e")
