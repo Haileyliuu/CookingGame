@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://mr37hgxs68up"]
+[gd_scene load_steps=3 format=3 uid="uid://mr37hgxs68up"]
 
+[ext_resource type="Script" uid="uid://cgga23a14mn5k" path="res://Scripts/counter_spots.gd" id="1_3a88d"]
 [ext_resource type="Texture2D" uid="uid://cxpakjyxw8nru" path="res://Art/Game Backgroud Layers/Objects/CatBoard.png" id="1_gkq8e"]
 
 [node name="CounterSpots" type="Node2D"]
+script = ExtResource("1_3a88d")
 
 [node name="Spot1" type="Sprite2D" parent="."]
 position = Vector2(41, 45)

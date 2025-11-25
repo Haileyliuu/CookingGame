@@ -168,10 +168,10 @@ script = ExtResource("1_orsn3")
 player_id = "cat"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4, -48)
+position = Vector2(2, -49)
 scale = Vector2(0.20000002, 0.20000002)
 sprite_frames = SubResource("SpriteFrames_jbcpn")
-animation = &"idle_up"
+animation = &"walk_right"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 5)

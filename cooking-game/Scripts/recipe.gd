@@ -3,15 +3,6 @@ extends Control
 var player_id := ""
 var recipe = []
 
-# load all the slot sprites
-@onready var slot1 = $Slot1
-@onready var slot2 = $Slot2
-@onready var slot3 = $Slot3
-@onready var slot4 = $Slot4
-@onready var slot5 = $Slot5
-@onready var slot6 = $Slot6
-
-
 var cat_food_art = {
 	1 : preload("res://Art/AssemblyUI/CatButtons/CrabButton.png"),
 	2 : preload("res://Art/SushiArt/Fish.png"),

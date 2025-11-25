@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=33 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
+[ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
@@ -187,6 +188,18 @@ position = Vector2(-942.5005, -262.50024)
 scale = Vector2(1.0025003, 1.0025003)
 texture = ExtResource("16_fevyy")
 
+[node name="AssemblyStation" type="Node2D" parent="Y-sort/Tables"]
+position = Vector2(-2390.0007, -1342.5004)
+scale = Vector2(2.5000005, 2.5000005)
+
+[node name="DogAssembly" parent="Y-sort/Tables/AssemblyStation" instance=ExtResource("25_cbgmd")]
+position = Vector2(1239, 484)
+player_id = "dog"
+
+[node name="CatAssembly" parent="Y-sort/Tables/AssemblyStation" instance=ExtResource("25_cbgmd")]
+position = Vector2(522, 489)
+player_id = "cat"
+
 [node name="BurgerDog" parent="Y-sort" instance=ExtResource("1_rivda")]
 unique_name_in_owner = true
 position = Vector2(1307, 365)
@@ -200,6 +213,7 @@ position = Vector2(1005, 350)
 minigame = NodePath("../SubViewportContainer/SubViewport/MinigameAssembly")
 
 [node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
+visible = false
 position = Vector2(275, 432)
 minigame_type = 3
 
