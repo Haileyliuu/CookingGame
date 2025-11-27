@@ -4,10 +4,16 @@ extends Node2D
 
 var cat_board_sprite = preload("res://Art/Game Backgroud Layers/Objects/CatBoard.png")
 var dog_board_sprite = preload("res://Art/Game Backgroud Layers/Objects/DogBoard.png")
+var cat_food = preload("res://Art/BurgerArt/FinishedBurger.png")
+var dog_food = preload("res://Art/BurgerArt/FinishedBurger.png")
+var player_food
 var spot_taken = [false, false, false, false, false, false]
-var current_spot = "none"
+var current_spot = 0
+signal counter_full(c)
 
 func _ready() -> void:
+	print(spot_taken)
+	player_food = get(player_id + "_food")
 	for i in range(6):
 		var spot = get_node("Spot" + str(i+1))
 		var player_board_sprite = get(player_id + "_board_sprite")
@@ -16,4 +22,30 @@ func _ready() -> void:
 
 
 func _on_minigame_assembly_dish_created() -> void:
-	pass # Replace with function body.
+	var i = 0
+	var placed = false
+	var numTrue = 0
+	while !placed && i < spot_taken.size():
+		if spot_taken[i] == false && i+1 != current_spot:
+			spot_taken[i] = true
+			placed = true
+		else:
+			if spot_taken[i] == true:
+				numTrue+=1
+			i+=1
+	if numTrue == 5:
+		spot_taken[current_spot-1] = true
+		emit_signal("counter_full", true)
+	display_spots()
+	print(spot_taken)
+
+func display_spots():
+	for i in range(6):
+		var spot = get_node("Spot" + str(i+1))
+		
+		if spot_taken[i]:
+			spot.get_child(0).texture = player_food
+
+func _on_object_signal(o: Variant) -> void:
+	current_spot = o.name.substr(4).to_int()
+	print(current_spot)

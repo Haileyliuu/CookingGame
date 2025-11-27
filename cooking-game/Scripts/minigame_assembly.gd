@@ -14,6 +14,7 @@ var current_recipe = []
 var dishes_created = 0
 signal dish_created
 var displayed_finish = false
+var counter_full = false
 
 signal select_button_state(s) # can send signal: "plate" "check" or "send"
 
@@ -64,45 +65,48 @@ func _process(_delta: float) -> void:
 	pass
 	
 func _input(event):
-	if event.is_action_pressed(player_id + "_select"):
-		if sprites_added.is_empty():
-			new_plate()
-			select_button_state.emit("check")
-		elif check_recipe() && !displayed_finish:
-			spawn_sprite(6)
-			displayed_finish = true
-			select_button_state.emit("send")
-		else:
-			delete_sprites()
-			select_button_state.emit("plate")
-			if displayed_finish:
-				randomize_recipe()
-				displayed_finish = false
-	if current_recipe.size() < 8 && !displayed_finish:
-		for dir in ["up", "down", "left", "right"]:
-			if event.is_action_pressed(player_id + "_" + dir):
+	if !counter_full:
+		if event.is_action_pressed(player_id + "_select"):
+			if sprites_added.is_empty():
+				new_plate()
 				select_button_state.emit("check")
-		if event.is_action_pressed(player_id + "_up"):
-			spawn_sprite(1)
-			current_recipe.push_back(1)
-		elif event.is_action_pressed(player_id + "_down"):
-			if Inventory.get(player_id + "_meat") > 0:
-				spawn_sprite(2)
-				current_recipe.push_back(2)
-				Inventory.set(str(player_id) + "_meat",  Inventory.get(str(player_id) + "_meat") - 1)
+			elif check_recipe() && !displayed_finish:
+				spawn_sprite(6)
+				displayed_finish = true
+				select_button_state.emit("send")
 			else:
-				create_inventory_warning()
-		elif event.is_action_pressed(player_id + "_left"):
-			spawn_sprite(3)
-			current_recipe.push_back(3)
-		elif event.is_action_pressed(player_id + "_right"):
-			spawn_sprite(4)
-			current_recipe.push_back(4)
-	else:
-		for dir in ["up", "down", "left", "right"]:
-			if event.is_action_pressed(player_id + "_" + dir):
-				create_max_warning()
-			
+				delete_sprites()
+				select_button_state.emit("plate")
+				if displayed_finish:
+					emit_signal("dish_created")
+					randomize_recipe()
+					displayed_finish = false
+		if current_recipe.size() < 8 && !displayed_finish:
+			for dir in ["up", "down", "left", "right"]:
+				if event.is_action_pressed(player_id + "_" + dir):
+					select_button_state.emit("check")
+			if event.is_action_pressed(player_id + "_up"):
+				spawn_sprite(1)
+				current_recipe.push_back(1)
+			elif event.is_action_pressed(player_id + "_down"):
+				if Inventory.get(player_id + "_meat") > 0:
+					spawn_sprite(2)
+					current_recipe.push_back(2)
+					Inventory.set(str(player_id) + "_meat",  Inventory.get(str(player_id) + "_meat") - 1)
+				else:
+					create_inventory_warning()
+			elif event.is_action_pressed(player_id + "_left"):
+				spawn_sprite(3)
+				current_recipe.push_back(3)
+			elif event.is_action_pressed(player_id + "_right"):
+				spawn_sprite(4)
+				current_recipe.push_back(4)
+		else:
+			for dir in ["up", "down", "left", "right"]:
+				if event.is_action_pressed(player_id + "_" + dir):
+					create_max_warning()
+
+
 func spawn_sprite(texture_num):
 	var texture = player_food_art[texture_num][0]
 	
@@ -168,9 +172,7 @@ func randomize_recipe():
 	# Assign to the actual recipe
 	recipe = new_recipe
 	
-	dishes_created+=1
 	emit_signal("recipe_signal", recipe)
-	emit_signal("dish_created")
 	
 
 func display_background():
@@ -288,3 +290,7 @@ func set_up_player_food_art():
 		player_food_art = cat_food_art
 	else:
 		player_food_art = dog_food_art
+
+
+func _on_counter_full(c: Variant) -> void:
+	counter_full = c

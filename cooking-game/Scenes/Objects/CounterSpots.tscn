@@ -14,27 +14,51 @@ position = Vector2(41, 45)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
 
+[node name="Food" type="Sprite2D" parent="Spot1"]
+position = Vector2(0, -20)
+scale = Vector2(0.17, 0.17)
+
 [node name="Spot2" type="Sprite2D" parent="."]
 position = Vector2(145, 45)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
+
+[node name="Food" type="Sprite2D" parent="Spot2"]
+position = Vector2(0, -20)
+scale = Vector2(0.17, 0.17)
 
 [node name="Spot3" type="Sprite2D" parent="."]
 position = Vector2(41, 139)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
 
+[node name="Food" type="Sprite2D" parent="Spot3"]
+position = Vector2(0, -20)
+scale = Vector2(0.17, 0.17)
+
 [node name="Spot4" type="Sprite2D" parent="."]
 position = Vector2(145, 139)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
+
+[node name="Food" type="Sprite2D" parent="Spot4"]
+position = Vector2(0, -20)
+scale = Vector2(0.17, 0.17)
 
 [node name="Spot5" type="Sprite2D" parent="."]
 position = Vector2(41, 233)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
 
+[node name="Food" type="Sprite2D" parent="Spot5"]
+position = Vector2(0, -20)
+scale = Vector2(0.17, 0.17)
+
 [node name="Spot6" type="Sprite2D" parent="."]
 position = Vector2(145, 233)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
+
+[node name="Food" type="Sprite2D" parent="Spot6"]
+position = Vector2(0, -20)
+scale = Vector2(0.17, 0.17)

@@ -245,10 +245,10 @@ position = Vector2(461, 369)
 [node name="CatAssemblyGame" type="Panel" parent="."]
 visible = false
 clip_children = 2
-offset_left = 30.0
-offset_top = 248.0
-offset_right = 730.0
-offset_bottom = 1098.0
+offset_left = 25.0
+offset_top = 253.0
+offset_right = 725.0
+offset_bottom = 1103.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("26_1w6v2")
 
@@ -276,10 +276,10 @@ theme = ExtResource("28_ueoa1")
 [node name="DogAssemblyGame" type="Panel" parent="."]
 visible = false
 clip_children = 2
-offset_left = 1524.0
-offset_top = 253.0
-offset_right = 2224.0
-offset_bottom = 1103.0
+offset_left = 1541.0
+offset_top = 255.0
+offset_right = 2241.0
+offset_bottom = 1105.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("26_1w6v2")
 
@@ -382,7 +382,22 @@ scale = Vector2(0.5, 0.5)
 minigame = NodePath("../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
 object = NodePath("../../../Y-sort/Tables/AssemblyStation/DogAssembly/Spot6")
 
+[connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/DogAssembly" to="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
+[connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/CatAssembly" to="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
 [connection signal="dish_created" from="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_minigame_assembly_dish_created"]
+[connection signal="dish_created" from="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_minigame_assembly_dish_created"]
+[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot1" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot2" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot3" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot4" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot5" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot6" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot1" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot2" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot3" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot4" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot5" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
+[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot6" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
 
 [editable path="Y-sort/Tables/AssemblyStation/DogAssembly"]
 [editable path="Y-sort/Tables/AssemblyStation/CatAssembly"]
