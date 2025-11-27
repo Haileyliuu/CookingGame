@@ -34,7 +34,7 @@ var cat_food_art = {
 	3 : [preload("res://Art/SushiArt/Cucumber.png"), 50],
 	4 : [preload("res://Art/SushiArt/Avocado.png"), 50],
 	5 : [preload("res://Art/SushiArt/SeaweedRice.png"), 40, -180], # texture, height, sprite offset
-	6 : [preload("res://Art/SushiArt/SushiMat.png"), 50],
+	6 : [preload("res://Art/SushiArt/FinishedSushiAssembly.png"), 50, -230],
 	7 : [preload("res://Art/SushiArt/SushiMat.png"), 0, -180],
 }
 
@@ -71,7 +71,7 @@ func _input(event):
 				new_plate()
 				select_button_state.emit("check")
 			elif check_recipe() && !displayed_finish:
-				spawn_sprite(6)
+				display_finished()
 				displayed_finish = true
 				select_button_state.emit("send")
 			else:
@@ -140,7 +140,7 @@ func delete_sprites():
 	current_recipe = []
 	
 func check_recipe():
-	if current_recipe[0] != 7:
+	if current_recipe.is_empty() || current_recipe[0] != 7:
 		return false
 	current_recipe.pop_front()
 	if current_recipe == recipe:
@@ -272,6 +272,14 @@ func new_plate():
 	spawn_sprite(7)
 	spawn_sprite(5)
 	current_recipe.push_back(7)
+	
+func display_finished():
+	if player_id == "dog":
+		spawn_sprite(6)
+	if player_id == "cat":
+		delete_sprites()
+		spawn_sprite(7)
+		spawn_sprite(6)
 	
 func update_instructions():
 	if player_id == "dog":

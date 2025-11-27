@@ -4,7 +4,7 @@ extends Node2D
 
 var cat_board_sprite = preload("res://Art/Game Backgroud Layers/Objects/CatBoard.png")
 var dog_board_sprite = preload("res://Art/Game Backgroud Layers/Objects/DogBoard.png")
-var cat_food = preload("res://Art/BurgerArt/FinishedBurger.png")
+var cat_food = preload("res://Art/SushiArt/FinishedSushiPlate.png")
 var dog_food = preload("res://Art/BurgerArt/FinishedBurger.png")
 var player_food
 var spot_taken = [false, false, false, false, false, false]
@@ -20,6 +20,14 @@ func _ready() -> void:
 		var player_board_sprite = get(player_id + "_board_sprite")
 		
 		spot.texture = player_board_sprite
+		
+		var food = spot.get_child(0)
+		if player_id == "cat":
+			food.scale = Vector2(.2, .2)
+			food.position.y = -10
+		if player_id == "dog":
+			food.scale = Vector2(.18, .18)
+			food.position.y = -20
 		
 		# set up all the interaction areas for each spot
 		var interaction_area = spot.get_child(1)
