@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=39 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
 [ext_resource type="Texture2D" uid="uid://kfjd20db6mqi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0002s_0003_Dog_SinkCounter.png" id="3_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://bcngnb4s64518" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Middle.png" id="5_hptm8"]
-[ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="5_mcep0"]
 [ext_resource type="Texture2D" uid="uid://baga78c6mhv8a" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Top.png" id="6_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://c26v18605lmau" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Bottom.png" id="7_6iyac"]
 [ext_resource type="Texture2D" uid="uid://3ua7chx1ctxv" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003s_0012_Cat_Counter.png" id="7_fdnlq"]
@@ -230,9 +229,45 @@ scale = Vector2(2.5000005, 2.5000005)
 position = Vector2(1239, 484)
 player_id = "dog"
 
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot1" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot2" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot3" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot4" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot5" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot6" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
 [node name="CatAssembly" parent="Y-sort/Tables/AssemblyStation" instance=ExtResource("25_cbgmd")]
 position = Vector2(522, 489)
 player_id = "cat"
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot1" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot2" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot3" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot4" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot5" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot6" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
 
 [node name="BurgerDog" parent="Y-sort" instance=ExtResource("1_rivda")]
 unique_name_in_owner = true
@@ -262,10 +297,8 @@ handle_input_locally = false
 size = Vector2i(700, 850)
 render_target_update_mode = 0
 
-[node name="MinigameAssembly" parent="CatAssemblyGame/SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("25_u50mg")]
-player = NodePath("../../../../Y-sort/SushiCat")
+[node name="MinigameAssembly" parent="CatAssemblyGame/SubViewportContainer/SubViewport" instance=ExtResource("25_u50mg")]
 player_id = "cat"
-minigame_type = 3
 
 [node name="Border" type="Panel" parent="CatAssemblyGame"]
 layout_mode = 0
@@ -293,10 +326,8 @@ handle_input_locally = false
 size = Vector2i(700, 850)
 render_target_update_mode = 0
 
-[node name="MinigameAssembly" parent="DogAssemblyGame/SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("25_u50mg")]
-player = NodePath("../../../../Y-sort/BurgerDog")
+[node name="MinigameAssembly" parent="DogAssemblyGame/SubViewportContainer/SubViewport" instance=ExtResource("25_u50mg")]
 player_id = "dog"
-minigame_type = 3
 
 [node name="Border" type="Panel" parent="DogAssemblyGame"]
 layout_mode = 0
@@ -304,100 +335,12 @@ offset_right = 700.0
 offset_bottom = 850.0
 theme = ExtResource("28_ueoa1")
 
-[node name="Interaction" type="Node2D" parent="."]
-
-[node name="CatAssemblyInteraction" type="Node2D" parent="Interaction"]
-
-[node name="CatSpot1" parent="Interaction/CatAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(518, 535)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/CatAssembly/Spot1")
-
-[node name="CatSpot2" parent="Interaction/CatAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(717, 532)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/CatAssembly/Spot2")
-
-[node name="CatSpot3" parent="Interaction/CatAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(516, 630)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/CatAssembly/Spot3")
-
-[node name="CatSpot4" parent="Interaction/CatAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(716, 628)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/CatAssembly/Spot4")
-
-[node name="CatSpot5" parent="Interaction/CatAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(515, 725)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/CatAssembly/Spot5")
-
-[node name="CatSpot6" parent="Interaction/CatAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(717, 719)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/CatAssembly/Spot6")
-
-[node name="DogAssemblyInteraction" type="Node2D" parent="Interaction"]
-
-[node name="DogSpot1" parent="Interaction/DogAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(1234, 530)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/DogAssembly/Spot1")
-
-[node name="DogSpot2" parent="Interaction/DogAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(1430, 527)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/DogAssembly/Spot2")
-
-[node name="DogSpot3" parent="Interaction/DogAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(1233, 620)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/DogAssembly/Spot3")
-
-[node name="DogSpot4" parent="Interaction/DogAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(1433, 620)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/DogAssembly/Spot4")
-
-[node name="DogSpot5" parent="Interaction/DogAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(1231, 716)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/DogAssembly/Spot5")
-
-[node name="DogSpot6" parent="Interaction/DogAssemblyInteraction" node_paths=PackedStringArray("minigame", "object") instance=ExtResource("5_mcep0")]
-position = Vector2(1432, 716)
-scale = Vector2(0.5, 0.5)
-minigame = NodePath("../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
-object = NodePath("../../../Y-sort/Tables/AssemblyStation/DogAssembly/Spot6")
-
 [connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/DogAssembly" to="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
+[connection signal="minigame_signal" from="Y-sort/Tables/AssemblyStation/DogAssembly/Spot1/InteractionArea" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_interaction_area_minigame_signal"]
 [connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/CatAssembly" to="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
+[connection signal="minigame_signal" from="Y-sort/Tables/AssemblyStation/CatAssembly/Spot1/InteractionArea" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_interaction_area_minigame_signal"]
 [connection signal="dish_created" from="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_minigame_assembly_dish_created"]
 [connection signal="dish_created" from="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_minigame_assembly_dish_created"]
-[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot1" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot2" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot3" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot4" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot5" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/CatAssemblyInteraction/CatSpot6" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot1" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot2" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot3" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot4" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot5" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
-[connection signal="object_signal" from="Interaction/DogAssemblyInteraction/DogSpot6" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_object_signal"]
 
 [editable path="Y-sort/Tables/AssemblyStation/DogAssembly"]
 [editable path="Y-sort/Tables/AssemblyStation/CatAssembly"]

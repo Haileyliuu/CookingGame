@@ -1,7 +1,7 @@
 class_name MiniGame extends Node2D
 
 #this means that you have to drag the player into the inspector
-@export var player: Player
+#@export var player: Player
 
 @export_enum("cat", "dog") var player_id: String
 var player_mode: GameStats.PlayerStates
@@ -14,7 +14,7 @@ var player_mode: GameStats.PlayerStates
 func _ready() -> void:
 	add_to_group("Minigame")
 	process_mode = Node.PROCESS_MODE_DISABLED
-	player_id = player.player_id
+	#player_id = player.player_id
 
 func _process(_delta: float) -> void:
 	if active:

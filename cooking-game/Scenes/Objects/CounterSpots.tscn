@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://mr37hgxs68up"]
+[gd_scene load_steps=5 format=3 uid="uid://mr37hgxs68up"]
 
 [ext_resource type="Script" uid="uid://cgga23a14mn5k" path="res://Scripts/counter_spots.gd" id="1_3a88d"]
 [ext_resource type="Texture2D" uid="uid://cxpakjyxw8nru" path="res://Art/Game Backgroud Layers/Objects/CatBoard.png" id="1_gkq8e"]
+[ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="3_8vgvd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a88d"]
 
@@ -18,6 +19,9 @@ texture = ExtResource("1_gkq8e")
 position = Vector2(0, -20)
 scale = Vector2(0.17, 0.17)
 
+[node name="InteractionArea" parent="Spot1" instance=ExtResource("3_8vgvd")]
+position = Vector2(-100, 0)
+
 [node name="Spot2" type="Sprite2D" parent="."]
 position = Vector2(145, 45)
 scale = Vector2(0.4, 0.4)
@@ -26,6 +30,9 @@ texture = ExtResource("1_gkq8e")
 [node name="Food" type="Sprite2D" parent="Spot2"]
 position = Vector2(0, -20)
 scale = Vector2(0.17, 0.17)
+
+[node name="InteractionArea" parent="Spot2" instance=ExtResource("3_8vgvd")]
+position = Vector2(100, 0)
 
 [node name="Spot3" type="Sprite2D" parent="."]
 position = Vector2(41, 139)
@@ -36,6 +43,9 @@ texture = ExtResource("1_gkq8e")
 position = Vector2(0, -20)
 scale = Vector2(0.17, 0.17)
 
+[node name="InteractionArea" parent="Spot3" instance=ExtResource("3_8vgvd")]
+position = Vector2(-100, 0)
+
 [node name="Spot4" type="Sprite2D" parent="."]
 position = Vector2(145, 139)
 scale = Vector2(0.4, 0.4)
@@ -44,6 +54,9 @@ texture = ExtResource("1_gkq8e")
 [node name="Food" type="Sprite2D" parent="Spot4"]
 position = Vector2(0, -20)
 scale = Vector2(0.17, 0.17)
+
+[node name="InteractionArea" parent="Spot4" instance=ExtResource("3_8vgvd")]
+position = Vector2(100, 0)
 
 [node name="Spot5" type="Sprite2D" parent="."]
 position = Vector2(41, 233)
@@ -54,6 +67,9 @@ texture = ExtResource("1_gkq8e")
 position = Vector2(0, -20)
 scale = Vector2(0.17, 0.17)
 
+[node name="InteractionArea" parent="Spot5" instance=ExtResource("3_8vgvd")]
+position = Vector2(-100, 0)
+
 [node name="Spot6" type="Sprite2D" parent="."]
 position = Vector2(145, 233)
 scale = Vector2(0.4, 0.4)
@@ -62,3 +78,6 @@ texture = ExtResource("1_gkq8e")
 [node name="Food" type="Sprite2D" parent="Spot6"]
 position = Vector2(0, -20)
 scale = Vector2(0.17, 0.17)
+
+[node name="InteractionArea" parent="Spot6" instance=ExtResource("3_8vgvd")]
+position = Vector2(100, 0)
