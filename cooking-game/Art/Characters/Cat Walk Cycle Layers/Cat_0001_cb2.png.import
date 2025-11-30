@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h2rmlsmvfb8v"
-path="res://.godot/imported/Cat_Walk_Sprite_Sheet.png-81b6606d1fd75a6bb2e9b210eb64f4aa.ctex"
+uid="uid://d2fmg0jrbt3um"
+path="res://.godot/imported/Cat_0001_cb2.png-31f6bf149d422f419e9ec940509c5d11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Characters/Cat_Walk_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/Cat_Walk_Sprite_Sheet.png-81b6606d1fd75a6bb2e9b210eb64f4aa.ctex"]
+source_file="res://Art/Characters/Cat Walk Cycle Layers/Cat_0001_cb2.png"
+dest_files=["res://.godot/imported/Cat_0001_cb2.png-31f6bf149d422f419e9ec940509c5d11.ctex"]
 
 [params]
 
