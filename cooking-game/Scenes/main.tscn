@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=41 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -19,12 +19,14 @@
 [ext_resource type="Shader" uid="uid://b7p6ejcpwqko6" path="res://Shaders/select.gdshader" id="11_k12tt"]
 [ext_resource type="Texture2D" uid="uid://bdiaey37fg5ja" path="res://Art/Game Backgroud Layers/Objects/CatRegister.png" id="12_hpc6h"]
 [ext_resource type="Texture2D" uid="uid://de1r1ed5gub0b" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0002s_0011_Dog_Table.png" id="12_wsu2k"]
+[ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="13_e08e2"]
 [ext_resource type="Texture2D" uid="uid://c74s50mvhpf3a" path="res://Art/Game Backgroud Layers/Objects/CatCutting.png" id="14_ueoa1"]
 [ext_resource type="Texture2D" uid="uid://ig81pq42p8cw" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsMiddle.png" id="16_fevyy"]
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://bmrtjtis27y7p" path="res://Art/Game Backgroud Layers/Objects/DogRegister.png" id="17_kltya"]
 [ext_resource type="Texture2D" uid="uid://cgg0wvuh3c0xc" path="res://Art/Game Backgroud Layers/Objects/DogCutting.png" id="18_6vcvc"]
+[ext_resource type="Script" uid="uid://brd4quhk5ewlb" path="res://Scripts/register.gd" id="18_neg2b"]
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
 [ext_resource type="Texture2D" uid="uid://dhgrtmq8el1l7" path="res://Art/Game Backgroud Layers/Objects/CatTrash.png" id="22_e08e2"]
 [ext_resource type="Texture2D" uid="uid://mfhlqvsablvc" path="res://Art/Game Backgroud Layers/Objects/DogTrash.png" id="24_neg2b"]
@@ -134,6 +136,11 @@ texture = ExtResource("8_b3802")
 position = Vector2(-540.0002, -95.00004)
 scale = Vector2(0.9999996, 0.9999996)
 texture = ExtResource("12_hpc6h")
+script = ExtResource("18_neg2b")
+
+[node name="InteractionArea" parent="Y-sort/Counters/CatTopCounter/CatRegister" instance=ExtResource("13_e08e2")]
+position = Vector2(52.000023, 181.00008)
+who_can_interact = "cat"
 
 [node name="CatRiceCooker" type="Sprite2D" parent="Y-sort/Counters/CatTopCounter"]
 position = Vector2(547.4995, -132.50005)
@@ -159,6 +166,11 @@ texture = ExtResource("8_d1ilt")
 position = Vector2(115, -97.5)
 scale = Vector2(1.0000002, 1.0000002)
 texture = ExtResource("17_kltya")
+script = ExtResource("18_neg2b")
+
+[node name="InteractionArea" parent="Y-sort/Counters/DogTopCounter/DogRegister" instance=ExtResource("13_e08e2")]
+position = Vector2(-57.499985, 189.99994)
+who_can_interact = "dog"
 
 [node name="DogBottomCounter" type="Sprite2D" parent="Y-sort/Counters"]
 position = Vector2(600.0001, 1102.0002)
@@ -199,6 +211,11 @@ polygon = PackedVector2Array(-278.9994, -328.00012, -274.99963, 517.50024, 275.0
 position = Vector2(-852.50024, -157.49998)
 texture = ExtResource("22_e08e2")
 
+[node name="InteractionArea" parent="Y-sort/Tables/CatTrash" instance=ExtResource("13_e08e2")]
+position = Vector2(5.0000005, -14.999994)
+scale = Vector2(4, 1)
+who_can_interact = "cat"
+
 [node name="CatTable" type="Sprite2D" parent="Y-sort/Tables"]
 position = Vector2(-850.00024, 285.00006)
 texture = ExtResource("11_jkdf5")
@@ -210,6 +227,11 @@ polygon = PackedVector2Array(657.5, -102.5, 714.99976, -100, 715, -202.5, 1140.0
 [node name="DogTrash" type="Sprite2D" parent="Y-sort/Tables"]
 position = Vector2(932.4999, -172.5)
 texture = ExtResource("24_neg2b")
+
+[node name="InteractionArea" parent="Y-sort/Tables/DogTrash" instance=ExtResource("13_e08e2")]
+position = Vector2(5.0000005, -14.999994)
+scale = Vector2(4, 1)
+who_can_interact = "dog"
 
 [node name="DogTable" type="Sprite2D" parent="Y-sort/Tables"]
 position = Vector2(942.50024, 270.00012)
@@ -335,6 +357,8 @@ offset_right = 700.0
 offset_bottom = 850.0
 theme = ExtResource("28_ueoa1")
 
+[connection signal="delivered_dish" from="Y-sort/Counters/CatTopCounter/CatRegister" to="SidePanels" method="_on_cat_register_delivered_dish"]
+[connection signal="delivered_dish" from="Y-sort/Counters/DogTopCounter/DogRegister" to="SidePanels" method="_on_dog_register_delivered_dish"]
 [connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/DogAssembly" to="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
 [connection signal="minigame_signal" from="Y-sort/Tables/AssemblyStation/DogAssembly/Spot1/InteractionArea" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_interaction_area_minigame_signal"]
 [connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/CatAssembly" to="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
