@@ -40,3 +40,7 @@ offset_bottom = 200.0
 nine_patch_stretch = true
 texture_under = ExtResource("5_37jyu")
 texture_progress = ExtResource("6_eftsj")
+
+[node name="ChopPlaceholder" type="Sprite2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
