@@ -54,7 +54,7 @@ func _ready():
 	_center_background() # centering the bg
 	_center_placeholder() 
 	background.z_index = -999 # being super safe that the bg is in the bg
-	start_chopping("cat", 1) # auto-starts testing
+	start_chopping(player_id, 1) # auto-starts testing
 
 
 func _center_background():
