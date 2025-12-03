@@ -23,5 +23,4 @@ rotation = 1.5707964
 polygon = PackedVector2Array(18, 12.999999, 18, -13.000001, 10.999999, -24, -8.000001, -24, -15.000001, -16, -14.999999, 16, -5.999999, 23, 11.000002, 23)
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_jbn3y")]
-visible = false
 position = Vector2(0, -35)

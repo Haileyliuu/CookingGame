@@ -1,7 +1,20 @@
-extends Area2D
+class_name Cockroach extends Area2D
 
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim : AnimationPlayer = $AnimationPlayer
+
+const bug_scene: PackedScene = preload("res://Scenes/Minigames/sabotoge/cockroach.tscn")
+
+var is_caught := false
+
+const SPEED = 2.0
+
+static func catch(start_pos: Vector2) -> Cockroach:
+	var newBug = bug_scene.instantiate()
+	newBug.position = start_pos
+	newBug.is_caught = true
+	return newBug
+	
 
 func _ready() -> void:
 	_move_npc()
@@ -23,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	if nav_agent.is_navigation_finished() || !nav_agent.is_target_reachable():
 		_move_npc()
 	
-	position += direction * 200.0 * delta
+	position += direction * SPEED * delta
 	rotation = lerpf(rotation, atan2(local_destination.y, local_destination.x) + PI/2, delta * 10)
 	
 	

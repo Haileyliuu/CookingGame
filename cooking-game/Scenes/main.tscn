@@ -199,16 +199,19 @@ position = Vector2(461, 369)
 [node name="Sabotage Button" parent="." instance=ExtResource("5_mcep0")]
 position = Vector2(627, 369)
 script = ExtResource("24_cbgmd")
+player_id = "cat"
 
-[node name="InteractionArea" parent="." instance=ExtResource("5_mcep0")]
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
 position = Vector2(1005, 350)
+minigame = NodePath("../Minigame1")
 
 [node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
 visible = false
 position = Vector2(275, 432)
 
-[node name="InteractionArea2" parent="." instance=ExtResource("5_mcep0")]
+[node name="InteractionArea2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
 position = Vector2(1503, 318)
+minigame = NodePath("../Minigame2")
 
 [node name="Minigame2" parent="." instance=ExtResource("25_u50mg")]
 visible = false

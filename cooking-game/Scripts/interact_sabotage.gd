@@ -7,8 +7,15 @@ var interact: Callable = func(player_id: String):
 		interact_with_button(player_id)
 
 func interact_with_button(player_id: String):
+	print("sabo")
 	match player_id:
 		"cat":
-			GameStats.cat_state = GameStats.PlayerStates.SABOTAGE
+			if GameStats.cat_state == GameStats.PlayerStates.SABOTAGE:
+				GameStats.cat_state = GameStats.PlayerStates.KITCHEN
+			else:
+				GameStats.cat_state = GameStats.PlayerStates.SABOTAGE
 		"dog":
-			GameStats.dog_state = GameStats.PlayerStates.SABOTAGE
+			if GameStats.dog_state == GameStats.PlayerStates.SABOTAGE:
+				GameStats.dog_state = GameStats.PlayerStates.KITCHEN
+			else:
+				GameStats.dog_state = GameStats.PlayerStates.SABOTAGE

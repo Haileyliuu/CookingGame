@@ -5,6 +5,13 @@ class_name InteractMinigame extends InteractionArea
 
 #Called when the player interacts with the button
 var interact: Callable = func(player_id: String):
+	match player_id:
+		"cat":
+			if GameStats.cat_state == GameStats.PlayerStates.SABOTAGE:
+				return
+		"dog":
+			if GameStats.dog_state == GameStats.PlayerStates.SABOTAGE:
+				return
 	if player_id == minigame.player_id:
 		interact_with_button()
 

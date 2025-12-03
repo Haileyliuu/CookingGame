@@ -6,6 +6,8 @@ const PUSHABILITY = 1.8 # bigger = more pushable
 
 @export var speed = 400
 
+var input_direction: Vector2 = Vector2(0,0) # This is mainly for rotating the bug net
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -28,5 +30,5 @@ func _process(_delta: float) -> void:
 
 
 func get_input():
-	var input_direction = Input.get_vector(player_id + "_left", player_id + "_right", player_id + "_up", player_id + "_down")
+	input_direction = Input.get_vector(player_id + "_left", player_id + "_right", player_id + "_up", player_id + "_down")
 	velocity = input_direction * speed
