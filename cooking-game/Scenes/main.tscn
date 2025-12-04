@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dm2en0bxnn214"]
+[gd_scene load_steps=45 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -27,16 +27,17 @@
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://bmrtjtis27y7p" path="res://Art/Game Backgroud Layers/Objects/DogRegister.png" id="17_kltya"]
 [ext_resource type="Texture2D" uid="uid://cgg0wvuh3c0xc" path="res://Art/Game Backgroud Layers/Objects/DogCutting.png" id="18_6vcvc"]
-[ext_resource type="Script" path="res://Scripts/register.gd" id="18_neg2b"]
-[ext_resource type="PackedScene" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
+[ext_resource type="Script" uid="uid://brd4quhk5ewlb" path="res://Scripts/register.gd" id="18_neg2b"]
+[ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
 [ext_resource type="Texture2D" uid="uid://dhgrtmq8el1l7" path="res://Art/Game Backgroud Layers/Objects/CatTrash.png" id="22_e08e2"]
-[ext_resource type="Script" uid="uid://d0s8nl7tajq1s" path="res://Scripts/interact_sabotage.gd" id="24_cbgmd"]
+[ext_resource type="Script" path="res://Scripts/interact_sabotage.gd" id="24_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://mfhlqvsablvc" path="res://Art/Game Backgroud Layers/Objects/DogTrash.png" id="24_neg2b"]
 [ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
 [ext_resource type="Theme" uid="uid://doas8v4v842gq" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
 [ext_resource type="Theme" uid="uid://bgtfhfueyd8yw" path="res://Shaders/border.theme" id="28_ueoa1"]
 [ext_resource type="PackedScene" uid="uid://cep6yw4yogs7" path="res://Scenes/Minigames/hunting_minigame/minigame_hunting.tscn" id="35_r33sp"]
+[ext_resource type="Script" uid="uid://c1jmukybakmyy" path="res://Scripts/hunting_timers.gd" id="38_k2e45"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
 blend_mode = 3
@@ -313,6 +314,7 @@ unique_name_in_owner = true
 position = Vector2(447, 388)
 
 [node name="CatHuntingGame" type="Panel" parent="."]
+visible = false
 clip_children = 2
 offset_left = 25.0
 offset_top = 253.0
@@ -329,11 +331,43 @@ offset_bottom = 800.0
 [node name="SubViewport" type="SubViewport" parent="CatHuntingGame/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(700, 850)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="MinigameHunting" parent="CatHuntingGame/SubViewportContainer/SubViewport" instance=ExtResource("35_r33sp")]
+player_id = "cat"
+minigame_type = 1
 
 [node name="Border" type="Panel" parent="CatHuntingGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 850.0
+theme = ExtResource("28_ueoa1")
+
+[node name="DogHuntingGame" type="Panel" parent="."]
+visible = false
+clip_children = 2
+offset_left = 1541.0
+offset_top = 255.0
+offset_right = 2241.0
+offset_bottom = 1105.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("26_1w6v2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DogHuntingGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 800.0
+
+[node name="SubViewport" type="SubViewport" parent="DogHuntingGame/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(700, 850)
+render_target_update_mode = 0
+
+[node name="MinigameHunting" parent="DogHuntingGame/SubViewportContainer/SubViewport" instance=ExtResource("35_r33sp")]
+player_id = "dog"
+minigame_type = 1
+
+[node name="Border" type="Panel" parent="DogHuntingGame"]
 layout_mode = 0
 offset_right = 700.0
 offset_bottom = 850.0
@@ -397,14 +431,41 @@ offset_right = 700.0
 offset_bottom = 850.0
 theme = ExtResource("28_ueoa1")
 
+[node name="Interactions" type="Node2D" parent="."]
+
+[node name="CatHunting" parent="Interactions" node_paths=PackedStringArray("minigame") instance=ExtResource("13_e08e2")]
+position = Vector2(566, 1107)
+minigame = NodePath("../../CatHuntingGame/SubViewportContainer/SubViewport/MinigameHunting")
+who_can_interact = "cat"
+
+[node name="DogHunting" parent="Interactions" node_paths=PackedStringArray("minigame") instance=ExtResource("13_e08e2")]
+position = Vector2(1462, -25)
+minigame = NodePath("../../DogHuntingGame/SubViewportContainer/SubViewport/MinigameHunting")
+who_can_interact = "dog"
+
+[node name="Timers" type="Node2D" parent="."]
+script = ExtResource("38_k2e45")
+
+[node name="FishTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
+
+[node name="CowTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
+
 [connection signal="delivered_dish" from="Y-sort/Counters/CatTopCounter/CatRegister" to="SidePanels" method="_on_cat_register_delivered_dish"]
 [connection signal="delivered_dish" from="Y-sort/Counters/DogTopCounter/DogRegister" to="SidePanels" method="_on_dog_register_delivered_dish"]
 [connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/DogAssembly" to="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
 [connection signal="pickup" from="Y-sort/Tables/AssemblyStation/DogAssembly" to="Y-sort/BurgerDog" method="_on_dog_assembly_pickup"]
 [connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/CatAssembly" to="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
 [connection signal="pickup" from="Y-sort/Tables/AssemblyStation/CatAssembly" to="Y-sort/SushiCat" method="_on_cat_assembly_pickup"]
+[connection signal="total_spawned" from="CatHuntingGame/SubViewportContainer/SubViewport/MinigameHunting" to="Timers" method="_fish_total_spawned"]
+[connection signal="total_spawned" from="DogHuntingGame/SubViewportContainer/SubViewport/MinigameHunting" to="Timers" method="_cow_total_spawned"]
 [connection signal="dish_created" from="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_minigame_assembly_dish_created"]
 [connection signal="dish_created" from="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_minigame_assembly_dish_created"]
+[connection signal="timeout" from="Timers/FishTimer" to="CatHuntingGame/SubViewportContainer/SubViewport/MinigameHunting" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timers/FishTimer" to="Timers" method="_on_fish_timer_timeout"]
+[connection signal="timeout" from="Timers/CowTimer" to="DogHuntingGame/SubViewportContainer/SubViewport/MinigameHunting" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timers/CowTimer" to="Timers" method="_on_cow_timer_timeout"]
 
 [editable path="Y-sort/Tables/AssemblyStation/DogAssembly"]
 [editable path="Y-sort/Tables/AssemblyStation/CatAssembly"]

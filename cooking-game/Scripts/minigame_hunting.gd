@@ -1,7 +1,7 @@
-extends Node2D
+extends MiniGame
 class_name minigame_hunting
 
-var player_id := "cat"
+#var player_id := ""
 
 @onready var arrow: Node2D = $arrow
 @onready var EnemyScene = preload("res://Scenes/Minigames/hunting_minigame/enemy.tscn")
@@ -16,7 +16,7 @@ var player_id := "cat"
 @export var respawn_cooldown: float = 5
 
 var enemies: Array = []
-var total_spawned: int = 0
+signal total_spawned(t)
 var target_total: int = 3
 
 signal player(p)
@@ -29,21 +29,21 @@ signal arrow_positioned
 ]
 
 func _ready():
-
+	process_mode = Node.PROCESS_MODE_DISABLED
 	player.emit(player_id)
 	spawn_initial_enemies()
 	display_background()
 
 
 func spawn_initial_enemies():
-	var num_to_spawn = randi_range(min_enemies, max_enemies)
-	for i in range(num_to_spawn):
+	#var num_to_spawn = randi_range(min_enemies, max_enemies)
+	for i in range(3):
 		_add_enemy()
-	print("Spawned initial ", num_to_spawn, " enemies.")
+	#print("Spawned initial ", num_to_spawn, " enemies.")
 
 
 func _add_enemy():
-	if total_spawned >= target_total:
+	if enemies.size() >= target_total:
 		return
 	
 	var enemy_instance = EnemyScene.instantiate()
@@ -56,7 +56,7 @@ func _add_enemy():
 	
 	$Enemies.add_child(enemy_instance)
 	enemies.append(enemy_instance)
-	total_spawned += 1
+	emit_signal("total_spawned", enemies.size())
 
 	# Connect its death signal
 	enemy_instance.tree_exited.connect(func(): _on_enemy_killed(enemy_instance))
@@ -66,6 +66,7 @@ func _add_enemy():
 func _on_enemy_killed(enemy_instance):
 	enemies.erase(enemy_instance)
 	enemy_instance.queue_free()
+	emit_signal("total_spawned", enemies.size())
 	#print("Enemy killed. Starting individual cooldown...")
 
 	## Create a timer for this specific respawn
@@ -126,3 +127,7 @@ func display_background():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(player_id + "_shoot"):
 		arrow.launch()
+
+
+func _on_timer_timeout() -> void:
+	_add_enemy()
