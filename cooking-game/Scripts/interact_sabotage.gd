@@ -4,19 +4,15 @@ class_name IntSabo extends InteractionArea
 
 func _ready():
 	interact = func(player_id: String):
-		if player_id == who_can_interact:
+		var player = get_tree().get_first_node_in_group(player_id)
+		if player_id == who_can_interact and player.meal == null:
 			interact_with_button(player_id)
 
 func interact_with_button(player_id: String):
 	print("sabo")
-	match player_id:
-		"cat":
-			if GameStats.cat_state == GameStats.PlayerStates.SABOTAGE:
-				GameStats.cat_state = GameStats.PlayerStates.KITCHEN
-			else:
-				GameStats.cat_state = GameStats.PlayerStates.SABOTAGE
-		"dog":
-			if GameStats.dog_state == GameStats.PlayerStates.SABOTAGE:
-				GameStats.dog_state = GameStats.PlayerStates.KITCHEN
-			else:
-				GameStats.dog_state = GameStats.PlayerStates.SABOTAGE
+	var states = GameStats.PlayerStates
+	var player_state = GameStats.get(player_id + "_state")
+	if player_state == states.SABOTAGE:
+		player_state = states.KITCHEN
+	else:
+		player_state = states.SABOTAGE

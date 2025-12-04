@@ -36,6 +36,10 @@ func _process(_delta: float) -> void:
 
 
 func get_input():
+	if get_tree().paused:
+		velocity = Vector2.ZERO
+		return
+	
 	input_direction = Input.get_vector(player_id + "_left", player_id + "_right", player_id + "_up", player_id + "_down")
 	velocity = input_direction * speed
 	$Pivot.rotation = last_dir.angle()

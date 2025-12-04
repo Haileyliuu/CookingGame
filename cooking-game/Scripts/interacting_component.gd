@@ -33,7 +33,9 @@ func _input(event: InputEvent) -> void:
 				can_interact = true
 #
 func _handle_sabotage() -> void:
-	if(GameStats.cat_state == GameStats.PlayerStates.SABOTAGE):
+	if player.meal != null:
+		return
+	if(GameStats.get(player_id + "_state") == GameStats.PlayerStates.SABOTAGE):
 		print("removing")
 		player.bug_net.hide()
 	else:

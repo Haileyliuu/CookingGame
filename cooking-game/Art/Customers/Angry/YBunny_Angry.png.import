@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byfww5x6f88jk"
-path="res://.godot/imported/WBunny_Disgust.png-435113e5505cd6a69572b21f9cade23d.ctex"
+uid="uid://bl1hmx2c6k6n3"
+path="res://.godot/imported/YBunny_Angry.png-88bf3c2064666f78cc9e60fe663788c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Angry/WBunny_Disgust.png"
-dest_files=["res://.godot/imported/WBunny_Disgust.png-435113e5505cd6a69572b21f9cade23d.ctex"]
+source_file="res://Art/Customers/Angry/YBunny_Angry.png"
+dest_files=["res://.godot/imported/YBunny_Angry.png-88bf3c2064666f78cc9e60fe663788c5.ctex"]
 
 [params]
 

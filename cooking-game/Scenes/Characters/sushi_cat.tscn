@@ -134,4 +134,4 @@ scale = Vector2(0.68000245, 0.5199988)
 
 [node name="BugNet" parent="Pivot" instance=ExtResource("15_wdyrf")]
 visible = false
-position = Vector2(-36, -7)
+position = Vector2(1, 0)

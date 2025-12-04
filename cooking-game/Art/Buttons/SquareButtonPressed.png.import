@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp1xunl38qhcj"
-path="res://.godot/imported/PinkBunny_Normal.PNG-eedb5e398848860b382fb0bf584f42ec.ctex"
+uid="uid://cnnyj02p8rxii"
+path="res://.godot/imported/SquareButtonPressed.png-3cd3bff583d2d881a2340541e3e234a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Normal/PinkBunny_Normal.PNG"
-dest_files=["res://.godot/imported/PinkBunny_Normal.PNG-eedb5e398848860b382fb0bf584f42ec.ctex"]
+source_file="res://Art/Buttons/SquareButtonPressed.png"
+dest_files=["res://.godot/imported/SquareButtonPressed.png-3cd3bff583d2d881a2340541e3e234a5.ctex"]
 
 [params]
 

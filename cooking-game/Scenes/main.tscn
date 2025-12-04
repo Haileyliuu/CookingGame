@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=47 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="Texture2D" uid="uid://c41ju7gsf78oi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0004_Floor.png" id="2_344ge"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
+[ext_resource type="PackedScene" uid="uid://knlfsyap2tng" path="res://Scenes/UI/display.tscn" id="2_r33sp"]
 [ext_resource type="Texture2D" uid="uid://cj20otqaedsa7" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsBottom.png" id="3_b3802"]
 [ext_resource type="Texture2D" uid="uid://dm06o6ottn4ig" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsFloor.png" id="3_hibaj"]
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
@@ -35,9 +36,10 @@
 [ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
 [ext_resource type="Theme" uid="uid://doas8v4v842gq" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
+[ext_resource type="Script" path="res://Scripts/trash.gd" id="27_jwpg7"]
 [ext_resource type="Theme" uid="uid://bgtfhfueyd8yw" path="res://Shaders/border.theme" id="28_ueoa1"]
 [ext_resource type="PackedScene" uid="uid://cep6yw4yogs7" path="res://Scenes/Minigames/hunting_minigame/minigame_hunting.tscn" id="35_r33sp"]
-[ext_resource type="Script" uid="uid://c1jmukybakmyy" path="res://Scripts/hunting_timers.gd" id="38_k2e45"]
+[ext_resource type="Script" path="res://Scripts/hunting_timers.gd" id="38_k2e45"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
 blend_mode = 3
@@ -63,6 +65,8 @@ blend_mode = 3
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kry3j")
+
+[node name="display" parent="." instance=ExtResource("2_r33sp")]
 
 [node name="SidePanels" parent="." instance=ExtResource("16_k12tt")]
 
@@ -217,6 +221,7 @@ polygon = PackedVector2Array(-278.9994, -328.00012, -274.99963, 517.50024, 275.0
 [node name="CatTrash" type="Sprite2D" parent="Y-sort/Tables"]
 position = Vector2(-852.50024, -157.49998)
 texture = ExtResource("22_e08e2")
+script = ExtResource("27_jwpg7")
 
 [node name="InteractionArea" parent="Y-sort/Tables/CatTrash" instance=ExtResource("13_e08e2")]
 position = Vector2(5.0000005, -14.999994)
@@ -234,6 +239,7 @@ polygon = PackedVector2Array(657.5, -102.5, 714.99976, -100, 715, -202.5, 1140.0
 [node name="DogTrash" type="Sprite2D" parent="Y-sort/Tables"]
 position = Vector2(932.4999, -172.5)
 texture = ExtResource("24_neg2b")
+script = ExtResource("27_jwpg7")
 
 [node name="InteractionArea" parent="Y-sort/Tables/DogTrash" instance=ExtResource("13_e08e2")]
 position = Vector2(5.0000005, -14.999994)
@@ -303,6 +309,7 @@ minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubV
 [node name="BurgerDog" parent="Y-sort" groups=["dog"] instance=ExtResource("1_rivda")]
 unique_name_in_owner = true
 position = Vector2(1307, 365)
+speed = 400
 
 [node name="SushiCat" parent="Y-sort" groups=["cat"] instance=ExtResource("2_h7nwh")]
 unique_name_in_owner = true
@@ -438,8 +445,8 @@ position = Vector2(1462, -25)
 minigame = NodePath("../../DogHuntingGame/SubViewportContainer/SubViewport/MinigameHunting")
 who_can_interact = "dog"
 
-[node name="CatBugNet" parent="Interactions" instance=ExtResource("13_e08e2")]
-position = Vector2(378, 495)
+[node name="Cat Sabotage" parent="Interactions" instance=ExtResource("13_e08e2")]
+position = Vector2(380, 486)
 script = ExtResource("24_cbgmd")
 pid = "cat"
 who_can_interact = "cat"

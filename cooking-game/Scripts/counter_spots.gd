@@ -49,13 +49,13 @@ func _on_minigame_assembly_dish_created() -> void:
 	print(spot_taken)
 
 func place_food(i: int) -> void:
-	var spot = get_node("Spot" + str(i))
+	var spot = get_node("Spot" + str(i + 1))
 	var food = Dish.place(i, player_id)
 	spot_taken[i] = food
 	spot.add_child(food)
 
 func take_food(i: int) -> void:
-	var spot = get_node("Spot" + str(i))
+	var spot = get_node("Spot" + str(i + 1))
 	var food: Dish = spot.get_child(1)
 	pickup.emit(food.cockroach)
 	food.queue_free()
@@ -70,7 +70,7 @@ func take_food(i: int) -> void:
 
 func _on_interact(incoming_id, area):
 	# print(assembly_minigame)
-	current_spot = area.object.name.substr(4).to_int()
+	current_spot = area.object.name.substr(4).to_int() - 1
 	
 	#if the player going here has a cockroach, put a cockroach in the food
 	var player_interacting: Player = get_tree().get_first_node_in_group(incoming_id)
@@ -79,7 +79,7 @@ func _on_interact(incoming_id, area):
 		player_interacting.player_cockroach.queue_free()
 		GameStats.set(incoming_id + "_state", GameStats.PlayerStates.KITCHEN)
 		
-	if incoming_id == player_id:
+	if incoming_id == player_id and player_interacting.meal == null:
 		if spot_taken[current_spot] == null:
 			assembly_minigame.start_minigame()
 		else:

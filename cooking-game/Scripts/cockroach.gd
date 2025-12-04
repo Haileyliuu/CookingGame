@@ -9,6 +9,11 @@ var is_caught := false
 
 const SPEED = 200.0
 
+static func spawn(start_pos) -> Cockroach:
+	var newBug = bug_scene.instantiate()
+	newBug.position = start_pos
+	return newBug
+
 static func catch(start_pos: Vector2) -> Cockroach:
 	var newBug = bug_scene.instantiate()
 	newBug.position = start_pos

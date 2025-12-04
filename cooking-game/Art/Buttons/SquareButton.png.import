@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2a1v1la2d1n3"
-path="res://.godot/imported/Bear_Angry.PNG-8c031209cf8aa82fc17affb74e13463a.ctex"
+uid="uid://d33j42mu7e67q"
+path="res://.godot/imported/SquareButton.png-ce2e1fbfe2ba1a649c37d5720ae8314b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Angry/Bear_Angry.PNG"
-dest_files=["res://.godot/imported/Bear_Angry.PNG-8c031209cf8aa82fc17affb74e13463a.ctex"]
+source_file="res://Art/Buttons/SquareButton.png"
+dest_files=["res://.godot/imported/SquareButton.png-ce2e1fbfe2ba1a649c37d5720ae8314b.ctex"]
 
 [params]
 

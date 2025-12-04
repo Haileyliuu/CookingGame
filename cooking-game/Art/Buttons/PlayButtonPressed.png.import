@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g12yxuq8ioua"
-path="res://.godot/imported/Bear_Normal.PNG-3e785567eb1b0448a75bf5276e07a676.ctex"
+uid="uid://t1uy3okh6k4e"
+path="res://.godot/imported/PlayButtonPressed.png-ba27e797dd2eae1f10d5300c9c1d7e86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Normal/Bear_Normal.PNG"
-dest_files=["res://.godot/imported/Bear_Normal.PNG-3e785567eb1b0448a75bf5276e07a676.ctex"]
+source_file="res://Art/Buttons/PlayButtonPressed.png"
+dest_files=["res://.godot/imported/PlayButtonPressed.png-ba27e797dd2eae1f10d5300c9c1d7e86.ctex"]
 
 [params]
 
