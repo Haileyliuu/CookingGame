@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b52sedgbgv0jx"]
+[gd_scene load_steps=7 format=3 uid="uid://b52sedgbgv0jx"]
 
 [ext_resource type="Script" uid="uid://kymfp731jjkv" path="res://Scripts/side_panels.gd" id="1_grhte"]
 [ext_resource type="Texture2D" uid="uid://m8xitodthj6n" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0006_Backgrounds.png" id="1_pbgs2"]
 [ext_resource type="Texture2D" uid="uid://xq7rt0fbl6qm" path="res://Art/Game Backgroud Layers/Sides/Game_Background_0000s_0000_Cat_Margins_Register.png" id="1_qiffm"]
 [ext_resource type="Texture2D" uid="uid://dq5lt1mwutrfu" path="res://Art/Game Backgroud Layers/Sides/Game_Background_0001s_0000_Dog_Margins_Register.png" id="2_pbgs2"]
+[ext_resource type="Texture2D" uid="uid://uwxc1v8d7s5q" path="res://Art/UI/Side Panel Progress Bar/progress-bar-circle.png" id="5_850wk"]
+[ext_resource type="Texture2D" uid="uid://c2c2248vpsqpf" path="res://Art/UI/Side Panel Progress Bar/progress-bar-frame.png" id="6_3imgu"]
 
 [node name="SidePanels" type="Control"]
 layout_mode = 3
@@ -69,5 +71,31 @@ position = Vector2(1789, 662)
 
 [node name="DogCustomerEnd" type="Marker2D" parent="Markers"]
 position = Vector2(1185, 659)
+
+[node name="CatProgress" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 180.0
+offset_right = 197.0
+offset_bottom = 308.0
+fill_mode = 4
+texture_under = ExtResource("5_850wk")
+texture_over = ExtResource("6_3imgu")
+texture_progress = ExtResource("5_850wk")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0, 0.8666667, 0.12941177, 1)
+
+[node name="DogProgress" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 1724.0
+offset_top = 176.0
+offset_right = 1852.0
+offset_bottom = 304.0
+fill_mode = 4
+texture_under = ExtResource("5_850wk")
+texture_over = ExtResource("6_3imgu")
+texture_progress = ExtResource("5_850wk")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0, 0.8666667, 0.12941177, 1)
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7vf5m5uu8alw"
-path="res://.godot/imported/PinkBunny_Angry.PNG-06c0687e8733fe7fcd0ed55b831d4b64.ctex"
+uid="uid://dc4y41hvx3t2l"
+path="res://.godot/imported/Teddy_Angry.png-bac2a79e9448b83309c403cd4f3cd1d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Angry/PinkBunny_Angry.PNG"
-dest_files=["res://.godot/imported/PinkBunny_Angry.PNG-06c0687e8733fe7fcd0ed55b831d4b64.ctex"]
+source_file="res://Art/Customers/Angry/Teddy_Angry.png"
+dest_files=["res://.godot/imported/Teddy_Angry.png-bac2a79e9448b83309c403cd4f3cd1d7.ctex"]
 
 [params]
 

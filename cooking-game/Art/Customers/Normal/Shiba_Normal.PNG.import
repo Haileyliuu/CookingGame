@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cumo5whkmrhsn"
-path="res://.godot/imported/Shiba_Normal.PNG-abc3d17a387e95e554772d612ed16a72.ctex"
+uid="uid://nmiinfplixie"
+path="res://.godot/imported/Shiba_Normal.png-6b49f69c20b811425743c02d51416124.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Normal/Shiba_Normal.PNG"
-dest_files=["res://.godot/imported/Shiba_Normal.PNG-abc3d17a387e95e554772d612ed16a72.ctex"]
+source_file="res://Art/Customers/Normal/Shiba_Normal.png"
+dest_files=["res://.godot/imported/Shiba_Normal.png-6b49f69c20b811425743c02d51416124.ctex"]
 
 [params]
 

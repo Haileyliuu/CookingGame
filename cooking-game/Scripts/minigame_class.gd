@@ -4,9 +4,9 @@ class_name MiniGame extends Node2D
 #@export var player: Player
 
 @export_enum("cat", "dog") var player_id: String
+@export var minigame_type: GameStats.PlayerStates
 var player_mode: GameStats.PlayerStates
 @onready var timer: Timer
-@export var minigame_type: GameStats.PlayerStates
 
 @onready var active = false
 @onready var container := get_parent().get_parent().get_parent()
@@ -22,11 +22,7 @@ func _on_timeout_test():
 
 func _process(_delta: float) -> void:
 	if active:
-		match player_id:
-			"cat":
-				player_mode = GameStats.cat_state
-			"dog":
-				player_mode = GameStats.dog_state
+		player_mode = GameStats.get(player_id + "_state")
 		if Input.is_action_just_pressed(player_id + "_select"):
 			timer.start(2)
 			print("Timer")
@@ -38,18 +34,17 @@ func end_minigame() -> void:
 	print("timed out")
 	container.visible = false
 	active = false
+	#If you don't do this then it'll keep ending the minigame whenever you play it
 	timer.timeout.disconnect(end_minigame)
+	#Freeze inputs for minigame while hidden
 	process_mode = Node.PROCESS_MODE_DISABLED
-	match player_id:
-		"cat":
-			GameStats.cat_state = GameStats.PlayerStates.KITCHEN
-		"dog":
-			GameStats.dog_state = GameStats.PlayerStates.KITCHEN
+	#Reset state to kitchen on eand
+	GameStats.set(player_id + "_state", GameStats.PlayerStates.KITCHEN)
 
 func start_minigame():
 	
 	timer = Timer.new()
-	timer.one_shot = false # Set to true for a single timeout, false for repeating
+	timer.one_shot = false 
 	timer.autostart = false
 	add_child(timer)
 	timer.timeout.connect(end_minigame)
@@ -57,8 +52,4 @@ func start_minigame():
 	container.visible = true
 	active = true
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	match player_id:
-		"cat":
-			GameStats.cat_state = minigame_type
-		"dog":
-			GameStats.dog_state = minigame_type
+	GameStats.set(player_id + "_state", minigame_type)

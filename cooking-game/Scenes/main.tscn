@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dm2en0bxnn214"]
+[gd_scene load_steps=44 format=3 uid="uid://dm2en0bxnn214"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
 [ext_resource type="Theme" uid="uid://doas8v4v842gq" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
+[ext_resource type="Script" uid="uid://bxdmre7sqembu" path="res://Scripts/trash.gd" id="27_jwpg7"]
 [ext_resource type="Theme" uid="uid://bgtfhfueyd8yw" path="res://Shaders/border.theme" id="28_ueoa1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
@@ -220,6 +221,7 @@ polygon = PackedVector2Array(-278.9994, -328.00012, -274.99963, 517.50024, 275.0
 [node name="CatTrash" type="Sprite2D" parent="Y-sort/Tables"]
 position = Vector2(-852.50024, -157.49998)
 texture = ExtResource("22_e08e2")
+script = ExtResource("27_jwpg7")
 
 [node name="InteractionArea" parent="Y-sort/Tables/CatTrash" instance=ExtResource("13_e08e2")]
 position = Vector2(5.0000005, -14.999994)
@@ -237,6 +239,7 @@ polygon = PackedVector2Array(657.5, -102.5, 714.99976, -100, 715, -202.5, 1140.0
 [node name="DogTrash" type="Sprite2D" parent="Y-sort/Tables"]
 position = Vector2(932.4999, -172.5)
 texture = ExtResource("24_neg2b")
+script = ExtResource("27_jwpg7")
 
 [node name="InteractionArea" parent="Y-sort/Tables/DogTrash" instance=ExtResource("13_e08e2")]
 position = Vector2(5.0000005, -14.999994)

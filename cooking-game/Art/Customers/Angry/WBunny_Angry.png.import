@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g12yxuq8ioua"
-path="res://.godot/imported/Bear_Normal.PNG-3e785567eb1b0448a75bf5276e07a676.ctex"
+uid="uid://ci3a57klleht7"
+path="res://.godot/imported/WBunny_Angry.png-29d46831da6ced25252323f668f76564.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Normal/Bear_Normal.PNG"
-dest_files=["res://.godot/imported/Bear_Normal.PNG-3e785567eb1b0448a75bf5276e07a676.ctex"]
+source_file="res://Art/Customers/Angry/WBunny_Angry.png"
+dest_files=["res://.godot/imported/WBunny_Angry.png-29d46831da6ced25252323f668f76564.ctex"]
 
 [params]
 
