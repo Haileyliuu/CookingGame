@@ -1,7 +1,7 @@
 extends Node2D
 class_name minigame_hunting
 
-var player_id := "cat"
+var player_id := "dog"
 
 @onready var arrow: Node2D = $arrow
 @onready var EnemyScene = preload("res://Scenes/Minigames/hunting_minigame/enemy.tscn")
@@ -40,6 +40,7 @@ func _add_enemy():
 	var x = randf_range(spawn_min.x, spawn_max.x)
 	var y = randf_range(spawn_min.y, spawn_max.y)
 	enemy_instance.global_position = Vector2(x, y)
+	enemy_instance.scale = Vector2(0.7, 0.7)
 	
 	enemy_instance.player_id = player_id
 	

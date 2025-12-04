@@ -1,24 +1,81 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp7cywp63p2u6"]
+[gd_scene load_steps=14 format=3 uid="uid://cp7cywp63p2u6"]
 
-[ext_resource type="Texture2D" uid="uid://wb0i27qtaqo4" path="res://Art/icon.svg" id="1_hfgcq"]
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_j2itk"]
-[ext_resource type="PackedScene" path="res://Scenes/Minigames/hunting_minigame/wander.tscn" id="3_j2itk"]
+[ext_resource type="Script" uid="uid://dpouf3on0rcpv" path="res://Scripts/enemy.gd" id="1_j2itk"]
+[ext_resource type="Texture2D" uid="uid://cletvvtikdqsb" path="res://Art/CowArt/Hunting Minigame Files/HMG_BCow_Grass_Sprite_Sheet.png" id="2_j2itk"]
+[ext_resource type="PackedScene" uid="uid://b7c0vfl1we1al" path="res://Scenes/Minigames/hunting_minigame/wander.tscn" id="3_j2itk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l66kt"]
+atlas = ExtResource("2_j2itk")
+region = Rect2(0, 495, 450, 495)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u83b8"]
+atlas = ExtResource("2_j2itk")
+region = Rect2(450, 495, 450, 495)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lybsc"]
+atlas = ExtResource("2_j2itk")
+region = Rect2(900, 495, 450, 495)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2pmw"]
+atlas = ExtResource("2_j2itk")
+region = Rect2(0, 0, 450, 495)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta2yi"]
+atlas = ExtResource("2_j2itk")
+region = Rect2(450, 0, 450, 495)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbey1"]
+atlas = ExtResource("2_j2itk")
+region = Rect2(900, 0, 450, 495)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3fi6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l66kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u83b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lybsc")
+}],
+"loop": true,
+"name": &"left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2pmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta2yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbey1")
+}],
+"loop": true,
+"name": &"right",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l66kt"]
-size = Vector2(101, 93)
+size = Vector2(306.125, 156.625)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j2itk"]
 radius = 43.011627
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l66kt"]
-radius = 140.03214
+radius = 330.07425
 
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("wander_behavior") groups=["enemy"]]
 script = ExtResource("1_j2itk")
 wander_behavior = NodePath("wander")
 
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("1_hfgcq")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3fi6a")
+animation = &"right"
+frame_progress = 0.033053745
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(390, 443)
@@ -26,13 +83,13 @@ collision_layer = 16
 collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-391.5, -442.5)
+position = Vector2(-397.0625, -470.3125)
 shape = SubResource("RectangleShape2D_l66kt")
 
 [node name="wander" parent="." instance=ExtResource("3_j2itk")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, -3)
+position = Vector2(-12, -34)
 shape = SubResource("CircleShape2D_j2itk")
 debug_color = Color(0.5480865, 0.5632365, 0.11740684, 0.41960785)
 
@@ -41,7 +98,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
-position = Vector2(-1, 2)
+position = Vector2(9, -25)
 shape = SubResource("CircleShape2D_l66kt")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

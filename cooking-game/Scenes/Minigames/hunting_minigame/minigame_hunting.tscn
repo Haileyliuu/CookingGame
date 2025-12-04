@@ -37,7 +37,7 @@ shape = SubResource("CircleShape2D_pn1o0")
 position = Vector2(0.2294035, -120.76733)
 
 [node name="Marker2D8" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(589, 469)
+position = Vector2(616, 408)
 
 [node name="Marker2D10" type="Marker2D" parent="." groups=["cow"]]
 position = Vector2(1124, 621)

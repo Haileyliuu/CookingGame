@@ -57,6 +57,7 @@ func reset():
 	rotation = marker_2d.global_rotation
 
 	# Restart swing
+	tween.kill()
 	tween = create_tween()
 	swing()
 

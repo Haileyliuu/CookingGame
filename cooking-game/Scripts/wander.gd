@@ -5,7 +5,7 @@ class_name WanderBehavior
 
 # === CONFIGURATION ===
 @export var group_name: String = "cow"         # Group containing your Marker2Ds
-@export var move_speed: float = 500         # Movement speed for the enemy
+@export var move_speed: float = 1500         # Movement speed for the enemy
 @export var arrive_distance: float = 10.0            # Distance threshold to "arrive" at a marker
 @export var wait_min: float = 0.5       # Minimum wait time after reaching a marker
 @export var wait_max: float = 1    
