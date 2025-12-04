@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ctb3jobg58hom" path="res://Scripts/knife.gd" id="4_37jyu"]
 
 [node name="MinigameChopping" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_60jlv")
 
 [node name="ChopSound" type="AudioStreamPlayer2D" parent="."]
