@@ -1,7 +1,7 @@
 extends Node2D # use extends minigame when fr
 
 signal chop_done(player_id : String)
-var player_id: String = "cat" # for testing purposes
+var player_id: String = "dog" # for testing purposes
 
 @export var CHOPS_REQUIRED : int = 5
 
@@ -13,22 +13,25 @@ var player_chop_art: Dictionary = {}
 # REPLACE PATHS
 var cat_chop_paths := {
 	1: [
-		"res://Art/SushiArt/Avocado.png",
-		"res://Art/SushiArt/Cucumber.png",
-		"res://Art/SushiArt/Fish.png",
-		"res://Art/SushiArt/ImitationCrab.png",
-		"res://Art/SushiArt/SeaweedRice.png"
+		"res://Art/SushiArt/ChoppingFish/ChopFish1.PNG",
+		"res://Art/SushiArt/ChoppingFish/ChopFish2.PNG",
+		"res://Art/SushiArt/ChoppingFish/ChopFish3.PNG",
+		"res://Art/SushiArt/ChoppingFish/ChopFish4.PNG",
+		"res://Art/SushiArt/ChoppingFish/ChopFish5.PNG",
+		"res://Art/SushiArt/ChoppingFish/ChopFish6.PNG"
+		
 	]
 }
 
 # REPLACE PATHS
 var dog_chop_paths := {
 	1: [
-		"res://Art/BurgerArt/BottomBun.PNG",
-		"res://Art/BurgerArt/Cheese.PNG",
-		"res://Art/BurgerArt/Lettuce.PNG",
-		"res://Art/BurgerArt/Patty.PNG",
-		"res://Art/BurgerArt/Tomato.PNG"
+		"res://Art/BurgerArt/ChoppingCow/ChopCow1.PNG",
+		"res://Art/BurgerArt/ChoppingCow/ChopCow2.PNG",
+		"res://Art/BurgerArt/ChoppingCow/ChopCow3.PNG",
+		"res://Art/BurgerArt/ChoppingCow/ChopCow4.PNG",
+		"res://Art/BurgerArt/ChoppingCow/ChopCow5.PNG",
+		"res://Art/BurgerArt/ChoppingCow/ChopCow6.PNG"
 	]
 }
 
