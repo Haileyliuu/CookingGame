@@ -33,14 +33,21 @@ var cat_timer: Timer
 @onready var cat_progress: TextureProgressBar = $CatProgress
 var dog_timer: Timer
 @onready var dog_progress: TextureProgressBar = $DogProgress
-const CUST_MAX_TIME := 8.0
+const CUST_MAX_TIME := 4.0
 var cust_time = CUST_MAX_TIME
 var ct_ratio = cust_time
 @onready var markers: Array[Marker2D] = []
 
+# Score counters
+@onready var cat_score = $CatScore
+@onready var dog_score = $DogScore
+
 func _process(delta: float) -> void:
 	cat_progress.value = cat_timer.time_left/ct_ratio * 100
 	dog_progress.value = dog_timer.time_left/ct_ratio * 100
+	
+	cat_score.text = str(GameStats.cat_score)
+	dog_score.text = str(GameStats.dog_score)
 
 func _ready() -> void:
 	for m in $Markers.get_children():
@@ -67,6 +74,12 @@ func _ready() -> void:
 
 func _threshold_passed(threshold):
 	cust_time = cust_time / 2
+
+func _score_points(player_id: String, angry: bool):
+	var point = -1 if angry else 1
+	var score = GameStats.get(player_id + "_score")
+	score = score + point
+	GameStats.set(player_id + "_score", score)
 
 #creates a new customer, replaces sprite with angry sprite if cockroach delivered
 func new_customer(player_id : String, angry: bool):
@@ -120,6 +133,9 @@ func new_customer(player_id : String, angry: bool):
 
 func leave_old_customer(player_id : String, angry: bool):
 	var player_current_customer = get(player_id + "_current_customer")
+	
+	# Score points when customer leaves
+	_score_points(player_id, angry)
 	
 	var add_marker_index = 0
 	if player_id == "dog":

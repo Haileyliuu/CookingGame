@@ -21,7 +21,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		anim_player.play("swing")
 
 func on_bug_enter(bug: Area2D):
-	if bug is Cockroach and not caught_bug:
+	if bug is Cockroach and player.player_cockroach == null:
 		caught_bug = true
 		print("Caught!")
 		#TODO when the bug is caught, replace the bug net with the bug and set a boolean

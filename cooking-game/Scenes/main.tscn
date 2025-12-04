@@ -93,7 +93,7 @@ navigation_polygon = SubResource("NavigationPolygon_hibaj")
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="InteractionArea" parent="Y-sort" instance=ExtResource("13_e08e2")]
+[node name="Cat Sabotage" parent="Y-sort" instance=ExtResource("13_e08e2")]
 position = Vector2(716, 359)
 script = ExtResource("24_cbgmd")
 pid = "cat"

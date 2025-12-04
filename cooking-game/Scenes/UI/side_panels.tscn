@@ -98,4 +98,30 @@ texture_progress = ExtResource("5_850wk")
 tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(0, 0.8666667, 0.12941177, 1)
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="CatScore" type="Label" parent="."]
+z_index = 2
+custom_minimum_size = Vector2(206, 120)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 741.0
+offset_right = 230.0
+offset_bottom = 861.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DogScore" type="Label" parent="."]
+z_index = 2
+custom_minimum_size = Vector2(206, 120)
+layout_mode = 0
+offset_left = 1686.0
+offset_top = 730.0
+offset_right = 1892.0
+offset_bottom = 850.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
