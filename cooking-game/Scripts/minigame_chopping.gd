@@ -117,7 +117,7 @@ func display_background():
 		background.scale = Vector2.ONE * bg_scale
 
 	if placeholder:
-		var chop_scale := screen.y / 1080.0 * 0.7  # adjust 0.8 to taste
+		var chop_scale := screen.y / 1080.0 * 0.7 
 		placeholder.centered = true
 		placeholder.position = screen * 0.5
 		placeholder.scale = Vector2.ONE * chop_scale
@@ -157,14 +157,13 @@ func _update_shake_feedback(stage_index: int) -> void:
 	if shake_tween and shake_tween.is_running():
 		shake_tween.kill()
 
-	# No shaking unless:
-	#   difficulty_stage <= 1   (threshold 1 or 0)
-	#   AND stage_index >= 1
+	# how this works:
+	#   if threshold hits 1, shaking is enabed
+	#   if placeholder is index 1, shaking starts
 	if difficulty_stage > 1 or stage_index < 1:
 		placeholder.position = original_placeholder_pos
 		return
 
-	# Begin shaking (stage 1+ only during thresholds 1 and 0)
 	var shake_amount := 6.0 + (stage_index * 3.0)
 	var duration := 0.07
 
