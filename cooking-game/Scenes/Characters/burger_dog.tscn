@@ -113,6 +113,7 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_yjktf")
 player_id = "dog"
+speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.3841858e-07, -50)

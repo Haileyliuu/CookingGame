@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://ccycwkiogv7p1"]
 
 [ext_resource type="Texture2D" uid="uid://83g4f61lwavn" path="res://Art/Menu/MainMenu.png" id="1_5wsvm"]
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_i2xx2"]
+[ext_resource type="Script" uid="uid://ds6vlw160qkl2" path="res://Scripts/main_menu.gd" id="1_i2xx2"]
 [ext_resource type="Texture2D" uid="uid://dq2fw4dstuk15" path="res://Art/Buttons/PlayButton.png" id="3_u7lva"]
 [ext_resource type="Texture2D" uid="uid://t1uy3okh6k4e" path="res://Art/Buttons/PlayButtonPressed.png" id="4_4pqbp"]
 [ext_resource type="Texture2D" uid="uid://b3f50onfcehp5" path="res://Art/Buttons/PlayButtonHover.png" id="5_gih0s"]
@@ -29,6 +29,7 @@ offset_bottom = 40.0
 texture = ExtResource("1_5wsvm")
 
 [node name="Play" type="TextureButton" parent="."]
+process_mode = 3
 layout_mode = 0
 offset_left = 205.0
 offset_top = 630.0
@@ -49,6 +50,7 @@ theme_override_font_sizes/font_size = 100
 text = "Play"
 
 [node name="Credits" type="TextureButton" parent="."]
+process_mode = 3
 layout_mode = 0
 offset_left = 237.0
 offset_top = 840.0
@@ -69,6 +71,7 @@ theme_override_font_sizes/font_size = 65
 text = "Credits"
 
 [node name="Tutorial" type="TextureButton" parent="."]
+process_mode = 3
 layout_mode = 0
 offset_left = 21.0
 offset_top = 905.0

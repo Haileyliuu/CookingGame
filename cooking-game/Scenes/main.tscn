@@ -1,9 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=42 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="Texture2D" uid="uid://c41ju7gsf78oi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0004_Floor.png" id="2_344ge"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
+[ext_resource type="PackedScene" uid="uid://crhb5l1wjx83t" path="res://Scenes/UI/canvas_layer.tscn" id="2_r33sp"]
 [ext_resource type="Texture2D" uid="uid://cj20otqaedsa7" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsBottom.png" id="3_b3802"]
 [ext_resource type="Texture2D" uid="uid://dm06o6ottn4ig" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsFloor.png" id="3_hibaj"]
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
@@ -58,7 +59,10 @@ shader_parameter/highlight_strength = 0.5
 blend_mode = 3
 
 [node name="Main" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_kry3j")
+
+[node name="display" parent="." instance=ExtResource("2_r33sp")]
 
 [node name="SidePanels" parent="." instance=ExtResource("16_k12tt")]
 
