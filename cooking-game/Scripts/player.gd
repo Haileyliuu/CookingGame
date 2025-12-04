@@ -11,6 +11,9 @@ var input_direction: Vector2 = Vector2(0,0) # This is mainly for rotating the bu
 @onready var bug_net = $Pivot/BugNet
 var last_dir := Vector2.DOWN   # default facing down
 
+var has_cockroach := false
+var has_meal := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -64,3 +67,20 @@ func get_input():
 				animation.play("idle_down")
 			else:
 				animation.play("idle_up")
+
+
+func _on_cat_assembly_pickup(cockroach: bool) -> void:
+	var dish = Dish.place(0, player_id)
+	dish.cockroach = cockroach
+	dish.scale = Vector2(.5,.5)
+	dish.position.y -= 100
+	dish.rotation = deg_to_rad(90)
+	add_child(dish)
+
+
+func _on_dog_assembly_pickup(cockroach: Variant) -> void:
+	var dish = Dish.place(0, player_id)
+	dish.cockroach = cockroach
+	dish.scale = Vector2(.5,.5)
+	dish.position.y -= 100
+	add_child(dish)

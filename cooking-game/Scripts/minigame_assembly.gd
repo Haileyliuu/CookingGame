@@ -47,7 +47,6 @@ var dog_food_art = {
 	6 : [preload("res://Art/BurgerArt/TopBun.PNG"), 40],
 	7: [preload("res://Art/BurgerArt/Plate.png"), 20]
 }
-
 var player_food_art #= get(player_id + "_food_art")
 
 var offset = 0

@@ -7,31 +7,22 @@ var dog_board_sprite = preload("res://Art/Game Backgroud Layers/Objects/DogBoard
 var cat_food = preload("res://Art/SushiArt/FinishedSushiPlate.png")
 var dog_food = preload("res://Art/BurgerArt/FinishedBurger.png")
 var player_food
-var spot_taken = [false, false, false, false, false, false]
+var spot_taken: Array[Dish] = [null, null, null, null, null, null]
 var current_spot = 0
 @export var assembly_minigame: MiniGame
 signal counter_full(c)
+signal pickup(cockroach)
 
 func _ready() -> void:
 	print(spot_taken)
 	player_food = get(player_id + "_food")
 	for i in range(6):
 		var spot = get_node("Spot" + str(i+1))
-		var player_board_sprite = get(player_id + "_board_sprite")
 		
-		spot.texture = player_board_sprite
-		
-		var food = spot.get_child(0)
-		if player_id == "cat":
-			food.scale = Vector2(.2, .2)
-			food.position.y = -10
-		if player_id == "dog":
-			food.scale = Vector2(.18, .18)
-			food.position.y = -20
 		
 		# set up all the interaction areas for each spot
-		var interaction_area = spot.get_child(1)
-		interaction_area.who_can_interact = player_id
+		var interaction_area = spot.get_child(0)
+		interaction_area.who_can_interact = "both"
 		interaction_area.interact = Callable(self, "_on_interact").bind(interaction_area)
 
 
@@ -60,8 +51,16 @@ func _on_minigame_assembly_dish_created() -> void:
 func place_food(i: int) -> void:
 	var spot = get_node("Spot" + str(i))
 	var food = Dish.place(i, player_id)
-	spot_taken[i - 1] = true
+	spot_taken[i] = food
 	spot.add_child(food)
+
+func take_food(i: int) -> void:
+	var spot = get_node("Spot" + str(i))
+	var food: Dish = spot.get_child(1)
+	pickup.emit(food.cockroach)
+	food.queue_free()
+	
+	
 #func display_spots():
 	#for i in range(6):
 		#var spot = get_node("Spot" + str(i+1))
@@ -69,11 +68,15 @@ func place_food(i: int) -> void:
 		#if spot_taken[i]:
 			#spot.get_child(0).texture = player_food
 
-func _on_interact(area):
+func _on_interact(incoming_id, area):
 	# print(assembly_minigame)
-		
+	
 	current_spot = area.object.name.substr(4).to_int()
-	assembly_minigame.start_minigame()
+	if incoming_id == player_id:
+		if spot_taken[current_spot] == null:
+			assembly_minigame.start_minigame()
+		else:
+			take_food(current_spot)
 	
 
 func _on_interaction_area_minigame_signal(m: Variant) -> void:

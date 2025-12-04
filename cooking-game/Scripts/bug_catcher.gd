@@ -27,5 +27,7 @@ func on_bug_enter(bug: Area2D):
 		#TODO when the bug is caught, replace the bug net with the bug and set a boolean
 		#that makes you able to put shit in the shit
 		hide()
+		bug.queue_free()
 		player.add_child(Cockroach.catch(Vector2(0,0)))
+		player.has_cockroach = true
 	

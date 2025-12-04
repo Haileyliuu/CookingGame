@@ -15,10 +15,6 @@ position = Vector2(41, 45)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
 
-[node name="Food" type="Sprite2D" parent="Spot1"]
-position = Vector2(0, -20)
-scale = Vector2(0.17, 0.17)
-
 [node name="InteractionArea" parent="Spot1" instance=ExtResource("3_8vgvd")]
 position = Vector2(-100, 0)
 who_can_interact = "cat"
@@ -28,10 +24,6 @@ position = Vector2(145, 45)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
 
-[node name="Food" type="Sprite2D" parent="Spot2"]
-position = Vector2(0, -20)
-scale = Vector2(0.17, 0.17)
-
 [node name="InteractionArea" parent="Spot2" instance=ExtResource("3_8vgvd")]
 position = Vector2(100, 0)
 
@@ -39,10 +31,6 @@ position = Vector2(100, 0)
 position = Vector2(41, 139)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
-
-[node name="Food" type="Sprite2D" parent="Spot3"]
-position = Vector2(0, -20)
-scale = Vector2(0.17, 0.17)
 
 [node name="InteractionArea" parent="Spot3" instance=ExtResource("3_8vgvd")]
 position = Vector2(-100, 0)
@@ -52,10 +40,6 @@ position = Vector2(145, 139)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
 
-[node name="Food" type="Sprite2D" parent="Spot4"]
-position = Vector2(0, -20)
-scale = Vector2(0.17, 0.17)
-
 [node name="InteractionArea" parent="Spot4" instance=ExtResource("3_8vgvd")]
 position = Vector2(100, 0)
 
@@ -64,10 +48,6 @@ position = Vector2(41, 233)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
 
-[node name="Food" type="Sprite2D" parent="Spot5"]
-position = Vector2(0, -20)
-scale = Vector2(0.17, 0.17)
-
 [node name="InteractionArea" parent="Spot5" instance=ExtResource("3_8vgvd")]
 position = Vector2(-100, 0)
 
@@ -75,10 +55,6 @@ position = Vector2(-100, 0)
 position = Vector2(145, 233)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_gkq8e")
-
-[node name="Food" type="Sprite2D" parent="Spot6"]
-position = Vector2(0, -20)
-scale = Vector2(0.17, 0.17)
 
 [node name="InteractionArea" parent="Spot6" instance=ExtResource("3_8vgvd")]
 position = Vector2(100, 0)

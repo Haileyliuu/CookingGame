@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 					print(GameStats.cat_state)
 					_handle_sabotage()
 				
-				await curr_interactions[0].interact.call()
+				await curr_interactions[0].interact.call(player_id)
 				
 				can_interact = true
 #

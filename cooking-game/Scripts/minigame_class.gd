@@ -19,6 +19,7 @@ func _ready() -> void:
 func _on_timeout_test():
 	print("I timed out!")
 
+
 func _process(_delta: float) -> void:
 	if active:
 		match player_id:
@@ -34,8 +35,10 @@ func _process(_delta: float) -> void:
 			print("STOOOP")
 
 func end_minigame() -> void:
+	print("timed out")
 	container.visible = false
 	active = false
+	timer.timeout.disconnect(end_minigame)
 	process_mode = Node.PROCESS_MODE_DISABLED
 	match player_id:
 		"cat":

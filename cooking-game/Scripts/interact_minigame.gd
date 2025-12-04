@@ -5,8 +5,8 @@ class_name InteractMinigame extends InteractionArea
 
 #Called when the player interacts with the button
 func _ready():
-	interact = func():
-		match who_can_interact:
+	interact = func(player_id: String):
+		match player_id:
 			"cat":
 				if GameStats.cat_state == GameStats.PlayerStates.SABOTAGE:
 					return
