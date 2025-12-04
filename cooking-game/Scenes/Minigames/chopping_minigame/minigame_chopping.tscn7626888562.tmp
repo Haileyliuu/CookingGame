@@ -22,7 +22,6 @@ offset_right = 20.0
 offset_bottom = 31.0
 
 [node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer3"]
-custom_minimum_size = Vector2(400, 40)
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 20.0
