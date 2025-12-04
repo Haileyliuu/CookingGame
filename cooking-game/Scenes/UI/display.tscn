@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://knlfsyap2tng"]
+
+[ext_resource type="Texture2D" uid="uid://d33j42mu7e67q" path="res://Art/Buttons/SquareButton.png" id="1_e3vww"]
+[ext_resource type="PackedScene" uid="uid://r8psjsf86reo" path="res://Scenes/UI/pause_menu.tscn" id="1_lft5s"]
+[ext_resource type="FontFile" uid="uid://dx0bmxyxaldhv" path="res://Art/Fonts/Baby Doll.ttf" id="1_w6mh2"]
+[ext_resource type="Texture2D" uid="uid://cnnyj02p8rxii" path="res://Art/Buttons/SquareButtonPressed.png" id="2_6v527"]
+[ext_resource type="Script" path="res://Scripts/inventory_fish.gd" id="2_fvidj"]
+[ext_resource type="Texture2D" uid="uid://bbkitldp01fw1" path="res://Art/Buttons/SquareButtonHover.png" id="3_78mt2"]
+[ext_resource type="Script" path="res://inventory_cow.gd" id="3_oc53s"]
+[ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="8_6v527"]
+
+[node name="display" type="CanvasLayer"]
+
+[node name="HappyPointsDog" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -265.0
+offset_top = 63.0
+offset_right = -47.0
+offset_bottom = 96.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.14261752, 0.41099504, 0.72080284, 1)
+theme_override_fonts/font = ExtResource("1_w6mh2")
+theme_override_font_sizes/font_size = 30
+text = "Happy Points:"
+
+[node name="InventoryFish" type="Label" parent="."]
+offset_top = 6.0
+offset_right = 118.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("1_w6mh2")
+theme_override_font_sizes/font_size = 30
+text = "Fish Inventory: "
+script = ExtResource("2_fvidj")
+
+[node name="HappyPointsCat" type="Label" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -459.0
+offset_right = 389.0
+offset_bottom = -403.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_w6mh2")
+theme_override_font_sizes/font_size = 30
+text = "Happy Points:"
+
+[node name="InventoryCow" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -218.0
+offset_bottom = 33.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.14117648, 0.4117647, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("1_w6mh2")
+theme_override_font_sizes/font_size = 30
+text = "Cow Inventory:"
+script = ExtResource("3_oc53s")
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_lft5s")]
+
+[node name="PauseButton" type="TextureButton" parent="."]
+process_mode = 3
+offset_left = 1535.0
+offset_top = 5.9999995
+offset_right = 1685.0
+offset_bottom = 158.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("1_e3vww")
+texture_pressed = ExtResource("2_6v527")
+texture_hover = ExtResource("3_78mt2")
+
+[node name="Label" type="Label" parent="PauseButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -54.0
+offset_right = 50.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_6v527")
+theme_override_font_sizes/font_size = 90
+text = "ii"
+
+[connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
