@@ -12,6 +12,8 @@ var ingredient_id: int = 1
 var chops_left: int = 0 
 var chopping_active: bool = false
 var player_chop_art: Dictionary = {}
+var warning_tween: Tween = null
+
 
 
 # REPLACE PATHS
@@ -213,6 +215,9 @@ func _input(event: InputEvent) -> void:
 
 
 	if Inventory.get(player_id + "_meat") <= 0 && event.is_action_pressed(player_id+"_chop"):
+		if warning_tween && warning_tween.is_running():
+			await warning_tween.finished
+ 
 		print("no more meat")
 		chopping_active = false
 		create_inventory_warning()
@@ -312,11 +317,16 @@ func start_chopping_random(player: String) -> void:
 	start_chopping(player, ingredient)
 
 # --------------------------------------------------------------------
+#var warning_active = false
+
 func create_inventory_warning():
+	#if warning_active:
+		#await get_tree().create_timer(1).timeout
+	#warning_active = true
 	print("creating warning label")
 	var warning_label = prompt_label
 	
-	warning_label.visible = true
+	#warning_label.visible = true
 	warning_label.modulate.a = 1.0
 	
 	#warning_label.z_index = 1
@@ -343,13 +353,17 @@ func create_inventory_warning():
 	)
 	warning_label.position = pos
 	
-	var tween = get_tree().create_tween()
-	tween.tween_property(warning_label, "modulate:a", 0.0, 1.2)
+	warning_tween = get_tree().create_tween()
+	warning_tween.tween_property(warning_label, "modulate:a", 0.0, 1.2)
 	
-	await get_tree().create_timer(1).timeout
+	#await get_tree().create_timer(1).timeout
+	await warning_tween.finished
+	warning_tween.kill()
 	
-	warning_label.modulate.a = 1.0 
-	warning_label.visible = false
+	#warning_label.modulate.a = 1.0 
+	#warning_label.visible = false
+	#
+	#warning_active = false
 
 	#warning_label.queue_free()
 
