@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgebxaooc3rqj"
-path="res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"
+uid="uid://bimojg0h38pl5"
+path="res://.godot/imported/1600w-KBBZLdpjLcM.webp-3a89b569e936d8e6daeca3c2c75b426e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PlaceholderArt/arrow.webp"
-dest_files=["res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"]
+source_file="res://Art/FishArt/1600w-KBBZLdpjLcM.webp"
+dest_files=["res://.godot/imported/1600w-KBBZLdpjLcM.webp-3a89b569e936d8e6daeca3c2c75b426e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgebxaooc3rqj"
-path="res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"
+uid="uid://480haqbtsk2n"
+path="res://.godot/imported/arrow.webp-9bd5d1d06760c2138d5b92d3c7ac2734.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PlaceholderArt/arrow.webp"
-dest_files=["res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"]
+source_file="res://Art/CowArt/arrow.webp"
+dest_files=["res://.godot/imported/arrow.webp-9bd5d1d06760c2138d5b92d3c7ac2734.ctex"]
 
 [params]
 

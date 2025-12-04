@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=3 uid="uid://r3njymt2h155"]
+
+[ext_resource type="Texture2D" uid="uid://cg6rimvvfu3pr" path="res://Art/CowArt/Hunting Minigame Files/HMG_Dog_Sprite_Sheet.png" id="1_ii0dv"]
+[ext_resource type="Script" uid="uid://1rojl1r4nuor" path="res://Scripts/hunting_character.gd" id="1_unfs4"]
+[ext_resource type="Texture2D" uid="uid://civqh66y06h2j" path="res://Art/FishArt/Fishing Minigame Files/FMG_Cat_Sprite_Sheet.png" id="2_unfs4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4dp4"]
+atlas = ExtResource("1_ii0dv")
+region = Rect2(277, 0, 277, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cujxn"]
+atlas = ExtResource("1_ii0dv")
+region = Rect2(554, 0, 277, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66cdn"]
+atlas = ExtResource("1_ii0dv")
+region = Rect2(831, 0, 277, 392)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tgqt"]
+atlas = ExtResource("1_ii0dv")
+region = Rect2(0, 0, 277, 392)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6awbw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4dp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cujxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66cdn")
+}],
+"loop": true,
+"name": &"hunting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tgqt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5qjw"]
+atlas = ExtResource("2_unfs4")
+region = Rect2(0, 1842, 699, 921)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsros"]
+atlas = ExtResource("2_unfs4")
+region = Rect2(0, 921, 699, 921)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uja1m"]
+atlas = ExtResource("2_unfs4")
+region = Rect2(699, 921, 699, 921)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ofii"]
+atlas = ExtResource("2_unfs4")
+region = Rect2(1398, 921, 699, 921)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5ned"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5qjw")
+}],
+"loop": true,
+"name": &"hunting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsros")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uja1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ofii")
+}],
+"loop": true,
+"name": &"pull",
+"speed": 5.0
+}]
+
+[node name="Character" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_unfs4")
+
+[node name="Dog" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_6awbw")
+animation = &"hunting"
+frame = 1
+
+[node name="Cat" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-30, -60)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_n5ned")
+animation = &"hunting"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgebxaooc3rqj"
-path="res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"
+uid="uid://bi5qlr4f1wt7s"
+path="res://.godot/imported/FMG_0000_HMG_Water_Overlay.png-df2d8f15f10f7e42cb28266f650c16ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PlaceholderArt/arrow.webp"
-dest_files=["res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"]
+source_file="res://Art/FishArt/Fishing Minigame Files/FMG_0000_HMG_Water_Overlay.png"
+dest_files=["res://.godot/imported/FMG_0000_HMG_Water_Overlay.png-df2d8f15f10f7e42cb28266f650c16ce.ctex"]
 
 [params]
 

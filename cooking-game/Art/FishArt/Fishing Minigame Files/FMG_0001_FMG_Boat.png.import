@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgebxaooc3rqj"
-path="res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"
+uid="uid://7bl40egpijc5"
+path="res://.godot/imported/FMG_0001_FMG_Boat.png-43818786220300fba62740266d040c31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PlaceholderArt/arrow.webp"
-dest_files=["res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"]
+source_file="res://Art/FishArt/Fishing Minigame Files/FMG_0001_FMG_Boat.png"
+dest_files=["res://.godot/imported/FMG_0001_FMG_Boat.png-43818786220300fba62740266d040c31.ctex"]
 
 [params]
 

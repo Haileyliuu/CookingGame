@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgebxaooc3rqj"
-path="res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"
+uid="uid://cg6rimvvfu3pr"
+path="res://.godot/imported/HMG_Dog_Sprite_Sheet.png-f9f169814967f7a0537168414e76656b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PlaceholderArt/arrow.webp"
-dest_files=["res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"]
+source_file="res://Art/CowArt/Hunting Minigame Files/HMG_Dog_Sprite_Sheet.png"
+dest_files=["res://.godot/imported/HMG_Dog_Sprite_Sheet.png-f9f169814967f7a0537168414e76656b.ctex"]
 
 [params]
 

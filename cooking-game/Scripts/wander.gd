@@ -5,7 +5,7 @@ class_name WanderBehavior
 
 # === CONFIGURATION ===
 @export var group_name: String = "cow"         # Group containing your Marker2Ds
-@export var move_speed: float = 500         # Movement speed for the enemy
+@export var move_speed: float = 1500         # Movement speed for the enemy
 @export var arrive_distance: float = 10.0            # Distance threshold to "arrive" at a marker
 @export var wait_min: float = 0.5       # Minimum wait time after reaching a marker
 @export var wait_max: float = 1    
@@ -28,9 +28,16 @@ var seperation_weight = 5
 # Bounding box for keeping the enemy inside the area
 var min_bounds: Vector2
 var max_bounds: Vector2
+var last_position: Vector2
+var stuck_frames := 0
+
+var just_picked := false
+
 
 # === SETUP ===
 func _ready():
+	last_position = global_position
+
 	rng.randomize()
 
 	# Collect all Marker2Ds in the specified group
@@ -54,6 +61,7 @@ func _ready():
 
 	# Pick the initial target
 	_pick_new_target(Vector2.ZERO)
+	
 
 func _physics_process(delta: float) -> void:
 	if markers.is_empty():
@@ -66,6 +74,40 @@ func _physics_process(delta: float) -> void:
 	direction = (wander_dir + flock_dir).normalized()
 	# Move the enemy using the combined direction
 	global_position += direction * move_speed * delta
+	
+	
+#func _physics_process(delta: float) -> void:
+	#if markers.is_empty():
+		#return
+#
+	## Standard wandering + flocking
+	#var wander_dir = update(global_position)
+	#var flock_dir = _flock_direction()
+	#direction = (wander_dir + flock_dir).normalized()
+#
+	## --- Move the enemy ---
+	#var before = global_position
+	#global_position += direction * move_speed * delta
+	#var after = global_position
+#
+	## --- Detect slowing down (stuck on wall / corner / bad direction) ---
+	#var moved = after.distance_to(before)
+#
+	#if moved < 1.0:   # Movement too small → stuck
+		#stuck_frames += 1
+	#else:
+		#stuck_frames = 0
+#
+	## After 10 frames of being stuck → pick new target
+	#if stuck_frames > 10:
+		#_pick_new_target(global_position)
+		#stuck_frames = 0
+#
+	## Update last_position
+	#last_position = after
+#
+
+	
 
 	
 # ===SEPERATION LOGIC ===
@@ -112,9 +154,13 @@ func update(from_position: Vector2) -> Vector2:
 		return Vector2.ZERO
 
 	# If no current target or we've reached the target, start waiting
+	#if current_target == null or from_position.distance_to(current_target.global_position) <= arrive_distance:
+		#_start_wait(from_position)
+		#return Vector2.ZERO
+		
 	if current_target == null or from_position.distance_to(current_target.global_position) <= arrive_distance:
-		_start_wait(from_position)
-		return Vector2.ZERO
+		_pick_new_target(from_position)
+		
 
 	# Otherwise, move toward the target
 	return (current_target.global_position - from_position).normalized()
@@ -142,6 +188,7 @@ func _start_wait(from_position: Vector2) -> void:
 # === TARGET SELECTION ===
 # Picks a new random marker as the wander target.
 func _pick_new_target(from_position: Vector2) -> void:
+	#print("pick new target")
 	if markers.is_empty():
 		current_target = null
 		return
@@ -159,12 +206,5 @@ func _pick_new_target(from_position: Vector2) -> void:
 		attempts += 1
 
 	current_target = choice
-
-# === OPTIONAL DEBUG DRAW ===
-# Draws a red line from the wander controller to the current target (for visualization)
-func _draw():
-	if current_target:
-		draw_line(Vector2.ZERO, current_target.global_position - global_position, Color.RED, 2)
-
-func _process(_delta):
-	queue_redraw()
+func goto_target(from_position: Vector2) -> Vector2:
+	return (current_target.global_position - from_position).normalized()

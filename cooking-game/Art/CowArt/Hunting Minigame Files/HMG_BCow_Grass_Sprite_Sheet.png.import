@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgebxaooc3rqj"
-path="res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"
+uid="uid://cletvvtikdqsb"
+path="res://.godot/imported/HMG_BCow_Grass_Sprite_Sheet.png-312ada0920f7d0229e854c16450c448f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PlaceholderArt/arrow.webp"
-dest_files=["res://.godot/imported/arrow.webp-08aaae54fa901e56ae1f6dc653b41dad.ctex"]
+source_file="res://Art/CowArt/Hunting Minigame Files/HMG_BCow_Grass_Sprite_Sheet.png"
+dest_files=["res://.godot/imported/HMG_BCow_Grass_Sprite_Sheet.png-312ada0920f7d0229e854c16450c448f.ctex"]
 
 [params]
 

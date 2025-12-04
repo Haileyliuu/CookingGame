@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 	if active:
 		player_mode = GameStats.get(player_id + "_state")
 		if Input.is_action_just_pressed(player_id + "_select"):
-			timer.start(2)
+			timer.start(1)
 			print("Timer")
 		if Input.is_action_just_released(player_id + "_select"):
 			timer.stop()
