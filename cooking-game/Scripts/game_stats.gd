@@ -6,6 +6,9 @@ enum PlayerStates {KITCHEN, HUNTING, CHOPPING, ASSEMBLY, SABOTAGE, COCKROACH}
 var dog_state: PlayerStates
 var cat_state: PlayerStates
 
+var cat_points: int = 0
+var dog_points: int = 0
+
 func _ready() -> void:
 	dog_state = PlayerStates.KITCHEN
 	cat_state = PlayerStates.KITCHEN

@@ -19,7 +19,6 @@ var target_total: int = 3
 
 
 func _ready():
-	player.emit(player_id)
 	spawn_initial_enemies()
 
 

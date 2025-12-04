@@ -75,8 +75,10 @@ func _input(event):
 			else:
 				delete_sprites()
 				select_button_state.emit("plate")
+				#when recipe is finished, display the dish and end the minigame
 				if displayed_finish:
 					emit_signal("dish_created")
+					self.end_minigame()
 					randomize_recipe()
 					displayed_finish = false
 		if current_recipe.size() < 8 && !displayed_finish:

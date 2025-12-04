@@ -69,3 +69,5 @@ position = Vector2(1789, 662)
 
 [node name="DogCustomerEnd" type="Marker2D" parent="Markers"]
 position = Vector2(1185, 659)
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]

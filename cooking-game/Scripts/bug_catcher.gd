@@ -28,6 +28,7 @@ func on_bug_enter(bug: Area2D):
 		#that makes you able to put shit in the shit
 		hide()
 		bug.queue_free()
-		player.add_child(Cockroach.catch(Vector2(0,0)))
-		player.has_cockroach = true
+		var new_bug = Cockroach.catch(Vector2(0,0))
+		player.add_child(new_bug)
+		player.player_cockroach = new_bug
 	
