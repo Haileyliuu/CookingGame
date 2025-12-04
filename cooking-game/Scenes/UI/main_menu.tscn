@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbwd8bj7jlqic"]
+
+[ext_resource type="Texture2D" uid="uid://83g4f61lwavn" path="res://Art/Menu/MainMenu.png" id="1_5wsvm"]
+[ext_resource type="Script" uid="uid://ds6vlw160qkl2" path="res://Scripts/main_menu.gd" id="1_i2xx2"]
+[ext_resource type="Texture2D" uid="uid://b8qwhanjstbm1" path="res://Art/BurgerArt/Cheese.PNG" id="3_mrfpk"]
+[ext_resource type="Texture2D" uid="uid://c3akl62casc7r" path="res://Art/BurgerArt/Patty.PNG" id="4_4pqbp"]
+[ext_resource type="Texture2D" uid="uid://c1qjplp7032b" path="res://Art/BurgerArt/Tomato.PNG" id="5_gih0s"]
+[ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="6_4pqbp"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i2xx2")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_5wsvm")
+
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 663.0
+offset_right = 839.0
+offset_bottom = 1030.0
+texture_normal = ExtResource("3_mrfpk")
+texture_pressed = ExtResource("4_4pqbp")
+texture_hover = ExtResource("5_gih0s")
+
+[node name="Label" type="Label" parent="Play"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 112.0
+offset_right = 471.0
+offset_bottom = 212.0
+theme_override_fonts/font = ExtResource("6_4pqbp")
+theme_override_font_sizes/font_size = 78
+text = "Play"

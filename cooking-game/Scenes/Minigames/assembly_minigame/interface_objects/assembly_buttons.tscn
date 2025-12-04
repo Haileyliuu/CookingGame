@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfksp4rdu3k3d"]
+[gd_scene load_steps=9 format=3 uid="uid://cfksp4rdu3k3d"]
 
 [ext_resource type="Script" uid="uid://dciyx8gdnfkoo" path="res://Scripts/assembly_buttons.gd" id="1_palyj"]
-[ext_resource type="Texture2D" uid="uid://cvoby6r5cheai" path="res://Art/AssemblyUI/CheeseButton.png" id="2_tpqr5"]
+[ext_resource type="Texture2D" uid="uid://cvoby6r5cheai" path="res://Art/AssemblyUI/DogButtons/CheeseButton.png" id="2_tpqr5"]
 [ext_resource type="Shader" uid="uid://ic60xkgup3pb" path="res://Shaders/buttonPressed.gdshader" id="2_ywrih"]
-[ext_resource type="Texture2D" uid="uid://1ggef18tljxe" path="res://Art/AssemblyUI/PattyButton.png" id="3_ywrih"]
-[ext_resource type="Texture2D" uid="uid://cbornn8ecgal7" path="res://Art/AssemblyUI/LettuceButton.png" id="4_tecul"]
-[ext_resource type="Texture2D" uid="uid://cjtaicisgeo68" path="res://Art/AssemblyUI/TomatoButton.png" id="5_tpqr5"]
+[ext_resource type="Texture2D" uid="uid://1ggef18tljxe" path="res://Art/AssemblyUI/DogButtons/PattyButton.png" id="3_ywrih"]
+[ext_resource type="Texture2D" uid="uid://cbornn8ecgal7" path="res://Art/AssemblyUI/DogButtons/LettuceButton.png" id="4_tecul"]
+[ext_resource type="Texture2D" uid="uid://cjtaicisgeo68" path="res://Art/AssemblyUI/DogButtons/TomatoButton.png" id="5_tpqr5"]
+[ext_resource type="Texture2D" uid="uid://cablhpy61igj" path="res://Art/AssemblyUI/DogButtons/ShiftSendButton.png" id="7_tecul"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ywrih"]
 shader = ExtResource("2_ywrih")
@@ -44,3 +45,10 @@ texture = ExtResource("4_tecul")
 position = Vector2(160, 80)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_tpqr5")
+
+[node name="SelectButton" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(101, -177)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("7_tecul")
+centered = false

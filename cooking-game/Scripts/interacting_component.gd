@@ -5,19 +5,22 @@ extends Node2D
 var curr_interactions := []
 var can_interact := true
 
+@onready var player_id = owner.player_id
+var who_can_interact
 
 func _ready() -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("cat_select") or event.is_action_pressed("dog_select")) and can_interact:
-		if curr_interactions:
-			can_interact = false
-			interact_label.hide()
-			
-			await curr_interactions[0].interact.call()
-			
-			can_interact = true
+	if ((event.is_action_pressed("cat_select") and player_id == "cat") or (event.is_action_pressed("dog_select") and player_id == "dog")):
+		if can_interact and (who_can_interact == player_id or who_can_interact == "both"):
+			if curr_interactions:
+				can_interact = false
+				interact_label.hide()
+				
+				await curr_interactions[0].interact.call()
+				
+				can_interact = true
 
 func _process(_delta: float) -> void:		
 	if curr_interactions and can_interact:
@@ -37,6 +40,7 @@ func _sort_by_nearest(area1, area2):
 func _on_interact_range_area_entered(area: Area2D) -> void:
 	if area is InteractionArea:
 		curr_interactions.push_back(area)
+		who_can_interact = area.who_can_interact
 		print("entered collision")
 	
 

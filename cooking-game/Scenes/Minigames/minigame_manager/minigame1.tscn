@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://hexxhvwjcl1s"]
+[gd_scene load_steps=4 format=3 uid="uid://hexxhvwjcl1s"]
 
+[ext_resource type="Script" uid="uid://ctepy85s7gn88" path="res://Scripts/minigame_class.gd" id="1_00c1x"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_ha3hu"]
+[ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="3_34lem"]
 
-[node name="Minigame1" type="Node2D"]
+[node name="Minigame1" type="Node2D" node_paths=PackedStringArray("player") groups=["Minigame"]]
+script = ExtResource("1_00c1x")
+player = NodePath("Panel/SushiCat")
+minigame_type = 1
 
 [node name="Panel" type="Panel" parent="."]
 clip_contents = true
@@ -13,3 +18,7 @@ offset_bottom = 578.0
 
 [node name="SushiCat" parent="Panel" instance=ExtResource("2_ha3hu")]
 position = Vector2(120, 126)
+
+[node name="InteractionArea" parent="Panel" node_paths=PackedStringArray("minigame") instance=ExtResource("3_34lem")]
+position = Vector2(365, 432)
+minigame = NodePath("../..")

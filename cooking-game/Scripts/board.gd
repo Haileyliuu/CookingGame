@@ -13,7 +13,7 @@ func _ready() -> void:
 		"dog": dog_board
 	}
 
-func _on_minigame_assembly_player(p: Variant) -> void:
+func _on_minigame_assembly_player_signal(p: Variant) -> void:
 	player_id = p
 	var player_board = boards.get(player_id)
 	if player_board:
