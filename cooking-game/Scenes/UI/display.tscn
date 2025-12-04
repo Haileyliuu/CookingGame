@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://crhb5l1wjx83t"]
+[gd_scene load_steps=9 format=3 uid="uid://u38ufu6rp7mh"]
 
 [ext_resource type="Texture2D" uid="uid://d33j42mu7e67q" path="res://Art/Buttons/SquareButton.png" id="1_e3vww"]
-[ext_resource type="PackedScene" uid="uid://r8psjsf86reo" path="res://Scenes/UI/pause_menu.tscn" id="1_lft5s"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/pause_menu.tscn" id="1_lft5s"]
 [ext_resource type="FontFile" uid="uid://dx0bmxyxaldhv" path="res://Art/Fonts/Baby Doll.ttf" id="1_w6mh2"]
 [ext_resource type="Texture2D" uid="uid://cnnyj02p8rxii" path="res://Art/Buttons/SquareButtonPressed.png" id="2_6v527"]
 [ext_resource type="Script" uid="uid://t4ktltfj7yvf" path="res://Scripts/inventory_fish.gd" id="2_fvidj"]
