@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4k0wsie0t7id"
-path="res://.godot/imported/Shiba_Angry.png-e63946d758596acb5b987194bc2faa1d.ctex"
+uid="uid://diufiftqnxphy"
+path="res://.godot/imported/Shiba_Angry.PNG-f0b0bc7f6868be7846f770ac51b781a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Angry/Shiba_Angry.png"
-dest_files=["res://.godot/imported/Shiba_Angry.png-e63946d758596acb5b987194bc2faa1d.ctex"]
+source_file="res://Art/Customers/Angry/Shiba_Angry.PNG"
+dest_files=["res://.godot/imported/Shiba_Angry.PNG-f0b0bc7f6868be7846f770ac51b781a6.ctex"]
 
 [params]
 
