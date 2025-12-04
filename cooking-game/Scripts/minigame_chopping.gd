@@ -207,11 +207,15 @@ func reset_chop() -> void:
 
 
 # --------------------------------------------------------------------
-func _input(event: InputEvent) -> void:
-	#if Inventory.get(player_id + "_meat") <= 0:
-		#create_inventory_warning()
-		#return
+#need to do the warning for empty inventory for chopping
 
+func _input(event: InputEvent) -> void:
+
+
+	if Inventory.get(player_id + "_meat") <= 0 && event.is_action_pressed(player_id+"_chop"):
+		print("no more meat")
+		chopping_active = false
+		create_inventory_warning()
 	# ------------------------
 	# CHOPPING ACTIVE
 	# ------------------------
@@ -309,11 +313,17 @@ func start_chopping_random(player: String) -> void:
 
 # --------------------------------------------------------------------
 func create_inventory_warning():
-	var warning_label = Label.new()
-	warning_label.z_index = 1
+	print("creating warning label")
+	var warning_label = prompt_label
+	
+	warning_label.visible = true
+	warning_label.modulate.a = 1.0
+	
+	#warning_label.z_index = 1
 	if player_id == "dog":
 		warning_label.text = "Ran out of meat! \nGo hunt!"
-	else:
+	elif player_id == "cat":
+		print("entered cat warning label")
 		warning_label.text = "Ran out of fish! \nGo fish!"
 		
 	warning_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -323,7 +333,7 @@ func create_inventory_warning():
 	warning_label.add_theme_color_override("font_color", Color(0.954, 0.954, 0.954, 1.0))
 	warning_label.add_theme_constant_override("outline_size", 20)
 	warning_label.add_theme_color_override("font_outline_color", Color(0.202, 0.283, 0.599, 1.0))
-	add_child(warning_label)
+	#add_child(warning_label)
 	
 	await get_tree().process_frame
 	var label_size = warning_label.size
@@ -334,9 +344,15 @@ func create_inventory_warning():
 	warning_label.position = pos
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(warning_label, "modulate:a", 0, 2)
+	tween.tween_property(warning_label, "modulate:a", 0.0, 1.2)
 	
 	await get_tree().create_timer(1).timeout
-	warning_label.queue_free()
+	
+	warning_label.modulate.a = 1.0 
+	warning_label.visible = false
+
+	#warning_label.queue_free()
+
+
 	
 	
