@@ -1,7 +1,8 @@
 extends Node2D # use extends minigame when fr
 
+signal chop_button_state(state)
 signal chop_done(player_id : String)
-var player_id: String = "dog" # for testing purposes
+var player_id: String = "cat" # for testing purposes
 
 @export var CHOPS_REQUIRED : int = 5
 
@@ -207,24 +208,32 @@ func reset_chop() -> void:
 
 # --------------------------------------------------------------------
 func _input(event: InputEvent) -> void:
-	if not chopping_active:
-		return
+	#if Inventory.get(player_id + "_meat") <= 0:
+		#create_inventory_warning()
+		#return
 
-	# Reset chopping for both players
-	if (player_id == "cat" and event.is_action_pressed("cat_select")) or \
-	   (player_id == "dog" and event.is_action_pressed("dog_select")):
-		reset_chop()
-		return
+	# ------------------------
+	# CHOPPING ACTIVE
+	# ------------------------
+	if chopping_active:
+		if player_id == "cat" and event.is_action_pressed("cat_chop"):
+			_handle_chop()
+		elif player_id == "dog" and event.is_action_pressed("dog_chop"):
+			_handle_chop()
+		return  # PREVENT SELECT FROM EVER REGISTERING MID-CHOP
 
-	# Normal chopping input
-	if player_id == "cat" and event.is_action_pressed("cat_chop"):
-		_handle_chop()
-	elif player_id == "dog" and event.is_action_pressed("dog_chop"):
-		_handle_chop()
+	# ------------------------
+	# CHOPPING FINISHED — allow reset
+	# ------------------------
+	if chops_left <= 0:
+		if (player_id == "cat" and event.is_action_pressed("cat_select")) or \
+		   (player_id == "dog" and event.is_action_pressed("dog_select")):
+			reset_chop()
 
 
 # --------------------------------------------------------------------
 func _handle_chop() -> void:
+	
 	if knife and knife.has_method("chop"):
 		knife.chop()
 
@@ -297,3 +306,37 @@ func start_chopping_random(player: String) -> void:
 
 	var ingredient: int = keys[randi() % keys.size()]
 	start_chopping(player, ingredient)
+
+# --------------------------------------------------------------------
+func create_inventory_warning():
+	var warning_label = Label.new()
+	warning_label.z_index = 1
+	if player_id == "dog":
+		warning_label.text = "Ran out of meat! \nGo hunt!"
+	else:
+		warning_label.text = "Ran out of fish! \nGo fish!"
+		
+	warning_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var my_font = load("res://Art/Fonts/MADE Tommy Soft Bold PERSONAL USE.otf")
+	warning_label.add_theme_font_override("font", my_font)
+	warning_label.add_theme_font_size_override("font_size", 50*screen_size.y/1080)
+	warning_label.add_theme_color_override("font_color", Color(0.954, 0.954, 0.954, 1.0))
+	warning_label.add_theme_constant_override("outline_size", 20)
+	warning_label.add_theme_color_override("font_outline_color", Color(0.202, 0.283, 0.599, 1.0))
+	add_child(warning_label)
+	
+	await get_tree().process_frame
+	var label_size = warning_label.size
+	var pos = Vector2(
+		screen_size.x / 2 - label_size.x / 2,
+		1.75 * screen_size.y / 3 - label_size.y / 2
+	)
+	warning_label.position = pos
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(warning_label, "modulate:a", 0, 2)
+	
+	await get_tree().create_timer(1).timeout
+	warning_label.queue_free()
+	
+	
