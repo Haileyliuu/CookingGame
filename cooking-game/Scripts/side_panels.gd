@@ -3,7 +3,8 @@ extends Control
 var customers = [preload("res://Art/PlaceholderArt/SushiCat.png"),
 				preload("res://Art/PlaceholderArt/BurgerDog.png"),
 				preload("res://Art/PlaceholderArt/american-cockroach.webp"),
-				preload("res://Art/PlaceholderArt/icon.svg")]
+				preload("res://Art/PlaceholderArt/icon.svg"),
+				preload("res://Art/Characters/Charlie.png")]
 				
 
 # index of customer png in customers
@@ -38,14 +39,24 @@ func new_customer(player_id : String):
 	var little_sprite := Sprite2D.new()
 	player_current_customer.push_back(little_sprite)
 	
+	
 	var random_customer = randi_range(0, customers.size()-1)
 	while random_customer == cat_current_sprite || random_customer == dog_current_sprite:
 		random_customer = randi_range(0, customers.size()-1)
 	set(player_id + "_current_sprite", random_customer)
 	
-	big_sprite.texture = customers[get(player_id + "_current_sprite")]
+	var player_current_sprite = customers[get(player_id + "_current_sprite")]
+	
+	big_sprite.texture = player_current_sprite
 	little_sprite.texture = big_sprite.texture
-	little_sprite.scale = Vector2(0.25, 0.25)
+	
+	var max_height = 500
+	var tex_size = player_current_sprite.get_size()
+	
+	var scale_factor = max_height / tex_size.y
+	big_sprite.scale = Vector2(scale_factor, scale_factor)
+	little_sprite.scale = Vector2(scale_factor*.25, scale_factor*.25)
+	
 	
 	var add_marker_index = 0
 	if player_id == "dog":
