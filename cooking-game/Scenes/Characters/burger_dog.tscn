@@ -1,8 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwkoaby5gyfpt"]
+[gd_scene load_steps=16 format=3 uid="uid://dwkoaby5gyfpt"]
 
-[ext_resource type="Texture2D" uid="uid://wbbkfbp6kuxe" path="res://Art/PlaceholderArt/BurgerDog.png" id="1_ruucx"]
 [ext_resource type="Script" uid="uid://cqn5gtk7puod7" path="res://Scripts/player.gd" id="1_yjktf"]
+[ext_resource type="Texture2D" uid="uid://bd6wp0qd6ldmd" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0007_f2.png" id="2_vg0a6"]
 [ext_resource type="PackedScene" uid="uid://b87rcl12j1grt" path="res://Scenes/Interaction/interacting_component.tscn" id="3_5el3f"]
+[ext_resource type="Texture2D" uid="uid://bfq4ae5mydja1" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0004_l2.png" id="3_uo6t2"]
+[ext_resource type="Texture2D" uid="uid://bho0gytsj804k" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0001_r2.png" id="4_4attj"]
+[ext_resource type="Texture2D" uid="uid://cpydjjua4h70a" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0010_b2.png" id="5_45lgc"]
+[ext_resource type="Texture2D" uid="uid://gmqlvkw7ldb1" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0006_f1.png" id="6_xp3r5"]
+[ext_resource type="Texture2D" uid="uid://u5j8ux7b44h6" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0008_f3.png" id="7_jbakh"]
+[ext_resource type="Texture2D" uid="uid://beb6bk1ail3kt" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0003_l1.png" id="8_ni0c7"]
+[ext_resource type="Texture2D" uid="uid://b1n5iq8u1kbg" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0005_l3.png" id="9_qblbi"]
+[ext_resource type="Texture2D" uid="uid://bab33ie6bjuou" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0000_r1.png" id="10_4attj"]
+[ext_resource type="Texture2D" uid="uid://bj4oddq3w21y7" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0009_b1.png" id="10_s807n"]
+[ext_resource type="Texture2D" uid="uid://262ms48s8uip" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0002_r3.png" id="11_45lgc"]
+[ext_resource type="Texture2D" uid="uid://ddqp23ljwg3eo" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0011_b3.png" id="11_q6u3k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbakh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vg0a6")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uo6t2")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4attj")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_45lgc")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_xp3r5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vg0a6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jbakh")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ni0c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uo6t2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qblbi")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_4attj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4attj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_45lgc")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_s807n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_45lgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q6u3k")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 6.0
+}]
 
 [node name="BurgerDog" type="CharacterBody2D" groups=["Player"]]
 light_mask = 2
@@ -12,10 +114,11 @@ collision_mask = 7
 script = ExtResource("1_yjktf")
 player_id = "dog"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_ruucx")
-offset = Vector2(0, -150)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.3841858e-07, -50)
+scale = Vector2(0.11, 0.11)
+sprite_frames = SubResource("SpriteFrames_jbakh")
+animation = &"walk_right"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 8)
@@ -24,4 +127,5 @@ polygon = PackedVector2Array(18, 12.999999, 18, -13.000001, 10.999998, -24, -8.0
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_5el3f")]
 visible = false
-position = Vector2(-1, -34)
+position = Vector2(2, -4.7683716e-07)
+scale = Vector2(0.68000245, 0.5199988)

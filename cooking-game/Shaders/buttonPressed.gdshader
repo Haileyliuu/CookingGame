@@ -3,6 +3,7 @@ shader_type canvas_item;
 uniform float brightness_mult : hint_range(0.0, 2.0) = .7;
 uniform float hue_shift_deg : hint_range(-180.0, 180.0) = 0;
 uniform float saturation_mult : hint_range(0.0, 2.0) = 1.4;
+//uniform vec2 press_offset = vec2(0.0, -50);
 
 vec3 shift_hue(vec3 color, float degrees) {
     float angle = radians(degrees);
@@ -36,11 +37,12 @@ vec3 adjust_saturation(vec3 color, float sat_mult) {
 }
 
 void fragment() {
-    vec4 tex_color = texture(TEXTURE, UV);
+	//vec2 shifted_uv = UV + press_offset * TEXTURE_PIXEL_SIZE;
+    vec4 tex_color = texture(TEXTURE, UV); // was (TEXTURE, shifted_uv) for offset
 
     vec3 color = shift_hue(tex_color.rgb, hue_shift_deg);
     color = adjust_saturation(color, saturation_mult);
     color *= brightness_mult;
-
+ 
     COLOR = vec4(color, tex_color.a);
 }

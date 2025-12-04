@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkaeitcwt7oxh"
-path="res://.godot/imported/DogBackground.png-feec32b713377738ac93d21686a87777.ctex"
+uid="uid://u5j8ux7b44h6"
+path="res://.godot/imported/dog_0001s_0008_f3.png-2c19acffd2d57617a32af4851b81f6d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/AssemblyUI/DogBackground.png"
-dest_files=["res://.godot/imported/DogBackground.png-feec32b713377738ac93d21686a87777.ctex"]
+source_file="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0008_f3.png"
+dest_files=["res://.godot/imported/dog_0001s_0008_f3.png-2c19acffd2d57617a32af4851b81f6d8.ctex"]
 
 [params]
 

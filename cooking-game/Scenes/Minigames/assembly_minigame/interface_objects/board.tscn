@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bo1g4xkja8u03"]
 
-[ext_resource type="Texture2D" uid="uid://ckm8ue0fcpnup" path="res://Art/Objects/CatBoard.png" id="1_3ettm"]
+[ext_resource type="Texture2D" uid="uid://ckm8ue0fcpnup" path="res://Art/MinigameArt/CatBoard.png" id="1_3ettm"]
 [ext_resource type="Script" uid="uid://dykrx34ry4r6f" path="res://Scripts/board.gd" id="1_57css"]
-[ext_resource type="Texture2D" uid="uid://brcqoccjl8g66" path="res://Art/Objects/DogBoard.png" id="2_57css"]
+[ext_resource type="Texture2D" uid="uid://brcqoccjl8g66" path="res://Art/MinigameArt/DogBoard.png" id="2_57css"]
 
 [node name="Board" type="Node2D"]
 script = ExtResource("1_57css")

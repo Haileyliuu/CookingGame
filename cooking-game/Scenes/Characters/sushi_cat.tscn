@@ -1,8 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5sp16xaq6t63"]
+[gd_scene load_steps=16 format=3 uid="uid://c5sp16xaq6t63"]
 
-[ext_resource type="Texture2D" uid="uid://dkgjoyrfp8ant" path="res://Art/PlaceholderArt/SushiCat.png" id="1_a4ba0"]
 [ext_resource type="Script" uid="uid://cqn5gtk7puod7" path="res://Scripts/player.gd" id="1_orsn3"]
 [ext_resource type="PackedScene" uid="uid://b87rcl12j1grt" path="res://Scenes/Interaction/interacting_component.tscn" id="3_jbn3y"]
+[ext_resource type="Texture2D" uid="uid://ch11hymetfpfw" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0009_cf1.png" id="3_wdyrf"]
+[ext_resource type="Texture2D" uid="uid://gl0usqcr0htd" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0010_cf2.png" id="4_5ngmm"]
+[ext_resource type="Texture2D" uid="uid://kdopc0d5iqe2" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0011_cf3.png" id="5_7tmkb"]
+[ext_resource type="Texture2D" uid="uid://dx43ppjr8l21f" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0006_cl1.png" id="6_yqdsu"]
+[ext_resource type="Texture2D" uid="uid://cyo621fevoid5" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0007_cl2.png" id="7_ahvvt"]
+[ext_resource type="Texture2D" uid="uid://by5akd1tv7d1s" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0008_cl3.png" id="8_n0ag0"]
+[ext_resource type="Texture2D" uid="uid://jewocsohcccs" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0003_cr1.png" id="9_226ow"]
+[ext_resource type="Texture2D" uid="uid://bhkasl34rmuk6" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0004_cr2.png" id="10_eveew"]
+[ext_resource type="Texture2D" uid="uid://cxp7gjnmhrv0r" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0005_cr3.png" id="11_oyucu"]
+[ext_resource type="Texture2D" uid="uid://b12gd4jtdfi7o" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0000_cb1.png" id="12_oe3cd"]
+[ext_resource type="Texture2D" uid="uid://d2fmg0jrbt3um" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0001_cb2.png" id="13_y1bbn"]
+[ext_resource type="Texture2D" uid="uid://d02xh54cu308x" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0002_cb3.png" id="14_lt1uy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbcpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wdyrf")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yqdsu")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_226ow")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_oe3cd")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7tmkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wdyrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5ngmm")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_n0ag0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yqdsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ahvvt")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_oyucu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_226ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eveew")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_lt1uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oe3cd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y1bbn")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 6.0
+}]
 
 [node name="SushiCat" type="CharacterBody2D" groups=["Player"]]
 light_mask = 2
@@ -12,10 +114,11 @@ collision_mask = 7
 script = ExtResource("1_orsn3")
 player_id = "cat"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_a4ba0")
-offset = Vector2(0, -150)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -49)
+scale = Vector2(0.11, 0.11)
+sprite_frames = SubResource("SpriteFrames_jbcpn")
+animation = &"walk_up"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 5)
@@ -24,4 +127,5 @@ polygon = PackedVector2Array(18, 12.999999, 18, -13.000001, 10.999999, -24, -8.0
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_jbn3y")]
 visible = false
-position = Vector2(0, -35)
+position = Vector2(2, -4.7683716e-07)
+scale = Vector2(0.68000245, 0.5199988)

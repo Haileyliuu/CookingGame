@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bor8t8qhb3lmv"]
+[gd_scene load_steps=4 format=3 uid="uid://bor8t8qhb3lmv"]
 
-[ext_resource type="Script" path="res://Scripts/background.gd" id="1_ordqw"]
-[ext_resource type="Texture2D" uid="uid://bkaeitcwt7oxh" path="res://Art/UI/DogBackground.png" id="2_k6cvv"]
+[ext_resource type="Script" uid="uid://b7ockp7da3kk" path="res://Scripts/background.gd" id="1_ordqw"]
+[ext_resource type="Texture2D" uid="uid://b1ouhkn42hy0i" path="res://Art/MinigameArt/CatTable.png" id="2_hbbv0"]
+[ext_resource type="Texture2D" uid="uid://b1pdfi86g1oeb" path="res://Art/MinigameArt/DogTable.png" id="3_ee0h3"]
 
 [node name="Background" type="Control"]
 layout_mode = 3
@@ -10,25 +11,16 @@ offset_right = 960.0
 offset_bottom = 1080.0
 script = ExtResource("1_ordqw")
 
-[node name="CatBack" type="ColorRect" parent="."]
+[node name="CatBack" type="TextureRect" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -540.0
-offset_right = 1440.0
-offset_bottom = 540.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.7607843, 0.7607843, 0.7607843, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_hbbv0")
 
 [node name="DogBack" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_k6cvv")
+texture = ExtResource("3_ee0h3")
