@@ -58,7 +58,6 @@ func _ready() -> void:
 	set_up_player_food_art()
 	randomize_recipe()
 	display_background()
-	update_instructions()
 
 
 	
@@ -246,10 +245,6 @@ func create_inventory_warning():
 	warning_label.add_theme_font_override("font", my_font)
 	warning_label.add_theme_font_size_override("font_size", 50*screen_size.y/1080)
 	warning_label.add_theme_color_override("font_color", Color(0.954, 0.954, 0.954, 1.0))
-	
-	#warning_label.add_theme_constant_override("shadow_offset_x", 3)
-	#warning_label.add_theme_constant_override("shadow_offset_y", 3)
-	#warning_label.add_theme_color_override("font_shadow_color", Color(0.278, 0.137, 0.0, 0.502))
 	warning_label.add_theme_constant_override("outline_size", 20)
 	warning_label.add_theme_color_override("font_outline_color", Color(0.202, 0.283, 0.599, 1.0))
 	add_child(warning_label)
@@ -281,18 +276,6 @@ func display_finished():
 		spawn_sprite(7)
 		spawn_sprite(6)
 	
-func update_instructions():
-	if player_id == "dog":
-		instructions_label.text = """Instructions:
-			1. [Shift] - Place plate
-			2. [Arrow Keys] - Add ingredients
-			3. [Shift] - Send out dish / Clear station"""
-	elif player_id == "cat":
-		instructions_label.text = """Instructions:
-			1. [E] - Place mat
-			2. [WASD] - Add ingredients
-			3. [E] - Send out dish / Clear station"""
-
 func set_up_player_food_art():
 	if player_id == "cat":
 		player_food_art = cat_food_art

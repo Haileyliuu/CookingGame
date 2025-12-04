@@ -25,10 +25,6 @@ offset_bottom = 20.0
 texture_under = ExtResource("3_eftsj")
 texture_progress = ExtResource("4_8busv")
 
-[node name="PromptLabel" type="Label" parent="CanvasLayer3"]
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="Knife" type="Sprite2D" parent="CanvasLayer2"]
