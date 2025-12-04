@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b52sedgbgv0jx"]
+[gd_scene load_steps=5 format=3 uid="uid://b52sedgbgv0jx"]
 
+[ext_resource type="Script" uid="uid://kymfp731jjkv" path="res://Scripts/side_panels.gd" id="1_grhte"]
 [ext_resource type="Texture2D" uid="uid://m8xitodthj6n" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0006_Backgrounds.png" id="1_pbgs2"]
 [ext_resource type="Texture2D" uid="uid://xq7rt0fbl6qm" path="res://Art/Game Backgroud Layers/Sides/Game_Background_0000s_0000_Cat_Margins_Register.png" id="1_qiffm"]
 [ext_resource type="Texture2D" uid="uid://dq5lt1mwutrfu" path="res://Art/Game Backgroud Layers/Sides/Game_Background_0001s_0000_Dog_Margins_Register.png" id="2_pbgs2"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_grhte")
 
 [node name="BackColor" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
@@ -18,12 +20,52 @@ texture = ExtResource("1_pbgs2")
 centered = false
 
 [node name="CatRegister" type="Sprite2D" parent="."]
+z_index = 1
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_qiffm")
 centered = false
 
 [node name="DogRegister" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(1648.5, 0)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_pbgs2")
 centered = false
+
+[node name="Markers" type="Node" parent="."]
+
+[node name="CatSmallCustomerStart" type="Marker2D" parent="Markers"]
+position = Vector2(321, 132)
+
+[node name="CatSmallCustomerOrder" type="Marker2D" parent="Markers"]
+position = Vector2(501, 134)
+
+[node name="CatSmallCustomerEnd" type="Marker2D" parent="Markers"]
+position = Vector2(776, 132)
+
+[node name="CatCustomerStart" type="Marker2D" parent="Markers"]
+position = Vector2(-199, 676)
+
+[node name="CatCustomerOrder" type="Marker2D" parent="Markers"]
+position = Vector2(137, 674)
+
+[node name="CatCustomerEnd" type="Marker2D" parent="Markers"]
+position = Vector2(674, 671)
+
+[node name="DogSmallCustomerStart" type="Marker2D" parent="Markers"]
+position = Vector2(1435, 132)
+
+[node name="DogSmallCustomerOrder" type="Marker2D" parent="Markers"]
+position = Vector2(1283, 134)
+
+[node name="DogSmallCustomerEnd" type="Marker2D" parent="Markers"]
+position = Vector2(1033, 132)
+
+[node name="DogCustomerStart" type="Marker2D" parent="Markers"]
+position = Vector2(2148, 662)
+
+[node name="DogCustomerOrder" type="Marker2D" parent="Markers"]
+position = Vector2(1789, 662)
+
+[node name="DogCustomerEnd" type="Marker2D" parent="Markers"]
+position = Vector2(1185, 659)

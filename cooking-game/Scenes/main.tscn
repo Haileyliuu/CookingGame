@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dm2en0bxnn214"]
+[gd_scene load_steps=41 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dm06o6ottn4ig" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsFloor.png" id="3_hibaj"]
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
 [ext_resource type="Texture2D" uid="uid://kfjd20db6mqi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0002s_0003_Dog_SinkCounter.png" id="3_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://hexxhvwjcl1s" path="res://Scenes/Minigames/minigame_manager/minigame1.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://bcngnb4s64518" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Middle.png" id="5_hptm8"]
-[ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="5_mcep0"]
 [ext_resource type="Texture2D" uid="uid://baga78c6mhv8a" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Top.png" id="6_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://c26v18605lmau" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003_InnerWall_Colors_Bottom.png" id="7_6iyac"]
 [ext_resource type="Texture2D" uid="uid://3ua7chx1ctxv" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003s_0012_Cat_Counter.png" id="7_fdnlq"]
@@ -19,13 +17,25 @@
 [ext_resource type="Texture2D" uid="uid://bve0dunix0gmc" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003s_0009_Cat_Sink.png" id="8_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://jeegbaqq8mm7" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0003s_0010_Cat_Table.png" id="11_jkdf5"]
 [ext_resource type="Shader" uid="uid://b7p6ejcpwqko6" path="res://Shaders/select.gdshader" id="11_k12tt"]
+[ext_resource type="Texture2D" uid="uid://bdiaey37fg5ja" path="res://Art/Game Backgroud Layers/Objects/CatRegister.png" id="12_hpc6h"]
 [ext_resource type="Texture2D" uid="uid://de1r1ed5gub0b" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0002s_0011_Dog_Table.png" id="12_wsu2k"]
+[ext_resource type="PackedScene" uid="uid://c00t6xifdjonv" path="res://Scenes/Interaction/interaction_area.tscn" id="13_e08e2"]
+[ext_resource type="Texture2D" uid="uid://c74s50mvhpf3a" path="res://Art/Game Backgroud Layers/Objects/CatCutting.png" id="14_ueoa1"]
 [ext_resource type="Texture2D" uid="uid://ig81pq42p8cw" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsMiddle.png" id="16_fevyy"]
 [ext_resource type="PackedScene" uid="uid://b52sedgbgv0jx" path="res://Scenes/UI/side_panels.tscn" id="16_k12tt"]
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
+[ext_resource type="Texture2D" uid="uid://bmrtjtis27y7p" path="res://Art/Game Backgroud Layers/Objects/DogRegister.png" id="17_kltya"]
+[ext_resource type="Texture2D" uid="uid://cgg0wvuh3c0xc" path="res://Art/Game Backgroud Layers/Objects/DogCutting.png" id="18_6vcvc"]
+[ext_resource type="Script" uid="uid://brd4quhk5ewlb" path="res://Scripts/register.gd" id="18_neg2b"]
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
 [ext_resource type="Script" uid="uid://d0s8nl7tajq1s" path="res://Scripts/interact_sabotage.gd" id="24_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://b35jwavnwhwx1" path="res://Scenes/Minigames/minigame_manager/minigame_2.tscn" id="25_u50mg"]
+[ext_resource type="Texture2D" uid="uid://dhgrtmq8el1l7" path="res://Art/Game Backgroud Layers/Objects/CatTrash.png" id="22_e08e2"]
+[ext_resource type="Texture2D" uid="uid://mfhlqvsablvc" path="res://Art/Game Backgroud Layers/Objects/DogTrash.png" id="24_neg2b"]
+[ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
+[ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
+[ext_resource type="Theme" uid="uid://doas8v4v842gq" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
+[ext_resource type="Theme" uid="uid://bgtfhfueyd8yw" path="res://Shaders/border.theme" id="28_ueoa1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
 blend_mode = 3
@@ -124,6 +134,16 @@ material = SubResource("CanvasItemMaterial_3pmx8")
 position = Vector2(647.4995, 787.4994)
 texture = ExtResource("8_b3802")
 
+[node name="CatRegister" type="Sprite2D" parent="Y-sort/Counters/CatTopCounter"]
+position = Vector2(-540.0002, -95.00004)
+scale = Vector2(0.9999996, 0.9999996)
+texture = ExtResource("12_hpc6h")
+script = ExtResource("18_neg2b")
+
+[node name="InteractionArea" parent="Y-sort/Counters/CatTopCounter/CatRegister" instance=ExtResource("13_e08e2")]
+position = Vector2(52.000023, 181.00008)
+who_can_interact = "cat"
+
 [node name="CatRiceCooker" type="Sprite2D" parent="Y-sort/Counters/CatTopCounter"]
 position = Vector2(547.4995, -132.50005)
 scale = Vector2(0.9999996, 0.9999996)
@@ -135,10 +155,24 @@ scale = Vector2(1.0000005, 1.0000005)
 texture = ExtResource("8_fdnlq")
 offset = Vector2(0, 500)
 
+[node name="CatCutting" type="Sprite2D" parent="Y-sort/Counters/CatBottomCounter"]
+position = Vector2(14.999844, 782.49976)
+texture = ExtResource("14_ueoa1")
+
 [node name="DogTopCounter" type="Sprite2D" parent="Y-sort/Counters"]
 position = Vector2(752.50006, -785.0001)
 scale = Vector2(1.0000002, 1.0000002)
 texture = ExtResource("8_d1ilt")
+
+[node name="DogRegister" type="Sprite2D" parent="Y-sort/Counters/DogTopCounter"]
+position = Vector2(115, -97.5)
+scale = Vector2(1.0000002, 1.0000002)
+texture = ExtResource("17_kltya")
+script = ExtResource("18_neg2b")
+
+[node name="InteractionArea" parent="Y-sort/Counters/DogTopCounter/DogRegister" instance=ExtResource("13_e08e2")]
+position = Vector2(-57.499985, 189.99994)
+who_can_interact = "dog"
 
 [node name="DogBottomCounter" type="Sprite2D" parent="Y-sort/Counters"]
 position = Vector2(600.0001, 1102.0002)
@@ -149,6 +183,11 @@ texture = ExtResource("3_ynf5e")
 material = SubResource("CanvasItemMaterial_u50mg")
 position = Vector2(-602.5, -1087)
 texture = ExtResource("3_b3802")
+
+[node name="DogCutting" type="Sprite2D" parent="Y-sort/Counters/DogBottomCounter"]
+position = Vector2(-635.00024, 2.9999008)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("18_6vcvc")
 
 [node name="BottomDogCollision" type="CollisionPolygon2D" parent="Y-sort/Counters"]
 polygon = PackedVector2Array(-347.5, 1077.5002, -327.5, 1202.5002, 1550.0002, 1202.5002, 1555.0002, 1100.0002)
@@ -168,7 +207,16 @@ scale = Vector2(0.39999995, 0.39999995)
 
 [node name="CatTableCollision" type="CollisionPolygon2D" parent="Y-sort/Tables"]
 position = Vector2(-847.5003, 222.50009)
-polygon = PackedVector2Array(-278.9994, -328.00012, -274.99963, 517.50024, 275.0005, 512.50024, 278.50073, -323.00012, 216.00073, -323.00012, -216.49939, -325.50012)
+polygon = PackedVector2Array(-278.9994, -328.00012, -274.99963, 517.50024, 275.0005, 512.50024, 278.50073, -323.00012, 212.50012, -322.5, 212.50012, -410, -217.5, -407.5, -216.49939, -325.50012)
+
+[node name="CatTrash" type="Sprite2D" parent="Y-sort/Tables"]
+position = Vector2(-852.50024, -157.49998)
+texture = ExtResource("22_e08e2")
+
+[node name="InteractionArea" parent="Y-sort/Tables/CatTrash" instance=ExtResource("13_e08e2")]
+position = Vector2(5.0000005, -14.999994)
+scale = Vector2(4, 1)
+who_can_interact = "cat"
 
 [node name="CatTable" type="Sprite2D" parent="Y-sort/Tables"]
 position = Vector2(-850.00024, 285.00006)
@@ -176,7 +224,16 @@ texture = ExtResource("11_jkdf5")
 
 [node name="DogTableCollision" type="CollisionPolygon2D" parent="Y-sort/Tables"]
 position = Vector2(7.4998474, 0)
-polygon = PackedVector2Array(662.49976, -97.5, 714.99976, -100, 1140, -100, 1210, -102.5, 1210, 742.50024, 657.49976, 745.00024)
+polygon = PackedVector2Array(657.5, -102.5, 714.99976, -100, 715, -202.5, 1140.0002, -202.5, 1140, -100, 1210.0002, -100, 1210, 742.50024, 657.49976, 745.00024)
+
+[node name="DogTrash" type="Sprite2D" parent="Y-sort/Tables"]
+position = Vector2(932.4999, -172.5)
+texture = ExtResource("24_neg2b")
+
+[node name="InteractionArea" parent="Y-sort/Tables/DogTrash" instance=ExtResource("13_e08e2")]
+position = Vector2(5.0000005, -14.999994)
+scale = Vector2(4, 1)
+who_can_interact = "dog"
 
 [node name="DogTable" type="Sprite2D" parent="Y-sort/Tables"]
 position = Vector2(942.50024, 270.00012)
@@ -187,6 +244,54 @@ material = SubResource("CanvasItemMaterial_svpuh")
 position = Vector2(-942.5005, -262.50024)
 scale = Vector2(1.0025003, 1.0025003)
 texture = ExtResource("16_fevyy")
+
+[node name="AssemblyStation" type="Node2D" parent="Y-sort/Tables"]
+position = Vector2(-2390.0007, -1342.5004)
+scale = Vector2(2.5000005, 2.5000005)
+
+[node name="DogAssembly" parent="Y-sort/Tables/AssemblyStation" instance=ExtResource("25_cbgmd")]
+position = Vector2(1239, 484)
+player_id = "dog"
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot1" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot2" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot3" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot4" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot5" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot6" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="CatAssembly" parent="Y-sort/Tables/AssemblyStation" instance=ExtResource("25_cbgmd")]
+position = Vector2(522, 489)
+player_id = "cat"
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot1" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot2" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot3" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot4" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot5" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
+
+[node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot6" index="1" node_paths=PackedStringArray("minigame")]
+minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
 
 [node name="BurgerDog" parent="Y-sort" instance=ExtResource("1_rivda")]
 unique_name_in_owner = true
@@ -216,3 +321,72 @@ minigame = NodePath("../Minigame2")
 [node name="Minigame2" parent="." instance=ExtResource("25_u50mg")]
 visible = false
 position = Vector2(466, 376)
+[node name="CatAssemblyGame" type="Panel" parent="."]
+visible = false
+clip_children = 2
+offset_left = 25.0
+offset_top = 253.0
+offset_right = 725.0
+offset_bottom = 1103.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("26_1w6v2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CatAssemblyGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 800.0
+
+[node name="SubViewport" type="SubViewport" parent="CatAssemblyGame/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(700, 850)
+render_target_update_mode = 0
+
+[node name="MinigameAssembly" parent="CatAssemblyGame/SubViewportContainer/SubViewport" instance=ExtResource("25_u50mg")]
+player_id = "cat"
+
+[node name="Border" type="Panel" parent="CatAssemblyGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 850.0
+theme = ExtResource("28_ueoa1")
+
+[node name="DogAssemblyGame" type="Panel" parent="."]
+visible = false
+clip_children = 2
+offset_left = 1541.0
+offset_top = 255.0
+offset_right = 2241.0
+offset_bottom = 1105.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("26_1w6v2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DogAssemblyGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 800.0
+
+[node name="SubViewport" type="SubViewport" parent="DogAssemblyGame/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(700, 850)
+render_target_update_mode = 0
+
+[node name="MinigameAssembly" parent="DogAssemblyGame/SubViewportContainer/SubViewport" instance=ExtResource("25_u50mg")]
+player_id = "dog"
+
+[node name="Border" type="Panel" parent="DogAssemblyGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 850.0
+theme = ExtResource("28_ueoa1")
+
+[connection signal="delivered_dish" from="Y-sort/Counters/CatTopCounter/CatRegister" to="SidePanels" method="_on_cat_register_delivered_dish"]
+[connection signal="delivered_dish" from="Y-sort/Counters/DogTopCounter/DogRegister" to="SidePanels" method="_on_dog_register_delivered_dish"]
+[connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/DogAssembly" to="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
+[connection signal="minigame_signal" from="Y-sort/Tables/AssemblyStation/DogAssembly/Spot1/InteractionArea" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_interaction_area_minigame_signal"]
+[connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/CatAssembly" to="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
+[connection signal="minigame_signal" from="Y-sort/Tables/AssemblyStation/CatAssembly/Spot1/InteractionArea" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_interaction_area_minigame_signal"]
+[connection signal="dish_created" from="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_minigame_assembly_dish_created"]
+[connection signal="dish_created" from="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_minigame_assembly_dish_created"]
+
+[editable path="Y-sort/Tables/AssemblyStation/DogAssembly"]
+[editable path="Y-sort/Tables/AssemblyStation/CatAssembly"]

@@ -10,25 +10,28 @@ var sabotage := false
 
 @onready var player_id = owner.player_id
 @onready var bug_net: BugCatcher = BugCatcher.create(player_id)
+var who_can_interact
 
 func _ready() -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if ((event.is_action_pressed("cat_select") and player_id == "cat" )
-	 or (event.is_action_pressed("dog_select") and player_id == "dog" )) and can_interact:
-		if curr_interactions:
-			can_interact = false
-			interact_label.hide()
-			
-			if (curr_interactions[0] is IntSabo):
-				_handle_sabotage()
-			
-			await curr_interactions[0].interact.call(player_id)
-			
-			can_interact = true
-		if sabotage:
-			pass#_handle_sabotage()
+	if ((event.is_action_pressed("cat_select") and player_id == "cat") 
+	 or (event.is_action_pressed("dog_select") and player_id == "dog")):
+		if can_interact and (who_can_interact == player_id or who_can_interact == "both"):
+			if curr_interactions:
+				can_interact = false
+				interact_label.hide()
+				
+				await curr_interactions[0].interact.call()
+				
+				can_interact = true
+				if (curr_interactions[0] is IntSabo):
+					_handle_sabotage()
+				
+				await curr_interactions[0].interact.call(player_id)
+				
+				can_interact = true
 #
 func _handle_sabotage() -> void:
 	if(GameStats.cat_state == GameStats.PlayerStates.SABOTAGE):
@@ -65,6 +68,7 @@ func _sort_by_nearest(area1, area2):
 func _on_interact_range_area_entered(area: Area2D) -> void:
 	if area is InteractionArea:
 		curr_interactions.push_back(area)
+		who_can_interact = area.who_can_interact
 		print("entered collision")
 	
 

@@ -9,6 +9,7 @@
 
 [node name="MinigameAssembly" type="Node2D"]
 script = ExtResource("1_01oyl")
+minigame_type = 3
 
 [node name="Background" parent="." instance=ExtResource("2_vdtne")]
 
@@ -34,6 +35,7 @@ grow_vertical = 1
 scale = Vector2(0.8, 0.8)
 
 [node name="DishesCreated" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("6_vdtne")
@@ -41,6 +43,7 @@ theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 
 [node name="Instructions" type="Label" parent="."]
+visible = false
 offset_left = 14.0
 offset_top = 300.0
 offset_right = 761.0
@@ -48,8 +51,9 @@ offset_bottom = 461.0
 theme_override_fonts/font = ExtResource("6_vdtne")
 theme_override_font_sizes/font_size = 30
 
-[connection signal="player" from="." to="Background" method="_on_minigame_assembly_player"]
-[connection signal="player" from="." to="Recipe" method="_on_minigame_assembly_player"]
-[connection signal="player" from="." to="Board" method="_on_minigame_assembly_player"]
-[connection signal="player" from="." to="AssemblyButtons" method="_on_minigame_assembly_player"]
+[connection signal="player_signal" from="." to="Background" method="_on_minigame_assembly_player_signal"]
+[connection signal="player_signal" from="." to="Recipe" method="_on_minigame_assembly_player_signal"]
+[connection signal="player_signal" from="." to="Board" method="_on_minigame_assembly_player_signal"]
+[connection signal="player_signal" from="." to="AssemblyButtons" method="_on_minigame_assembly_player_signal"]
 [connection signal="recipe_signal" from="." to="Recipe" method="_on_minigame_assembly_recipe_signal"]
+[connection signal="select_button_state" from="." to="AssemblyButtons" method="_on_minigame_assembly_select_button_state"]

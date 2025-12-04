@@ -3,27 +3,18 @@ extends Control
 var player_id := ""
 var recipe = []
 
-# load all the slot sprites
-@onready var slot1 = $Slot1
-@onready var slot2 = $Slot2
-@onready var slot3 = $Slot3
-@onready var slot4 = $Slot4
-@onready var slot5 = $Slot5
-@onready var slot6 = $Slot6
-
-
 var cat_food_art = {
-	1 : preload("res://Art/SushiArt/ImitationCrab.png"),
-	2 : preload("res://Art/SushiArt/Fish.png"),
-	3 : preload("res://Art/SushiArt/Cucumber.png"),
-	4 : preload("res://Art/SushiArt/Avocado.png")
+	1 : preload("res://Art/AssemblyUI/CatButtons/CrabButton.png"),
+	2 : preload("res://Art/AssemblyUI/CatButtons/FishButton.png"),
+	3 : preload("res://Art/AssemblyUI/CatButtons/CucumberButton.png"),
+	4 : preload("res://Art/AssemblyUI/CatButtons/AvocadoButton.png")
 }
 
 var dog_food_art = {
-	1: preload("res://Art/AssemblyUI/CheeseButton.png"),
-	2: preload("res://Art/AssemblyUI/PattyButton.png"),
-	3: preload("res://Art/AssemblyUI/LettuceButton.png"),
-	4: preload("res://Art/AssemblyUI/TomatoButton.png")
+	1: preload("res://Art/AssemblyUI/DogButtons/CheeseButton.png"),
+	2: preload("res://Art/AssemblyUI/DogButtons/PattyButton.png"),
+	3: preload("res://Art/AssemblyUI/DogButtons/LettuceButton.png"),
+	4: preload("res://Art/AssemblyUI/DogButtons/TomatoButton.png")
 }
 
 
@@ -46,13 +37,5 @@ func _on_minigame_assembly_recipe_signal(r: Variant) -> void:
 	recipe = r
 
 
-func _on_minigame_assembly_player(p: Variant) -> void:
+func _on_minigame_assembly_player_signal(p: Variant) -> void:
 	player_id = p
-
-
-#func _on_minigame_assembly_cat_food_art_signal(c: Variant) -> void:
-	#cat_food_art = c
-#
-#
-#func _on_minigame_assembly_dog_food_art_signal(d: Variant) -> void:
-	#dog_food_art = d
