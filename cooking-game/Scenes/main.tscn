@@ -30,7 +30,7 @@
 [ext_resource type="Script" uid="uid://brd4quhk5ewlb" path="res://Scripts/register.gd" id="18_neg2b"]
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
 [ext_resource type="Texture2D" uid="uid://dhgrtmq8el1l7" path="res://Art/Game Backgroud Layers/Objects/CatTrash.png" id="22_e08e2"]
-[ext_resource type="Script" path="res://Scripts/interact_sabotage.gd" id="24_cbgmd"]
+[ext_resource type="Script" uid="uid://d0s8nl7tajq1s" path="res://Scripts/interact_sabotage.gd" id="24_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://mfhlqvsablvc" path="res://Art/Game Backgroud Layers/Objects/DogTrash.png" id="24_neg2b"]
 [ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
@@ -85,6 +85,7 @@ scale = Vector2(1.001, 1.001)
 texture = ExtResource("3_wsu2k")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Background"]
+visible = false
 position = Vector2(14.962891, 588.5287)
 scale = Vector2(2.4937656, 2.4937656)
 navigation_polygon = SubResource("NavigationPolygon_hibaj")
@@ -93,12 +94,6 @@ navigation_polygon = SubResource("NavigationPolygon_hibaj")
 
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="InteractionArea" parent="Y-sort" instance=ExtResource("13_e08e2")]
-position = Vector2(716, 359)
-script = ExtResource("24_cbgmd")
-pid = "cat"
-who_can_interact = "cat"
 
 [node name="Wall" type="StaticBody2D" parent="Y-sort"]
 y_sort_enabled = true
@@ -442,6 +437,12 @@ who_can_interact = "cat"
 position = Vector2(1462, -25)
 minigame = NodePath("../../DogHuntingGame/SubViewportContainer/SubViewport/MinigameHunting")
 who_can_interact = "dog"
+
+[node name="CatBugNet" parent="Interactions" instance=ExtResource("13_e08e2")]
+position = Vector2(378, 495)
+script = ExtResource("24_cbgmd")
+pid = "cat"
+who_can_interact = "cat"
 
 [node name="Timers" type="Node2D" parent="."]
 script = ExtResource("38_k2e45")
