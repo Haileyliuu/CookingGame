@@ -39,8 +39,8 @@ var dog_chop_paths := {
 var cat_background_path := "res://Art/Objects/CatBoard.png"
 var dog_background_path := "res://Art/Objects/DogBoard.png"
 
-var cat_knife = preload("res://Art/SushiArt/ChoppingFish/CatKnife.PNG")
-var dog_knife = preload("res://Art/BurgerArt/ChoppingCow/DogKnife.PNG")
+var cat_knife_path = preload("res://Art/SushiArt/ChoppingFish/CatKnife.PNG")
+var dog_knife_path = preload("res://Art/BurgerArt/ChoppingCow/DogKnife.PNG")
 
 var cat_chop_stages = {}
 var dog_chop_stages = {}
@@ -206,12 +206,13 @@ func _set_up_player_visuals() -> void:
 		player_chop_art = cat_chop_stages
 		if ResourceLoader.exists(cat_background_path):
 			background.texture = load(cat_background_path)
-			knife.texture = cat_knife
+		knife.texture = cat_knife_path
 	else:
 		player_chop_art = dog_chop_stages
 		if ResourceLoader.exists(dog_background_path):
 			background.texture = load(dog_background_path)
-			knife.texture = dog_knife
+		knife.texture = dog_knife_path
+			
 
 
 # --------------------------------------------------------------------
