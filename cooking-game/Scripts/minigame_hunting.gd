@@ -40,11 +40,11 @@ func _add_enemy():
 	var x = randf_range(spawn_min.x, spawn_max.x)
 	var y = randf_range(spawn_min.y, spawn_max.y)
 	enemy_instance.global_position = Vector2(x, y)
-	enemy_instance.scale = Vector2(0.7, 0.7)
+	enemy_instance.scale = Vector2(0.5, 0.5)
 	
 	enemy_instance.player_id = player_id
 	
-	add_child(enemy_instance)
+	$Enemies.add_child(enemy_instance)
 	enemies.append(enemy_instance)
 	total_spawned += 1
 

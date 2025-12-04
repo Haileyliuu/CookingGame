@@ -51,6 +51,9 @@ position = Vector2(961, 457)
 [node name="Marker2D12" type="Marker2D" parent="." groups=["cow"]]
 position = Vector2(183, 466)
 
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
 [connection signal="player" from="." to="Background" method="_on_minigame_hunting_player"]
 [connection signal="player" from="." to="arrow" method="_on_minigame_hunting_player"]
 [connection signal="area_entered" from="arrow/Hurtbox" to="arrow" method="_on_hurtbox_area_entered"]
