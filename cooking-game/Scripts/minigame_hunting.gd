@@ -18,9 +18,11 @@ var enemies: Array = []
 var total_spawned: int = 0
 var target_total: int = 3
 
+
 signal player(p)
 
 func _ready():
+
 	player.emit(player_id)
 	spawn_initial_enemies()
 

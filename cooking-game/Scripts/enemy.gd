@@ -3,9 +3,13 @@ class_name Enemy
 
 # Reference to the separate WanderBehavior script
 @export var wander_behavior: WanderBehavior
+#@onready var wander: WanderBehavior = $wander
+
 var player_id: String = ""
 #var sprites = [$Fish, $BrownCow, $WhiteCow]
 var current_sprite
+@onready var screen_size = get_viewport_rect().size
+
 
 func _ready() -> void:
 	set_up_sprite()
@@ -24,14 +28,31 @@ func _physics_process(_delta: float) -> void:
 
 	# Move in that direction
 	velocity = dir * wander_behavior.move_speed
+	#if velocity.x < 0.5:
+		#wander._pick_new_target(global_position)
+		##return  # Avoid moving this frame
+	if velocity.x < 0.5:  # threshold for "stuck"
+		print("entered")
+		wander_behavior.goto_target(global_position)
+		#wander_behavior._pick_new_target(global_position)
+		
+		
+
+		
 	move_and_slide()
+	
 
 	# Clamp the enemy’s position so it can’t go outside the marker bounds
 	if wander_behavior.markers.size() > 0:
 		global_position.x = clamp(global_position.x, wander_behavior.min_bounds.x, wander_behavior.max_bounds.x)
 		global_position.y = clamp(global_position.y, wander_behavior.min_bounds.y, wander_behavior.max_bounds.y)
 		
-		
+	position.x = clamp(position.x, 0, screen_size.x-100)
+	position.y = clamp(position.y, 0, screen_size.y-50)
+
+	
+
+	
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent().has_method("_arrow"):
 		on_enemy_killed(area)

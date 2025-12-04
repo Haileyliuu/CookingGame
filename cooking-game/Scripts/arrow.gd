@@ -12,8 +12,13 @@ var velocity := Vector2.ZERO
 
 var player_id := ""
 
-
+var screen_size
 func _ready():
+	screen_size = get_viewport_rect().size
+
+	print("screen size: ", screen_size)
+	global_position = Vector2(screen_size.x * 0.5, 40)
+
 	swing()
 
 func swing():
@@ -21,6 +26,7 @@ func swing():
 	tween.tween_property(self, "rotation_degrees", 240, 1)
 	# change rotation_degrees property from its current value to 120 over 1 second
 	tween.tween_property(self, "rotation_degrees", 120, 1)
+	#240 , 120 
 	tween.set_loops()
 
 func _process(delta):
@@ -34,7 +40,9 @@ func launch():
 	tween.kill()
 	launched = true
 	var dir = Vector2.UP.rotated(rotation)  # change to RIGHT if arrow points right
+
 	velocity = dir.normalized() * speed
+	
 	
 
 # hurtbox = the thing that does the damage
@@ -55,6 +63,7 @@ func reset():
 	global_position = marker_2d.global_position
 	print("marker 2d: ", global_position)
 	rotation = marker_2d.global_rotation
+	global_position = Vector2(screen_size.x * 0.5, 40)
 
 	# Restart swing
 	tween.kill()

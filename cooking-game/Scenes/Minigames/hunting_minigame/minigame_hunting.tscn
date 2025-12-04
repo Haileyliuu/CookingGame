@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cep6yw4yogs7"]
 
 [ext_resource type="Script" uid="uid://dlaxnejxtap1y" path="res://Scripts/minigame_hunting.gd" id="1_tjbxu"]
-[ext_resource type="Texture2D" uid="uid://dcecjbuhbsus2" path="res://Art/CowArt/arrow.webp" id="2_tjbxu"]
 [ext_resource type="Script" uid="uid://bhi2sej6c3co8" path="res://Scripts/arrow.gd" id="3_l1xdu"]
+[ext_resource type="Texture2D" uid="uid://ckk5r46kl7og1" path="res://Art/CowArt/Hunting Minigame Files/HMG_Arrow_Sprite.png" id="3_pn1o0"]
 [ext_resource type="PackedScene" uid="uid://dqqsef7ti4ctg" path="res://Scenes/Minigames/hunting_minigame/ui_objects/backg_hunting.tscn" id="4_pn1o0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pn1o0"]
@@ -10,11 +10,6 @@ radius = 53.45286
 
 [node name="MinigameHunting" type="Node2D"]
 script = ExtResource("1_tjbxu")
-min_enemies = null
-max_enemies = null
-spawn_min = null
-spawn_max = null
-respawn_cooldown = null
 
 [node name="Background" parent="." instance=ExtResource("4_pn1o0")]
 
@@ -23,10 +18,10 @@ position = Vector2(575, 0)
 rotation = 2.0943952
 
 [node name="arrow" type="Sprite2D" parent="."]
-position = Vector2(576, 0)
-rotation = 2.0943952
+position = Vector2(722.99994, 170)
+rotation = -0.70909715
 scale = Vector2(0.614719, 0.66040826)
-texture = ExtResource("2_tjbxu")
+texture = ExtResource("3_pn1o0")
 offset = Vector2(0, -200)
 script = ExtResource("3_l1xdu")
 
@@ -35,26 +30,27 @@ collision_layer = 8
 collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arrow/Hurtbox"]
-position = Vector2(15.823288, -319.73032)
+position = Vector2(5.5210905, -101.333466)
+rotation = 0.0061643715
 shape = SubResource("CircleShape2D_pn1o0")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="arrow"]
-position = Vector2(0.2294035, -120.76733)
+position = Vector2(13.231341, -344.5691)
 
 [node name="Marker2D8" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(616, 408)
+position = Vector2(403, 695)
 
 [node name="Marker2D10" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(1124, 621)
+position = Vector2(776, 1029)
 
 [node name="Marker2D9" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(18, 615)
+position = Vector2(26, 1030)
 
 [node name="Marker2D11" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(961, 457)
+position = Vector2(617, 745)
 
 [node name="Marker2D12" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(183, 466)
+position = Vector2(143, 790)
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
