@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c00t6xifdjonv"]
 
-[ext_resource type="Script" uid="uid://dpqttewcsxvvh" path="res://Scripts/interaction_area.gd" id="1_qfjf6"]
+[ext_resource type="Script" uid="uid://bq4vrj6hyw6qp" path="res://Scripts/interact_minigame.gd" id="1_kyl6n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w3e31"]
 radius = 50.0
@@ -8,7 +8,7 @@ radius = 50.0
 [node name="InteractionArea" type="Area2D"]
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("1_qfjf6")
+script = ExtResource("1_kyl6n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w3e31")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5sp16xaq6t63"]
+[gd_scene load_steps=17 format=3 uid="uid://c5sp16xaq6t63"]
 
 [ext_resource type="Script" uid="uid://cqn5gtk7puod7" path="res://Scripts/player.gd" id="1_orsn3"]
 [ext_resource type="PackedScene" uid="uid://b87rcl12j1grt" path="res://Scenes/Interaction/interacting_component.tscn" id="3_jbn3y"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b12gd4jtdfi7o" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0000_cb1.png" id="12_oe3cd"]
 [ext_resource type="Texture2D" uid="uid://d2fmg0jrbt3um" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0001_cb2.png" id="13_y1bbn"]
 [ext_resource type="Texture2D" uid="uid://d02xh54cu308x" path="res://Art/Characters/Cat Walk Cycle Layers/Cat_0002_cb3.png" id="14_lt1uy"]
+[ext_resource type="PackedScene" uid="uid://dnx7vuee0nbxx" path="res://Scenes/Minigames/sabotoge/bug_catcher.tscn" id="15_wdyrf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jbcpn"]
 animations = [{
@@ -126,6 +127,11 @@ rotation = 1.5707964
 polygon = PackedVector2Array(18, 12.999999, 18, -13.000001, 10.999999, -24, -8.000001, -24, -15.000001, -16, -14.999999, 16, -5.999999, 23, 11.000002, 23)
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_jbn3y")]
-visible = false
 position = Vector2(2, -4.7683716e-07)
 scale = Vector2(0.68000245, 0.5199988)
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="BugNet" parent="Pivot" instance=ExtResource("15_wdyrf")]
+visible = false
+position = Vector2(-36, -7)

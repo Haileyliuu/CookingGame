@@ -7,11 +7,11 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	if GameStats.cat_state != GameStats.PlayerStates.KITCHEN:
-		cat.process_mode = Node.PROCESS_MODE_DISABLED
-	else:
+	if GameStats.cat_state == GameStats.PlayerStates.KITCHEN or GameStats.cat_state == GameStats.PlayerStates.SABOTAGE:
 		cat.process_mode = Node.PROCESS_MODE_ALWAYS
-	if GameStats.dog_state != GameStats.PlayerStates.KITCHEN:
-		dog.process_mode = Node.PROCESS_MODE_DISABLED
 	else:
+		cat.process_mode = Node.PROCESS_MODE_DISABLED
+	if GameStats.dog_state == GameStats.PlayerStates.KITCHEN or GameStats.dog_state == GameStats.PlayerStates.SABOTAGE:
 		dog.process_mode = Node.PROCESS_MODE_ALWAYS
+	else:
+		dog.process_mode = Node.PROCESS_MODE_DISABLED

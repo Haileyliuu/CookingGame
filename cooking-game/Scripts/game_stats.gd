@@ -2,9 +2,12 @@ extends Node
 
 @onready var minigame = false
 # These states tell the game where the cat and dog are
-enum PlayerStates {KITCHEN, HUNTING, CHOPPING, ASSEMBLY}
+enum PlayerStates {KITCHEN, HUNTING, CHOPPING, ASSEMBLY, SABOTAGE, COCKROACH}
 var dog_state: PlayerStates
 var cat_state: PlayerStates
+
+var cat_points: int = 0
+var dog_points: int = 0
 
 func _ready() -> void:
 	dog_state = PlayerStates.KITCHEN

@@ -6,12 +6,19 @@ const PUSHABILITY = 1.8 # bigger = more pushable
 
 @export var speed = 400
 
+var input_direction: Vector2 = Vector2(0,0) # This is mainly for rotating the bug net
 @onready var animation = $AnimatedSprite2D
+@onready var bug_net = $Pivot/BugNet
 var last_dir := Vector2.DOWN   # default facing down
+
+var meal : Dish = null
+var player_cockroach : Cockroach = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,9 +36,9 @@ func _process(_delta: float) -> void:
 
 
 func get_input():
-	var input_direction = Input.get_vector(player_id + "_left", player_id + "_right", player_id + "_up", player_id + "_down")
+	input_direction = Input.get_vector(player_id + "_left", player_id + "_right", player_id + "_up", player_id + "_down")
 	velocity = input_direction * speed
-	
+	$Pivot.rotation = last_dir.angle()
 	# --- Animation handling ---
 	if input_direction != Vector2.ZERO:
 		last_dir = input_direction
@@ -60,3 +67,22 @@ func get_input():
 				animation.play("idle_down")
 			else:
 				animation.play("idle_up")
+
+
+func _on_cat_assembly_pickup(cockroach: bool) -> void:
+	var dish = Dish.place(0, player_id)
+	dish.cockroach = cockroach
+	dish.scale = Vector2(.5,.5)
+	dish.position.y -= 100
+	dish.rotation = deg_to_rad(90)
+	meal = dish
+	add_child(dish)
+
+
+func _on_dog_assembly_pickup(cockroach: bool) -> void:
+	var dish = Dish.place(0, player_id)
+	dish.cockroach = cockroach
+	dish.scale = Vector2(.5,.5)
+	dish.position.y -= 100
+	meal = dish
+	add_child(dish)

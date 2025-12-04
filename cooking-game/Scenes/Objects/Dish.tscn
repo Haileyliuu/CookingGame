@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqmud0af7v3ht"]
+
+[ext_resource type="Script" uid="uid://ch0m4fhhrh1cj" path="res://Scripts/dish.gd" id="1_sqxx7"]
+
+[node name="Dish" type="Node2D"]
+script = ExtResource("1_sqxx7")
