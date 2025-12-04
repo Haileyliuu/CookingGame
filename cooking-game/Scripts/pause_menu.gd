@@ -5,10 +5,8 @@ extends Control
 
 
 func _ready() -> void:
-
 	canvas_layer.visible = false
 	$AnimationPlayer.play("RESET")
-	#resume_button.pressed.connect(_resume_pressed)
 
 func _process(_delta: float) -> void:
 	testEsc()

@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://lsvcq5022gtl"]
+[gd_scene load_steps=11 format=3 uid="uid://r8psjsf86reo"]
 
-[ext_resource type="Script" uid="uid://dpj2flbsiiy12" path="res://Scripts/pause_menu.gd" id="1_kdnb7"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_kdnb7"]
 [ext_resource type="Texture2D" uid="uid://bxcm3d5bj1sih" path="res://Art/Buttons/CreditsButton.png" id="1_oykix"]
-[ext_resource type="Shader" uid="uid://b6o6yufssxre7" path="res://Scenes/UI/pause_menu.gdshader" id="2_702e2"]
+[ext_resource type="Shader" uid="uid://b6o6yufssxre7" path="res://Scripts/pause_menu.gdshader" id="2_702e2"]
 [ext_resource type="Texture2D" uid="uid://c35a4dbpmal1b" path="res://Art/Buttons/CreditsButtonPressed.png" id="2_kdnb7"]
 [ext_resource type="Texture2D" uid="uid://bucx706ae2n77" path="res://Art/Buttons/CreditsButtonHover.png" id="3_702e2"]
 [ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="4_qyryt"]
@@ -10,6 +10,33 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_702e2"]
 shader = ExtResource("2_702e2")
 shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_23me3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.03137255)]
+}
 
 [sub_resource type="Animation" id="Animation_qyryt"]
 resource_name = "blur"
@@ -37,33 +64,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.03137255), Color(13.446019, 16.29345, 18.44829, 0.286)]
-}
-
-[sub_resource type="Animation" id="Animation_23me3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.03137255)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qyryt"]

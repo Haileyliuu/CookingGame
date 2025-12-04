@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="Texture2D" uid="uid://c41ju7gsf78oi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0004_Floor.png" id="2_344ge"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
-[ext_resource type="PackedScene" uid="uid://crhb5l1wjx83t" path="res://Scenes/UI/canvas_layer.tscn" id="2_r33sp"]
+[ext_resource type="PackedScene" uid="uid://b26n7c5dhvlip" path="res://Scenes/UI/canvas_layer.tscn" id="2_r33sp"]
 [ext_resource type="Texture2D" uid="uid://cj20otqaedsa7" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsBottom.png" id="3_b3802"]
 [ext_resource type="Texture2D" uid="uid://dm06o6ottn4ig" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsFloor.png" id="3_hibaj"]
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
@@ -27,14 +27,14 @@
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://bmrtjtis27y7p" path="res://Art/Game Backgroud Layers/Objects/DogRegister.png" id="17_kltya"]
 [ext_resource type="Texture2D" uid="uid://cgg0wvuh3c0xc" path="res://Art/Game Backgroud Layers/Objects/DogCutting.png" id="18_6vcvc"]
-[ext_resource type="Script" uid="uid://brd4quhk5ewlb" path="res://Scripts/register.gd" id="18_neg2b"]
+[ext_resource type="Script" path="res://Scripts/register.gd" id="18_neg2b"]
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
 [ext_resource type="Texture2D" uid="uid://dhgrtmq8el1l7" path="res://Art/Game Backgroud Layers/Objects/CatTrash.png" id="22_e08e2"]
 [ext_resource type="Texture2D" uid="uid://mfhlqvsablvc" path="res://Art/Game Backgroud Layers/Objects/DogTrash.png" id="24_neg2b"]
 [ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
-[ext_resource type="Theme" uid="uid://doas8v4v842gq" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
-[ext_resource type="Theme" uid="uid://bgtfhfueyd8yw" path="res://Shaders/border.theme" id="28_ueoa1"]
+[ext_resource type="Theme" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
+[ext_resource type="Theme" path="res://Shaders/border.theme" id="28_ueoa1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
 blend_mode = 3
@@ -59,7 +59,6 @@ shader_parameter/highlight_strength = 0.5
 blend_mode = 3
 
 [node name="Main" type="Node2D"]
-process_mode = 1
 script = ExtResource("1_kry3j")
 
 [node name="display" parent="." instance=ExtResource("2_r33sp")]
