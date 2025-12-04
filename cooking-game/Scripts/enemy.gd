@@ -32,7 +32,6 @@ func _physics_process(_delta: float) -> void:
 		#wander._pick_new_target(global_position)
 		##return  # Avoid moving this frame
 	if velocity.x < 0.5:  # threshold for "stuck"
-		print("entered")
 		wander_behavior.goto_target(global_position)
 		#wander_behavior._pick_new_target(global_position)
 		

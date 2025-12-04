@@ -1,41 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://cep6yw4yogs7"]
+[gd_scene load_steps=5 format=3 uid="uid://cep6yw4yogs7"]
 
 [ext_resource type="Script" uid="uid://dlaxnejxtap1y" path="res://Scripts/minigame_hunting.gd" id="1_tjbxu"]
-[ext_resource type="Script" uid="uid://bhi2sej6c3co8" path="res://Scripts/arrow.gd" id="3_l1xdu"]
-[ext_resource type="Texture2D" uid="uid://ckk5r46kl7og1" path="res://Art/CowArt/Hunting Minigame Files/HMG_Arrow_Sprite.png" id="3_pn1o0"]
+[ext_resource type="PackedScene" uid="uid://r3njymt2h155" path="res://Scenes/Minigames/hunting_minigame/ui_objects/character.tscn" id="3_jps1p"]
+[ext_resource type="PackedScene" uid="uid://dn6807lnifkwj" path="res://Scenes/Minigames/hunting_minigame/ui_objects/arrow.tscn" id="4_jps1p"]
 [ext_resource type="PackedScene" uid="uid://dqqsef7ti4ctg" path="res://Scenes/Minigames/hunting_minigame/ui_objects/backg_hunting.tscn" id="4_pn1o0"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_pn1o0"]
-radius = 53.45286
 
 [node name="MinigameHunting" type="Node2D"]
 script = ExtResource("1_tjbxu")
 
 [node name="Background" parent="." instance=ExtResource("4_pn1o0")]
 
+[node name="Character" parent="." instance=ExtResource("3_jps1p")]
+offset_left = 493.0
+offset_top = 190.0
+offset_right = 533.0
+offset_bottom = 230.0
+scale = Vector2(0.7, 0.7)
+
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(575, 0)
+position = Vector2(295, 531)
 rotation = 2.0943952
 
-[node name="arrow" type="Sprite2D" parent="."]
-position = Vector2(722.99994, 170)
-rotation = -0.70909715
-scale = Vector2(0.614719, 0.66040826)
-texture = ExtResource("3_pn1o0")
-offset = Vector2(0, -200)
-script = ExtResource("3_l1xdu")
-
-[node name="Hurtbox" type="Area2D" parent="arrow"]
-collision_layer = 8
-collision_mask = 24
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="arrow/Hurtbox"]
-position = Vector2(5.5210905, -101.333466)
-rotation = 0.0061643715
-shape = SubResource("CircleShape2D_pn1o0")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="arrow"]
-position = Vector2(13.231341, -344.5691)
+[node name="arrow" parent="." instance=ExtResource("4_jps1p")]
+z_index = 1
+position = Vector2(492, 208.00003)
 
 [node name="Marker2D8" type="Marker2D" parent="." groups=["cow"]]
 position = Vector2(403, 695)
@@ -55,7 +43,7 @@ position = Vector2(143, 790)
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[connection signal="arrow_positioned" from="." to="arrow" method="_on_minigame_hunting_arrow_positioned"]
 [connection signal="player" from="." to="Background" method="_on_minigame_hunting_player"]
+[connection signal="player" from="." to="Character" method="_on_minigame_hunting_player"]
 [connection signal="player" from="." to="arrow" method="_on_minigame_hunting_player"]
-[connection signal="area_entered" from="arrow/Hurtbox" to="arrow" method="_on_hurtbox_area_entered"]
-[connection signal="screen_exited" from="arrow/VisibleOnScreenNotifier2D" to="arrow" method="_on_visible_on_screen_notifier_2d_screen_exited"]

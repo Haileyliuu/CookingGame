@@ -5,6 +5,7 @@ extends Node2D
 @export var speed: float = 1000  # launch speed
 @onready var marker_2d: Marker2D = $"../Marker2D"
 
+var arrow = preload("res://Art/CowArt/Hunting Minigame Files/HMG_Arrow_Sprite.png")
 var hook = preload("res://Art/FishArt/Fishing Minigame Files/Fish_Hook.png")
 
 
@@ -18,7 +19,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 
 	print("screen size: ", screen_size)
-	global_position = Vector2(screen_size.x * 0.5, 40)
+	#reset()
 
 	swing()
 
@@ -64,7 +65,7 @@ func reset():
 	global_position = marker_2d.global_position
 	print("marker 2d: ", global_position)
 	rotation = marker_2d.global_rotation
-	global_position = Vector2(screen_size.x * 0.5, 40)
+	#global_position = Vector2(screen_size.x * 0.5, 40)
 
 	# Restart swing
 	tween.kill()
@@ -85,3 +86,9 @@ func _on_minigame_hunting_player(p: Variant) -> void:
 	player_id = p
 	if p == "cat":
 		self.texture = hook
+	if p == "dog":
+		self.texture = arrow
+
+
+func _on_minigame_hunting_arrow_positioned() -> void:
+	reset()

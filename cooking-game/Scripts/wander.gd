@@ -188,7 +188,7 @@ func _start_wait(from_position: Vector2) -> void:
 # === TARGET SELECTION ===
 # Picks a new random marker as the wander target.
 func _pick_new_target(from_position: Vector2) -> void:
-	print("pick new target")
+	#print("pick new target")
 	if markers.is_empty():
 		current_target = null
 		return

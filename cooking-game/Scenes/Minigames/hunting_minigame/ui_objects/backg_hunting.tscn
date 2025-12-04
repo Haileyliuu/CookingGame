@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqqsef7ti4ctg"]
+[gd_scene load_steps=7 format=3 uid="uid://dqqsef7ti4ctg"]
 
 [ext_resource type="Script" uid="uid://c2nokokp7jxgr" path="res://Scenes/Minigames/hunting_minigame/ui_objects/backg_hunting.gd" id="1_s1lng"]
-[ext_resource type="Texture2D" uid="uid://cuivdswkhavwv" path="res://Art/CowArt/huntingbg.png" id="2_s1lng"]
-[ext_resource type="Texture2D" uid="uid://bimojg0h38pl5" path="res://Art/FishArt/1600w-KBBZLdpjLcM.webp" id="3_yk4ii"]
+[ext_resource type="Texture2D" uid="uid://dvssfukxgfrpf" path="res://Art/CowArt/Hunting Minigame Files/DogGrassBackground.png" id="2_s1lng"]
+[ext_resource type="Texture2D" uid="uid://bahwjadn20ank" path="res://Art/CowArt/Hunting Minigame Files/HMG_0000_HMG_Fence.png" id="3_4wo8r"]
+[ext_resource type="Texture2D" uid="uid://b43evrhl4urus" path="res://Art/FishArt/Fishing Minigame Files/CatWaterBackground.png" id="3_yk4ii"]
+[ext_resource type="Texture2D" uid="uid://bi5qlr4f1wt7s" path="res://Art/FishArt/Fishing Minigame Files/FMG_0000_HMG_Water_Overlay.png" id="4_yk4ii"]
+[ext_resource type="Texture2D" uid="uid://7bl40egpijc5" path="res://Art/FishArt/Fishing Minigame Files/FMG_0001_FMG_Boat.png" id="5_bl4vj"]
 
 [node name="Background" type="Control"]
 layout_mode = 3
@@ -15,12 +18,27 @@ script = ExtResource("1_s1lng")
 
 [node name="dog_background" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(956.49994, 541)
-scale = Vector2(1.9719043, 0.89469385)
 texture = ExtResource("2_s1lng")
+centered = false
+
+[node name="Fence" type="Sprite2D" parent="dog_background"]
+z_index = 1
+position = Vector2(2, 0)
+texture = ExtResource("3_4wo8r")
+centered = false
 
 [node name="cat_background" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(956.5, 534)
-scale = Vector2(1.190625, 1.2088889)
 texture = ExtResource("3_yk4ii")
+centered = false
+
+[node name="Boat" type="Sprite2D" parent="cat_background"]
+z_index = 1
+position = Vector2(-15, 0)
+texture = ExtResource("5_bl4vj")
+centered = false
+
+[node name="WaterOverlay" type="Sprite2D" parent="cat_background"]
+z_index = 1
+texture = ExtResource("4_yk4ii")
+centered = false
