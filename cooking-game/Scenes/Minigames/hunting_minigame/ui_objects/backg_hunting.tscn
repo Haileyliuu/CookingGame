@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqqsef7ti4ctg"]
+
+[ext_resource type="Script" uid="uid://c2nokokp7jxgr" path="res://Scenes/Minigames/hunting_minigame/ui_objects/backg_hunting.gd" id="1_s1lng"]
+[ext_resource type="Texture2D" uid="uid://cuivdswkhavwv" path="res://Art/CowArt/huntingbg.png" id="2_s1lng"]
+[ext_resource type="Texture2D" uid="uid://bimojg0h38pl5" path="res://Art/FishArt/1600w-KBBZLdpjLcM.webp" id="3_yk4ii"]
+
+[node name="Background" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s1lng")
+
+[node name="dog_background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(956.49994, 541)
+scale = Vector2(1.9719043, 0.89469385)
+texture = ExtResource("2_s1lng")
+
+[node name="cat_background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(956.5, 534)
+scale = Vector2(1.190625, 1.2088889)
+texture = ExtResource("3_yk4ii")

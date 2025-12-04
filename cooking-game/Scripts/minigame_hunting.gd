@@ -1,7 +1,7 @@
 extends Node2D
 class_name minigame_hunting
 
-var player_id := "dog"
+var player_id := "cat"
 
 @onready var arrow: Node2D = $arrow
 @onready var EnemyScene = preload("res://Scenes/Minigames/hunting_minigame/enemy.tscn")

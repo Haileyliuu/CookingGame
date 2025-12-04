@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cep6yw4yogs7"]
+[gd_scene load_steps=6 format=3 uid="uid://cep6yw4yogs7"]
 
 [ext_resource type="Script" uid="uid://dlaxnejxtap1y" path="res://Scripts/minigame_hunting.gd" id="1_tjbxu"]
-[ext_resource type="Texture2D" uid="uid://dcecjbuhbsus2" path="res://Art/arrow.webp" id="2_tjbxu"]
+[ext_resource type="Texture2D" uid="uid://dcecjbuhbsus2" path="res://Art/CowArt/arrow.webp" id="2_tjbxu"]
 [ext_resource type="Script" uid="uid://bhi2sej6c3co8" path="res://Scripts/arrow.gd" id="3_l1xdu"]
+[ext_resource type="PackedScene" uid="uid://dqqsef7ti4ctg" path="res://Scenes/Minigames/hunting_minigame/ui_objects/backg_hunting.tscn" id="4_pn1o0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pn1o0"]
+radius = 53.45286
 
 [node name="MinigameHunting" type="Node2D"]
 script = ExtResource("1_tjbxu")
+
+[node name="Background" parent="." instance=ExtResource("4_pn1o0")]
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(575, 0)
@@ -23,15 +29,15 @@ script = ExtResource("3_l1xdu")
 collision_layer = 8
 collision_mask = 24
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="arrow/Hurtbox"]
-position = Vector2(-1.4088211, 0.7571087)
-polygon = PackedVector2Array(46.179047, -301.07434, 49.09784, -323.6245, 37.391388, -324.32727, 38.088013, -347.43164, 24.159393, -348.68872, 24.914337, -359.5852, 12.394562, -361.59924, 12.452942, -349.39136, 0.15112305, -348.02563, -0.5454712, -324.9214, -10.843018, -326.3811, -12.135101, -301.20825, 44.770203, -300.31726)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arrow/Hurtbox"]
+position = Vector2(15.823288, -319.73032)
+shape = SubResource("CircleShape2D_pn1o0")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="arrow"]
 position = Vector2(0.2294035, -120.76733)
 
 [node name="Marker2D8" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(626, 84)
+position = Vector2(589, 469)
 
 [node name="Marker2D10" type="Marker2D" parent="." groups=["cow"]]
 position = Vector2(1124, 621)
@@ -40,11 +46,12 @@ position = Vector2(1124, 621)
 position = Vector2(18, 615)
 
 [node name="Marker2D11" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(1030, 403)
+position = Vector2(961, 457)
 
 [node name="Marker2D12" type="Marker2D" parent="." groups=["cow"]]
-position = Vector2(183, 397)
+position = Vector2(183, 466)
 
+[connection signal="player" from="." to="Background" method="_on_minigame_hunting_player"]
 [connection signal="player" from="." to="arrow" method="_on_minigame_hunting_player"]
 [connection signal="area_entered" from="arrow/Hurtbox" to="arrow" method="_on_hurtbox_area_entered"]
 [connection signal="screen_exited" from="arrow/VisibleOnScreenNotifier2D" to="arrow" method="_on_visible_on_screen_notifier_2d_screen_exited"]

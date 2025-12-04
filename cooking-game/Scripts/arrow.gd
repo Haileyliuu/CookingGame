@@ -5,7 +5,7 @@ extends Node2D
 @export var speed: float = 1000  # launch speed
 @onready var marker_2d: Marker2D = $"../Marker2D"
 
-
+var hook = load("res://Art/FishArt/images.jpeg")
 
 var launched := false
 var velocity := Vector2.ZERO
@@ -72,3 +72,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func _on_minigame_hunting_player(p: Variant) -> void:
 	player_id = p
+	if p == "cat":
+		self.texture = hook
