@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h2rmlsmvfb8v"
-path="res://.godot/imported/CAT_Walk_Sprite_Sheet.png-fa8e2674984bcf29519f369a92b1b5e7.ctex"
+uid="uid://b3f50onfcehp5"
+path="res://.godot/imported/PlayButtonHover.png-230bcae4c07967f7f33180579b83cee7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Characters/CAT_Walk_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/CAT_Walk_Sprite_Sheet.png-fa8e2674984bcf29519f369a92b1b5e7.ctex"]
+source_file="res://Art/Buttons/PlayButtonHover.png"
+dest_files=["res://.godot/imported/PlayButtonHover.png-230bcae4c07967f7f33180579b83cee7.ctex"]
 
 [params]
 

@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbwd8bj7jlqic"]
+[gd_scene load_steps=13 format=3 uid="uid://ccycwkiogv7p1"]
 
 [ext_resource type="Texture2D" uid="uid://83g4f61lwavn" path="res://Art/Menu/MainMenu.png" id="1_5wsvm"]
-[ext_resource type="Script" uid="uid://ds6vlw160qkl2" path="res://Scripts/main_menu.gd" id="1_i2xx2"]
-[ext_resource type="Texture2D" uid="uid://b8qwhanjstbm1" path="res://Art/BurgerArt/Cheese.PNG" id="3_mrfpk"]
-[ext_resource type="Texture2D" uid="uid://c3akl62casc7r" path="res://Art/BurgerArt/Patty.PNG" id="4_4pqbp"]
-[ext_resource type="Texture2D" uid="uid://c1qjplp7032b" path="res://Art/BurgerArt/Tomato.PNG" id="5_gih0s"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_i2xx2"]
+[ext_resource type="Texture2D" uid="uid://dq2fw4dstuk15" path="res://Art/Buttons/PlayButton.png" id="3_u7lva"]
+[ext_resource type="Texture2D" uid="uid://t1uy3okh6k4e" path="res://Art/Buttons/PlayButtonPressed.png" id="4_4pqbp"]
+[ext_resource type="Texture2D" uid="uid://b3f50onfcehp5" path="res://Art/Buttons/PlayButtonHover.png" id="5_gih0s"]
 [ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="6_4pqbp"]
+[ext_resource type="Texture2D" uid="uid://bxcm3d5bj1sih" path="res://Art/Buttons/CreditsButton.png" id="7_cejvf"]
+[ext_resource type="Texture2D" uid="uid://c35a4dbpmal1b" path="res://Art/Buttons/CreditsButtonPressed.png" id="8_ru8vt"]
+[ext_resource type="Texture2D" uid="uid://bucx706ae2n77" path="res://Art/Buttons/CreditsButtonHover.png" id="9_ypsd1"]
+[ext_resource type="Texture2D" uid="uid://d33j42mu7e67q" path="res://Art/Buttons/SquareButton.png" id="10_xp0kt"]
+[ext_resource type="Texture2D" uid="uid://cnnyj02p8rxii" path="res://Art/Buttons/SquareButtonPressed.png" id="11_1yfdm"]
+[ext_resource type="Texture2D" uid="uid://bbkitldp01fw1" path="res://Art/Buttons/SquareButtonHover.png" id="12_3h8o7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -24,20 +30,60 @@ texture = ExtResource("1_5wsvm")
 
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 663.0
-offset_right = 839.0
-offset_bottom = 1030.0
-texture_normal = ExtResource("3_mrfpk")
+offset_left = 205.0
+offset_top = 630.0
+offset_right = 693.0
+offset_bottom = 826.0
+texture_normal = ExtResource("3_u7lva")
 texture_pressed = ExtResource("4_4pqbp")
 texture_hover = ExtResource("5_gih0s")
 
 [node name="Label" type="Label" parent="Play"]
 layout_mode = 0
-offset_left = 263.0
-offset_top = 112.0
-offset_right = 471.0
-offset_bottom = 212.0
+offset_left = 110.0
+offset_top = 29.0
+offset_right = 377.0
+offset_bottom = 156.0
 theme_override_fonts/font = ExtResource("6_4pqbp")
-theme_override_font_sizes/font_size = 78
+theme_override_font_sizes/font_size = 100
 text = "Play"
+
+[node name="Credits" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 840.0
+offset_right = 665.0
+offset_bottom = 988.0
+texture_normal = ExtResource("7_cejvf")
+texture_pressed = ExtResource("8_ru8vt")
+texture_hover = ExtResource("9_ypsd1")
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 29.0
+offset_right = 362.0
+offset_bottom = 113.0
+theme_override_fonts/font = ExtResource("6_4pqbp")
+theme_override_font_sizes/font_size = 65
+text = "Credits"
+
+[node name="Tutorial" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 905.0
+offset_right = 171.0
+offset_bottom = 1057.0
+texture_normal = ExtResource("10_xp0kt")
+texture_pressed = ExtResource("11_1yfdm")
+texture_hover = ExtResource("12_3h8o7")
+
+[node name="Label" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 19.0
+offset_right = 114.0
+offset_bottom = 134.0
+theme_override_fonts/font = ExtResource("6_4pqbp")
+theme_override_font_sizes/font_size = 90
+text = "?"
