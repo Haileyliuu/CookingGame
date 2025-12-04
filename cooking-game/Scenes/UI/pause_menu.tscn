@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_kdnb7"]
 [ext_resource type="Texture2D" uid="uid://bxcm3d5bj1sih" path="res://Art/Buttons/CreditsButton.png" id="1_oykix"]
-[ext_resource type="Shader" uid="uid://b6o6yufssxre7" path="res://Scripts/pause_menu.gdshader" id="2_702e2"]
+[ext_resource type="Shader" path="res://Scripts/pause_menu.gdshader" id="2_702e2"]
 [ext_resource type="Texture2D" uid="uid://c35a4dbpmal1b" path="res://Art/Buttons/CreditsButtonPressed.png" id="2_kdnb7"]
 [ext_resource type="Texture2D" uid="uid://bucx706ae2n77" path="res://Art/Buttons/CreditsButtonHover.png" id="3_702e2"]
 [ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="4_qyryt"]
@@ -100,10 +100,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -353.0
-offset_top = -457.5
-offset_right = 353.0
-offset_bottom = 457.5
+offset_left = -351.0
+offset_top = -457.0
+offset_right = 355.0
+offset_bottom = 458.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -115,9 +115,9 @@ layout_mode = 2
 [node name="Resume" type="TextureButton" parent="PanelContainer/VBoxContainer/CanvasLayer"]
 process_mode = 3
 offset_left = 747.0
-offset_top = 102.0
+offset_top = 252.0
 offset_right = 1175.0
-offset_bottom = 250.0
+offset_bottom = 400.0
 size_flags_horizontal = 4
 texture_normal = ExtResource("1_oykix")
 texture_pressed = ExtResource("2_kdnb7")
@@ -145,9 +145,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Restart" type="TextureButton" parent="PanelContainer/VBoxContainer/CanvasLayer"]
 process_mode = 2
 offset_left = 747.0
-offset_top = 268.5
+offset_top = 418.5
 offset_right = 1175.0
-offset_bottom = 416.5
+offset_bottom = 566.5
 size_flags_horizontal = 4
 texture_normal = ExtResource("1_oykix")
 texture_pressed = ExtResource("2_kdnb7")
@@ -156,11 +156,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/CanvasLayer/Restart"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = -1
+anchor_left = 0.5272408
+anchor_top = 0.4881757
+anchor_right = 0.5272408
+anchor_bottom = 0.4881757
 offset_left = -164.65906
 offset_top = -43.75
 offset_right = 164.65906
@@ -175,9 +175,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Main Menu" type="TextureButton" parent="PanelContainer/VBoxContainer/CanvasLayer"]
 process_mode = 2
 offset_left = 747.0
-offset_top = 433.5
+offset_top = 583.5
 offset_right = 1175.0
-offset_bottom = 581.5
+offset_bottom = 731.5
 size_flags_horizontal = 4
 texture_normal = ExtResource("1_oykix")
 texture_pressed = ExtResource("2_kdnb7")
@@ -202,36 +202,6 @@ theme_override_font_sizes/font_size = 55
 text = "Main Menu"
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="TextureButton" parent="PanelContainer/VBoxContainer/CanvasLayer"]
-process_mode = 2
-offset_left = 747.0
-offset_top = 602.5
-offset_right = 1175.0
-offset_bottom = 750.5
-size_flags_horizontal = 4
-texture_normal = ExtResource("1_oykix")
-texture_pressed = ExtResource("2_kdnb7")
-texture_hover = ExtResource("3_702e2")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/CanvasLayer/Quit"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -83.5
-offset_top = -43.75
-offset_right = 83.5
-offset_bottom = 43.75
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_qyryt")
-theme_override_font_sizes/font_size = 65
-text = "Quit"
-metadata/_edit_use_anchors_ = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_qyryt")
@@ -240,4 +210,3 @@ libraries = {
 [connection signal="pressed" from="PanelContainer/VBoxContainer/CanvasLayer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/CanvasLayer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/CanvasLayer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/CanvasLayer/Quit" to="." method="_on_quit_pressed"]
