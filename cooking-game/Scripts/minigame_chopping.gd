@@ -23,7 +23,6 @@ var shake_tween: Tween
 var difficulty_stage := 2 
 var original_placeholder_pos: Vector2
 var warning_tween: Tween = null
-var prompt_label: String = ""
 
 
 var cat_chop_paths := {
@@ -66,6 +65,7 @@ var dog_chop_stages = {}
 @onready var chop_sound: AudioStreamPlayer2D = $ChopSound
 @onready var chop_progress: TextureProgressBar = $CanvasLayer3/ProgressBar
 @onready var screen_size = get_viewport_rect().size
+@onready var prompt_label = $CanvasLayer3/PromptLabel
 
 func _ready():
 	$CanvasLayer3.layer = 3
@@ -281,7 +281,6 @@ func _input(event: InputEvent) -> void:
 	#if Inventory.get(player_id + "_meat") <= 0:
 		#create_inventory_warning()
 		#return
-	Inventory.set(player_id + "_meat", Inventory.get(player_id + "_meat") - 1)
 
 	if Inventory.get(player_id + "_meat") <= 0 && event.is_action_pressed(player_id+"_chop"):
 		if warning_tween && warning_tween.is_running():
@@ -308,13 +307,13 @@ func _input(event: InputEvent) -> void:
 		if (player_id == "cat" and event.is_action_pressed("cat_select")) or \
 		   (player_id == "dog" and event.is_action_pressed("dog_select")):
 			reset_chop()
+			Inventory.set(player_id + "_meat", Inventory.get(player_id + "_meat") - 1)
 
 
 # -------------------------
 # THE ACTUAL CHOPPING
 # -------------------------
 func _handle_chop() -> void:
-	
 	if knife and knife.has_method("chop"):
 		knife.chop()
 
@@ -329,6 +328,8 @@ func _handle_chop() -> void:
 	if chops_left <= 0:
 		chopping_active = false
 		emit_signal("chop_done", player_id)
+
+	print("Dog meat:", Inventory.dog_meat)
 
 
 # -------------------------
@@ -347,54 +348,40 @@ func _update_progress_immediately(value: int) -> void:
 # INVENTORY CHECK
 # -------------------------
 func create_inventory_warning():
-	#if warning_active:
-		#await get_tree().create_timer(1).timeout
-	#warning_active = true
-	print("creating warning label")
 	var warning_label = prompt_label
-	
-	#warning_label.visible = true
+
+	warning_label.visible = true
 	warning_label.modulate.a = 1.0
-	
-	#warning_label.z_index = 1
+
 	if player_id == "dog":
 		warning_label.text = "Ran out of meat! \nGo hunt!"
-	elif player_id == "cat":
-		print("entered cat warning label")
+	else:
 		warning_label.text = "Ran out of fish! \nGo fish!"
-		
+
 	warning_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var my_font = load("res://Art/Fonts/MADE Tommy Soft Bold PERSONAL USE.otf")
 	warning_label.add_theme_font_override("font", my_font)
-	warning_label.add_theme_font_size_override("font_size", 50*screen_size.y/1080)
+	warning_label.add_theme_font_size_override("font_size", 50 * screen_size.y / 1080)
 	warning_label.add_theme_color_override("font_color", Color(0.954, 0.954, 0.954, 1.0))
 	warning_label.add_theme_constant_override("outline_size", 20)
 	warning_label.add_theme_color_override("font_outline_color", Color(0.202, 0.283, 0.599, 1.0))
-	#add_child(warning_label)
-	
+
 	await get_tree().process_frame
 	var label_size = warning_label.size
-	var pos = Vector2(
+	warning_label.position = Vector2(
 		screen_size.x / 2 - label_size.x / 2,
 		1.75 * screen_size.y / 3 - label_size.y / 2
 	)
-	warning_label.position = pos
-	
+
+	# Fade out
+	if warning_tween and warning_tween.is_running():
+		warning_tween.kill()
 	warning_tween = get_tree().create_tween()
 	warning_tween.tween_property(warning_label, "modulate:a", 0.0, 1.2)
-	
-	await get_tree().create_timer(1).timeout
-	warning_label.queue_free()
-	#await get_tree().create_timer(1).timeout
 	await warning_tween.finished
-	warning_tween.kill()
-	
-	#warning_label.modulate.a = 1.0 
-	#warning_label.visible = false
-	#
-	#warning_active = false
 
-	#warning_label.queue_free()
+	warning_label.visible = false
+
 
 
 	
