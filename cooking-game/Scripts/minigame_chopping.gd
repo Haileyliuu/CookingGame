@@ -12,6 +12,7 @@ var chops_left: int = 0
 var chopping_active: bool = false
 var player_chop_art: Dictionary = {}
 
+
 # REPLACE PATHS
 var cat_chop_paths := {
 	1: [
@@ -36,8 +37,9 @@ var dog_chop_paths := {
 	]
 }
 
-var cat_background_path := "res://Art/Objects/CatBoard.png"
-var dog_background_path := "res://Art/Objects/DogBoard.png"
+
+var cat_background_path := "res://Art/MinigameArt/CatCounter.png"
+var dog_background_path := "res://Art/MinigameArt/DogCounter.png"
 
 var cat_knife_path = preload("res://Art/SushiArt/ChoppingFish/CatKnife.PNG")
 var dog_knife_path = preload("res://Art/BurgerArt/ChoppingCow/DogKnife.PNG")
@@ -51,6 +53,7 @@ var dog_chop_stages = {}
 @onready var prompt_label: Label = $CanvasLayer3/PromptLabel
 @onready var chop_sound: AudioStreamPlayer2D = $ChopSound
 @onready var chop_progress: TextureProgressBar = $CanvasLayer3/ProgressBar
+@onready var screen_size = get_viewport_rect().size
 
 
 func _ready():
@@ -61,18 +64,20 @@ func _ready():
 	placeholder.centered = true
 	placeholder.position = get_viewport_rect().size * 0.5
 	
-	_apply_ui_font()
+	#_apply_ui_font()
 	_load_textures()
 	
 	await get_tree().process_frame
-	
-	_position_prompt_label()
+	#_position_prompt_label()
 	_position_progress_bar()
+	
 	
 	_center_background() # centering the bg
 	_center_placeholder()
+	display_background()
 	
 	start_chopping(player_id, 1) # auto-starts testing
+	
 
 
 # --------------------------------------------------------------------
@@ -86,16 +91,19 @@ func _apply_ui_font():
 func _position_progress_bar(): 
 	var viewport := get_viewport_rect().size 
 	var bar_size := chop_progress.size
-	chop_progress.position.x = viewport.x * 0.5 - bar_size.x * 0.5 
-	chop_progress.position.y = viewport.y * 0.05
+	chop_progress.scale = Vector2(0.7, 0.6)
+	var scaled_width := chop_progress.size.x * chop_progress.scale.x
+	chop_progress.position.x = viewport.x * 0.5 - scaled_width * 0.5
+	chop_progress.position.y = viewport.y * 0.005
 
 func _position_prompt_label():
-	var viewport := get_viewport_rect().size 
-	prompt_label.global_position = Vector2( 
-		viewport.x * 0.5,
-		viewport.y * .9 
-	)
+	var viewport := get_viewport_rect().size
+	var width := prompt_label.get_combined_minimum_size().x
 
+	prompt_label.global_position = Vector2(
+		viewport.x * 0.5 - width * 0.5,
+		viewport.y * 0.9
+	)
 
 # --------------------------------------------------------------------
 func _center_background():
@@ -108,6 +116,52 @@ func _center_placeholder():
 		placeholder.centered = true
 		placeholder.position = get_viewport_rect().size * 0.5
 
+func display_background():
+	var screen := get_viewport_rect().size
+
+	# -------------------------
+	# BACKGROUND BOARD
+	# -------------------------
+	if background:
+		var bg_scale := screen.y / 1080.0
+		background.centered = true
+		background.position = screen * 0.5
+		background.scale = Vector2.ONE * bg_scale
+
+	# -------------------------
+	# CHOPPING ART (placeholder)
+	# -------------------------
+	if placeholder:
+		var chop_scale := screen.y / 1080.0 * 0.7  # adjust 0.8 to taste
+		placeholder.centered = true
+		placeholder.position = screen * 0.5
+		placeholder.scale = Vector2.ONE * chop_scale
+
+	# -------------------------
+	# KNIFE
+	# -------------------------
+	if knife:
+		var knife_scale_factor := screen.y / 1080.0 * 0.7  # adjust 0.9 to taste
+		knife.scale = Vector2.ONE * knife_scale_factor
+		knife.position = placeholder.position + Vector2(0, -screen.y * 0.1)
+
+	# -------------------------
+	# PROGRESS BAR
+	# -------------------------
+	if chop_progress:
+		var bar_scale_x := 0.7
+		var bar_scale_y := 0.6
+		chop_progress.scale = Vector2(bar_scale_x, bar_scale_y)
+		var scaled_width := chop_progress.size.x * chop_progress.scale.x
+		chop_progress.position.x = screen.x * 0.5 - scaled_width * 0.5
+		chop_progress.position.y = screen.y * 0.005
+
+	# -------------------------
+	# PROMPT LABEL
+	# -------------------------
+	if prompt_label:
+		var width := prompt_label.get_combined_minimum_size().x
+		prompt_label.global_position = Vector2(screen.x * 0.5 - width * 0.5, screen.y * 0.9)
 
 # --------------------------------------------------------------------
 func _load_textures():
@@ -137,7 +191,7 @@ func start_chopping(player: String, ingredient: int = 1) -> void:
 
 	chop_progress.max_value = CHOPS_REQUIRED
 	_update_progress_immediately(0)
-	prompt_label.text = "Chop chop!"
+	#prompt_label.text = "Chop chop!"
 
 	_update_placeholder_art()
 
@@ -148,7 +202,7 @@ func reset_chop() -> void:
 	chopping_active = true
 	_update_progress_immediately(0)
 	_update_placeholder_art()
-	prompt_label.text = "Chop chop!"
+	#prompt_label.text = "Chop chop!"
 
 
 # --------------------------------------------------------------------
@@ -184,7 +238,7 @@ func _handle_chop() -> void:
 
 	if chops_left <= 0:
 		chopping_active = false
-		prompt_label.text = "Done!"
+		#prompt_label.text = "Done!"
 		emit_signal("chop_done", player_id)
 
 
