@@ -205,6 +205,8 @@ func reset_chop() -> void:
 	chopping_active = true
 	_update_progress_immediately(0)
 	_update_placeholder_art()
+	Inventory.set(player_id + "_meat", Inventory.get(player_id + "_meat") - 1)
+
 	#prompt_label.text = "Chop chop!"
 
 
@@ -253,6 +255,8 @@ func _handle_chop() -> void:
 	chops_left -= 1
 	_update_placeholder_art()
 	_animate_progress_bar()
+	
+
 
 	if chops_left <= 0:
 		chopping_active = false
