@@ -5,7 +5,8 @@ extends Node2D
 @export var speed: float = 1000  # launch speed
 @onready var marker_2d: Marker2D = $"../Marker2D"
 
-var hook = load("res://Art/FishArt/images.jpeg")
+var hook = preload("res://Art/FishArt/Fishing Minigame Files/Fish_Hook.png")
+
 
 var launched := false
 var velocity := Vector2.ZERO
