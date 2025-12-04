@@ -9,7 +9,7 @@ var dog_food = preload("res://Art/BurgerArt/FinishedBurger.png")
 var player_food
 var spot_taken = [false, false, false, false, false, false]
 var current_spot = 0
-var assembly_minigame
+@export var assembly_minigame: MiniGame
 signal counter_full(c)
 
 func _ready() -> void:
@@ -37,31 +37,41 @@ func _ready() -> void:
 
 func _on_minigame_assembly_dish_created() -> void:
 	var i = 0
-	var placed = false
 	var numTrue = 0
-	while !placed && i < spot_taken.size():
-		if spot_taken[i] == false && i+1 != current_spot:
-			spot_taken[i] = true
-			placed = true
-		else:
-			if spot_taken[i] == true:
-				numTrue+=1
-			i+=1
+	place_food(current_spot)
+	#while !placed && i < spot_taken.size():
+		#if spot_taken[i] == false && i+1 != current_spot:
+			#spot_taken[i] = true
+			#place_food(i)
+			#placed = true
+		#else:
+			#if spot_taken[i] == true:
+				#numTrue+=1
+			#i+=1
+	while i < spot_taken.size():
+		if spot_taken[i]:
+			numTrue += 1
+		i += 1
 	if numTrue == 5:
-		spot_taken[current_spot-1] = true
 		emit_signal("counter_full", true)
-	display_spots()
+	#display_spots()
 	print(spot_taken)
 
-func display_spots():
-	for i in range(6):
-		var spot = get_node("Spot" + str(i+1))
-		
-		if spot_taken[i]:
-			spot.get_child(0).texture = player_food
+func place_food(i: int) -> void:
+	var spot = get_node("Spot" + str(i))
+	var food = Dish.place(i, player_id)
+	spot_taken[i - 1] = true
+	spot.add_child(food)
+#func display_spots():
+	#for i in range(6):
+		#var spot = get_node("Spot" + str(i+1))
+		#
+		#if spot_taken[i]:
+			#spot.get_child(0).texture = player_food
 
 func _on_interact(area):
 	# print(assembly_minigame)
+		
 	current_spot = area.object.name.substr(4).to_int()
 	assembly_minigame.start_minigame()
 	

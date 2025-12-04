@@ -9,7 +9,7 @@ var can_interact := true
 var sabotage := false
 
 @onready var player_id = owner.player_id
-@onready var bug_net: BugCatcher = BugCatcher.create(player_id)
+@onready var player: Player = owner
 var who_can_interact
 
 func _ready() -> void:
@@ -23,24 +23,22 @@ func _input(event: InputEvent) -> void:
 				can_interact = false
 				interact_label.hide()
 				
-				await curr_interactions[0].interact.call()
-				
 				can_interact = true
 				if (curr_interactions[0] is IntSabo):
+					print(GameStats.cat_state)
 					_handle_sabotage()
 				
-				await curr_interactions[0].interact.call(player_id)
+				await curr_interactions[0].interact.call()
 				
 				can_interact = true
 #
 func _handle_sabotage() -> void:
 	if(GameStats.cat_state == GameStats.PlayerStates.SABOTAGE):
 		print("removing")
-		bug_net.queue_free()
+		player.bug_net.hide()
 	else:
 		print("adding")
-		bug_net = BugCatcher.create(player_id)
-		add_child(bug_net)
+		player.bug_net.show()
 		sabotage = true
 
 func _process(_delta: float) -> void:		
@@ -53,11 +51,6 @@ func _process(_delta: float) -> void:
 		interact_label.hide()
 	
 	#Don't mind me, I'm just here for rotating the little guy (bug net)
-	if (Input.is_action_just_pressed(player_id + "_left") 
-	or Input.is_action_just_pressed(player_id + "_right")
-	or Input.is_action_just_pressed(player_id + "_up")
-	or Input.is_action_just_pressed(player_id + "_down")):
-		rotation = owner.input_direction.angle()
 	
 func _sort_by_nearest(area1, area2):
 	var area1_dist = global_position.distance_to(area1.global_position)

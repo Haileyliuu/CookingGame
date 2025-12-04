@@ -7,7 +7,7 @@ const bug_scene: PackedScene = preload("res://Scenes/Minigames/sabotoge/cockroac
 
 var is_caught := false
 
-const SPEED = 2.0
+const SPEED = 200.0
 
 static func catch(start_pos: Vector2) -> Cockroach:
 	var newBug = bug_scene.instantiate()
@@ -28,6 +28,8 @@ func _move_npc():
 	nav_agent.set_target_position(random_pos)
 
 func _physics_process(delta: float) -> void:
+	if is_caught:
+		return
 	var destination = nav_agent.get_next_path_position()
 	var local_destination = destination - global_position
 	var direction = local_destination.normalized()

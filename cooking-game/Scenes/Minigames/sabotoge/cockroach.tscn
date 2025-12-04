@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dhctv8uhacjht"]
 
 [ext_resource type="Script" uid="uid://4tutehj7ppdd" path="res://Scripts/cockroach.gd" id="1_tj5fg"]
-[ext_resource type="Texture2D" uid="uid://chq4jw7exioui" path="res://Art/Cockroach-ezgif.com-gif-to-sprite-converter-removebg-preview.png" id="2_2c8x1"]
+[ext_resource type="Texture2D" uid="uid://chq4jw7exioui" path="res://Art/Sabotage/Cockroach-ezgif.com-gif-to-sprite-converter-removebg-preview.png" id="2_2c8x1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6yktk"]
 radius = 50.0

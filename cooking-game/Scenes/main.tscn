@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=42 format=3 uid="uid://dm2en0bxnn214"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -26,11 +26,10 @@
 [ext_resource type="Texture2D" uid="uid://dg6nbk3dhtaad" path="res://Art/Game Backgroud Layers/Objects/CatRiceCooker.png" id="17_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://bmrtjtis27y7p" path="res://Art/Game Backgroud Layers/Objects/DogRegister.png" id="17_kltya"]
 [ext_resource type="Texture2D" uid="uid://cgg0wvuh3c0xc" path="res://Art/Game Backgroud Layers/Objects/DogCutting.png" id="18_6vcvc"]
-[ext_resource type="Script" uid="uid://brd4quhk5ewlb" path="res://Scripts/register.gd" id="18_neg2b"]
+[ext_resource type="Script" path="res://Scripts/register.gd" id="18_neg2b"]
 [ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
-[ext_resource type="Script" uid="uid://d0s8nl7tajq1s" path="res://Scripts/interact_sabotage.gd" id="24_cbgmd"]
-[ext_resource type="PackedScene" uid="uid://b35jwavnwhwx1" path="res://Scenes/Minigames/minigame_manager/minigame_2.tscn" id="25_u50mg"]
 [ext_resource type="Texture2D" uid="uid://dhgrtmq8el1l7" path="res://Art/Game Backgroud Layers/Objects/CatTrash.png" id="22_e08e2"]
+[ext_resource type="Script" uid="uid://d0s8nl7tajq1s" path="res://Scripts/interact_sabotage.gd" id="24_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://mfhlqvsablvc" path="res://Art/Game Backgroud Layers/Objects/DogTrash.png" id="24_neg2b"]
 [ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
@@ -91,6 +90,12 @@ navigation_polygon = SubResource("NavigationPolygon_hibaj")
 
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="InteractionArea" parent="Y-sort" instance=ExtResource("13_e08e2")]
+position = Vector2(716, 359)
+script = ExtResource("24_cbgmd")
+pid = "cat"
+who_can_interact = "cat"
 
 [node name="Wall" type="StaticBody2D" parent="Y-sort"]
 y_sort_enabled = true
@@ -249,9 +254,10 @@ texture = ExtResource("16_fevyy")
 position = Vector2(-2390.0007, -1342.5004)
 scale = Vector2(2.5000005, 2.5000005)
 
-[node name="DogAssembly" parent="Y-sort/Tables/AssemblyStation" instance=ExtResource("25_cbgmd")]
+[node name="DogAssembly" parent="Y-sort/Tables/AssemblyStation" node_paths=PackedStringArray("assembly_minigame") instance=ExtResource("25_cbgmd")]
 position = Vector2(1239, 484)
 player_id = "dog"
+assembly_minigame = NodePath("../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
 
 [node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot1" index="1" node_paths=PackedStringArray("minigame")]
 minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
@@ -271,9 +277,10 @@ minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubV
 [node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/DogAssembly/Spot6" index="1" node_paths=PackedStringArray("minigame")]
 minigame = NodePath("../../../../../../DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
 
-[node name="CatAssembly" parent="Y-sort/Tables/AssemblyStation" instance=ExtResource("25_cbgmd")]
+[node name="CatAssembly" parent="Y-sort/Tables/AssemblyStation" node_paths=PackedStringArray("assembly_minigame") instance=ExtResource("25_cbgmd")]
 position = Vector2(522, 489)
 player_id = "cat"
+assembly_minigame = NodePath("../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
 
 [node name="InteractionArea" parent="Y-sort/Tables/AssemblyStation/CatAssembly/Spot1" index="1" node_paths=PackedStringArray("minigame")]
 minigame = NodePath("../../../../../../CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly")
@@ -301,26 +308,6 @@ position = Vector2(1307, 365)
 unique_name_in_owner = true
 position = Vector2(461, 369)
 
-[node name="Sabotage Button" parent="." instance=ExtResource("5_mcep0")]
-position = Vector2(627, 369)
-script = ExtResource("24_cbgmd")
-player_id = "cat"
-
-[node name="InteractionArea" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
-position = Vector2(1005, 350)
-minigame = NodePath("../Minigame1")
-
-[node name="Minigame1" parent="." instance=ExtResource("4_jjvhh")]
-visible = false
-position = Vector2(275, 432)
-
-[node name="InteractionArea2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("5_mcep0")]
-position = Vector2(1503, 318)
-minigame = NodePath("../Minigame2")
-
-[node name="Minigame2" parent="." instance=ExtResource("25_u50mg")]
-visible = false
-position = Vector2(466, 376)
 [node name="CatAssemblyGame" type="Panel" parent="."]
 visible = false
 clip_children = 2
@@ -382,9 +369,7 @@ theme = ExtResource("28_ueoa1")
 [connection signal="delivered_dish" from="Y-sort/Counters/CatTopCounter/CatRegister" to="SidePanels" method="_on_cat_register_delivered_dish"]
 [connection signal="delivered_dish" from="Y-sort/Counters/DogTopCounter/DogRegister" to="SidePanels" method="_on_dog_register_delivered_dish"]
 [connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/DogAssembly" to="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
-[connection signal="minigame_signal" from="Y-sort/Tables/AssemblyStation/DogAssembly/Spot1/InteractionArea" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_interaction_area_minigame_signal"]
 [connection signal="counter_full" from="Y-sort/Tables/AssemblyStation/CatAssembly" to="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" method="_on_counter_full"]
-[connection signal="minigame_signal" from="Y-sort/Tables/AssemblyStation/CatAssembly/Spot1/InteractionArea" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_interaction_area_minigame_signal"]
 [connection signal="dish_created" from="CatAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/CatAssembly" method="_on_minigame_assembly_dish_created"]
 [connection signal="dish_created" from="DogAssemblyGame/SubViewportContainer/SubViewport/MinigameAssembly" to="Y-sort/Tables/AssemblyStation/DogAssembly" method="_on_minigame_assembly_dish_created"]
 

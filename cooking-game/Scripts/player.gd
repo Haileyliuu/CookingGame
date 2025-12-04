@@ -8,6 +8,7 @@ const PUSHABILITY = 1.8 # bigger = more pushable
 
 var input_direction: Vector2 = Vector2(0,0) # This is mainly for rotating the bug net
 @onready var animation = $AnimatedSprite2D
+@onready var bug_net = $Pivot/BugNet
 var last_dir := Vector2.DOWN   # default facing down
 
 # Called when the node enters the scene tree for the first time.
@@ -34,7 +35,7 @@ func _process(_delta: float) -> void:
 func get_input():
 	input_direction = Input.get_vector(player_id + "_left", player_id + "_right", player_id + "_up", player_id + "_down")
 	velocity = input_direction * speed
-	
+	$Pivot.rotation = last_dir.angle()
 	# --- Animation handling ---
 	if input_direction != Vector2.ZERO:
 		last_dir = input_direction

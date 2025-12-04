@@ -61,8 +61,7 @@ func _ready() -> void:
 	display_background()
 	update_instructions()
 
-func _process(_delta: float) -> void:
-	pass
+
 	
 func _input(event):
 	if !counter_full:

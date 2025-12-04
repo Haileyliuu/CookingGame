@@ -4,16 +4,17 @@ class_name InteractMinigame extends InteractionArea
 @export var minigame: MiniGame
 
 #Called when the player interacts with the button
-var interact: Callable = func(player_id: String):
-	match player_id:
-		"cat":
-			if GameStats.cat_state == GameStats.PlayerStates.SABOTAGE:
-				return
-		"dog":
-			if GameStats.dog_state == GameStats.PlayerStates.SABOTAGE:
-				return
-	if player_id == minigame.player_id:
-		interact_with_button()
+func _ready():
+	interact = func():
+		match who_can_interact:
+			"cat":
+				if GameStats.cat_state == GameStats.PlayerStates.SABOTAGE:
+					return
+			"dog":
+				if GameStats.dog_state == GameStats.PlayerStates.SABOTAGE:
+					return
+		if who_can_interact == minigame.player_id:
+			interact_with_button()
 
 #If the minigame is the parent of this button, end the minigame
 #otherwise start the minigame

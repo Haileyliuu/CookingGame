@@ -8,15 +8,11 @@ class_name InteractionArea extends Area2D
 
 @onready var parent: Node = owner
 
-@export var minigame: MiniGame
-signal minigame_signal(m)
 @onready var object = get_parent() # the object the interaction area is connected to
 @export_enum("cat", "dog", "both") var who_can_interact: String
 
 var select_shader = preload("res://Shaders/select.gdshader")
 
-func _ready() -> void:
-	emit_signal("minigame_signal", minigame)
 
 # to use the interact function, override the function in the ready function of the object that contains
 # the interaction area using (write interact code in a new function "_on_interact"):

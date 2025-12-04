@@ -1,10 +1,11 @@
 class_name IntSabo extends InteractionArea
 
-@export var player_id: String
+@export var pid: String
 
-var interact: Callable = func(player_id: String):
-	if player_id == self.player_id:
-		interact_with_button(player_id)
+func _ready():
+	interact = func(player_id: String):
+		if player_id == who_can_interact:
+			interact_with_button(player_id)
 
 func interact_with_button(player_id: String):
 	print("sabo")

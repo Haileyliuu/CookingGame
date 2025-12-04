@@ -21,6 +21,7 @@ scale = Vector2(0.17, 0.17)
 
 [node name="InteractionArea" parent="Spot1" instance=ExtResource("3_8vgvd")]
 position = Vector2(-100, 0)
+who_can_interact = "cat"
 
 [node name="Spot2" type="Sprite2D" parent="."]
 position = Vector2(145, 45)

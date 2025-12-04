@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwkoaby5gyfpt"]
+[gd_scene load_steps=17 format=3 uid="uid://dwkoaby5gyfpt"]
 
 [ext_resource type="Script" uid="uid://cqn5gtk7puod7" path="res://Scripts/player.gd" id="1_yjktf"]
 [ext_resource type="Texture2D" uid="uid://bd6wp0qd6ldmd" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0007_f2.png" id="2_vg0a6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bj4oddq3w21y7" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0009_b1.png" id="10_s807n"]
 [ext_resource type="Texture2D" uid="uid://262ms48s8uip" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0002_r3.png" id="11_45lgc"]
 [ext_resource type="Texture2D" uid="uid://ddqp23ljwg3eo" path="res://Art/Characters/Dog Walk Cycle Layers/dog_0001s_0011_b3.png" id="11_q6u3k"]
+[ext_resource type="PackedScene" uid="uid://dnx7vuee0nbxx" path="res://Scenes/Minigames/sabotoge/bug_catcher.tscn" id="15_45lgc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jbakh"]
 animations = [{
@@ -126,6 +127,10 @@ rotation = 1.5707964
 polygon = PackedVector2Array(18, 12.999999, 18, -13.000001, 10.999998, -24, -8.000001, -24, -15.000001, -16, -14.999999, 16, -5.999999, 23, 11.000002, 23)
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_5el3f")]
-visible = false
 position = Vector2(2, -4.7683716e-07)
 scale = Vector2(0.68000245, 0.5199988)
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="BugNet" parent="Pivot" instance=ExtResource("15_45lgc")]
+visible = false

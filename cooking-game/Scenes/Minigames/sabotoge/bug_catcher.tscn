@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnx7vuee0nbxx"]
+[gd_scene load_steps=7 format=3 uid="uid://dnx7vuee0nbxx"]
 
 [ext_resource type="Script" uid="uid://dvb7ji2g6dckl" path="res://Scripts/bug_catcher.gd" id="1_1cnb5"]
-[ext_resource type="Texture2D" uid="uid://drsgi1lajm3rq" path="res://Art/PlaceholderArt/Progress.png" id="1_ksdqn"]
-[ext_resource type="Texture2D" uid="uid://bgivmbk5layn5" path="res://Art/BurgerArt/Plate.png" id="2_1cnb5"]
+[ext_resource type="Texture2D" uid="uid://dckswxjgre2ty" path="res://Art/Sabotage/CatBugNet.png" id="2_ksdqn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqoaq"]
 radius = 31.016125
@@ -71,15 +70,11 @@ _data = {
 [node name="bug catcher" type="Node2D"]
 script = ExtResource("1_1cnb5")
 
-[node name="Progress" type="Sprite2D" parent="."]
-position = Vector2(0, -31)
-rotation = 1.5707964
-texture = ExtResource("1_ksdqn")
-
-[node name="Plate" type="Sprite2D" parent="."]
-position = Vector2(-1.1920929e-07, -79)
-scale = Vector2(0.06255483, 0.08426966)
-texture = ExtResource("2_1cnb5")
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-3.852147, -52.95377)
+rotation = 0.7853982
+scale = Vector2(0.08707606, 0.11730301)
+texture = ExtResource("2_ksdqn")
 
 [node name="Area2D" type="Area2D" parent="."]
 monitoring = false
