@@ -36,6 +36,7 @@ Inventory="*res://Scripts/inventory.gd"
 
 Player=""
 Minigame=""
+cat=""
 dog=""
 
 [input]

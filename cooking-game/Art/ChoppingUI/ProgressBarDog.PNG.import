@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4k0wsie0t7id"
-path="res://.godot/imported/Shiba_Angry.PNG-f0b0bc7f6868be7846f770ac51b781a6.ctex"
+uid="uid://ngymtcm0dg8i"
+path="res://.godot/imported/ProgressBarDog.PNG-c621f98c1bdde7cfbd457e8591963fbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Angry/Shiba_Angry.PNG"
-dest_files=["res://.godot/imported/Shiba_Angry.PNG-f0b0bc7f6868be7846f770ac51b781a6.ctex"]
+source_file="res://Art/ChoppingUI/ProgressBarDog.PNG"
+dest_files=["res://.godot/imported/ProgressBarDog.PNG-c621f98c1bdde7cfbd457e8591963fbd.ctex"]
 
 [params]
 

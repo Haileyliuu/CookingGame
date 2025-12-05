@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4k0wsie0t7id"
-path="res://.godot/imported/Shiba_Angry.PNG-f0b0bc7f6868be7846f770ac51b781a6.ctex"
+uid="uid://c2bvjguu3m4n3"
+path="res://.godot/imported/CatKnife.PNG-3b1be7e8b9bbc5fbcdf8e8c940c9aca5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Angry/Shiba_Angry.PNG"
-dest_files=["res://.godot/imported/Shiba_Angry.PNG-f0b0bc7f6868be7846f770ac51b781a6.ctex"]
+source_file="res://Art/SushiArt/ChoppingFish/CatKnife.PNG"
+dest_files=["res://.godot/imported/CatKnife.PNG-3b1be7e8b9bbc5fbcdf8e8c940c9aca5.ctex"]
 
 [params]
 
