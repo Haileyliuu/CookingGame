@@ -2,12 +2,19 @@ extends Control
 
 @onready var replay: TextureButton = $ColorRect/Replay
 @onready var menu: TextureButton = $"ColorRect/Main Menu"
+@onready var winner: Label = $WhoWins
 #@onready var credits: TextureButton = $Credits
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	replay.pressed.connect(_play_pressed)
 	menu.pressed.connect(_menu_pressed)
+	if GameStats.cat_score < GameStats.dog_score:
+		winner.text = "Dog Wins!!!"
+	elif GameStats.dog_score < GameStats.cat_score:
+		winner.text = "Cat Wins!!!"
+	else:
+		winner.text = "NOBODY WINS!!!!"
 	#credits.pressed.connect(_credits_pressed)
 	#AudioPlayer.play_music_ui()
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dq5lt1mwutrfu" path="res://Art/Game Backgroud Layers/Sides/Game_Background_0001s_0000_Dog_Margins_Register.png" id="2_pbgs2"]
 [ext_resource type="Texture2D" uid="uid://uwxc1v8d7s5q" path="res://Art/UI/Side Panel Progress Bar/progress-bar-circle.png" id="5_850wk"]
 [ext_resource type="Texture2D" uid="uid://c2c2248vpsqpf" path="res://Art/UI/Side Panel Progress Bar/progress-bar-frame.png" id="6_3imgu"]
-[ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="7_3imgu"]
+[ext_resource type="Texture2D" uid="uid://dosvpgdnjgcdl" path="res://Art/ChoppingUI/HappyProgress.png" id="8_umkuq"]
 
 [node name="SidePanels" type="Control"]
 layout_mode = 3
@@ -99,32 +99,28 @@ texture_progress = ExtResource("5_850wk")
 tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(0, 0.8666667, 0.12941177, 1)
 
-[node name="CatScore" type="Label" parent="."]
-z_index = 2
-custom_minimum_size = Vector2(206, 120)
+[node name="DogHappyProgress" type="TextureProgressBar" parent="."]
+z_index = 4
 layout_mode = 0
-offset_left = 30.0
-offset_top = 741.0
-offset_right = 230.0
-offset_bottom = 861.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_3imgu")
-theme_override_font_sizes/font_size = 50
-text = "Test"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 1676.0
+offset_top = 767.0
+offset_right = 2558.0
+offset_bottom = 986.0
+scale = Vector2(0.25, 0.25)
+max_value = 10.0
+texture_under = ExtResource("8_umkuq")
+texture_progress = ExtResource("8_umkuq")
+tint_under = Color(0, 0, 0, 1)
 
-[node name="DogScore" type="Label" parent="."]
-z_index = 2
-custom_minimum_size = Vector2(206, 120)
+[node name="CatHappyProgress" type="TextureProgressBar" parent="."]
+z_index = 4
 layout_mode = 0
-offset_left = 1686.0
-offset_top = 730.0
-offset_right = 1892.0
-offset_bottom = 850.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_3imgu")
-theme_override_font_sizes/font_size = 50
-text = "Test"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 22.0
+offset_top = 771.0
+offset_right = 904.0
+offset_bottom = 990.0
+scale = Vector2(0.25, 0.25)
+max_value = 10.0
+texture_under = ExtResource("8_umkuq")
+texture_progress = ExtResource("8_umkuq")
+tint_under = Color(0, 0, 0, 1)

@@ -30,16 +30,17 @@ anchor_left = -0.044270832
 anchor_top = 0.475
 anchor_right = -0.044270832
 anchor_bottom = 0.475
-offset_left = 747.0
-offset_top = 252.0
-offset_right = 1175.0
-offset_bottom = 400.0
+offset_left = 831.0
+offset_top = 256.0
+offset_right = 1259.0
+offset_bottom = 404.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_hrknb")
 texture_pressed = ExtResource("3_61148")
 texture_hover = ExtResource("4_27bc1")
 ignore_texture_size = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="ColorRect/Replay"]
 layout_mode = 1
@@ -57,7 +58,6 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_shvjl")
 theme_override_font_sizes/font_size = 60
 text = "Play Again"
-metadata/_edit_use_anchors_ = true
 
 [node name="Main Menu" type="TextureButton" parent="ColorRect"]
 process_mode = 3
@@ -67,16 +67,17 @@ anchor_left = -0.42242292
 anchor_top = 0.0034258808
 anchor_right = -0.42242292
 anchor_bottom = 0.0034258808
-offset_left = 1475.052
-offset_top = 574.30005
-offset_right = 1903.052
-offset_bottom = 722.30005
+offset_left = 1557.052
+offset_top = 594.30005
+offset_right = 1985.052
+offset_bottom = 742.30005
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_hrknb")
 texture_pressed = ExtResource("3_61148")
 texture_hover = ExtResource("4_27bc1")
 ignore_texture_size = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="ColorRect/Main Menu"]
 layout_mode = 1
@@ -95,3 +96,22 @@ theme_override_fonts/font = ExtResource("5_shvjl")
 theme_override_font_sizes/font_size = 60
 text = "Main menu"
 metadata/_edit_use_anchors_ = true
+
+[node name="WhoWins" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.5
+offset_top = -292.0
+offset_right = 294.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_shvjl")
+theme_override_font_sizes/font_size = 200
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
