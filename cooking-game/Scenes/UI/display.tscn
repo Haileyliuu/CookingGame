@@ -1,58 +1,54 @@
-[gd_scene load_steps=9 format=3 uid="uid://knlfsyap2tng"]
+[gd_scene load_steps=11 format=3 uid="uid://d0dyqtpiia2au"]
 
 [ext_resource type="Texture2D" uid="uid://d33j42mu7e67q" path="res://Art/Buttons/SquareButton.png" id="1_e3vww"]
+[ext_resource type="Texture2D" uid="uid://d1n5hwrx4r1w0" path="res://Art/ChoppingUI/ProgressBarFrame.PNG" id="1_egi2j"]
 [ext_resource type="PackedScene" uid="uid://r8psjsf86reo" path="res://Scenes/UI/pause_menu.tscn" id="1_lft5s"]
 [ext_resource type="FontFile" uid="uid://dx0bmxyxaldhv" path="res://Art/Fonts/Baby Doll.ttf" id="1_w6mh2"]
 [ext_resource type="Texture2D" uid="uid://cnnyj02p8rxii" path="res://Art/Buttons/SquareButtonPressed.png" id="2_6v527"]
-[ext_resource type="Script" uid="uid://t4ktltfj7yvf" path="res://Scripts/inventory_fish.gd" id="2_fvidj"]
+[ext_resource type="Script" path="res://Scripts/inventory_fish.gd" id="2_fvidj"]
+[ext_resource type="Texture2D" uid="uid://dosvpgdnjgcdl" path="res://Art/ChoppingUI/HappyProgress.png" id="2_geqww"]
 [ext_resource type="Texture2D" uid="uid://bbkitldp01fw1" path="res://Art/Buttons/SquareButtonHover.png" id="3_78mt2"]
-[ext_resource type="Script" uid="uid://dbeqc15lk28hn" path="res://Scripts/inventory_cow.gd" id="3_oc53s"]
+[ext_resource type="Script" path="res://Scripts/inventory_cow.gd" id="3_oc53s"]
 [ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="8_6v527"]
 
 [node name="display" type="CanvasLayer"]
 
-[node name="HappyPointsDog" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -265.0
-offset_top = 63.0
-offset_right = -47.0
-offset_bottom = 96.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0.14261752, 0.41099504, 0.72080284, 1)
-theme_override_fonts/font = ExtResource("1_w6mh2")
-theme_override_font_sizes/font_size = 30
-text = "Happy Points:"
+[node name="CatProgress" type="TextureProgressBar" parent="."]
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 887.0
+offset_bottom = 226.0
+scale = Vector2(0.28, 0.28)
+texture_under = ExtResource("1_egi2j")
+texture_over = ExtResource("2_geqww")
+
+[node name="DogProgress" type="TextureProgressBar" parent="."]
+offset_left = 1663.0
+offset_top = 8.0
+offset_right = 2545.0
+offset_bottom = 227.0
+scale = Vector2(0.28, 0.28)
+texture_under = ExtResource("1_egi2j")
+texture_over = ExtResource("2_geqww")
 
 [node name="InventoryFish" type="Label" parent="."]
-offset_top = 6.0
-offset_right = 118.0
-offset_bottom = 25.0
+offset_left = 10.0
+offset_top = 79.0
+offset_right = 229.0
+offset_bottom = 106.0
 theme_override_fonts/font = ExtResource("1_w6mh2")
 theme_override_font_sizes/font_size = 30
 text = "Fish Inventory: "
 script = ExtResource("2_fvidj")
 
-[node name="HappyPointsCat" type="Label" parent="."]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 2.0
-offset_top = -459.0
-offset_right = 389.0
-offset_bottom = -403.0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_w6mh2")
-theme_override_font_sizes/font_size = 30
-text = "Happy Points:"
-
 [node name="InventoryCow" type="Label" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -218.0
-offset_bottom = 33.0
+offset_left = -243.0
+offset_top = 88.0
+offset_right = -25.0
+offset_bottom = 121.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.14117648, 0.4117647, 0.72156864, 1)
 theme_override_fonts/font = ExtResource("1_w6mh2")
