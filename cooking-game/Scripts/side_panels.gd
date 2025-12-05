@@ -6,13 +6,23 @@ var customers = [preload("res://Art/Customers/Normal/Teddy_Normal.png"),
 				preload("res://Art/Customers/Normal/YBunny_Normal.png"),
 				preload("res://Art/Customers/Normal/Rottweiler_Normal.png"),
 				preload("res://Art/Customers/Normal/Shiba_Normal.png"),
-				preload("res://Art/Customers/Normal/WBunny_Normal.png")]
+				preload("res://Art/Customers/Normal/WBunny_Normal.png"),
+				preload("res://Art/Customers/Normal/Tofu_Normal.png")]
 var angry_customers = [preload("res://Art/Customers/Angry/Teddy_Angry.png"),
 				preload("res://Art/Customers/Angry/GCat_Angry.png"),
 				preload("res://Art/Customers/Angry/YBunny_Angry.png"),
 				preload("res://Art/Customers/Angry/Rottweiler_Angry.png"),
 				preload("res://Art/Customers/Angry/Shiba_Angry.png"),
-				preload("res://Art/Customers/Angry/WBunny_Angry.png")]
+				preload("res://Art/Customers/Angry/WBunny_Angry.png"),
+				preload("res://Art/Customers/Angry/Tofu_Angry.png")]
+
+var side_customers = [preload("res://Art/Customers/Side/Teddy_Side.png"),
+					preload("res://Art/Customers/Side/GCat_Side.png"),
+					preload("res://Art/Customers/Side/YBunny_Side.png"),
+					preload("res://Art/Customers/Side/Rottweiler_Side.png"),
+					preload("res://Art/Customers/Side/Shiba_Side.png"),
+					preload("res://Art/Customers/Side/WBunny_Side.png"),
+					preload("res://Art/Customers/Side/Tofu_Side.png")]
 
 # index of customer png in customers
 var cat_current_sprite
@@ -144,14 +154,20 @@ func leave_old_customer(player_id : String, angry: bool):
 	if player_id == "dog":
 		add_marker_index = 6
 	
+	var index = get(player_id + "_current_sprite")
 	if angry:
-		var index = get(player_id + "_current_sprite")
 		player_current_customer[0].texture = angry_customers[index]
 		player_current_customer[1].texture = angry_customers[index]
 	
 	hop(player_current_customer[0])
 	hop(player_current_customer[1])
 	await get_tree().create_timer(0.5).timeout
+	
+	player_current_customer[0].texture = side_customers[index]
+	player_current_customer[1].texture = side_customers[index]
+	if player_id == "dog":
+		player_current_customer[0].flip_h = true
+		player_current_customer[1].flip_h = true
 	
 	move_to_marker(player_current_customer[0], markers[5 + add_marker_index], 1.7)
 	move_to_marker(player_current_customer[1], markers[2 + add_marker_index], 1.7)

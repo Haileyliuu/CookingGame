@@ -8,7 +8,7 @@ class_name Main extends Node2D
 #Threshold Timer
 var threshold_timer: Timer
 const THRESHOLDS = 2
-const THRESHOLD_WAIT_TIME = 9.0
+const THRESHOLD_WAIT_TIME = 10.0
 var thresholds_left = THRESHOLDS
 signal threshold_passed(threshold)
 
@@ -43,7 +43,7 @@ func _threshold_passed(threshold: int) -> void:
 	if threshold == 0:
 		#end the game
 		print("GAME ENDED <3")
-		pass
+		get_tree().change_scene_to_file("res://Scenes/UI/finish_screen.tscn")
 	else:
 		threshold_passed.emit(threshold)
 		thresholds_left = thresholds_left - 1
