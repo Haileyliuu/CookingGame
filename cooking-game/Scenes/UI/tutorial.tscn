@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3chu7o2uwkic"]
+
+[ext_resource type="Script" uid="uid://druexcqatbhj6" path="res://Scenes/UI/tutorial.gd" id="1_5avan"]
+[ext_resource type="Texture2D" uid="uid://dt53jxpl5oqfy" path="res://Art/Menu/Untitled3_20251204160301.PNG" id="2_jfyr4"]
+[ext_resource type="Texture2D" uid="uid://bxcm3d5bj1sih" path="res://Art/Buttons/CreditsButton.png" id="3_c2ayv"]
+[ext_resource type="Texture2D" uid="uid://c35a4dbpmal1b" path="res://Art/Buttons/CreditsButtonPressed.png" id="4_8vphl"]
+[ext_resource type="Texture2D" uid="uid://bucx706ae2n77" path="res://Art/Buttons/CreditsButtonHover.png" id="5_a7cfn"]
+[ext_resource type="FontFile" uid="uid://dx0bmxyxaldhv" path="res://Art/Fonts/Baby Doll.ttf" id="6_nj3xv"]
+
+[node name="tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5avan")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6454181, 0.56941015, 0.51710767, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -845.0
+offset_top = -614.0
+offset_right = 1203.0
+offset_bottom = 922.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("2_jfyr4")
+
+[node name="close" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 951.99994
+offset_right = 705.0
+offset_bottom = 1100.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("3_c2ayv")
+texture_pressed = ExtResource("4_8vphl")
+texture_hover = ExtResource("5_a7cfn")
+
+[node name="Label" type="Label" parent="close"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -46.0
+offset_right = 117.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.61960787, 0.5019608, 0.37254903, 1)
+theme_override_fonts/font = ExtResource("6_nj3xv")
+theme_override_font_sizes/font_size = 100
+text = "close"
+
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

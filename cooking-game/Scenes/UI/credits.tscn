@@ -1,0 +1,143 @@
+[gd_scene load_steps=8 format=3 uid="uid://do1rp4jpc315b"]
+
+[ext_resource type="Script" uid="uid://dt0lofrdgaujh" path="res://Scenes/UI/credits.gd" id="1_1g7ho"]
+[ext_resource type="Texture2D" uid="uid://bdgw73hgfjdiu" path="res://Art/Menu/Untitled3_20251204160309.PNG" id="1_q4iv0"]
+[ext_resource type="Texture2D" uid="uid://bxcm3d5bj1sih" path="res://Art/Buttons/CreditsButton.png" id="2_1g7ho"]
+[ext_resource type="FontFile" uid="uid://bx55n57nxedpg" path="res://Art/Fonts/MADE Tommy Soft Bold PERSONAL USE.otf" id="2_lm48m"]
+[ext_resource type="Texture2D" uid="uid://c35a4dbpmal1b" path="res://Art/Buttons/CreditsButtonPressed.png" id="3_yvj1n"]
+[ext_resource type="Texture2D" uid="uid://bucx706ae2n77" path="res://Art/Buttons/CreditsButtonHover.png" id="4_i8gny"]
+[ext_resource type="FontFile" uid="uid://dx0bmxyxaldhv" path="res://Art/Fonts/Baby Doll.ttf" id="5_kgcjs"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1g7ho")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.64705884, 0.5686275, 0.5176471, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = -87.0
+offset_right = 2137.0
+offset_bottom = 1449.0
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("1_q4iv0")
+
+[node name="programming_tittle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 715.0
+offset_top = 247.0
+offset_right = 1223.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.5802905, 0.47906822, 0.40668648, 1)
+theme_override_fonts/font = ExtResource("2_lm48m")
+theme_override_font_sizes/font_size = 75
+text = "Programming:"
+
+[node name="art_title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -74.0
+offset_right = 68.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5802905, 0.47906822, 0.40668648, 1)
+theme_override_fonts/font = ExtResource("2_lm48m")
+theme_override_font_sizes/font_size = 75
+text = "Art:"
+
+[node name="music_title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = 169.0
+offset_right = 189.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5802905, 0.47906822, 0.40668648, 1)
+theme_override_fonts/font = ExtResource("2_lm48m")
+theme_override_font_sizes/font_size = 75
+text = "Music By: "
+
+[node name="programming_names" type="Label" parent="."]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 349.0
+offset_right = 1506.0
+offset_bottom = 486.0
+theme_override_colors/font_color = Color(0.5802905, 0.47906822, 0.40668648, 1)
+theme_override_fonts/font = ExtResource("2_lm48m")
+theme_override_font_sizes/font_size = 55
+text = "Hailey, Rafael, Isabelle, Jailyn, Gianna"
+
+[node name="art_names" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -262.0
+offset_top = 16.0
+offset_right = 262.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.5802905, 0.47906822, 0.40668648, 1)
+theme_override_fonts/font = ExtResource("2_lm48m")
+theme_override_font_sizes/font_size = 55
+text = "Abby, Hailey, Jailyn"
+
+[node name="close" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 953.99994
+offset_right = 688.0
+offset_bottom = 1102.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("2_1g7ho")
+texture_pressed = ExtResource("3_yvj1n")
+texture_hover = ExtResource("4_i8gny")
+
+[node name="Label" type="Label" parent="close"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -46.0
+offset_right = 117.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.61960787, 0.5019608, 0.37254903, 1)
+theme_override_fonts/font = ExtResource("5_kgcjs")
+theme_override_font_sizes/font_size = 100
+text = "close"
+
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

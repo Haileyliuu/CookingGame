@@ -25,3 +25,13 @@ func _credits_pressed():
 func _on_button_mouse_entered() -> void:
 	#AudioPlayer._play_hover()
 	pass
+
+
+
+
+func _on_tutorial_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/UI/tutorial.tscn")
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/UI/credits.tscn")
