@@ -64,11 +64,11 @@ func on_enemy_killed(_enemy: Node2D):
 	print("player id: ", player_id)
 	if player_id == "dog":	
 		print("dog died")
-		Inventory.dog_meat += 1
-		print("dog inventory updated: ", Inventory.dog_meat)
+		Inventory.dog_hunted_meat += 1
+		print("dog inventory updated: ", Inventory.dog_hunted_meat)
 	if player_id == "cat":	
-		Inventory.cat_meat += 1
-		print("cat inventory updated: ", Inventory.cat_meat)
+		Inventory.cat_hunted_meat += 1
+		print("cat inventory updated: ", Inventory.cat_hunted_meat)
 	
 func set_up_sprite():
 	print(player_id)
