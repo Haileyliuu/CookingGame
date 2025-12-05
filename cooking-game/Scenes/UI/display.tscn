@@ -1,62 +1,51 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg44yl8euo6rf"]
+[gd_scene load_steps=13 format=3 uid="uid://dg44yl8euo6rf"]
 
 [ext_resource type="Texture2D" uid="uid://d33j42mu7e67q" path="res://Art/Buttons/SquareButton.png" id="1_e3vww"]
-[ext_resource type="Texture2D" uid="uid://d1n5hwrx4r1w0" path="res://Art/ChoppingUI/ProgressBarFrame.PNG" id="1_egi2j"]
 [ext_resource type="PackedScene" uid="uid://r8psjsf86reo" path="res://Scenes/UI/pause_menu.tscn" id="1_lft5s"]
 [ext_resource type="FontFile" uid="uid://dx0bmxyxaldhv" path="res://Art/Fonts/Baby Doll.ttf" id="1_w6mh2"]
 [ext_resource type="Texture2D" uid="uid://cnnyj02p8rxii" path="res://Art/Buttons/SquareButtonPressed.png" id="2_6v527"]
 [ext_resource type="Script" uid="uid://t4ktltfj7yvf" path="res://Scripts/inventory_fish.gd" id="2_fvidj"]
-[ext_resource type="Texture2D" uid="uid://dosvpgdnjgcdl" path="res://Art/ChoppingUI/HappyProgress.png" id="2_geqww"]
 [ext_resource type="Texture2D" uid="uid://bbkitldp01fw1" path="res://Art/Buttons/SquareButtonHover.png" id="3_78mt2"]
-[ext_resource type="Script" uid="uid://dbeqc15lk28hn" path="res://Scripts/inventory_cow.gd" id="3_oc53s"]
+[ext_resource type="Script" uid="uid://dbeqc15lk28hn" path="res://Scripts/inventory_cow.gd" id="4_78mt2"]
 [ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="8_6v527"]
+[ext_resource type="Texture2D" uid="uid://cvjmib2oeanff" path="res://Art/Inventory Icons/CowHunted.PNG" id="9_tpjhv"]
+[ext_resource type="Texture2D" uid="uid://daakbt2j1ntl4" path="res://Art/Inventory Icons/CowChopped.PNG" id="10_wslj8"]
+[ext_resource type="Texture2D" uid="uid://kym12wq5pfw" path="res://Art/Inventory Icons/FishHunted.PNG" id="11_flafa"]
+[ext_resource type="Texture2D" uid="uid://cpyyeh8f14y0q" path="res://Art/Inventory Icons/FishMeatHunted Inventory.PNG" id="12_16bo1"]
 
 [node name="display" type="CanvasLayer"]
 
-[node name="CatProgress" type="TextureProgressBar" parent="."]
-offset_left = 5.0
-offset_top = 7.0
-offset_right = 887.0
-offset_bottom = 226.0
-scale = Vector2(0.28, 0.28)
-texture_under = ExtResource("1_egi2j")
-texture_over = ExtResource("2_geqww")
-
-[node name="DogProgress" type="TextureProgressBar" parent="."]
-offset_left = 1663.0
-offset_top = 8.0
-offset_right = 2545.0
-offset_bottom = 227.0
-scale = Vector2(0.28, 0.28)
-texture_under = ExtResource("1_egi2j")
-texture_over = ExtResource("2_geqww")
-
 [node name="InventoryFish" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 79.0
-offset_right = 229.0
-offset_bottom = 106.0
+offset_left = 139.0
+offset_top = -9.0
+offset_right = 358.0
+offset_bottom = 178.0
 theme_override_fonts/font = ExtResource("1_w6mh2")
-theme_override_font_sizes/font_size = 30
-text = "Fish Inventory: "
+theme_override_font_sizes/font_size = 100
+text = ":10
+:10"
+vertical_alignment = 1
 script = ExtResource("2_fvidj")
 
 [node name="InventoryCow" type="Label" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -243.0
-offset_top = 88.0
-offset_right = -25.0
-offset_bottom = 121.0
+offset_left = -130.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 179.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.14117648, 0.4117647, 0.72156864, 1)
 theme_override_fonts/font = ExtResource("1_w6mh2")
-theme_override_font_sizes/font_size = 30
-text = "Cow Inventory:"
-script = ExtResource("3_oc53s")
+theme_override_font_sizes/font_size = 100
+text = ":10
+:10"
+vertical_alignment = 1
+script = ExtResource("4_78mt2")
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_lft5s")]
+visible = false
 
 [node name="PauseButton" type="TextureButton" parent="."]
 process_mode = 3
@@ -86,5 +75,37 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_6v527")
 theme_override_font_sizes/font_size = 90
 text = "ii"
+
+[node name="CowHunted" type="TextureRect" parent="."]
+offset_left = 1546.0
+offset_top = -157.0
+offset_right = 1908.0
+offset_bottom = 260.92896
+texture = ExtResource("9_tpjhv")
+expand_mode = 1
+
+[node name="CowChopped" type="TextureRect" parent="."]
+offset_left = 1581.0
+offset_top = -40.0
+offset_right = 1878.0
+offset_bottom = 302.88647
+texture = ExtResource("10_wslj8")
+expand_mode = 1
+
+[node name="FishHunted" type="TextureRect" parent="."]
+offset_left = -15.0
+offset_top = -66.0
+offset_right = 176.0
+offset_bottom = 154.50948
+texture = ExtResource("11_flafa")
+expand_mode = 1
+
+[node name="FishChopped" type="TextureRect" parent="."]
+offset_left = -66.0
+offset_top = -40.0
+offset_right = 224.0
+offset_bottom = 294.80496
+texture = ExtResource("12_16bo1")
+expand_mode = 1
 
 [connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]

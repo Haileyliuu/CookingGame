@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl7e1qjpr4vs0"
-path="res://.godot/imported/GCat_Normal.PNG-6b416afe3faaf503f3e17aaf4b5e983e.ctex"
+uid="uid://n5w6s8xvjxt7"
+path="res://.godot/imported/WBunny_Side.png-3a5144b9945d4a6a034a7de34aaf317f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Normal/GCat_Normal.PNG"
-dest_files=["res://.godot/imported/GCat_Normal.PNG-6b416afe3faaf503f3e17aaf4b5e983e.ctex"]
+source_file="res://Art/Customers/Side/WBunny_Side.png"
+dest_files=["res://.godot/imported/WBunny_Side.png-3a5144b9945d4a6a034a7de34aaf317f.ctex"]
 
 [params]
 

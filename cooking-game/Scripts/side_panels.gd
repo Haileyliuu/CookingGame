@@ -6,13 +6,23 @@ var customers = [preload("res://Art/Customers/Normal/Teddy_Normal.png"),
 				preload("res://Art/Customers/Normal/YBunny_Normal.png"),
 				preload("res://Art/Customers/Normal/Rottweiler_Normal.png"),
 				preload("res://Art/Customers/Normal/Shiba_Normal.png"),
-				preload("res://Art/Customers/Normal/WBunny_Normal.png")]
+				preload("res://Art/Customers/Normal/WBunny_Normal.png"),
+				preload("res://Art/Customers/Normal/Tofu_Normal.png")]
 var angry_customers = [preload("res://Art/Customers/Angry/Teddy_Angry.png"),
 				preload("res://Art/Customers/Angry/GCat_Angry.png"),
 				preload("res://Art/Customers/Angry/YBunny_Angry.png"),
 				preload("res://Art/Customers/Angry/Rottweiler_Angry.png"),
 				preload("res://Art/Customers/Angry/Shiba_Angry.png"),
-				preload("res://Art/Customers/Angry/WBunny_Angry.png")]
+				preload("res://Art/Customers/Angry/WBunny_Angry.png"),
+				preload("res://Art/Customers/Angry/Tofu_Angry.png")]
+
+var side_customers = [preload("res://Art/Customers/Side/Teddy_Side.png"),
+					preload("res://Art/Customers/Side/GCat_Side.png"),
+					preload("res://Art/Customers/Side/YBunny_Side.png"),
+					preload("res://Art/Customers/Side/Rottweiler_Side.png"),
+					preload("res://Art/Customers/Side/Shiba_Side.png"),
+					preload("res://Art/Customers/Side/WBunny_Side.png"),
+					preload("res://Art/Customers/Side/Tofu_Side.png")]
 
 # index of customer png in customers
 var cat_current_sprite
@@ -27,21 +37,24 @@ var cat_timer: Timer
 @onready var cat_progress: TextureProgressBar = $CatProgress
 var dog_timer: Timer
 @onready var dog_progress: TextureProgressBar = $DogProgress
-const CUST_MAX_TIME := 4.0
+const CUST_MAX_TIME := 60.0
 var cust_time = CUST_MAX_TIME
 var ct_ratio = cust_time
 @onready var markers: Array[Marker2D] = []
 
+const NUMBER_OF_DISHES_TO_WIN = 10
+var game_over = false
+
 # Score counters
-@onready var cat_score = $CatScore
-@onready var dog_score = $DogScore
+@onready var cat_score: TextureProgressBar = $CatHappyProgress
+@onready var dog_score: TextureProgressBar = $DogHappyProgress
 
 func _process(delta: float) -> void:
 	cat_progress.value = cat_timer.time_left/ct_ratio * 100
 	dog_progress.value = dog_timer.time_left/ct_ratio * 100
 	
-	cat_score.text = str(GameStats.cat_score)
-	dog_score.text = str(GameStats.dog_score)
+	cat_score.value = GameStats.cat_score
+	dog_score.value = GameStats.dog_score
 
 func _ready() -> void:
 	for m in $Markers.get_children():
@@ -60,6 +73,11 @@ func _ready() -> void:
 	dog_timer.wait_time = CUST_MAX_TIME
 	add_child(dog_timer)
 	
+	cat_score.max_value = NUMBER_OF_DISHES_TO_WIN
+	cat_score.value = 0
+	dog_score.max_value = NUMBER_OF_DISHES_TO_WIN
+	dog_score.value = 0
+	
 	var main: Main = get_tree().root.get_child(2)
 	main.threshold_passed.connect(_threshold_passed)
 	
@@ -72,8 +90,10 @@ func _threshold_passed(threshold):
 func _score_points(player_id: String, angry: bool):
 	var point = -1 if angry else 1
 	var score = GameStats.get(player_id + "_score")
-	score = score + point
+	score = clamp(score + point, 0, NUMBER_OF_DISHES_TO_WIN)
 	GameStats.set(player_id + "_score", score)
+	if GameStats.get(player_id + "_score") == NUMBER_OF_DISHES_TO_WIN:
+		game_over = true
 
 #creates a new customer, replaces sprite with angry sprite if cockroach delivered
 func new_customer(player_id : String, angry: bool):
@@ -90,7 +110,10 @@ func new_customer(player_id : String, angry: bool):
 	if !player_current_customer.is_empty():
 		leave_old_customer(player_id, angry)
 		await get_tree().create_timer(.5).timeout
-	
+	if game_over:
+		get_tree().change_scene_to_file("res://Scenes/UI/finish_screen.tscn")
+		return
+		
 	var big_sprite := Sprite2D.new()
 	player_current_customer.push_back(big_sprite)
 	var little_sprite := Sprite2D.new()
@@ -144,14 +167,20 @@ func leave_old_customer(player_id : String, angry: bool):
 	if player_id == "dog":
 		add_marker_index = 6
 	
+	var index = get(player_id + "_current_sprite")
 	if angry:
-		var index = get(player_id + "_current_sprite")
 		player_current_customer[0].texture = angry_customers[index]
 		player_current_customer[1].texture = angry_customers[index]
 	
 	hop(player_current_customer[0])
 	hop(player_current_customer[1])
 	await get_tree().create_timer(0.5).timeout
+	
+	player_current_customer[0].texture = side_customers[index]
+	player_current_customer[1].texture = side_customers[index]
+	if player_id == "dog":
+		player_current_customer[0].flip_h = true
+		player_current_customer[1].flip_h = true
 	
 	move_to_marker(player_current_customer[0], markers[5 + add_marker_index], 1.7)
 	move_to_marker(player_current_customer[1], markers[2 + add_marker_index], 1.7)

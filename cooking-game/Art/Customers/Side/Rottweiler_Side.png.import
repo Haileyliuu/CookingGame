@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl7e1qjpr4vs0"
-path="res://.godot/imported/GCat_Normal.PNG-6b416afe3faaf503f3e17aaf4b5e983e.ctex"
+uid="uid://dtovesf2f8cs4"
+path="res://.godot/imported/Rottweiler_Side.png-27d78a2b2532185c4a33bd3ce87c3f21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Normal/GCat_Normal.PNG"
-dest_files=["res://.godot/imported/GCat_Normal.PNG-6b416afe3faaf503f3e17aaf4b5e983e.ctex"]
+source_file="res://Art/Customers/Side/Rottweiler_Side.png"
+dest_files=["res://.godot/imported/Rottweiler_Side.png-27d78a2b2532185c4a33bd3ce87c3f21.ctex"]
 
 [params]
 
