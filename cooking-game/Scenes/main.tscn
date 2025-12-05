@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=49 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://bmrtjtis27y7p" path="res://Art/Game Backgroud Layers/Objects/DogRegister.png" id="17_kltya"]
 [ext_resource type="Texture2D" uid="uid://cgg0wvuh3c0xc" path="res://Art/Game Backgroud Layers/Objects/DogCutting.png" id="18_6vcvc"]
 [ext_resource type="Script" uid="uid://brd4quhk5ewlb" path="res://Scripts/register.gd" id="18_neg2b"]
-[ext_resource type="PackedScene" uid="uid://dhctv8uhacjht" path="res://Scenes/Minigames/sabotoge/cockroach.tscn" id="20_hibaj"]
 [ext_resource type="Texture2D" uid="uid://dhgrtmq8el1l7" path="res://Art/Game Backgroud Layers/Objects/CatTrash.png" id="22_e08e2"]
 [ext_resource type="Script" uid="uid://d0s8nl7tajq1s" path="res://Scripts/interact_sabotage.gd" id="24_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://mfhlqvsablvc" path="res://Art/Game Backgroud Layers/Objects/DogTrash.png" id="24_neg2b"]
@@ -92,12 +91,9 @@ scale = Vector2(1.001, 1.001)
 texture = ExtResource("3_wsu2k")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Background"]
-visible = false
 position = Vector2(14.962891, 588.5287)
 scale = Vector2(2.4937656, 2.4937656)
 navigation_polygon = SubResource("NavigationPolygon_hibaj")
-
-[node name="Cockroach" parent="Background/NavigationRegion2D" instance=ExtResource("20_hibaj")]
 
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -533,6 +529,9 @@ flip_h = true
 
 [node name="Dog Sabotage" parent="Interactions" instance=ExtResource("13_e08e2")]
 position = Vector2(1554, 336)
+script = ExtResource("24_cbgmd")
+pid = ""
+who_can_interact = "dog"
 
 [node name="Sprite2D" type="Sprite2D" parent="Interactions/Dog Sabotage"]
 position = Vector2(-13, -58)

@@ -49,6 +49,7 @@ func _threshold_passed(threshold: int) -> void:
 		thresholds_left = thresholds_left - 1
 		threshold_timer.timeout.connect(_threshold_passed.bind(thresholds_left))
 		threshold_timer.start()
+		bug_timer.wait_time = clampf(bug_timer.wait_time * .5, 1.0, 5.0) 
 
 func _bug_manager() -> void:
 	var random_pos: Vector2
@@ -57,7 +58,6 @@ func _bug_manager() -> void:
 	var bug = Cockroach.spawn(random_pos)
 	#add bug to Navigation Region
 	background.get_child(2).add_child(bug)
-	bug_timer.wait_time = clampf(bug_timer.wait_time * .5, 1.0, 5.0) 
 	
 
 func _process(_delta: float) -> void:

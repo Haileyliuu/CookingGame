@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 				await curr_interactions[0].interact.call(player_id)
 				
 				can_interact = true
-
+#
 
 func _process(_delta: float) -> void:		
 	if curr_interactions and can_interact:
