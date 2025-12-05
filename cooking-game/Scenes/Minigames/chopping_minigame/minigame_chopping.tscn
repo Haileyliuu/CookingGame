@@ -2,41 +2,42 @@
 
 [ext_resource type="Script" uid="uid://c8ebljjgejswt" path="res://Scripts/minigame_chopping.gd" id="1_60jlv"]
 [ext_resource type="AudioStream" uid="uid://m5605md3wl0r" path="res://Sounds/chop_sound.mp3" id="2_smdxe"]
-[ext_resource type="Texture2D" uid="uid://dcecjbuhbsus2" path="res://Art/PlaceholderArt/arrow.webp" id="3_0japs"]
+[ext_resource type="Texture2D" uid="uid://bgebxaooc3rqj" path="res://Art/PlaceholderArt/arrow.webp" id="3_0japs"]
+[ext_resource type="Texture2D" uid="uid://ceh57jufb2ea5" path="res://Art/ChoppingUI/ProgressBarCat.PNG" id="3_8busv"]
+[ext_resource type="Texture2D" uid="uid://d1n5hwrx4r1w0" path="res://Art/ChoppingUI/ProgressBarFrame.PNG" id="3_eftsj"]
 [ext_resource type="Script" uid="uid://ctb3jobg58hom" path="res://Scripts/knife.gd" id="4_37jyu"]
-[ext_resource type="Texture2D" uid="uid://c3l25hfig3mcs" path="res://Art/PlaceholderArt/ProgressUnder.png" id="5_37jyu"]
-[ext_resource type="Texture2D" uid="uid://drsgi1lajm3rq" path="res://Art/PlaceholderArt/Progress.png" id="6_eftsj"]
 
 [node name="MinigameChopping" type="Node2D"]
 script = ExtResource("1_60jlv")
 
-[node name="PromptLabel" type="Label" parent="."]
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer3"]
+offset_left = 100.0
+offset_top = 160.0
+offset_right = 408.0
+offset_bottom = 200.0
+texture_under = ExtResource("3_eftsj")
+texture_over = ExtResource("3_8busv")
+
+[node name="PromptLabel" type="Label" parent="CanvasLayer3"]
 offset_left = 100.0
 offset_top = 100.0
 offset_right = 140.0
 offset_bottom = 123.0
 
-[node name="ChopLabel" type="Label" parent="."]
-offset_left = 100.0
-offset_top = 120.0
-offset_right = 140.0
-offset_bottom = 143.0
-
 [node name="ChopSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_smdxe")
 
-[node name="Knife" type="Sprite2D" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Knife" type="Sprite2D" parent="CanvasLayer2"]
 position = Vector2(626, 303)
 texture = ExtResource("3_0japs")
 script = ExtResource("4_37jyu")
 
-[node name="ProgressBarUI" type="CanvasLayer" parent="."]
+[node name="CanvasLayer1" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="TextureProgressBar" parent="ProgressBarUI"]
-offset_left = 100.0
-offset_top = 160.0
-offset_right = 408.0
-offset_bottom = 200.0
-nine_patch_stretch = true
-texture_under = ExtResource("5_37jyu")
-texture_progress = ExtResource("6_eftsj")
+[node name="Background" type="Sprite2D" parent="CanvasLayer1"]
+
+[node name="ChopPlaceholder" type="Sprite2D" parent="CanvasLayer1"]

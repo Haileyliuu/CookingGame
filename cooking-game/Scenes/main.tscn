@@ -467,7 +467,8 @@ size = Vector2i(700, 850)
 render_target_update_mode = 0
 
 [node name="MinigameChopping" parent="CatChoppingGame/SubViewportContainer/SubViewport" instance=ExtResource("33_r33sp")]
-script = null
+player_id = "cat"
+minigame_type = 2
 
 [node name="Border" type="Panel" parent="CatChoppingGame"]
 layout_mode = 0
@@ -496,7 +497,8 @@ size = Vector2i(700, 850)
 render_target_update_mode = 0
 
 [node name="MinigameChopping" parent="DogChoppingGame/SubViewportContainer/SubViewport" instance=ExtResource("33_r33sp")]
-script = null
+player_id = "dog"
+minigame_type = 2
 
 [node name="Border" type="Panel" parent="DogChoppingGame"]
 layout_mode = 0
