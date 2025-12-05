@@ -88,10 +88,10 @@ func _input(event):
 				spawn_sprite(1)
 				current_recipe.push_back(1)
 			elif event.is_action_pressed(player_id + "_down"):
-				if Inventory.get(player_id + "_meat") > 0:
+				if Inventory.get(player_id + "_chopped_meat") > 0:
 					spawn_sprite(2)
 					current_recipe.push_back(2)
-					Inventory.set(str(player_id) + "_meat",  Inventory.get(str(player_id) + "_meat") - 1)
+					Inventory.set(str(player_id) + "_chopped_meat",  Inventory.get(str(player_id) + "_chopped_meat") - 1)
 				else:
 					create_inventory_warning()
 			elif event.is_action_pressed(player_id + "_left"):
