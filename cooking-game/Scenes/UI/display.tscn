@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cnnyj02p8rxii" path="res://Art/Buttons/SquareButtonPressed.png" id="2_6v527"]
 [ext_resource type="Script" uid="uid://t4ktltfj7yvf" path="res://Scripts/inventory_fish.gd" id="2_fvidj"]
 [ext_resource type="Texture2D" uid="uid://bbkitldp01fw1" path="res://Art/Buttons/SquareButtonHover.png" id="3_78mt2"]
-[ext_resource type="Script" uid="uid://dbeqc15lk28hn" path="res://Scripts/inventory_cow.gd" id="4_78mt2"]
+[ext_resource type="Script" path="res://Scripts/inventory_cow.gd" id="4_78mt2"]
 [ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="8_6v527"]
 [ext_resource type="Texture2D" uid="uid://cvjmib2oeanff" path="res://Art/Inventory Icons/CowHunted.PNG" id="9_tpjhv"]
 [ext_resource type="Texture2D" uid="uid://daakbt2j1ntl4" path="res://Art/Inventory Icons/CowChopped.PNG" id="10_wslj8"]
@@ -45,7 +45,6 @@ vertical_alignment = 1
 script = ExtResource("4_78mt2")
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_lft5s")]
-visible = false
 
 [node name="PauseButton" type="TextureButton" parent="."]
 process_mode = 3
