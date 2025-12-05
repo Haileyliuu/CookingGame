@@ -190,11 +190,16 @@ func _update_placeholder_art(stage_index_override: int = -1) -> void:
 
 	placeholder.visible = true
 
-	var stage_index: int
-
 	if out_of_meat:
-		stage_index = clamp(6, 0, stages.size() - 1)  # show empty board
-	elif stage_index_override >= 0:
+		placeholder.texture = stages[-1]  # last image in stages
+		if shake_tween and shake_tween.is_running():
+			shake_tween.kill()
+		placeholder.position = original_placeholder_pos
+		return
+
+	# Determine stage index normally
+	var stage_index: int
+	if stage_index_override >= 0:
 		stage_index = clamp(stage_index_override, 0, stages.size() - 1)
 	else:
 		var chops_done: int = CHOPS_REQUIRED - chops_left
@@ -275,12 +280,15 @@ func start_chopping_random(player: String) -> void:
 # -------------------------
 func reset_chop() -> void:
 	out_of_meat = Inventory.get(player_id + "_hunted_meat") <= 0
+	if out_of_meat:
+		_update_placeholder_art(6)
+	else:
+		_update_placeholder_art()
 
 	chops_left = CHOPS_REQUIRED
 	chopping_active = true
 	chop_progress.max_value = CHOPS_REQUIRED
 	_update_progress_immediately(0)
-	_update_placeholder_art()  
 
 
 # -------------------------
@@ -316,9 +324,9 @@ func _input(event: InputEvent) -> void:
 	if chops_left <= 0:
 		if (player_id == "cat" and event.is_action_pressed("cat_select")) or \
 		   (player_id == "dog" and event.is_action_pressed("dog_select")):
-			reset_chop()
 			Inventory.set(player_id + "_hunted_meat", Inventory.get(player_id + "_hunted_meat") - 1)
 			Inventory.set(player_id + "_chopped_meat", Inventory.get(player_id + "_chopped_meat") + 1)
+			reset_chop()
 
 
 
