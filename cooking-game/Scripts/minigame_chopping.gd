@@ -23,7 +23,7 @@ var shake_tween: Tween
 var difficulty_stage := 2 
 var original_placeholder_pos: Vector2
 var warning_tween: Tween = null
-
+var out_of_meat: bool = false  
 
 var cat_chop_paths := {
 	1: [
@@ -32,7 +32,8 @@ var cat_chop_paths := {
 		"res://Art/SushiArt/ChoppingFish/ChopFish3.PNG",
 		"res://Art/SushiArt/ChoppingFish/ChopFish4.PNG",
 		"res://Art/SushiArt/ChoppingFish/ChopFish5.PNG",
-		"res://Art/SushiArt/ChoppingFish/ChopFish6.PNG"
+		"res://Art/SushiArt/ChoppingFish/ChopFish6.PNG",
+		"res://Art/MinigameArt/CatBoard.PNG"
 	]
 }
 
@@ -43,7 +44,8 @@ var dog_chop_paths := {
 		"res://Art/BurgerArt/ChoppingCow/ChopCow3.PNG",
 		"res://Art/BurgerArt/ChoppingCow/ChopCow4.PNG",
 		"res://Art/BurgerArt/ChoppingCow/ChopCow5.PNG",
-		"res://Art/BurgerArt/ChoppingCow/ChopCow6.PNG"
+		"res://Art/BurgerArt/ChoppingCow/ChopCow6.PNG",
+		"res://Art/MinigameArt/DogBoard.PNG"
 	]
 }
 
@@ -72,26 +74,21 @@ func _ready():
 	$CanvasLayer2.layer = 2
 	$CanvasLayer1.layer = 1
 	
-	#var main := get_tree().root.get_child(2)
-	#main.threshold_passed.connect(threshold_passed)
 	_load_textures()
-	
 	await get_tree().process_frame
 	_position_progress_bar()
-	
 	display_background()
 	original_placeholder_pos = placeholder.position
-	
 	start_chopping(player_id, 1)
 	
 	# TEST
 	await get_tree().create_timer(10).timeout
 	threshold_passed(1)   
-	print("stage 2")
+	print("Stage 2 - 10 chops")
 
 	await get_tree().create_timer(10).timeout
 	threshold_passed(0)   
-	print("stage 3")
+	print("Stage 3 - 15 chops")
 	# END TEST
 
 
@@ -100,12 +97,10 @@ func _ready():
 # -------------------------
 func _position_progress_bar(): 
 	var viewport := get_viewport_rect().size 
-	var bar_size := chop_progress.size
 	chop_progress.scale = Vector2(0.7, 0.6)
 	var scaled_width := chop_progress.size.x * chop_progress.scale.x
 	chop_progress.position.x = viewport.x * 0.5 - scaled_width * 0.5
 	chop_progress.position.y = viewport.y * 0.005
-
 
 func display_background():
 	var screen := get_viewport_rect().size
@@ -123,7 +118,7 @@ func display_background():
 		placeholder.scale = Vector2.ONE * chop_scale
 
 	if knife:
-		var knife_scale_factor := screen.y / 1080.0 * 0.7  # adjust 0.9 to taste
+		var knife_scale_factor := screen.y / 1080.0 * 0.7
 		knife.scale = Vector2.ONE * knife_scale_factor
 		knife.position = placeholder.position + Vector2(0, -screen.y * 0.1)
 
@@ -157,9 +152,10 @@ func _update_shake_feedback(stage_index: int) -> void:
 	if shake_tween and shake_tween.is_running():
 		shake_tween.kill()
 
-	# how this works:
-	#   if threshold hits 1, shaking is enabed
-	#   if placeholder is index 1, shaking starts
+	if out_of_meat:
+		placeholder.position = original_placeholder_pos
+		return
+
 	if difficulty_stage > 1 or stage_index < 1:
 		placeholder.position = original_placeholder_pos
 		return
@@ -179,11 +175,14 @@ func _update_shake_feedback(stage_index: int) -> void:
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
-func _update_placeholder_art() -> void:
+# -------------------------
+# PLACEHOLDER ART
+# -------------------------
+func _update_placeholder_art(stage_index_override: int = -1) -> void:
 	if not player_chop_art.has(ingredient_id):
 		placeholder.visible = false
 		return
-
+	
 	var stages: Array = player_chop_art[ingredient_id]
 	if stages.is_empty():
 		placeholder.visible = false
@@ -191,17 +190,24 @@ func _update_placeholder_art() -> void:
 
 	placeholder.visible = true
 
-	var chops_done: int = CHOPS_REQUIRED - chops_left
+	var stage_index: int
 
-	var stage_index := int(chops_done / CHOPS_PER_STAGE)
-
-	stage_index = clamp(stage_index, 0, stages.size() - 1)
+	if out_of_meat:
+		stage_index = clamp(6, 0, stages.size() - 1)  # show empty board
+	elif stage_index_override >= 0:
+		stage_index = clamp(stage_index_override, 0, stages.size() - 1)
+	else:
+		var chops_done: int = CHOPS_REQUIRED - chops_left
+		stage_index = int(chops_done / CHOPS_PER_STAGE)
+		stage_index = clamp(stage_index, 0, stages.size() - 1)
 
 	placeholder.texture = stages[stage_index]
-
 	_update_shake_feedback(stage_index)
 
 
+# -------------------------
+# LOAD TEXTURES
+# -------------------------
 func _load_textures():
 	for id in cat_chop_paths.keys():
 		cat_chop_stages[id] = []
@@ -245,15 +251,13 @@ func start_chopping(player: String, ingredient: int = 1) -> void:
 	ingredient_id = ingredient
 	chops_left = CHOPS_REQUIRED
 	chopping_active = true
+	out_of_meat = false
 
 	_set_up_player_visuals()
-
 	chop_progress.max_value = CHOPS_REQUIRED
 	_update_progress_immediately(0)
-
 	_update_placeholder_art()
 
-# randomized ver??
 func start_chopping_random(player: String) -> void:
 	var table: Dictionary = cat_chop_stages if player == "cat" else dog_chop_stages
 	var keys: Array = table.keys()
@@ -270,27 +274,31 @@ func start_chopping_random(player: String) -> void:
 # RESTART GAME
 # -------------------------
 func reset_chop() -> void:
+	out_of_meat = Inventory.get(player_id + "_hunted_meat") <= 0
+
 	chops_left = CHOPS_REQUIRED
 	chopping_active = true
 	chop_progress.max_value = CHOPS_REQUIRED
 	_update_progress_immediately(0)
-	_update_placeholder_art()
+	_update_placeholder_art()  
 
 
+# -------------------------
+# INPUT
+# -------------------------
 func _input(event: InputEvent) -> void:
-	#if Inventory.get(player_id + "_meat") <= 0:
-		#create_inventory_warning()
-		#return
 
-	if Inventory.get(player_id + "_hunted_meat") <= 0 && event.is_action_pressed(player_id+"_chop"):
-		if warning_tween && warning_tween.is_running():
-			await warning_tween.finished
- 
-		print("no more meat")
-		print("Dog hunted meat:", Inventory.dog_hunted_meat)
-		print("Dog chopped meat:", Inventory.dog_chopped_meat)
+	# ------------------------
+	# RUNNING OUT OF MEAT
+	# ------------------------
+	if Inventory.get(player_id + "_hunted_meat") <= 0:
+		out_of_meat = true
 		chopping_active = false
-		create_inventory_warning()
+		
+		if event.is_action_pressed(player_id+"_chop"):
+			_update_placeholder_art()  # show empty board immediately
+			create_inventory_warning()
+		return  # exit early if no meat
 
 	# ------------------------
 	# CHOPPING ACTIVE
@@ -313,6 +321,7 @@ func _input(event: InputEvent) -> void:
 			Inventory.set(player_id + "_chopped_meat", Inventory.get(player_id + "_chopped_meat") + 1)
 
 
+
 # -------------------------
 # THE ACTUAL CHOPPING
 # -------------------------
@@ -331,7 +340,7 @@ func _handle_chop() -> void:
 	if chops_left <= 0:
 		chopping_active = false
 		emit_signal("chop_done", player_id)
-
+		
 	print("Dog hunted meat:", Inventory.dog_hunted_meat)
 	print("Dog chopped meat:", Inventory.dog_chopped_meat)
 
@@ -385,8 +394,3 @@ func create_inventory_warning():
 	await warning_tween.finished
 
 	warning_label.visible = false
-
-
-
-	
-	
