@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://knlfsyap2tng"]
+[gd_scene load_steps=9 format=3 uid="uid://dubmeeab1otmf"]
 
 [ext_resource type="Texture2D" uid="uid://d33j42mu7e67q" path="res://Art/Buttons/SquareButton.png" id="1_e3vww"]
 [ext_resource type="PackedScene" uid="uid://r8psjsf86reo" path="res://Scenes/UI/pause_menu.tscn" id="1_lft5s"]
@@ -39,9 +39,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 2.0
-offset_top = -459.0
+offset_top = -460.0
 offset_right = 389.0
-offset_bottom = -403.0
+offset_bottom = -404.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_w6mh2")
 theme_override_font_sizes/font_size = 30

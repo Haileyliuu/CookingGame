@@ -4,7 +4,7 @@ class_name Main extends Node2D
 @onready var dog = %BurgerDog
 
 func _ready() -> void:
-	pass
+	AudioPlayer.play_music_ui()
 
 func _process(_delta: float) -> void:
 	if GameStats.cat_state != GameStats.PlayerStates.KITCHEN:

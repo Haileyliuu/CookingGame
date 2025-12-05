@@ -19,6 +19,7 @@ config/icon="res://Art/PlaceholderArt/icon.svg"
 
 Inventory="*res://Scripts/inventory.gd"
 GameStats="*res://Scripts/game_stats.gd"
+AudioPlayer="*res://audio_player.gd"
 
 [display]
 
