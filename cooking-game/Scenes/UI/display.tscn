@@ -46,35 +46,6 @@ script = ExtResource("4_78mt2")
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_lft5s")]
 
-[node name="PauseButton" type="TextureButton" parent="."]
-process_mode = 3
-offset_left = 1535.0
-offset_top = 5.9999995
-offset_right = 1685.0
-offset_bottom = 158.0
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("1_e3vww")
-texture_pressed = ExtResource("2_6v527")
-texture_hover = ExtResource("3_78mt2")
-
-[node name="Label" type="Label" parent="PauseButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -37.0
-offset_top = -54.0
-offset_right = 50.0
-offset_bottom = 61.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("8_6v527")
-theme_override_font_sizes/font_size = 90
-text = "ii"
-
 [node name="CowHunted" type="TextureRect" parent="."]
 offset_left = 1546.0
 offset_top = -157.0
@@ -106,5 +77,34 @@ offset_right = 224.0
 offset_bottom = 294.80496
 texture = ExtResource("12_16bo1")
 expand_mode = 1
+
+[node name="PauseButton" type="TextureButton" parent="."]
+process_mode = 3
+offset_left = 1535.0
+offset_top = 5.9999995
+offset_right = 1685.0
+offset_bottom = 158.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("1_e3vww")
+texture_pressed = ExtResource("2_6v527")
+texture_hover = ExtResource("3_78mt2")
+
+[node name="Label" type="Label" parent="PauseButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -54.0
+offset_right = 50.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_6v527")
+theme_override_font_sizes/font_size = 90
+text = "ii"
 
 [connection signal="pressed" from="PauseButton" to="PauseMenu" method="_on_pause_button_pressed"]
