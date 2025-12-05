@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0dyqtpiia2au"]
+[gd_scene load_steps=11 format=3 uid="uid://dg44yl8euo6rf"]
 
 [ext_resource type="Texture2D" uid="uid://d33j42mu7e67q" path="res://Art/Buttons/SquareButton.png" id="1_e3vww"]
 [ext_resource type="Texture2D" uid="uid://d1n5hwrx4r1w0" path="res://Art/ChoppingUI/ProgressBarFrame.PNG" id="1_egi2j"]
 [ext_resource type="PackedScene" uid="uid://r8psjsf86reo" path="res://Scenes/UI/pause_menu.tscn" id="1_lft5s"]
 [ext_resource type="FontFile" uid="uid://dx0bmxyxaldhv" path="res://Art/Fonts/Baby Doll.ttf" id="1_w6mh2"]
 [ext_resource type="Texture2D" uid="uid://cnnyj02p8rxii" path="res://Art/Buttons/SquareButtonPressed.png" id="2_6v527"]
-[ext_resource type="Script" path="res://Scripts/inventory_fish.gd" id="2_fvidj"]
+[ext_resource type="Script" uid="uid://t4ktltfj7yvf" path="res://Scripts/inventory_fish.gd" id="2_fvidj"]
 [ext_resource type="Texture2D" uid="uid://dosvpgdnjgcdl" path="res://Art/ChoppingUI/HappyProgress.png" id="2_geqww"]
 [ext_resource type="Texture2D" uid="uid://bbkitldp01fw1" path="res://Art/Buttons/SquareButtonHover.png" id="3_78mt2"]
-[ext_resource type="Script" path="res://Scripts/inventory_cow.gd" id="3_oc53s"]
+[ext_resource type="Script" uid="uid://dbeqc15lk28hn" path="res://Scripts/inventory_cow.gd" id="3_oc53s"]
 [ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="8_6v527"]
 
 [node name="display" type="CanvasLayer"]

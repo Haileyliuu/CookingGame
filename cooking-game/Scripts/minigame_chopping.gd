@@ -283,11 +283,13 @@ func _input(event: InputEvent) -> void:
 		#create_inventory_warning()
 		#return
 
-	if Inventory.get(player_id + "_meat") <= 0 && event.is_action_pressed(player_id+"_chop"):
+	if Inventory.get(player_id + "_hunted_meat") <= 0 && event.is_action_pressed(player_id+"_chop"):
 		if warning_tween && warning_tween.is_running():
 			await warning_tween.finished
  
 		print("no more meat")
+		print("Dog hunted meat:", Inventory.dog_hunted_meat)
+		print("Dog chopped meat:", Inventory.dog_chopped_meat)
 		chopping_active = false
 		create_inventory_warning()
 
@@ -308,7 +310,8 @@ func _input(event: InputEvent) -> void:
 		if (player_id == "cat" and event.is_action_pressed("cat_select")) or \
 		   (player_id == "dog" and event.is_action_pressed("dog_select")):
 			reset_chop()
-			Inventory.set(player_id + "_meat", Inventory.get(player_id + "_meat") - 1)
+			Inventory.set(player_id + "_hunted_meat", Inventory.get(player_id + "_hunted_meat") - 1)
+			Inventory.set(player_id + "_chopped_meat", Inventory.get(player_id + "_chopped_meat") + 1)
 
 
 # -------------------------
@@ -330,7 +333,8 @@ func _handle_chop() -> void:
 		chopping_active = false
 		emit_signal("chop_done", player_id)
 
-	print("Dog meat:", Inventory.dog_meat)
+	print("Dog hunted meat:", Inventory.dog_hunted_meat)
+	print("Dog chopped meat:", Inventory.dog_chopped_meat)
 
 
 # -------------------------

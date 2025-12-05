@@ -3,4 +3,4 @@ extends Label
 
 
 func _process(_delta: float) -> void:
-	label.text = "Cow Inventory: " + str(Inventory.dog_meat)
+	label.text = "Cow: " + str(Inventory.dog_hunted_meat) + "\nChopped Meat: " + str(Inventory.dog_chopped_meat)

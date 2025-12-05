@@ -1,7 +1,6 @@
 extends Node
 
-var cat_meat = 100
-var dog_meat = 100
-
-var dog_dishes = 0
-var cat_dishes = 0
+var cat_hunted_meat = 100
+var cat_chopped_meat = 100
+var dog_hunted_meat = 1
+var dog_chopped_meat = 0
