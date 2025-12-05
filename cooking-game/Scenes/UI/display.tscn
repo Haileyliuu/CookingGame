@@ -1,39 +1,41 @@
-[gd_scene load_steps=11 format=3 uid="uid://csvt46y8wkqpd"]
+[gd_scene load_steps=11 format=3 uid="uid://dg44yl8euo6rf"]
 
 [ext_resource type="Texture2D" uid="uid://d33j42mu7e67q" path="res://Art/Buttons/SquareButton.png" id="1_e3vww"]
-[ext_resource type="Texture2D" uid="uid://cpyyeh8f14y0q" path="res://Art/Inventory Icons/FishMeatHunted Inventory.PNG" id="1_egi2j"]
+[ext_resource type="Texture2D" uid="uid://d1n5hwrx4r1w0" path="res://Art/ChoppingUI/ProgressBarFrame.PNG" id="1_egi2j"]
 [ext_resource type="PackedScene" uid="uid://r8psjsf86reo" path="res://Scenes/UI/pause_menu.tscn" id="1_lft5s"]
 [ext_resource type="FontFile" uid="uid://dx0bmxyxaldhv" path="res://Art/Fonts/Baby Doll.ttf" id="1_w6mh2"]
 [ext_resource type="Texture2D" uid="uid://cnnyj02p8rxii" path="res://Art/Buttons/SquareButtonPressed.png" id="2_6v527"]
 [ext_resource type="Script" uid="uid://t4ktltfj7yvf" path="res://Scripts/inventory_fish.gd" id="2_fvidj"]
-[ext_resource type="Texture2D" uid="uid://cvjmib2oeanff" path="res://Art/Inventory Icons/CowHunted.PNG" id="2_geqww"]
+[ext_resource type="Texture2D" uid="uid://dosvpgdnjgcdl" path="res://Art/ChoppingUI/HappyProgress.png" id="2_geqww"]
 [ext_resource type="Texture2D" uid="uid://bbkitldp01fw1" path="res://Art/Buttons/SquareButtonHover.png" id="3_78mt2"]
-[ext_resource type="Script" uid="uid://dbeqc15lk28hn" path="res://inventory_cow.gd" id="3_oc53s"]
+[ext_resource type="Script" uid="uid://dbeqc15lk28hn" path="res://Scripts/inventory_cow.gd" id="3_oc53s"]
 [ext_resource type="FontFile" uid="uid://s06145veab2i" path="res://Art/Fonts/Catfiles.ttf" id="8_6v527"]
 
 [node name="display" type="CanvasLayer"]
 
-[node name="CatInventory" type="TextureRect" parent="."]
-offset_left = -95.0
-offset_top = -141.0
-offset_right = 372.13068
-offset_bottom = 264.0
-texture = ExtResource("1_egi2j")
-expand_mode = 1
+[node name="CatProgress" type="TextureProgressBar" parent="."]
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 887.0
+offset_bottom = 226.0
+scale = Vector2(0.28, 0.28)
+texture_under = ExtResource("1_egi2j")
+texture_over = ExtResource("2_geqww")
 
-[node name="DogInventory" type="TextureRect" parent="."]
-offset_left = 1492.0
-offset_top = -198.0
-offset_right = 2113.6873
-offset_bottom = 341.0
-texture = ExtResource("2_geqww")
-expand_mode = 1
+[node name="DogProgress" type="TextureProgressBar" parent="."]
+offset_left = 1663.0
+offset_top = 8.0
+offset_right = 2545.0
+offset_bottom = 227.0
+scale = Vector2(0.28, 0.28)
+texture_under = ExtResource("1_egi2j")
+texture_over = ExtResource("2_geqww")
 
 [node name="InventoryFish" type="Label" parent="."]
-offset_left = 65.0
-offset_top = 84.0
-offset_right = 200.0
-offset_bottom = 176.0
+offset_left = 10.0
+offset_top = 79.0
+offset_right = 229.0
+offset_bottom = 106.0
 theme_override_fonts/font = ExtResource("1_w6mh2")
 theme_override_font_sizes/font_size = 100
 text = "100"
@@ -45,10 +47,10 @@ script = ExtResource("2_fvidj")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -242.0
-offset_top = 84.0
-offset_right = -24.0
-offset_bottom = 176.0
+offset_left = -243.0
+offset_top = 88.0
+offset_right = -25.0
+offset_bottom = 121.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.14117648, 0.4117647, 0.72156864, 1)
 theme_override_fonts/font = ExtResource("1_w6mh2")

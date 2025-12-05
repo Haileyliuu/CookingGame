@@ -1,10 +1,10 @@
-[gd_scene load_steps=47 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=48 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="Texture2D" uid="uid://c41ju7gsf78oi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0004_Floor.png" id="2_344ge"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
-[ext_resource type="PackedScene" uid="uid://csvt46y8wkqpd" path="res://Scenes/UI/display.tscn" id="2_r33sp"]
+[ext_resource type="PackedScene" uid="uid://knlfsyap2tng" path="res://Scenes/UI/display.tscn" id="2_r33sp"]
 [ext_resource type="Texture2D" uid="uid://cj20otqaedsa7" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsBottom.png" id="3_b3802"]
 [ext_resource type="Texture2D" uid="uid://dm06o6ottn4ig" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsFloor.png" id="3_hibaj"]
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
@@ -38,6 +38,7 @@
 [ext_resource type="Theme" uid="uid://doas8v4v842gq" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
 [ext_resource type="Script" uid="uid://bxdmre7sqembu" path="res://Scripts/trash.gd" id="27_jwpg7"]
 [ext_resource type="Theme" uid="uid://bgtfhfueyd8yw" path="res://Shaders/border.theme" id="28_ueoa1"]
+[ext_resource type="PackedScene" uid="uid://dg064txe6jmtt" path="res://Scenes/Minigames/chopping_minigame/minigame_chopping.tscn" id="33_r33sp"]
 [ext_resource type="PackedScene" uid="uid://cep6yw4yogs7" path="res://Scenes/Minigames/hunting_minigame/minigame_hunting.tscn" id="35_r33sp"]
 [ext_resource type="Script" uid="uid://c1jmukybakmyy" path="res://Scripts/hunting_timers.gd" id="38_k2e45"]
 
@@ -89,6 +90,7 @@ scale = Vector2(1.001, 1.001)
 texture = ExtResource("3_wsu2k")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Background"]
+visible = false
 position = Vector2(14.962891, 588.5287)
 scale = Vector2(2.4937656, 2.4937656)
 navigation_polygon = SubResource("NavigationPolygon_hibaj")
@@ -97,12 +99,6 @@ navigation_polygon = SubResource("NavigationPolygon_hibaj")
 
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="Cat Sabotage" parent="Y-sort" instance=ExtResource("13_e08e2")]
-position = Vector2(716, 359)
-script = ExtResource("24_cbgmd")
-pid = "cat"
-who_can_interact = "cat"
 
 [node name="Wall" type="StaticBody2D" parent="Y-sort"]
 y_sort_enabled = true
@@ -172,6 +168,11 @@ offset = Vector2(0, 500)
 position = Vector2(14.999844, 782.49976)
 texture = ExtResource("14_ueoa1")
 
+[node name="InteractionArea" parent="Y-sort/Counters/CatBottomCounter/CatCutting" node_paths=PackedStringArray("minigame") instance=ExtResource("13_e08e2")]
+position = Vector2(79.99997, 17.499994)
+minigame = NodePath("../../../../../CatChoppingGame/SubViewportContainer/SubViewport/MinigameChopping")
+who_can_interact = "cat"
+
 [node name="DogTopCounter" type="Sprite2D" parent="Y-sort/Counters"]
 position = Vector2(752.50006, -785.0001)
 scale = Vector2(1.0000002, 1.0000002)
@@ -202,6 +203,11 @@ texture = ExtResource("3_b3802")
 position = Vector2(-635.00024, 2.9999008)
 scale = Vector2(0.99999976, 0.99999976)
 texture = ExtResource("18_6vcvc")
+
+[node name="InteractionArea" parent="Y-sort/Counters/DogBottomCounter/DogCutting" node_paths=PackedStringArray("minigame") instance=ExtResource("13_e08e2")]
+position = Vector2(40.000008, -72.500015)
+minigame = NodePath("../../../../../DogChoppingGame/SubViewportContainer/SubViewport/MinigameChopping")
+who_can_interact = "dog"
 
 [node name="BottomDogCollision" type="CollisionPolygon2D" parent="Y-sort/Counters"]
 polygon = PackedVector2Array(-347.5, 1077.5002, -327.5, 1202.5002, 1550.0002, 1202.5002, 1555.0002, 1100.0002)
@@ -438,6 +444,66 @@ offset_right = 700.0
 offset_bottom = 850.0
 theme = ExtResource("28_ueoa1")
 
+[node name="CatChoppingGame" type="Panel" parent="."]
+visible = false
+clip_children = 2
+offset_left = 25.0
+offset_top = 253.0
+offset_right = 725.0
+offset_bottom = 1103.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("26_1w6v2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CatChoppingGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 800.0
+
+[node name="SubViewport" type="SubViewport" parent="CatChoppingGame/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(700, 850)
+render_target_update_mode = 0
+
+[node name="MinigameChopping" parent="CatChoppingGame/SubViewportContainer/SubViewport" instance=ExtResource("33_r33sp")]
+player_id = "cat"
+minigame_type = 2
+
+[node name="Border" type="Panel" parent="CatChoppingGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 850.0
+theme = ExtResource("28_ueoa1")
+
+[node name="DogChoppingGame" type="Panel" parent="."]
+visible = false
+clip_children = 2
+offset_left = 1541.0
+offset_top = 255.0
+offset_right = 2241.0
+offset_bottom = 1105.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("26_1w6v2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DogChoppingGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 800.0
+
+[node name="SubViewport" type="SubViewport" parent="DogChoppingGame/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(700, 850)
+render_target_update_mode = 0
+
+[node name="MinigameChopping" parent="DogChoppingGame/SubViewportContainer/SubViewport" instance=ExtResource("33_r33sp")]
+player_id = "dog"
+minigame_type = 2
+
+[node name="Border" type="Panel" parent="DogChoppingGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 850.0
+theme = ExtResource("28_ueoa1")
+
 [node name="Interactions" type="Node2D" parent="."]
 
 [node name="CatHunting" parent="Interactions" node_paths=PackedStringArray("minigame") instance=ExtResource("13_e08e2")]
@@ -449,6 +515,12 @@ who_can_interact = "cat"
 position = Vector2(1462, -25)
 minigame = NodePath("../../DogHuntingGame/SubViewportContainer/SubViewport/MinigameHunting")
 who_can_interact = "dog"
+
+[node name="Cat Sabotage" parent="Interactions" instance=ExtResource("13_e08e2")]
+position = Vector2(380, 486)
+script = ExtResource("24_cbgmd")
+pid = "cat"
+who_can_interact = "cat"
 
 [node name="Timers" type="Node2D" parent="."]
 script = ExtResource("38_k2e45")
