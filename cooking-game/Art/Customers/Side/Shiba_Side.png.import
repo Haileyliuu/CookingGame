@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl7e1qjpr4vs0"
-path="res://.godot/imported/GCat_Normal.PNG-6b416afe3faaf503f3e17aaf4b5e983e.ctex"
+uid="uid://cyw44swx1vuam"
+path="res://.godot/imported/Shiba_Side.png-0470447a4d6003c9cc42b600406bac69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Normal/GCat_Normal.PNG"
-dest_files=["res://.godot/imported/GCat_Normal.PNG-6b416afe3faaf503f3e17aaf4b5e983e.ctex"]
+source_file="res://Art/Customers/Side/Shiba_Side.png"
+dest_files=["res://.godot/imported/Shiba_Side.png-0470447a4d6003c9cc42b600406bac69.ctex"]
 
 [params]
 

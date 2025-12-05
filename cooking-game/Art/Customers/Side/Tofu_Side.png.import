@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl7e1qjpr4vs0"
-path="res://.godot/imported/GCat_Normal.PNG-6b416afe3faaf503f3e17aaf4b5e983e.ctex"
+uid="uid://df63dmg2o6407"
+path="res://.godot/imported/Tofu_Side.png-05f7d28525900c4a8a0ff96a016e4a31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Customers/Normal/GCat_Normal.PNG"
-dest_files=["res://.godot/imported/GCat_Normal.PNG-6b416afe3faaf503f3e17aaf4b5e983e.ctex"]
+source_file="res://Art/Customers/Side/Tofu_Side.png"
+dest_files=["res://.godot/imported/Tofu_Side.png-05f7d28525900c4a8a0ff96a016e4a31.ctex"]
 
 [params]
 

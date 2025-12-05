@@ -8,14 +8,14 @@ class_name Main extends Node2D
 #Threshold Timer
 var threshold_timer: Timer
 const THRESHOLDS = 2
-const THRESHOLD_WAIT_TIME = 9.0
+const THRESHOLD_WAIT_TIME = 60.0
 var thresholds_left = THRESHOLDS
 signal threshold_passed(threshold)
 
 
 #Bug Timer beginning variables
 var bug_timer: Timer
-const BUG_MAX_TIME = 3.0
+const BUG_MAX_TIME = 20.0
 const BUG_MIN_TIME = 5.0
 
 
@@ -43,7 +43,7 @@ func _threshold_passed(threshold: int) -> void:
 	if threshold == 0:
 		#end the game
 		print("GAME ENDED <3")
-		pass
+		get_tree().change_scene_to_file("res://Scenes/UI/finish_screen.tscn")
 	else:
 		threshold_passed.emit(threshold)
 		thresholds_left = thresholds_left - 1
@@ -57,7 +57,7 @@ func _bug_manager() -> void:
 	var bug = Cockroach.spawn(random_pos)
 	#add bug to Navigation Region
 	background.get_child(2).add_child(bug)
-	bug_timer.wait_time = clampf(bug_timer.wait_time * .5, 1.0, 5.0) 
+	bug_timer.wait_time = clampf(bug_timer.wait_time -5, BUG_MIN_TIME, BUG_MAX_TIME) 
 	
 
 func _process(_delta: float) -> void:

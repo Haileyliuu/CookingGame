@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
 [ext_resource type="Texture2D" uid="uid://c41ju7gsf78oi" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0004_Floor.png" id="2_344ge"]
 [ext_resource type="PackedScene" uid="uid://c5sp16xaq6t63" path="res://Scenes/Characters/sushi_cat.tscn" id="2_h7nwh"]
-[ext_resource type="PackedScene" uid="uid://knlfsyap2tng" path="res://Scenes/UI/display.tscn" id="2_r33sp"]
+[ext_resource type="PackedScene" uid="uid://dg44yl8euo6rf" path="res://Scenes/UI/display.tscn" id="2_r33sp"]
 [ext_resource type="Texture2D" uid="uid://cj20otqaedsa7" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsBottom.png" id="3_b3802"]
 [ext_resource type="Texture2D" uid="uid://dm06o6ottn4ig" path="res://Art/Game Backgroud Layers/Shadows/Game_Background_0000_ShadowsFloor.png" id="3_hibaj"]
 [ext_resource type="Texture2D" uid="uid://b6gnu7mriw5u5" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0000_OuterWallBrown.png" id="3_wsu2k"]
@@ -465,8 +465,7 @@ size = Vector2i(700, 850)
 render_target_update_mode = 0
 
 [node name="MinigameChopping" parent="CatChoppingGame/SubViewportContainer/SubViewport" instance=ExtResource("33_r33sp")]
-player_id = "cat"
-minigame_type = 2
+script = null
 
 [node name="Border" type="Panel" parent="CatChoppingGame"]
 layout_mode = 0
@@ -495,8 +494,7 @@ size = Vector2i(700, 850)
 render_target_update_mode = 0
 
 [node name="MinigameChopping" parent="DogChoppingGame/SubViewportContainer/SubViewport" instance=ExtResource("33_r33sp")]
-player_id = "dog"
-minigame_type = 2
+script = null
 
 [node name="Border" type="Panel" parent="DogChoppingGame"]
 layout_mode = 0
