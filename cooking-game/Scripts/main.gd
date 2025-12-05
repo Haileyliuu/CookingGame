@@ -25,6 +25,7 @@ func _ready() -> void:
 	GameStats.dog_score = 0
 	GameStats.cat_state = GameStats.PlayerStates.KITCHEN
 	GameStats.dog_state = GameStats.PlayerStates.KITCHEN
+	Inventory.reset()
 	bug_timer = Timer.new()
 	bug_timer.one_shot = false 
 	bug_timer.autostart = false
@@ -53,7 +54,6 @@ func _threshold_passed(threshold: int) -> void:
 		thresholds_left = thresholds_left - 1
 		threshold_timer.timeout.connect(_threshold_passed.bind(thresholds_left))
 		threshold_timer.start()
-		bug_timer.wait_time = clampf(bug_timer.wait_time * .5, 1.0, 5.0) 
 
 func _bug_manager() -> void:
 	var random_pos: Vector2

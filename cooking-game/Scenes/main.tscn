@@ -49,7 +49,7 @@ blend_mode = 3
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hibaj"]
 vertices = PackedVector2Array(-190.88281, -188, -192.88281, 215, -240.74219, 15.2421875, -244.25781, -320, 584.03125, -474.9375, 584.96094, 132.85938, 460.10156, -6.0078125, 458.89844, -304.35156, -119, 129.13281, 263.6875, 2.0625, 161.78906, -474.04688, 267.28906, -301.64844, 158.82031, -105.640625, 38, -92.02344, -119, -100.671875, -38.1875, -99.640625, -496.89063, 215, -455.27344, 21.78125, -494.89844, -258.0703, -451.7422, -320, 38, -176.3125, -47.492188, -188, 73.27344, -482.89063, 76.703125, -174.32031, -601.53125, -262.09375, -606.4297, -480.10156)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(6, 5, 8, 9), PackedInt32Array(10, 4, 7, 11), PackedInt32Array(12, 10, 11, 9), PackedInt32Array(12, 9, 8, 13), PackedInt32Array(13, 8, 14, 15), PackedInt32Array(2, 1, 16, 17), PackedInt32Array(17, 16, 18, 19), PackedInt32Array(20, 13, 15, 21), PackedInt32Array(22, 23, 20, 21, 3), PackedInt32Array(18, 24, 25, 19), PackedInt32Array(19, 25, 22, 3), PackedInt32Array(3, 21, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-632.00006, -505, 97.99994, -508, 101.99994, -148, 62.99994, -150, 62.99994, -120, 133.99994, -128, 136.99994, -499, 608.99994, -500, 609.99994, 158, -144.00006, 154, -144.00006, -126, -66.00006, -125, -70.00006, -163, -166.00006, -163, -168.00006, 240, -522.00006, 240, -520.00006, -234, -626.00006, -238), PackedVector2Array(-427.00006, -295, -430.00006, -4, -266.00006, -9, -269.00006, -295), PackedVector2Array(291.99994, -277, 288.99994, -24, 434.99994, -30, 433.99994, -279)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-632.00006, -505, 97.99994, -508, 101.99994, -148, 62.99994, -150, 62.99994, -120, 133.99994, -128, 136.99994, -499, 608.99994, -500, 609.0638, -457.99344, 609.99994, 158, -144.00006, 154, -144.00006, -126, -66.00006, -125, -70.00006, -163, -166.00006, -163, -168.00006, 240, -522.00006, 240, -520.00006, -234, -626.00006, -238), PackedVector2Array(-427.00006, -295, -430.00006, -4, -266.00006, -9, -269.00006, -295), PackedVector2Array(291.99994, -277, 288.99994, -24, 434.99994, -30, 433.99994, -279)])
 agent_radius = 25.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3pmx8"]
@@ -528,17 +528,16 @@ texture = ExtResource("41_kwxat")
 flip_h = true
 
 [node name="Dog Sabotage" parent="Interactions" instance=ExtResource("13_e08e2")]
-position = Vector2(1554, 336)
+position = Vector2(1156, 362)
 script = ExtResource("24_cbgmd")
 pid = ""
 who_can_interact = "dog"
 
 [node name="Sprite2D" type="Sprite2D" parent="Interactions/Dog Sabotage"]
 position = Vector2(-13, -58)
-rotation = -0.7853982
+rotation = 0.7853982
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("42_aa8k8")
-flip_h = true
 
 [node name="Timers" type="Node2D" parent="."]
 script = ExtResource("38_k2e45")

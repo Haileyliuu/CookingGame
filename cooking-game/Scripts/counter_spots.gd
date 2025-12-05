@@ -70,11 +70,13 @@ func take_food(i: int) -> void:
 
 func _on_interact(incoming_id, area):
 	# print(assembly_minigame)
-	current_spot = area.object.name.substr(4).to_int() - 1
-	
-	#if the player going here has a cockroach, put a cockroach in the food
 	var player_interacting: Player = get_tree().get_first_node_in_group(incoming_id)
-	if player_interacting.player_cockroach != null:
+	current_spot = area.object.name.substr(4).to_int() - 1
+	if (GameStats.get(incoming_id + "_state") == GameStats.PlayerStates.SABOTAGE 
+		and player_interacting.player_cockroach != null):
+		return
+	#if the player going here has a cockroach, put a cockroach in the food
+	if player_interacting.player_cockroach != null and spot_taken[current_spot] != null:
 		spot_taken[current_spot].cockroach = true
 		player_interacting.player_cockroach.queue_free()
 		GameStats.set(incoming_id + "_state", GameStats.PlayerStates.KITCHEN)
