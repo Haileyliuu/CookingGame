@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ccycwkiogv7p1"]
+[gd_scene load_steps=13 format=3 uid="uid://dbwd8bj7jlqic"]
 
 [ext_resource type="Texture2D" uid="uid://83g4f61lwavn" path="res://Art/Menu/MainMenu.png" id="1_5wsvm"]
 [ext_resource type="Script" uid="uid://ds6vlw160qkl2" path="res://Scripts/main_menu.gd" id="1_i2xx2"]
@@ -90,3 +90,6 @@ offset_bottom = 134.0
 theme_override_fonts/font = ExtResource("6_4pqbp")
 theme_override_font_sizes/font_size = 90
 text = "?"
+
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
