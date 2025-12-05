@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b0p7mr3lj0xwh"]
+[gd_scene load_steps=48 format=3 uid="uid://b0p7mr3lj0xwh"]
 
 [ext_resource type="Script" uid="uid://dakk8plu3ltiq" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dwkoaby5gyfpt" path="res://Scenes/Characters/burger_dog.tscn" id="1_rivda"]
@@ -36,10 +36,11 @@
 [ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
 [ext_resource type="Theme" uid="uid://doas8v4v842gq" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
-[ext_resource type="Script" path="res://Scripts/trash.gd" id="27_jwpg7"]
+[ext_resource type="Script" uid="uid://bxdmre7sqembu" path="res://Scripts/trash.gd" id="27_jwpg7"]
 [ext_resource type="Theme" uid="uid://bgtfhfueyd8yw" path="res://Shaders/border.theme" id="28_ueoa1"]
+[ext_resource type="PackedScene" uid="uid://dg064txe6jmtt" path="res://Scenes/Minigames/chopping_minigame/minigame_chopping.tscn" id="33_r33sp"]
 [ext_resource type="PackedScene" uid="uid://cep6yw4yogs7" path="res://Scenes/Minigames/hunting_minigame/minigame_hunting.tscn" id="35_r33sp"]
-[ext_resource type="Script" path="res://Scripts/hunting_timers.gd" id="38_k2e45"]
+[ext_resource type="Script" uid="uid://c1jmukybakmyy" path="res://Scripts/hunting_timers.gd" id="38_k2e45"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ee4r6"]
 blend_mode = 3
@@ -167,6 +168,11 @@ offset = Vector2(0, 500)
 position = Vector2(14.999844, 782.49976)
 texture = ExtResource("14_ueoa1")
 
+[node name="InteractionArea" parent="Y-sort/Counters/CatBottomCounter/CatCutting" node_paths=PackedStringArray("minigame") instance=ExtResource("13_e08e2")]
+position = Vector2(79.99997, 17.499994)
+minigame = NodePath("../../../../../CatChoppingGame/SubViewportContainer/SubViewport/MinigameChopping")
+who_can_interact = "cat"
+
 [node name="DogTopCounter" type="Sprite2D" parent="Y-sort/Counters"]
 position = Vector2(752.50006, -785.0001)
 scale = Vector2(1.0000002, 1.0000002)
@@ -197,6 +203,11 @@ texture = ExtResource("3_b3802")
 position = Vector2(-635.00024, 2.9999008)
 scale = Vector2(0.99999976, 0.99999976)
 texture = ExtResource("18_6vcvc")
+
+[node name="InteractionArea" parent="Y-sort/Counters/DogBottomCounter/DogCutting" node_paths=PackedStringArray("minigame") instance=ExtResource("13_e08e2")]
+position = Vector2(40.000008, -72.500015)
+minigame = NodePath("../../../../../DogChoppingGame/SubViewportContainer/SubViewport/MinigameChopping")
+who_can_interact = "dog"
 
 [node name="BottomDogCollision" type="CollisionPolygon2D" parent="Y-sort/Counters"]
 polygon = PackedVector2Array(-347.5, 1077.5002, -327.5, 1202.5002, 1550.0002, 1202.5002, 1555.0002, 1100.0002)
@@ -428,6 +439,66 @@ render_target_update_mode = 0
 player_id = "dog"
 
 [node name="Border" type="Panel" parent="DogAssemblyGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 850.0
+theme = ExtResource("28_ueoa1")
+
+[node name="CatChoppingGame" type="Panel" parent="."]
+visible = false
+clip_children = 2
+offset_left = 25.0
+offset_top = 253.0
+offset_right = 725.0
+offset_bottom = 1103.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("26_1w6v2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CatChoppingGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 800.0
+
+[node name="SubViewport" type="SubViewport" parent="CatChoppingGame/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(700, 850)
+render_target_update_mode = 0
+
+[node name="MinigameChopping" parent="CatChoppingGame/SubViewportContainer/SubViewport" instance=ExtResource("33_r33sp")]
+player_id = "cat"
+minigame_type = 2
+
+[node name="Border" type="Panel" parent="CatChoppingGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 850.0
+theme = ExtResource("28_ueoa1")
+
+[node name="DogChoppingGame" type="Panel" parent="."]
+visible = false
+clip_children = 2
+offset_left = 1541.0
+offset_top = 255.0
+offset_right = 2241.0
+offset_bottom = 1105.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("26_1w6v2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DogChoppingGame"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 800.0
+
+[node name="SubViewport" type="SubViewport" parent="DogChoppingGame/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(700, 850)
+render_target_update_mode = 0
+
+[node name="MinigameChopping" parent="DogChoppingGame/SubViewportContainer/SubViewport" instance=ExtResource("33_r33sp")]
+player_id = "dog"
+minigame_type = 2
+
+[node name="Border" type="Panel" parent="DogChoppingGame"]
 layout_mode = 0
 offset_right = 700.0
 offset_bottom = 850.0

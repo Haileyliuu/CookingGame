@@ -1,10 +1,10 @@
-#extends MiniGame
+extends MiniGame
 
 # -------------------------
 # FOR TESTING
 # -------------------------
-extends Node2D
-var player_id: String = "dog"
+#extends Node2D
+#var player_id: String = "dog"
 # -------------------------
 
 signal chop_button_state(state)
@@ -68,6 +68,7 @@ var dog_chop_stages = {}
 @onready var prompt_label = $CanvasLayer3/PromptLabel
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_DISABLED
 	$CanvasLayer3.layer = 3
 	$CanvasLayer2.layer = 2
 	$CanvasLayer1.layer = 1
