@@ -21,6 +21,10 @@ const BUG_MIN_TIME = 5.0
 
 
 func _ready() -> void:
+	GameStats.cat_score = 0
+	GameStats.dog_score = 0
+	GameStats.cat_state = GameStats.PlayerStates.KITCHEN
+	GameStats.dog_state = GameStats.PlayerStates.KITCHEN
 	bug_timer = Timer.new()
 	bug_timer.one_shot = false 
 	bug_timer.autostart = false
