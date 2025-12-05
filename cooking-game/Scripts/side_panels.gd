@@ -37,7 +37,7 @@ var cat_timer: Timer
 @onready var cat_progress: TextureProgressBar = $CatProgress
 var dog_timer: Timer
 @onready var dog_progress: TextureProgressBar = $DogProgress
-const CUST_MAX_TIME := 60.0
+const CUST_MAX_TIME := 120.0
 var cust_time = CUST_MAX_TIME
 var ct_ratio = cust_time
 @onready var markers: Array[Marker2D] = []

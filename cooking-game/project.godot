@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Cooking game"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Art/PlaceholderArt/icon.svg"
 
@@ -36,8 +36,8 @@ Inventory="*res://Scripts/inventory.gd"
 
 Player=""
 Minigame=""
-cat=""
 dog=""
+cat=""
 
 [input]
 

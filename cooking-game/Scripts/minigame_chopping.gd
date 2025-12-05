@@ -304,6 +304,12 @@ func _input(event: InputEvent) -> void:
 			Inventory.set(player_id + "_hunted_meat", Inventory.get(player_id + "_hunted_meat") - 1)
 			Inventory.set(player_id + "_chopped_meat", Inventory.get(player_id + "_chopped_meat") + 1)
 			reset_chop()
+			
+			end_chopping()
+
+func end_chopping():
+	reset_chop()
+	end_minigame()
 
 # -------------------------
 # THE ACTUAL CHOPPING
@@ -313,6 +319,7 @@ func _handle_chop() -> void:
 		chopping_active = false
 		_update_placeholder_art(6)
 		create_inventory_warning()
+		end_chopping()
 		return
 
 	if knife and knife.has_method("chop"):

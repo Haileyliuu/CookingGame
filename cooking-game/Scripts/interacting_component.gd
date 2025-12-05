@@ -24,24 +24,11 @@ func _input(event: InputEvent) -> void:
 				interact_label.hide()
 				
 				can_interact = true
-				if (curr_interactions[0] is IntSabo):
-					print(GameStats.cat_state)
-					_handle_sabotage()
 				
 				await curr_interactions[0].interact.call(player_id)
 				
 				can_interact = true
-#
-func _handle_sabotage() -> void:
-	if player.meal != null:
-		return
-	if(GameStats.get(player_id + "_state") == GameStats.PlayerStates.SABOTAGE):
-		print("removing")
-		player.bug_net.hide()
-	else:
-		print("adding")
-		player.bug_net.show()
-		sabotage = true
+
 
 func _process(_delta: float) -> void:		
 	if curr_interactions and can_interact:

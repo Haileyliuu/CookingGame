@@ -8,14 +8,14 @@ class_name Main extends Node2D
 #Threshold Timer
 var threshold_timer: Timer
 const THRESHOLDS = 2
-const THRESHOLD_WAIT_TIME = 9.0
+const THRESHOLD_WAIT_TIME = 180.0
 var thresholds_left = THRESHOLDS
 signal threshold_passed(threshold)
 
 
 #Bug Timer beginning variables
 var bug_timer: Timer
-const BUG_MAX_TIME = 3.0
+const BUG_MAX_TIME = 30.0
 const BUG_MIN_TIME = 5.0
 
 
@@ -42,7 +42,7 @@ func _threshold_passed(threshold: int) -> void:
 	print("Threshold passed")
 	if threshold == 0:
 		#end the game
-		print("GAME ENDED <3")
+		get_tree().change_scene_to_file("res://Scenes/UI/finish_screen.tscn")
 		pass
 	else:
 		threshold_passed.emit(threshold)

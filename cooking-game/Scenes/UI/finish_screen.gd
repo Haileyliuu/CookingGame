@@ -19,9 +19,6 @@ func _ready() -> void:
 	#AudioPlayer.play_music_ui()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _menu_pressed():
 	get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
