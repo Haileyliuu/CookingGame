@@ -35,11 +35,11 @@
 [ext_resource type="PackedScene" uid="uid://mr37hgxs68up" path="res://Scenes/Objects/CounterSpots.tscn" id="25_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://rlbvus4vqqeg" path="res://Scenes/Minigames/assembly_minigame/minigame_assembly.tscn" id="25_u50mg"]
 [ext_resource type="Theme" uid="uid://doas8v4v842gq" path="res://Shaders/roundEdges.theme" id="26_1w6v2"]
-[ext_resource type="Script" path="res://Scripts/trash.gd" id="27_jwpg7"]
+[ext_resource type="Script" uid="uid://bxdmre7sqembu" path="res://Scripts/trash.gd" id="27_jwpg7"]
 [ext_resource type="Theme" uid="uid://bgtfhfueyd8yw" path="res://Shaders/border.theme" id="28_ueoa1"]
 [ext_resource type="PackedScene" uid="uid://dg064txe6jmtt" path="res://Scenes/Minigames/chopping_minigame/minigame_chopping.tscn" id="33_r33sp"]
 [ext_resource type="PackedScene" uid="uid://cep6yw4yogs7" path="res://Scenes/Minigames/hunting_minigame/minigame_hunting.tscn" id="35_r33sp"]
-[ext_resource type="Script" path="res://Scripts/hunting_timers.gd" id="38_k2e45"]
+[ext_resource type="Script" uid="uid://c1jmukybakmyy" path="res://Scripts/hunting_timers.gd" id="38_k2e45"]
 [ext_resource type="Texture2D" uid="uid://dckswxjgre2ty" path="res://Art/Sabotage/CatBugNet.png" id="41_kwxat"]
 [ext_resource type="Texture2D" uid="uid://d10yv16autn4g" path="res://Art/Sabotage/DogBugNet.png" id="42_aa8k8"]
 
@@ -47,9 +47,9 @@
 blend_mode = 3
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hibaj"]
-vertices = PackedVector2Array(-190.88281, -188, -192.88281, 215, -240.74219, 15.2421875, -244.25781, -320, 584.03125, -474.9375, 584.96094, 132.85938, 460.10156, -6.0078125, 458.89844, -304.35156, -119, 129.13281, 263.6875, 2.0625, 161.78906, -474.04688, 267.28906, -301.64844, 158.82031, -105.640625, 38, -92.02344, -119, -100.671875, -38.1875, -99.640625, -496.89063, 215, -455.27344, 21.78125, -494.89844, -258.0703, -451.7422, -320, 38, -176.3125, -47.492188, -188, 73.27344, -482.89063, 76.703125, -174.32031, -601.53125, -262.09375, -606.4297, -480.10156)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(6, 5, 8, 9), PackedInt32Array(10, 4, 7, 11), PackedInt32Array(12, 10, 11, 9), PackedInt32Array(12, 9, 8, 13), PackedInt32Array(13, 8, 14, 15), PackedInt32Array(2, 1, 16, 17), PackedInt32Array(17, 16, 18, 19), PackedInt32Array(20, 13, 15, 21), PackedInt32Array(22, 23, 20, 21, 3), PackedInt32Array(18, 24, 25, 19), PackedInt32Array(19, 25, 22, 3), PackedInt32Array(3, 21, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-632.00006, -505, 97.99994, -508, 101.99994, -148, 62.99994, -150, 62.99994, -120, 133.99994, -128, 136.99994, -499, 608.99994, -500, 609.0638, -457.99344, 609.99994, 158, -144.00006, 154, -144.00006, -126, -66.00006, -125, -70.00006, -163, -166.00006, -163, -168.00006, 240, -522.00006, 240, -520.00006, -234, -626.00006, -238), PackedVector2Array(-427.00006, -295, -430.00006, -4, -266.00006, -9, -269.00006, -295), PackedVector2Array(291.99994, -277, 288.99994, -24, 434.99994, -30, 433.99994, -279)])
+vertices = PackedVector2Array(-190.88281, -188, -192.88281, 215, -228.70313, 60.859375, -233.29688, -317.71094, 478.15625, -314.14844, 584.0625, -457.95313, 584.96094, 132.85938, 475.85156, 54.4375, -119, 129.13281, 250.35938, 59.59375, -497.3125, 215, -464.9297, 62.140625, -503.3125, -261.75, -451.10156, -320.28906, -119, -100.671875, -38.1875, -99.640625, 38, -95, 73.27344, -482.89063, 76.703125, -174.32031, 38, -176.3125, -47.492188, -188, 161.67188, -474.04688, 584.03125, -474.9375, 259.60938, -312.85938, 156.67188, -95, -601.5469, -262.75, -606.4297, -480.10156)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(2, 1, 10, 11), PackedInt32Array(11, 10, 12, 13), PackedInt32Array(9, 8, 14, 15, 16), PackedInt32Array(3, 17, 18, 19, 20), PackedInt32Array(21, 22, 5, 4, 23), PackedInt32Array(24, 21, 23, 9), PackedInt32Array(12, 25, 26, 13), PackedInt32Array(13, 26, 17, 3), PackedInt32Array(20, 0, 3), PackedInt32Array(15, 20, 19, 16), PackedInt32Array(9, 16, 24)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-632.00006, -505, 97.99994, -508, 101.99994, -148, 62.99994, -150, 62.99994, -120, 131.99994, -120, 136.99994, -499, 608.99994, -500, 609.0638, -457.99344, 609.99994, 158, -144.00006, 154, -144.00006, -126, -66.00006, -125, -70.00006, -163, -166.00006, -163, -168.00006, 240, -522.00006, 240, -528.00006, -237, -626.00006, -238), PackedVector2Array(-427.00006, -295, -439.00006, 37, -254.00006, 36, -258.00006, -293), PackedVector2Array(283.99994, -288, 275.99994, 34, 450.99994, 30, 452.99994, -289)])
 agent_radius = 25.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3pmx8"]
@@ -514,30 +514,34 @@ position = Vector2(1462, -25)
 minigame = NodePath("../../DogHuntingGame/SubViewportContainer/SubViewport/MinigameHunting")
 who_can_interact = "dog"
 
-[node name="Cat Sabotage" parent="Interactions" instance=ExtResource("13_e08e2")]
-position = Vector2(1003, 342)
-script = ExtResource("24_cbgmd")
-pid = "cat"
-who_can_interact = "cat"
-
-[node name="Sprite2D" type="Sprite2D" parent="Interactions/Cat Sabotage"]
-position = Vector2(2, -35)
+[node name="CatBugNet" type="Sprite2D" parent="Interactions"]
+position = Vector2(1005, 307)
 rotation = -0.7853982
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("41_kwxat")
 flip_h = true
 
-[node name="Dog Sabotage" parent="Interactions" instance=ExtResource("13_e08e2")]
-position = Vector2(1156, 362)
+[node name="Cat Sabotage" parent="Interactions/CatBugNet" instance=ExtResource("13_e08e2")]
+position = Vector2(-174.41968, 155.56348)
+rotation = 0.7853982
+scale = Vector2(6.6666665, 6.6666665)
 script = ExtResource("24_cbgmd")
-pid = ""
-who_can_interact = "dog"
+pid = "cat"
+who_can_interact = "cat"
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactions/Dog Sabotage"]
-position = Vector2(-13, -58)
+[node name="DogBugNet" type="Sprite2D" parent="Interactions"]
+position = Vector2(1143, 304)
 rotation = 0.7853982
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("42_aa8k8")
+
+[node name="Dog Sabotage" parent="Interactions/DogBugNet" instance=ExtResource("13_e08e2")]
+position = Vector2(226.27423, 150.84924)
+rotation = -0.7853982
+scale = Vector2(6.6666665, 6.6666665)
+script = ExtResource("24_cbgmd")
+pid = ""
+who_can_interact = "dog"
 
 [node name="Timers" type="Node2D" parent="."]
 script = ExtResource("38_k2e45")

@@ -6,18 +6,23 @@ class_name Cockroach extends Area2D
 const bug_scene: PackedScene = preload("res://Scenes/Minigames/sabotoge/cockroach.tscn")
 
 var is_caught := false
+static var bugs_in_kitchen = 0
 
+const SPAWN_LIMIT = 1
 const SPEED = 200.0
 
-static func spawn(start_pos) -> Cockroach:
-	var newBug = bug_scene.instantiate()
-	newBug.position = start_pos
-	return newBug
+static func spawn(start_pos): #-> Cockroach:
+	if bugs_in_kitchen < SPAWN_LIMIT:
+		var newBug = bug_scene.instantiate()
+		newBug.position = start_pos
+		bugs_in_kitchen += 1
+		return newBug
 
 static func catch(start_pos: Vector2) -> Cockroach:
 	var newBug = bug_scene.instantiate()
 	newBug.position = start_pos
 	newBug.is_caught = true
+	bugs_in_kitchen -= 1
 	return newBug
 	
 

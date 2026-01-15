@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceh57jufb2ea5"
-path="res://.godot/imported/ProgressBarCat.PNG-288a82dcff1c0efe5577c444b2689cf2.ctex"
+uid="uid://cwj41n128es01"
+path="res://.godot/imported/ProgressBarCat.png-90f16a46dd4332445aaedd0d31dbad92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/ChoppingUI/ProgressBarCat.PNG"
-dest_files=["res://.godot/imported/ProgressBarCat.PNG-288a82dcff1c0efe5577c444b2689cf2.ctex"]
+source_file="res://Art/ChoppingUI/ProgressBarCat.png"
+dest_files=["res://.godot/imported/ProgressBarCat.png-90f16a46dd4332445aaedd0d31dbad92.ctex"]
 
 [params]
 

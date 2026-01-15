@@ -15,8 +15,8 @@ signal threshold_passed(threshold)
 
 #Bug Timer beginning variables
 var bug_timer: Timer
-const BUG_MAX_TIME = 30.0
-const BUG_MIN_TIME = 5.0
+const BUG_MAX_TIME = 60.0
+const BUG_MIN_TIME = 20.0
 
 
 
@@ -61,7 +61,8 @@ func _bug_manager() -> void:
 	random_pos.y = randi_range(-500, 200)
 	var bug = Cockroach.spawn(random_pos)
 	#add bug to Navigation Region
-	background.get_child(2).add_child(bug)
+	if bug != null:
+		background.get_child(2).add_child(bug)
 	
 
 func _process(_delta: float) -> void:

@@ -42,7 +42,7 @@ var cust_time = CUST_MAX_TIME
 var ct_ratio = cust_time
 @onready var markers: Array[Marker2D] = []
 
-const NUMBER_OF_DISHES_TO_WIN = 10
+const NUMBER_OF_DISHES_TO_WIN = 7
 var game_over = false
 
 # Score counters

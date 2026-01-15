@@ -309,7 +309,7 @@ func _input(event: InputEvent) -> void:
 
 func end_chopping():
 	reset_chop()
-	end_minigame()
+	#end_minigame()
 
 # -------------------------
 # THE ACTUAL CHOPPING

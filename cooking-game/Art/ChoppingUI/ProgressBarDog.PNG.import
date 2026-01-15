@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ngymtcm0dg8i"
-path="res://.godot/imported/ProgressBarDog.PNG-c621f98c1bdde7cfbd457e8591963fbd.ctex"
+uid="uid://dh1d64dgqsyww"
+path="res://.godot/imported/ProgressBarDog.png-121e12650e16c35bdbba18f1c47dbb37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/ChoppingUI/ProgressBarDog.PNG"
-dest_files=["res://.godot/imported/ProgressBarDog.PNG-c621f98c1bdde7cfbd457e8591963fbd.ctex"]
+source_file="res://Art/ChoppingUI/ProgressBarDog.png"
+dest_files=["res://.godot/imported/ProgressBarDog.png-121e12650e16c35bdbba18f1c47dbb37.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b52sedgbgv0jx"]
+[gd_scene load_steps=9 format=3 uid="uid://b52sedgbgv0jx"]
 
 [ext_resource type="Script" uid="uid://kymfp731jjkv" path="res://Scripts/side_panels.gd" id="1_grhte"]
 [ext_resource type="Texture2D" uid="uid://m8xitodthj6n" path="res://Art/Game Backgroud Layers/Kitchen/Game_Background_0006_Backgrounds.png" id="1_pbgs2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dq5lt1mwutrfu" path="res://Art/Game Backgroud Layers/Sides/Game_Background_0001s_0000_Dog_Margins_Register.png" id="2_pbgs2"]
 [ext_resource type="Texture2D" uid="uid://uwxc1v8d7s5q" path="res://Art/UI/Side Panel Progress Bar/progress-bar-circle.png" id="5_850wk"]
 [ext_resource type="Texture2D" uid="uid://c2c2248vpsqpf" path="res://Art/UI/Side Panel Progress Bar/progress-bar-frame.png" id="6_3imgu"]
+[ext_resource type="Texture2D" uid="uid://svyrmimymgjm" path="res://Art/ChoppingUI/ProgressBarFrame.png" id="7_umkuq"]
 [ext_resource type="Texture2D" uid="uid://dosvpgdnjgcdl" path="res://Art/ChoppingUI/HappyProgress.png" id="8_umkuq"]
 
 [node name="SidePanels" type="Control"]
@@ -74,53 +75,56 @@ position = Vector2(1789, 662)
 position = Vector2(1185, 659)
 
 [node name="CatProgress" type="TextureProgressBar" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = 69.0
-offset_top = 180.0
+offset_top = 739.0
 offset_right = 197.0
-offset_bottom = 308.0
+offset_bottom = 867.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(64, 64)
 fill_mode = 4
 texture_under = ExtResource("5_850wk")
 texture_over = ExtResource("6_3imgu")
 texture_progress = ExtResource("5_850wk")
-tint_under = Color(0, 0, 0, 1)
-tint_progress = Color(0, 0.8666667, 0.12941177, 1)
+tint_under = Color(0.0627451, 0.34901962, 0.25490198, 0.15686275)
+tint_progress = Color(0.36862746, 0.6509804, 0.33333334, 1)
 
 [node name="DogProgress" type="TextureProgressBar" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = 1724.0
-offset_top = 176.0
+offset_top = 729.0
 offset_right = 1852.0
-offset_bottom = 304.0
+offset_bottom = 857.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(64, 64)
 fill_mode = 4
 texture_under = ExtResource("5_850wk")
 texture_over = ExtResource("6_3imgu")
 texture_progress = ExtResource("5_850wk")
-tint_under = Color(0, 0, 0, 1)
-tint_progress = Color(0, 0.8666667, 0.12941177, 1)
+tint_under = Color(0.0627451, 0.34901962, 0.25490198, 0.15686275)
+tint_progress = Color(0.36862746, 0.6509804, 0.33333334, 1)
 
 [node name="DogHappyProgress" type="TextureProgressBar" parent="."]
 z_index = 4
 layout_mode = 0
-offset_left = 1676.0
-offset_top = 767.0
-offset_right = 2558.0
-offset_bottom = 986.0
-scale = Vector2(0.25, 0.25)
+offset_left = 1658.0001
+offset_top = 178.0
+offset_right = 2540.0
+offset_bottom = 397.0
+scale = Vector2(0.3, 0.3)
 max_value = 10.0
-texture_under = ExtResource("8_umkuq")
+texture_under = ExtResource("7_umkuq")
 texture_progress = ExtResource("8_umkuq")
-tint_under = Color(0, 0, 0, 1)
 
 [node name="CatHappyProgress" type="TextureProgressBar" parent="."]
 z_index = 4
 layout_mode = 0
-offset_left = 22.0
-offset_top = 771.0
-offset_right = 904.0
-offset_bottom = 990.0
-scale = Vector2(0.25, 0.25)
+offset_top = 180.0
+offset_right = 882.0
+offset_bottom = 399.0
+scale = Vector2(0.3, 0.3)
 max_value = 10.0
-texture_under = ExtResource("8_umkuq")
+texture_under = ExtResource("7_umkuq")
 texture_progress = ExtResource("8_umkuq")
-tint_under = Color(0, 0, 0, 1)
