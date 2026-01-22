@@ -17,7 +17,6 @@ texture = ExtResource("1_gkq8e")
 
 [node name="InteractionArea" parent="Spot1" instance=ExtResource("3_8vgvd")]
 position = Vector2(-100, 0)
-who_can_interact = "cat"
 
 [node name="Spot2" type="Sprite2D" parent="."]
 position = Vector2(145, 45)
